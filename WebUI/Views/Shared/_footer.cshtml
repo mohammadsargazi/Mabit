@@ -1,0 +1,167 @@
+﻿@{
+    Layout = null;
+    var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
+    var countries = ViewBag.Country as List<Mabit.Models.Model.Common.Country>;
+}
+    <style>
+        footer {
+            position: absolute;
+        }
+
+        ul.main-ul {
+            list-style: none;
+            margin-top: -25px;
+        }
+
+        ul li .bullet {
+            width: 8px;
+            height: 8px;
+            background: #939393;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: -1em;
+            border-radius: 50%;
+            position: relative;
+            top: 23px;
+        }
+
+        .footer-text-color {
+            color: #939393;
+        }
+
+        .bg-footer {
+            background: #515151;
+        }
+
+        .ml-120 {
+            margin-left: 120px;
+        }
+
+        .footer-img {
+            width: 60px;
+            height: 60px;
+            float: right;
+        }
+    </style>
+@if (culture=="fa" || culture == "ar")
+{
+    <style>
+        footer {
+            text-align:right;
+        }
+        .ml-120 {
+            margin-right: 120px;
+            margin-left:0 !important;
+        }
+        li:first-child{
+            margin-left:1.5rem!important;
+        }
+    </style>
+}
+
+
+<footer class="bg-footer pt-4 pb-2">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-5">
+                <div class="row">
+                    <div class="col-12">
+                        <h5 class="mabit-gray">Our Goal</h5>
+                        <p class="footer-text-color text-justify">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h5 class="mabit-gray">Rules</h5>
+                        <p class="footer-text-color text-justify">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-4">
+                <div class="row">
+                    <div class="col-12">
+                        <h5 class="mabit-gray">contact Us</h5>
+                        <ul class="pl-0 main-ul pr-0">
+                            <li>
+                                <span class="bullet"></span>
+                                <p class="footer-text-color mb-1 text-justify">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit, sed do eiusmod tempor incididunt ut
+                                </p>
+                                <div class="d-flex">
+                                    <span class="footer-text-color">+98 213 23 98</span>
+                                    <span class="ml-4 footer-text-color">+98 213 23 98</span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="bullet"></span>
+                                <p class="footer-text-color mb-1 text-justify">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit, sed do eiusmod tempor incididunt ut
+                                </p>
+                                <span class="footer-text-color">+98 213 23 98</span>
+                                <ul class="list-unstyled d-flex mt-3 pl-0 pr-0">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fab fa-twitter f-size-25 footer-text-color"></i>
+                                        </a>
+                                    </li>
+                                    <li class="pl-4">
+                                        <a href="#">
+                                            <i class="fab fa-facebook f-size-25 footer-text-color"></i>
+                                        </a>
+                                    </li>
+                                    <li class="pl-4">
+                                        <a href="#">
+                                            <i class="fab fa-whatsapp f-size-25 footer-text-color"></i>
+                                        </a>
+                                    </li>
+                                    <li class="pl-4">
+                                        <a href="#">
+                                            <i class="fab fa-instagram f-size-25 footer-text-color"></i>
+                                        </a>
+                                    </li>
+                                    <li class="pl-4">
+                                        <a href="#">
+                                            <i class="fab fa-youtube f-size-25 footer-text-color"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-1"></div>
+            <div class="col-10 d-flex justify-content-between">
+                <ul class="list-unstyled d-flex mb-0 align-items-center pr-0">
+                    <li><a href="#" class="footer-text-color">About Us</a></li>
+                    <li class="ml-120"><a href="#" class="footer-text-color">FAQ</a></li>
+                    <li class="ml-120"><a href="#" class="footer-text-color">Join Us</a></li>
+                    <li class="ml-120"><a href="#" class="footer-text-color">Guide</a></li>
+                </ul>
+                <div>
+                    <img src="../img/home_about.png" class="img-fluid footer-img">
+                    <img src="../img/home_about.png" class="img-fluid footer-img ml-2 mr-2">
+                    <img src="../img/home_about.png" class="img-fluid footer-img">
+                </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </div>
+</footer>

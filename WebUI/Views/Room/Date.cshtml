@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+    var users = ViewBag.Users as Dictionary<int, string>;
+    var paymentTypes = ViewBag.PaymentTypes as Dictionary<int, string>;
+    var packageTypes = ViewBag.PackageTypes as Dictionary<int, string>;
+}
+<style>
+    .k-upload-files .k-upload-status {
+        left: 10px !important;
+    }
+
+    .row div {
+        float: right;
+        margin-top: 7px;
+    }
+
+    .row button {
+        margin-top: 10px;
+        margin-right: 13px;
+    }
+</style>
+
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/MdBootstrapPersianDateTimePicker/jquery.Bootstrap-PersianDateTimePicker.css" rel="stylesheet" />
+
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/MdBootstrapPersianDateTimePicker/jalaali.js"></script>
+<script src="~/Scripts/MdBootstrapPersianDateTimePicker/jquery.Bootstrap-PersianDateTimePicker.js"></script>
+
+<div class="row">
+    <div class="col-xs-12 col-md-4">
+        <label for="startDate"><span class="glyphicon glyphicon-calendar"></span></label>
+        <input data-mdpersiandatetimepickershowing="false" title="" data-original-title="" data-mdpersiandatetimepickerselecteddatetime="{&quot;Year&quot;:1393,&quot;Month&quot;:10,&quot;Day&quot;:9,&quot;Hour&quot;:0,&quot;Minute&quot;:0,&quot;Second&quot;:0}" data-mdpersiandatetimepicker="" class="form-control" id="startDate" placeholder="از تاریخ" data-mddatetimepicker="true" data-trigger="click" data-targetselector="#startDate" data-groupid="group1" data-fromdate="true" data-enabletimepicker="false" data-placement="right" type="text">
+    </div>
+    <div class="col-xs-12 col-md-4">
+        <label for="endDate"><span class="glyphicon glyphicon-calendar"></span></label>
+        <input data-mdpersiandatetimepickershowing="false" title="" data-original-title="" data-mdpersiandatetimepickerselecteddatetime="{&quot;Year&quot;:1393,&quot;Month&quot;:10,&quot;Day&quot;:9,&quot;Hour&quot;:0,&quot;Minute&quot;:0,&quot;Second&quot;:0}" data-mdpersiandatetimepicker="" class="form-control" id="endDate" placeholder="تا تاریخ" data-mddatetimepicker="true" data-trigger="click" data-targetselector="#endDate" data-groupid="group1" data-fromdate="true" data-enabletimepicker="false" data-placement="right" type="text">
+    </div>
+    <div class="col-xs-12 col-md-4">
+        <label for="PaymentDate"><span class="glyphicon glyphicon-calendar"></span></label>
+        <input data-mdpersiandatetimepickershowing="false" title="" data-original-title="" data-mdpersiandatetimepickerselecteddatetime="{&quot;Year&quot;:1393,&quot;Month&quot;:10,&quot;Day&quot;:9,&quot;Hour&quot;:0,&quot;Minute&quot;:0,&quot;Second&quot;:0}" data-mdpersiandatetimepicker="" class="form-control" id="PaymentDate" placeholder="تاریخ پرداخت" data-mddatetimepicker="true" data-trigger="click" data-targetselector="#PaymentDate" data-groupid="group1" data-fromdate="true" data-enabletimepicker="false" data-placement="right" type="text">
+    </div>
+</div>

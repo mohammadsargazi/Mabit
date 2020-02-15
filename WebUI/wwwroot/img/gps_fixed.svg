@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="gps-fixed-indicator_1_" width="28.274" height="28.274" data-name="gps-fixed-indicator (1)" viewBox="0 0 28.274 28.274">
+    <defs>
+        <style>
+            .cls-1{fill:#4567f4}
+        </style>
+    </defs>
+    <g id="gps-fixed">
+        <path id="Path_1631" d="M14.137 9a5.141 5.141 0 1 0 5.141 5.141A5.156 5.156 0 0 0 14.137 9zm11.438 3.856A11.479 11.479 0 0 0 15.422 2.7V0h-2.57v2.7A11.245 11.245 0 0 0 2.7 12.852H0v2.57h2.7a11.479 11.479 0 0 0 10.152 10.153v2.7h2.57v-2.7a11.479 11.479 0 0 0 10.153-10.153h2.7v-2.57zM14.137 23.134a9 9 0 1 1 9-9 8.941 8.941 0 0 1-9 9z" class="cls-1" data-name="Path 1631"/>
+    </g>
+</svg>

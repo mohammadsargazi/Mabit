@@ -1,0 +1,744 @@
+﻿@model List<Mabit.Models.Model.Common.TopRoom>
+@{
+    ViewData["Title"] = "Log in";
+    var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
+    var countries = ViewBag.Country as List<Mabit.Models.Model.Common.Country>;
+    var TotalPages = ViewBag.PageCount;
+}
+@if (culture == "fa" || culture == "ar")
+{
+    <style>
+        .pl-fa-1 {
+            padding-left: 50px !important;
+        }
+
+        .container-btn-2 {
+            margin-right: -3px !important
+        }
+
+        .container-btn-3 {
+            margin-right: -23px !important
+        }
+
+        .container-btn-4 {
+            margin-right: -23px !important
+        }
+
+        .container-btn-5 {
+            margin-right: -19px !important
+        }
+
+        .container-btn-6 {
+            margin-right: -10px !important
+        }
+
+        .container-btn-7 {
+            margin-right: -31px !important
+        }
+    </style>
+}
+@if (culture == "en")
+{
+    <style>
+        .container-btn-2 {
+            margin-right: 10px;
+        }
+
+        .container-btn-3 {
+            margin-right: -41px;
+        }
+
+        .container-btn-4 {
+            margin-right: -16px;
+        }
+
+        .container-btn-5 {
+            margin-right: 7px;
+        }
+
+        .container-btn-6 {
+            margin-right: -21px;
+        }
+    </style>
+}
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" type="text/css" media="all" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+<script src="~/Plugins/Range-Slider-jQuery-UI/price_range_script.js"></script>
+<link href="~/Plugins/Range-Slider-jQuery-UI/price_range_style.css" rel="stylesheet" />
+
+<style>
+    .search-filter-btn-action {
+        background-color: #4567f4;
+        color: #fff;
+        border: none;
+    }
+
+    .search-filter-btn {
+        border: 1px solid;
+        border-radius: 50px;
+        padding: 5px 15px;
+        cursor: pointer;
+    }
+
+    /*radio btn*/
+    .radio-country, .radio-city {
+        position: relative;
+        cursor: pointer;
+        line-height: 20px;
+        font-size: 14px;
+        margin: 15px;
+    }
+
+        .radio-country .label, .radio-city .label {
+            position: relative;
+            display: block;
+            float: left;
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #c8ccd4;
+            border-radius: 100%;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+            .radio-country .label:after, .radio-city .label:after {
+                content: '';
+                position: absolute;
+                top: 3px;
+                left: 3px;
+                width: 10px;
+                height: 10px;
+                border-radius: 100%;
+                background: #225cff;
+                transform: scale(0);
+                transition: all 0.2s ease;
+                opacity: 0.08;
+                pointer-events: none;
+            }
+
+        .radio-country:hover .label:after, .radio-city:hover .label:after {
+            transform: scale(3.6);
+        }
+
+        .radio-country input[type="radio"]:checked + .label, .radio-city input[type="radio"]:checked + .label {
+            border-color: #225cff;
+        }
+
+            .radio-country input[type="radio"]:checked + .label:after, .radio-city input[type="radio"]:checked + .label:after {
+                transform: scale(1);
+                transition: all 0.2s cubic-bezier(0.35, 0.9, 0.4, 0.9);
+                opacity: 1;
+            }
+
+    .cntr {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hidden-radio {
+        display: none;
+    }
+
+    .country-dialog {
+        margin: 0;
+        float: left;
+        position: relative;
+        top: 118px;
+        left: 15px;
+    }
+
+    .city-dialog {
+        margin: 0;
+        float: left;
+        position: relative;
+        top: 118px;
+        left: 127px;
+    }
+
+    .ready-dialog {
+        margin: 0;
+        float: left;
+        position: relative;
+        top: 118px;
+        left: 252px;
+    }
+
+    .people-dialog {
+        margin: 0;
+        float: left;
+        position: relative;
+        top: 118px;
+        left: 408px;
+    }
+
+    .room-dialog {
+        margin: 0;
+        float: left;
+        position: relative;
+        top: 118px;
+        left: 533px;
+    }
+
+    .price-dialog {
+        margin: 0;
+        float: left;
+        position: relative;
+        top: 118px;
+        left: 731px;
+    }
+    /* link action clear */
+    .link-action, .link-clear {
+        overflow: hidden;
+    }
+
+        .link-action a, .link-clear a {
+            overflow: hidden;
+            padding: 20px;
+            height: 1em;
+            color: #797878;
+            font-weight: 400;
+        }
+
+            .link-action a span, .link-clear a span {
+                position: relative;
+                display: inline-block;
+                -moz-transition: 0.3s;
+                -o-transition: 0.3s;
+                -webkit-transition: 0.3s;
+                transition: 0.3s;
+            }
+
+                .link-action a span::before, .link-clear a span::before {
+                    color: #4567f4;
+                    position: absolute;
+                    top: 100%;
+                    content: attr(data-hover);
+                    font-weight: 800;
+                    -moz-transform: translate3d(0, 0, 0);
+                    -ms-transform: translate3d(0, 0, 0);
+                    -webkit-transform: translate3d(0, 0, 0);
+                    transform: translate3d(0, 0, 0);
+                }
+
+            .link-action a:hover span, .link-clear a:hover span {
+                -moz-transform: translateY(-100%);
+                -ms-transform: translateY(-100%);
+                -webkit-transform: translateY(-100%);
+                transform: translateY(-100%);
+            }
+
+    /*switcher*/
+    div.checkbox.switcher label, div.radio.switcher label {
+        padding: 0;
+    }
+
+        div.checkbox.switcher label *, div.radio.switcher label * {
+            vertical-align: middle;
+        }
+
+        div.checkbox.switcher label input, div.radio.switcher label input {
+            display: none;
+        }
+
+            div.checkbox.switcher label input + span, div.radio.switcher label input + span {
+                position: relative;
+                display: inline-block;
+                margin-right: 10px;
+                width: 56px;
+                height: 28px;
+                background: #ccc;
+                border: 1px solid #eee;
+                border-radius: 50px;
+                transition: all 0.3s ease-in-out;
+                cursor: pointer;
+            }
+
+                div.checkbox.switcher label input + span small, div.radio.switcher label input + span small {
+                    position: absolute;
+                    display: block;
+                    width: 49%;
+                    height: 100%;
+                    background: #fff;
+                    border-radius: 50%;
+                    transition: all 0.3s ease-in-out;
+                    left: 2px;
+                    cursor: pointer;
+                }
+
+            div.checkbox.switcher label input:checked + span, div.radio.switcher label input:checked + span {
+                background: #269bff;
+                border-color: #269bff;
+            }
+
+                div.checkbox.switcher label input:checked + span small, div.radio.switcher label input:checked + span small {
+                    left: 50%;
+                }
+
+    .btn-count-filter {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 1px solid #4567f4;
+        background: transparent;
+    }
+
+        .btn-count-filter:focus {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        .btn-count-filter i {
+            font-size: 11px
+        }
+
+    button[disabled] {
+        background-color: #eee;
+        border-color: #eee !important;
+    }
+
+    .ui-widget-header {
+        background: #4567F4 !important
+    }
+
+    .ui-state-default, .ui-widget-content .ui-state-default {
+        border-radius: 50%;
+    }
+
+        .ui-state-default:focus {
+            border: 0 !important;
+            box-shadow: 0 !important;
+        }
+</style>
+
+<div class="container-fluid bg-box box-shadow-1 brd-r-6">
+    <div class="row container-filter-btn" style="margin-bottom:30px;">
+        <div class="col-10 d-flex align-items-center justify-content-between" style="margin-top: 80px">
+            <div class="search-filter-btn country-filter-btn" data-toggle="modal" data-target="#myModal-country"><span>country</span></div>
+            <div class="search-filter-btn city-filter-btn" data-toggle="modal" data-target="#myModal-city"><span>city</span></div>
+            <div class="search-filter-btn date-filter-btn"><span>Date</span></div>
+            <div class="search-filter-btn ready-filter-btn" data-toggle="modal" data-target="#myModal-ready"><span>Ready for delivery</span></div>
+            <div class="search-filter-btn people-filter-btn" data-toggle="modal" data-target="#myModal-people"><span>People count</span></div>
+            <div class="search-filter-btn room-filter-btn" data-toggle="modal" data-target="#myModal-room"><span>Room & Bedroom count</span></div>
+            <div class="search-filter-btn price-filter-btn" data-toggle="modal" data-target="#myModal-price"><span>Price range</span></div>
+            <div class="search-filter-btn type-filter-btn"><span>Type of residence</span></div>
+            <div class="search-filter-btn more-filter-btn"><span>more filter</span></div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+    <div class="row container-body">
+        <partial name="_SearchRooms" model="@Model" />
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center" id="pagination"></ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('.date-filter-btn').daterangepicker({});
+        //$('input[name="dates"]').val("Check In-Check Out");
+    });
+   
+</script>
+<!------------------- country modal ---------------------->
+<div class="modal fade" id="myModal-country" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog country-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="cntr">
+                        <label for="opt1" class="radio-country">
+                            <input type="radio" name="countryrdo" value="59" id="opt1" class="hidden-radio" />
+                            <span class="label"></span>Iran
+                        </label>
+
+                        <label for="opt2" class="radio-country">
+                            <input type="radio" name="countryrdo" value="1265" id="opt2" class="hidden-radio" />
+                            <span class="label"></span>Iraq
+                        </label>
+
+                        <label for="opt3" class="radio-country">
+                            <input type="radio" name="countryrdo" value="1372" id="opt3" class="hidden-radio" />
+                            <span class="label"></span>Turkey
+                        </label>
+                    </div>
+                </div>
+                <div class="row pt-3 d-flex justify-content-between">
+                    <input type="hidden" class="inp-hidden-container" value="country-filter-btn">
+                    <nav class="link-action">
+                        <a data-dismiss="modal" href="#link-action" class="country-action action-btn"><span data-hover="Actions">Actions</span></a>
+                    </nav>
+                    <nav class="link-clear">
+                        <a data-dismiss="modal" href="#link-clear" class="country-clear clear-btn"><span data-hover="Clear">Clear</span></a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!------------------- city modal ------------------------->
+<div class="modal fade" id="myModal-city" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog city-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="cntr containert-province">
+                        <label for="59" class="radio-city">
+                            <input type="radio" name="rdo" id="59" class="hidden-radio" />
+                            <span class="label"></span>Iran
+                        </label>
+
+                        <label for="1265" class="radio-city">
+                            <input type="radio" name="rdo" id="1265" class="hidden-radio" />
+                            <span class="label"></span>Iraq
+                        </label>
+
+                        <label for="1372" class="radio-city">
+                            <input type="radio" name="rdo" id="1372" class="hidden-radio" />
+                            <span class="label"></span>Turkey
+                        </label>
+                    </div>
+                </div>
+                <div class="row pt-3 d-flex justify-content-between">
+                    <input type="hidden" class="inp-hidden-container" value="city-filter-btn">
+                    <nav class="link-action">
+                        <a data-dismiss="modal" href="#link-action" class="city-action action-btn"><span data-hover="Actions">Actions</span></a>
+                    </nav>
+                    <nav class="link-clear">
+                        <a data-dismiss="modal" href="#link-clear" class="city-clear clear-btn"><span data-hover="Clear">Clear</span></a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!------------ Ready for deliver modal ------------------->
+<div class="modal fade" id="myModal-ready" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog ready-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="checkbox switcher">
+                            <label for="test">
+                                <input type="checkbox" id="test" value="">
+                                <span><small></small></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-8 text-left">
+                        <h6>Ready for deliver</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    </div>
+                </div>
+                <div class="row pt-3 d-flex justify-content-between">
+                    <input type="hidden" class="inp-hidden-container" value="ready-filter-btn">
+                    <nav class="link-action">
+                        <a data-dismiss="modal" href="#link-action" class="ready-action action-btn"><span data-hover="Actions">Actions</span></a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!------------------ People count modal ------------------->
+<div class="modal fade" id="myModal-people" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog people-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-6">
+                        <span localize-content>Number Of People</span>
+                    </div>
+                    <div class="col-6 pr-0 pl-0">
+                        <button class="btn-count-filter btn-count-plus-people"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                        <span class="spn-count-people pr-1"> 0 </span><span localize-content> People </span>
+                        <button disabled class="btn-count-filter btn-count-minus-people"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+                <div class="row pt-3 d-flex justify-content-between">
+                    <input type="hidden" class="inp-hidden-container" value="people-filter-btn">
+                    <nav class="link-action">
+                        <a data-dismiss="modal" href="#link-action" class="people-action action-btn"><span data-hover="Actions">Actions</span></a>
+                    </nav>
+                    <nav class="link-clear">
+                        <a data-dismiss="modal" href="#link-clear" class="people-clear clear-btn"><span data-hover="Clear">Clear</span></a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!------------------ Room count modal ------------------->
+<div class="modal fade" id="myModal-room" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog room-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-6">
+                        <span localize-content>Number Of  Room</span>
+                    </div>
+                    <div class="col-6 pr-0 pl-0">
+                        <button class="btn-count-filter btn-count-plus-room"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                        <span style="padding-right: 5px;" class="spn-count-room">0</span><span localize-content>Room</span>
+                        <button disabled class="btn-count-filter btn-count-minus-room"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+                <div class="row pt-3 d-flex justify-content-between">
+                    <input type="hidden" class="inp-hidden-container" value="room-filter-btn">
+                    <nav class="link-action">
+                        <a data-dismiss="modal" href="#link-action" class="people-action action-btn"><span data-hover="Actions">Actions</span></a>
+                    </nav>
+                    <nav class="link-clear">
+                        <a data-dismiss="modal" href="#link-clear" class="people-clear clear-btn"><span data-hover="Clear">Clear</span></a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!------------------ Price range modal ------------------->
+<div class="modal fade" id="myModal-price" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog price-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row" style="margin:7px;">
+                    <div id="slider-range" class="price-filter-range" name="rangeInput"></div>
+                </div>
+                <div>
+
+                    <input type="text" min=0 max="9900" oninput="validity.valid||(value='0');" id="min_price" class="price-range-field" />
+                    <input type="text" min=0 max="10000" oninput="validity.valid||(value='10000');" id="max_price" class="price-range-field" />
+
+                </div>
+                <div class="row pt-3 d-flex justify-content-between">
+                    <input type="hidden" class="inp-hidden-container" value="price-filter-btn">
+                    <nav class="link-action">
+                        <a data-dismiss="modal" href="#link-action" class="country-action action-btn"><span data-hover="Actions">Actions</span></a>
+                    </nav>
+                    <nav class="link-clear">
+                        <a data-dismiss="modal" href="#link-clear" class="country-clear clear-btn"><span data-hover="Clear">Clear</span></a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        window.pagObj = $('#pagination').twbsPagination({
+            totalPages: @(TotalPages),
+            visiblePages: 5,
+            onPageClick: function (event, page) {
+                console.info(page + ' (from options)');
+                //pagingRooms(page);
+            }
+        }).on('page', function (event, page) {
+            console.info(page + ' (from event listening)');
+            searchRooms(page);
+        });
+    });
+    $(".page-link").click(function () {
+        var page = $(this).text();
+        pagingRooms(page);
+    });
+    function pagingRooms(page) {
+        var wherTo = $("#page-search-where").val();
+        var from = $('input[name="dates"]').val().split('-')[0];
+        var to = $('input[name="dates"]').val().split('-')[1];
+        var page = page;
+        window.location.href = '/' + "@(culture)" + '/Room/Search?wherTo=' + wherTo + "&from=" + from + "&to=" + to + "&page=" + page;
+    }
+    function searchRooms(page) {
+        debugger;
+         $.ajax({
+            url: '@Url.Action("SearchRooms", "Room")',
+            type: 'Post',
+             data: {
+                 peopleCount: $(".spn-count-people").text(),
+                 fromPrice: $("#min_price").val(),
+                 toPrice: $("#max_price").val(),
+                 checkinDate: $('input[name="dates"]').val().split('-')[0],
+                 checkoutDate: $('input[name="dates"]').val().split('-')[1],
+                 page:page
+            },
+             success: function (html) {
+                 $('.container-body').html(html);
+
+            }
+        });
+    }
+</script>
+
+
+<script>
+
+
+    $(".btn-people-count").click(function () {
+        $('.span-count').css("background-color", "#4567f4");
+        $('.span-count').css("color", "#fff");
+    });
+    $(".applyBtn").click(function () {
+        $('input[name="dates"]').css("background-color", "#4567f4");
+        $('input[name="dates"]').css("color", "#fff");
+    });
+    $(".span-count").click(function () {
+        $(".span-people-count-modal").modal("show");
+    });
+    $(".btn-count-plus-people").click(function () {
+        var peopleCount = parseInt($(".spn-count-people").text());
+        var newPeopleCount = peopleCount + 1;
+        $(".spn-count-people").text(newPeopleCount);
+        $(".btn-count-minus-people").prop('disabled', false);
+    });
+    $(".btn-count-minus-people").click(function () {
+        var peopleCount = parseInt($(".spn-count-people").text());
+        var newPeopleCount = peopleCount - 1;
+        $(".spn-count-people").text(newPeopleCount);
+        if (peopleCount == 1) {
+            $(".btn-count-minus-people").prop('disabled', true);
+        }
+    });
+
+    $(".span-room-count").click(function () {
+        $(".span-room-count-modal").modal("show");
+    });
+    $(".btn-count-plus-room").click(function () {
+        var peopleCount = parseInt($(".spn-count-room").text());
+        var newPeopleCount = peopleCount + 1;
+        $(".spn-count-room").text(newPeopleCount);
+        $(".btn-count-minus-room").prop('disabled', false);
+    });
+    $(".btn-count-minus-room").click(function () {
+        var peopleCount = parseInt($(".spn-count-room").text());
+        var newPeopleCount = peopleCount - 1;
+        $(".spn-count-room").text(newPeopleCount);
+        if (peopleCount == 1) {
+            $(".btn-count-minus-room").prop('disabled', true);
+        }
+    });
+
+    $(".span-price").click(function () {
+        $(".span-price-modal").modal("show");
+    })
+</script>
+<script>
+    $("#countries").change(function () {
+        getProvince();
+    });
+    $("#province").change(function () {
+        getCities();
+    });
+    
+    function getCities() {
+        $.ajax({
+            url: '@Url.Action("GetCity", "Room")',
+            type: 'Get',
+            data: {
+              provinceId:$("#province").val()
+            },
+            success: function (data) {
+                $.each(data, function(i, item) {
+                    $("<option></option>",{
+                        value: item.id,
+                        text: item.title
+                    }).appendTo("#cities")
+                });
+            }
+        });
+    }
+
+</script>
+<script>
+    $(".btn-people-count").click(function () {
+        searchRooms();
+    });
+    $(".btn-room-count-count").click(function () {
+        searchRooms();
+    });
+    $(".btn-price-count").click(function () {
+        searchRooms();
+    });
+    @*function searchRooms(modalName) {
+         $.ajax({
+            url: '@Url.Action("SearchRooms", "Room")',
+            type: 'Get',
+             data: {
+                 peopleCount: $(".spn-count-people").text(),
+                 fromPrice: $("#min_price").val(),
+                 toPrice: $("#max_price").val(),
+                 checkinDate: $('input[name="dates"]').val().split('-')[0],
+                 checkoutDate: $('input[name="dates"]').val().split('-')[1]
+            },
+             success: function (html) {
+                 $('.container-body').html(html);
+
+            }
+        });
+    }*@
+</script>
+<script>
+    $(".action-btn").click(function () {
+        var element = $(this).closest('.justify-content-between').find('.inp-hidden-container').val();
+        setStyle(element);
+    });
+
+    $(".clear-btn").click(function () {
+        var element = $(this).closest('.justify-content-between').find('.inp-hidden-container').val();
+        removeStyle(element);
+    });
+    function setStyle(element) {
+        $("." + element).addClass("search-filter-btn-action");
+    }
+    function removeStyle(element) {
+        $("." + element).removeClass("search-filter-btn-action");
+    }
+    function setFilter() {
+        var countryId = $("input[type='radio']:checked").val();
+        
+    }
+</script>
+<script>
+    function getProvince(countryId) {
+        $.ajax({
+            url: '@Url.Action("GetProvince", "Room")',
+            type: 'Get',
+            data: {
+              countryId:countryId
+            },
+            success: function (data) {
+                $(".containert-province").remove(".radio-city");
+                debugger;
+                $.each(data, function (i, item) {
+                    var $provinceTempalte = '<label for=' + item.id + ' class="radio-city">'
+                            +'<input type="radio" name="rdo" id=' + item.id + ' class="hidden-radio" />'
+                            +'<span class="label">' + item.title + '</span>'
+                    +'</label>';
+                    $(".containert-province").append($provinceTempalte);
+                });
+            }
+        });
+    }
+    $(".country-action").click(function () {
+        var countryId = $("input[name=countryrdo]:checked").val();
+        getProvince(countryId);
+    });
+    $(".country-clear").click(function () {
+        $("input[type='radio']").each(function () {
+            $(this).prop('checked', false);
+        });
+    });
+</script>

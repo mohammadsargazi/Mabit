@@ -1,0 +1,129 @@
+.pd-10 {
+    padding: 10px;
+}
+.font-b-s-15 {
+    font-size: 15px;
+    font-weight: bold;
+}
+.font-b-s-10 {
+    font-size: 10px;
+    font-weight: bold;
+}
+.btn-primary-custome {
+    width: 115px;
+    padding: 2px;
+    font-size: 12px
+}
+.from-control-custome {
+    padding: 0 7px;
+    height: 34px;
+}
+.container-filter{
+    height: 30px;
+    margin: 9px 25px;
+    border: 1px solid #4567f4;
+    border-radius: 3px;
+    width: 350px;
+    float: left;
+    background: #f4f4f4;
+}
+.page-filter-btn{
+    background: #4567f4;
+    text-align: center;
+    border-radius: 4px;
+    float: right;
+    height: 26px;
+    width: 60px;
+    line-height: 26px;
+    color: #FFF;
+}
+.inp-spn-img{
+    border-radius: 4px 0 0 4px;
+    height: 38px;
+    padding-left: 0;
+    border-right:none;
+    background-color: #f4f4f4;
+}
+.spn-img{
+    height: 36px;border-radius: 4px 0 0 4px;
+}
+.bl-none{
+    border-left: none;
+}
+.btn-filter {
+    background: #4567f4;
+    text-align: center;
+    border-radius: 4px;
+    float: right;
+    height: 23px;
+    width: 60px;
+    line-height: 21px;
+    color: #FFF;
+}
+/* 16 */
+.container-filter {
+    background-color: #f4f4f4;
+    border: 1px solid #4567f4;
+    border-radius: 3px;
+}
+.select-filter {
+    width: 100%;
+    height: 27px;
+    background-color: #f4f4f4;
+    border: none;
+}
+.ptpx-2{
+    padding-top: 2px;
+}
+.fa-circle{
+    font-size: 4px;
+}
+.img-b-r-6 {
+    border-radius: 6px 6px 0 0;
+}
+.fa-circle-rotate{
+    transform: rotate(90deg);
+    top: -36px;
+    left: -43px;
+}
+
+/* 19 */
+.height-20{
+    height: 27px;
+}
+.container-detail{
+    background-color: #f4f4f4;
+    color: #616161;
+    min-height: 50px;
+    display: none;
+}
+.height-25 {
+   height: 25px;
+}
+.fas {
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+}
+
+/* 27 */
+.btn-back {
+    color: black;
+    background-color: white;
+}
+.inp-spn-number {
+    border-radius: 6px 0 0 6px !important;
+    padding-left: 6px !important;
+}
+/* 28 */
+
+.btn-detail {
+    background-color: white;
+    border: 1px solid;
+    height: 30px;
+    line-height: 0.5;
+}
+.container-rtl-btn-datail {
+    padding-right: 20px !important;
+}
+
+

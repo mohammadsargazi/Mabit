@@ -1,0 +1,98 @@
+[
+  {
+    "outputFileName": "wwwroot/css/Hamid/css/leaflet.min.css",
+    "inputFiles": [
+      "wwwroot/css/Hamid/css/leaflet.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/Hamid/css/leaflet-list-markers.min.css",
+    "inputFiles": [
+      "wwwroot/css/Hamid/css/leaflet-list-markers.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/Hamid/css/style.min.css",
+    "inputFiles": [
+      "wwwroot/css/Hamid/css/style.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/Plugins/slick/css/slick.min.css",
+    "inputFiles": [
+      "wwwroot/Plugins/slick/css/slick.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/Hamid/css/animation.min.css",
+    "inputFiles": [
+      "wwwroot/css/Hamid/css/animation.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/Hamid/css/fontello.min.css",
+    "inputFiles": [
+      "wwwroot/css/Hamid/css/fontello.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
+    "inputFiles": [
+      "wwwroot/lib/bootstrap/dist/js/bootstrap.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/Plugins/daterangepicker/daterangepicker.min.css",
+    "inputFiles": [
+      "wwwroot/Plugins/daterangepicker/daterangepicker.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/Plugins/slick/js/slick.min.js",
+    "inputFiles": [
+      "wwwroot/Plugins/slick/js/slick.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/Hamid/js/owl.carousel.min.js",
+    "inputFiles": [
+      "wwwroot/css/Hamid/js/owl.carousel.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/Mabit/style-fa.min.css",
+    "inputFiles": [
+      "wwwroot/css/Mabit/style-fa.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/Mabit/header.min.css",
+    "inputFiles": [
+      "wwwroot/css/Mabit/header.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/site.min.css",
+    "inputFiles": [
+      "wwwroot/css/site.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/MdBootstrapPersianDateTimePicker/jalaali.min.js",
+    "inputFiles": [
+      "wwwroot/MdBootstrapPersianDateTimePicker/jalaali.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/MdBootstrapPersianDateTimePicker/jquery.Bootstrap-PersianDateTimePicker.min.js",
+    "inputFiles": [
+      "wwwroot/MdBootstrapPersianDateTimePicker/jquery.Bootstrap-PersianDateTimePicker.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/Plugins/intelTelInput/js/utils.min.js",
+    "inputFiles": [
+      "wwwroot/Plugins/intelTelInput/js/utils.js"
+    ]
+  }
+]

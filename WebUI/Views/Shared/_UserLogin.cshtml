@@ -1,0 +1,52 @@
+﻿
+
+@{
+    var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
+
+    var claims = ((System.Security.Claims.ClaimsIdentity)User.Identity).Claims;
+    
+    var userName = claims.SingleOrDefault(x => x.Type == "usrFullName").Value;
+    var userImage = claims.SingleOrDefault(x => x.Type == "userProfileImageUrl").Value;
+}
+<div class="user-login">
+    <img src="@(userImage)" class="brd-r-50" width="35">
+    <nav class="menu text-right" style="margin-left: -20px;">
+        <ul class="pr-0 text-right mb-0">
+            <li class="mr-2">
+                <a href="#">@(userName) <i class="fa fa-angle-down"></i></a>
+                <ul class="child bg-box box-shadow-1 brd-r-6 text-right brd-1-blue" style="right:0;top:20px !important;">
+                    <li class="text-center pr-0 brd-b-dashed-darkGray pb-2">
+                        <img src="@(userImage)" class="brd-1 brd-r-50 mb-2" width="60">
+                        <br>
+                        <span class="spn-user-name f-size-18 mt-3">@(userName)</span>
+                    </li>
+                    <li>
+                        <i class="fa fa-tachometer" aria-hidden="true"></i>
+                        <a class="pr-3 f-size-16" asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>Dashboard</a>
+                    </li>
+                    <li>
+                        <a class="pr-3 f-size-16" asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>Account</a>
+                    </li>
+                    <li>
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        <a class="pr-3 f-size-16" asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>Change Password</a>
+                    </li>
+                    <li>
+                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        <a class="pr-3 f-size-16" asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>Favorites</a>
+                    </li>
+                    <li>
+                        <i class="fa fa-leaf" aria-hidden="true"></i>
+                        <a class="pr-3 f-size-16" asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>Hosting</a>
+                    </li>
+                    <li>
+                        <a class="pr-3 f-size-16" asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>Transaction</a>
+                    </li>
+                    <li class="pb-4">
+                        <a class="pr-3 f-size-16" style="color:red;" asp-controller="Account" asp-action="Logout" asp-route-culture="@culture" localize-content>Log Out</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>

@@ -1,0 +1,50 @@
+﻿@{
+    var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
+}
+<div class="col-lg-3 col-sm-3 col-3 text-center">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 bg-box box-shadow-1 brd-r-6">
+        <div class="row brd-b-dashed-darkGray mr-0 ml-0 pt-4">
+            <div class="col-lg-4 col-sm-4 col-4"></div>
+            <div class="col-lg-4 col-sm-4 col-4 pr-0 pl-0">
+                <img src="../Content/img/profile_user.jpg" class="img-fluid brd-r-50 brd-1">
+                <p class="pt-2">رضا رضایی</p>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-12">
+                <ul class="list-unstyled text-right pr-0">
+                    <li class="pt-3 pb-3 brd-b-1">
+                        <a class="pr-3 f-size-16" asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>Dashboard</a>
+                    </li>
+                    <li class="pb-3 pt-3 brd-b-1">
+                        <a class="pr-3 f-size-16" asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>The Marketer</a>
+                    </li>
+                    <li class="pb-3 pt-3 brd-b-1">
+                        <a class="pr-3 f-size-16" asp-controller="User" asp-action="Massage" asp-route-culture="@culture" localize-content>Massages</a>
+                    </li>
+                    <li class="pb-3 pt-3 brd-b-1">
+                        <a class="pr-3 f-size-16" asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>Account</a>
+                    </li>
+                    <li class="pb-3 pt-3 brd-b-1">
+                        <a class="pr-3 f-size-16" asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>Change Password</a>
+                    </li>
+                    <li class="pb-3 pt-3 brd-b-1">
+                        <a class="pr-3 f-size-16" asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>Favorites</a>
+                    </li>
+                    <li class="pb-3 pt-3 brd-b-1">
+                        <a class="pr-3 f-size-16" asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>Hosting</a>
+                    </li>
+                    <li class="pb-3 pt-3 brd-b-1">
+                        <a class="pr-3 f-size-16" asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>Transactions</a>
+                    </li>
+                    <li class="pt-3 pb-3">
+                        <a class="pr-3 f-size-16" style="color:red;" asp-controller="Account" asp-action="Logout" asp-route-culture="@culture" localize-content>Log Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+

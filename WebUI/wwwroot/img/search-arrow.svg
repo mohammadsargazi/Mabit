@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{clip-path:url(#clip-path)}.cls-3{fill:#4567f4;fill-rule:evenodd}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h20v20H0z" class="cls-1"/>
+        </clipPath>
+    </defs>
+    <g id="ic_arrow_back" class="cls-2" transform="rotate(180 10 10)">
+        <path id="rectangle" d="M0 0h20v20H0z" class="cls-1"/>
+        <path id="path" d="M16 9.25H6.85l4.2-4.2L10 4l-6 6 6 6 1.05-1.05-4.2-4.2H16v-1.5z" class="cls-3"/>
+    </g>
+</svg>

@@ -1,0 +1,807 @@
+﻿@model Mabit.Models.Model.Common.TopRoom
+@{
+
+    var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
+}
+<div class="container-fluid">
+    <div class="row pt-65 pb-100">
+        <div class="col-8">
+            <!-- .gallery-slider -->
+            <div class="gallery-slider ltr">
+                <!-- __images -->
+                <div class="gallery-slider__images">
+                    <div>
+                        @foreach (var item in Model.pictures)
+                        {
+                            <div class="item">
+                                <div class="img-fill"><img src="@(item.apiUrl)" alt="img 5"></div>
+                            </div>
+                        }
+
+
+                    </div>
+                    <button class="prev-arrow slick-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1792">
+                            <path fill="#fff"
+                                  d="M1171 301L640 832l531 531q19 19 19 45t-19 45l-166 166q-19 19-45 19t-45-19L173 877q-19-19-19-45t19-45L915 45q19-19 45-19t45 19l166 166q19 19 19 45t-19 45z" />
+                        </svg>
+                    </button>
+                    <button class="next-arrow slick-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1792">
+                            <path fill="#fff"
+                                  d="M1107 877l-742 742q-19 19-45 19t-45-19l-166-166q-19-19-19-45t19-45l531-531-531-531q-19-19-19-45t19-45L275 45q19-19 45-19t45 19l742 742q19 19 19 45t-19 45z" />
+                        </svg>
+                    </button>
+                </div>
+                <!-- /__images -->
+                <!-- __thumbnails -->
+                <div class="gallery-slider__thumbnails">
+                    <div>
+                        @foreach (var item in Model.pictures)
+                        {
+                            <div class="item">
+                                <div class="img-fill"><img src="@(item.apiUrl)" alt="img 5"></div>
+                            </div>
+                        }
+
+                    </div>
+
+                    <button class="prev-arrow slick-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1792">
+                            <path fill="#fff"
+                                  d="M1171 301L640 832l531 531q19 19 19 45t-19 45l-166 166q-19 19-45 19t-45-19L173 877q-19-19-19-45t19-45L915 45q19-19 45-19t45 19l166 166q19 19 19 45t-19 45z" />
+                        </svg>
+                    </button>
+                    <button class="next-arrow slick-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1792">
+                            <path fill="#fff"
+                                  d="M1107 877l-742 742q-19 19-45 19t-45-19l-166-166q-19-19-19-45t19-45l531-531-531-531q-19-19-19-45t19-45L275 45q19-19 45-19t45 19l742 742q19 19 19 45t-19 45z" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- /__thumbnails -->
+
+            </div>
+            <!-- /.gallery-slider -->
+
+            <div class="row">
+                <div class="col-12">
+                    <!--------------------------- price & date ------------------------->
+                    <div class="row pt-pb-15 mt-mb-15 mr-0 ml-0 box-shadow-2 bg-box">
+                        <div class="col-12">
+                            <div class="row ml-0 mr-0">
+                                <div class="col-12">
+                                    <span class="f-weight-7 f-size-20">@(Model.middleWeekPrice)$</span>
+                                    <span>/ </span>
+                                    <span class="mabit-darkGray">per night</span>
+                                </div>
+                            </div>
+                            <div class="row ml-0 mr-0 pt-pb-15">
+                                <div class="col-7 d-flex align-items-center brd-r-6 brd-1 pb-8 pt-8 bg-mabit-gray pr-1 pl-1">
+                                    <i class="fa fa-calendar-alt ml-2"></i>
+                                    <input id="detailDateInp" type="text" placeholder="Check in - Check out" style="margin-left:10px;border: none;height: 26px;" name="dates" class="form-control pull-right bg-mabit-gray">
+                                </div>
+                                @if (culture == "en")
+                                {
+                                    <script>
+                                        $(function () {
+                                            $('input[name="dates"]').daterangepicker();
+                                            $('input[name="dates"]').val("Check In - Check Out");
+                                        })
+                                    </script>
+                                }
+                                @if (culture == "fa")
+                                {
+                                    <script>
+                                        $(function () {
+                                            $('input[name="dates"]').daterangepicker();
+                                            $('input[name="dates"]').val("ورود - خروج");
+                                        })
+                                    </script>
+                                }
+                                @if (culture == "ar")
+                                {
+                                    <script>
+                                        $(function () {
+                                            $('input[name="dates"]').daterangepicker();
+                                            $('input[name="dates"]').val("الدخول - الخروج");
+                                        })
+                                    </script>
+                                }
+                                <div class="col-5">
+                                    <select id="getguestSelect" class="form-control h-44 bg-mabit-gray f-size-12 pr-1 pl-1 brd-1 brd-r-6" style="height: 44px;">
+                                        <option>guests</option>
+                                        <option>1 guests</option>
+                                        <option>2 guests</option>
+                                        <option>3 guests</option>
+                                        <option>4 guests</option>
+                                        <option>5 guests</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row ml-0 mr-0">
+                                <div class="col-6 mt-1">
+                                    
+                                </div>
+                                <div class="col-6 text-right">
+                                    
+                                    <button id="btnBook" class="btn bg-mabit-blue text-white pointer">Book</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--------------------------- amenities ---------------------------->
+                    <div class="row pt-pb-15 mt-mb-15 mr-0 ml-0 box-shadow-2 bg-box">
+                        <div class="col-12">
+                            <h4 class="mb-3">Amenities</h4>
+                            <div class="row pt-2 pl-2">
+                                <div class="col-4">
+                                    <span class="circle-bg">
+                                        <img src="~/img/air_conditioner.png" width="15" height="15">
+                                    </span>
+                                    <span class="amenities">Air condition</span>
+                                </div>
+                                <div class="col-4">
+                                    <span class="circle-bg">
+                                        <img src="~/img/iron.png" width="15" height="15">
+                                    </span>
+                                    <span class="amenities">Iron</span>
+                                </div>
+                                <div class="col-4">
+                                    <span class="circle-bg">
+                                        <img src="~/img/air_conditioner.png" width="15" height="15">
+                                    </span>
+                                    <span class="amenities">Air condition</span>
+                                </div>
+                            </div>
+                            <div class="row mt-5 mb-5 pl-2">
+                                <div class="col-4">
+                                    <span class="circle-bg">
+                                        <img src="~/img/couch.png" width="15" height="15">
+                                    </span>
+                                    <span class="amenities">مبلمان</span>
+                                </div>
+                                <div class="col-4">
+                                    <span class="circle-bg">
+                                        <img src="~/img/parking.png" width="15" height="15">
+                                    </span>
+                                    <span class="amenities">پارکینگ</span>
+                                </div>
+                                <div class="col-4">
+                                    <span class="circle-bg">
+                                        <img src="~/img/couch.png" width="15" height="15">
+                                    </span>
+                                    <span class="amenities">مبلمان</span>
+                                </div>
+                            </div>
+                            <div class="row pl-2">
+                                <div class="col-4">
+                                    <span class="circle-bg">
+                                        <img src="~/img/dryer.png" width="15" height="15">
+                                    </span>
+                                    <span class="amenities">خشک کن</span>
+                                </div>
+                                <div class="col-4">
+                                    <span class="circle-bg">
+                                        <img src="~/img/kitchen.png" width="15" height="15">
+                                    </span>
+                                    <span class="amenities">آشپزخانه</span>
+                                </div>
+                                <div class="col-4">
+                                    <span class="circle-bg">
+                                        <img src="~/img/dryer.png" width="15" height="15">
+                                    </span>
+                                    <span class="amenities">خشک کن</span>
+                                </div>
+                            </div>
+                            <div class="row mt-5 pl-2 text-center">
+                                <div class="col-12">
+                                    <a href="#" class="mabit-blue">
+                                        More amenities
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--------------------------- about -------------------------------->
+                    <div class="row pt-pb-15 mt-mb-15 mr-0 ml-0 box-shadow-2 bg-box">
+                        <div class="col-12">
+                            <div class="panel-wrapper">
+                                <a href="#show-text" class="show-text btn mabit-blue" id="show-text">Read more</a>
+                                <a href="#hide-text" class="hide-text btn mabit-blue" id="hide-text">close</a>
+                                <div class="text-fade-box">
+                                    <h4 class="mb-3">About this home</h4>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                                    been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                                    galley of type and scrambled it to make a type specimen book. It has survived not only five
+                                    centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                                    It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                                    passages, and more recently with desktop publishing software like Aldus PageMaker including
+                                    versions of Lorem Ipsum.
+                                </div>
+                                <div class="text-fade"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--------------------------- policies ----------------------------->
+                    <div class="row pt-pb-15 mt-mb-15 mr-0 ml-0 box-shadow-2 bg-box">
+                        <div class="col-12">
+                            <h4 class="mb-3">Policies</h4>
+                            <h6>House ruls</h6>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="mt-3 mabit-darkGray f-size-14 mb-1">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                    </p>
+                                    <p class="mabit-darkGray f-size-14 mb-1">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                    </p>
+                                    <p class=" mabit-darkGray f-size-14 mb-1">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                    </p>
+                                    <p class="text-center mt-3">
+                                        <a href="#" class="mabit-blue f-size-16">
+                                            Read all rules
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="col-lg-12 col-sm-12 col-xs-12 box-shadow-2 pt-3">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-4 col-4">
+                        <img src="~/img/profile_user.jpg" class="img-fluid user-pic" alt="user-img">
+                    </div>
+                    <div class="col-lg-8 col-sm-8 col-8">
+                        <h5 class="text-left mb-3 h3-header font-weight-bold">@(Model.title)</h5>
+                        <span class="text-right id-box text-white bg-mabit-darkGray">
+                            ID: <span class="span-id bg-mabit-darkGray">@(Model.id)</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="row pt-2 ">
+                    <div class="col-lg-4 col-sm-4 col-4 text-center">
+                        <span class="mabit-darkGray f-size-10 spn-user-name">@(Model.ownerFullname?.title)</span>
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-4 pr-0 pl-0">
+                        <span>
+                            <i class="fa fa-map-marker-alt mabit-darkGray"></i>
+                        </span>
+                        <span class="span-marker">@(Model.Province?.title),@(Model.Country?.title)</span>
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-4 pr-0">
+                        <span>
+                            <i class="fa fa-star mabit-darkGray"></i>
+                        </span>
+                        <span class="f-size-11">
+                            <span>
+                                <span class="mabit-darkGray f-size-11"> @(Model.averageRate) <span localize-content>rate of</span> 34 <span localize-content>users</span></span>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="row pt-3 pb-3 text-center">
+                    <div class="col-3 pr-0 pl-0">
+                        <span>
+                            <i class="fa fa-users f-size-12 mabit-darkGray"></i>
+                        </span>
+                        <span class="f-size-13 span-counter-size">4 </span>guests
+                    </div>
+                    <div class="col-3 pr-0 pl-0">
+                        <span>
+                            <i class="fa fa-building f-size-12 mabit-darkGray"></i>
+                        </span>
+                        <span class="f-size-13 span-counter-bedrome">@(Model.roomCount)</span>bedroom
+                    </div>
+                    <div class="col-3 pr-0 pl-0">
+                        <span>
+                            <i class="fa fa-bed f-size-12 mabit-darkGray"></i>
+                        </span>
+                        <span class="f-size-13 span-counter-bed">2 </span>bed
+                    </div>
+                    <div class="col-3 pr-0 pl-0">
+                        <span>
+                            <i class="fa fa-bath f-size-12 mabit-darkGray"></i>
+                        </span>
+                        <span class="f-size-13 span-counter-bathrome">1 </span>bath
+                    </div>
+                </div>
+            </div>
+           
+        
+
+            <!--------------------------- rate & comments----------------------->
+            <div class="row pt-pb-15 mt-mb-15 mr-0 ml-0 box-shadow-2 bg-box">
+                <div class="col-12">
+                    <h4 class="mb-3" localize-content>Rate and Comment</h4>
+                    <div class="row text-right pt-2">
+                        <div class="col-5">
+                            <div class="d-flex flex-column align-items-center">
+                                <h1 class="font-weight-bolder">4.6</h1>
+                                <span>
+                                    <i class="fa fa-star mabit-blue"></i>
+                                    <i class="fa fa-star mabit-blue"></i>
+                                    <i class="fa fa-star mabit-blue"></i>
+                                    <i class="fa fa-star mabit-blue"></i>
+                                    <i class="fa fa-star mabit-blue"></i>
+                                </span>
+                                <span class="mabit-darkGray">1249</span>
+                            </div>
+                        </div>
+                        <div class="col-1 text-left pr-0 pl-0">
+                            <ul class="bar-graph list-unstyled pr-0">
+                                <li class="mb-rate">
+                                    <span class="mabit-darkGray">1</span>
+                                </li>
+                                <li class="mb-rate">
+                                    <span class="mabit-darkGray">2</span>
+                                </li>
+                                <li class="mb-rate">
+                                    <span class="mabit-darkGray">3</span>
+                                </li>
+                                <li class="mb-rate">
+                                    <span class="mabit-darkGray">4</span>
+                                </li>
+                                <li class="mb-rate">
+                                    <span class="mabit-darkGray">5</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6 pl-0">
+                            <ul class="bar-graph list-unstyled">
+                                <li>
+                                    <div class="bar-wrap"><span class="bar-fill" style="width: 20%;"></span></div>
+                                </li>
+                                <li>
+                                    <div class="bar-wrap"><span class="bar-fill" style="width: 80%;"></span></div>
+                                </li>
+                                <li>
+                                    <div class="bar-wrap"><span class="bar-fill" style="width: 60%;"></span></div>
+                                </li>
+                                <li>
+                                    <div class="bar-wrap"><span class="bar-fill" style="width: 50%;"></span></div>
+                                </li>
+                                <li>
+                                    <div class="bar-wrap"><span class="bar-fill" style="width: 90%;"></span></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row pt-2 brd-b-2 mr-0 ml-0 pb-4">
+                        <div class="col-3 text-center pr-0 pl-0">
+                            <span class="mabit-darkGray f-size-13" localize-content>Geographic location</span>
+                        </div>
+                        <div class="col-2 pl-0">
+                            <span>
+                                <i class="fa fa-star f-size-12"></i>
+                            </span>
+                            <span>1.7</span>
+                        </div>
+                        <div class="col-2">
+                            <span class="mabit-darkGray f-size-13" localize-content>Cleanlliness</span>
+                        </div>
+                        <div class="col-2">
+                            <span>
+                                <i class="fa fa-star f-size-12"></i>
+                            </span>
+                            <span>
+                                4.4
+                            </span>
+                        </div>
+                        <div class="col-3">
+                            <span class="mabit-darkGray f-size-13">
+                                staff
+                            </span>
+                            <span>
+                                <i class="fa fa-star f-size-12"></i>
+                            </span>
+                            <span>
+                                3.8
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row pt-4 brd-b-2 mr-0 ml-0 pb-4">
+                        <div class="col-12">
+                            <div class="row align-items-center">
+                                <div class="col-3">
+                                    <img src="~/img/profile_user.jpg" class="img-fluid brd-r-50">
+                                </div>
+                                <div class="col-4">
+                                    <h6>Panos</h6>
+                                    <span class="mabit-darkGray">september 2019</span>
+                                </div>
+                                <div class="col-5"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="mb-1 mt-1 f-size-14">Excellent place!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pt-4 brd-b-2 mr-0 ml-0 pb-4">
+                        <div class="col-12">
+                            <div class="row align-items-center">
+                                <div class="col-3">
+                                    <img src="~/img/profile_user.jpg" class="img-fluid brd-r-50">
+                                </div>
+                                <div class="col-4">
+                                    <h6>Panos</h6>
+                                    <span class="mabit-darkGray">september 2019</span>
+                                </div>
+                                <div class="col-5"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="mb-1 mt-1 f-size-14">
+                                        Lorem Ipsum is simply dummy text of the printing and
+                                        typesetting industry.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pt-4 mr-0 ml-0 pb-4">
+                        <div class="col-12">
+                            <div class="row align-items-center">
+                                <div class="col-3">
+                                    <img src="~/img/profile_user.jpg" class="img-fluid brd-r-50">
+                                </div>
+                                <div class="col-4">
+                                    <h6>Panos</h6>
+                                    <span class="mabit-darkGray">september 2019</span>
+                                </div>
+                                <div class="col-5"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="mb-1 mt-1 f-size-14">
+                                        Lorem Ipsum is simply dummy text of the printing and
+                                        typesetting industry.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row text-right pt-4 mr-0 ml-0 pb-4">
+                        <div class="col-12">
+                            <ul class="list-unstyled d-flex justify-content-center align-items-center">
+                                <li class="pr-3 d-none">
+                                    <a href="#">
+                                        <i class="fa fa-chevron-right mabit-blue brd-r-50 next-prev-page"></i>
+                                    </a>
+                                </li>
+                                <li class="pr-3">
+                                    <a href="#" class="active-page">1</a>
+                                </li>
+                                <li class="pr-3">
+                                    <a href="#">2</a>
+                                </li>
+                                <li class="pr-3">
+                                    <a href="#">3</a>
+                                </li>
+                                <li class="pr-3">
+                                    <a href="#">4</a>
+                                </li>
+                                <li class="pr-3">
+                                    <a href="#">
+                                        <i class="fa fa-chevron-right mabit-blue brd-r-50 next-prev-page"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--------------------------- google map --------------------------->
+            <div class="row pt-pb-15 mt-mb-15 mr-0 ml-0 box-shadow-2 bg-box">
+                <div class="col-12">
+                    <h4 class="mb-3" localize-content>Location and Address</h4>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="mt-3 mabit-darkGray f-size-14">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            </p>
+                            <p class="mabit-darkGray f-size-14">
+                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                unknown printer took a galley of type and scrambled it to make a type specimen book.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mapouter">
+                                <div class="gmap_canvas">
+                                    <div id="map"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body modal-body-web-custom pr-0 pl-0 pt-0 pb-0">
+                <div class="oval-header2">
+                    <button type="button" class="close close-web-custom" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="pt-40">
+                        <h6 class="text-white" style="padding-left: 177px;">خلاصه وضعیت رزرو</h6>
+                    </div>
+
+                    <div class="oval-header--mask">
+                    </div>
+                </div>
+
+            </div>
+            <div class="content">
+                <div class="row text-right mr-0 ml-0 ">
+                    <div class="col-12">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12 pt-3">
+                                    <div class="d-flex align-items-center brd-r-6 brd-1 pt-8 pb-8 bg-mabit-gray pr-2 pl-1">
+                                        <div class="check-in">
+                                            <i class="fa fa-calendar-alt mabit-darkGray"></i>
+                                            <input disabled="disabled" placeholder="تاریخ رفت" class="border-0 mr-8 bg-mabit-gray w-75 inp-detail-check-in">
+                                        </div>
+                                        <div class="check-out">
+                                            <i class="fa fa-arrow-right  mabit-darkGray"></i>
+                                            <input disabled="disabled" placeholder="تاریخ برگشت" class="mr-8 border-0 bg-mabit-gray w-75 inp-detail-check-out">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 pt-2">
+                                    <input disabled="disabled" class="mr-8 form-control bg-mabit-gray inp-detail-people-count" >
+                                </div>
+                            </div>
+                            <div class="row mr-0 ml-0">
+                                <div class="col-12 pr-0 pl-0 container-detail-price">
+                                   
+                                </div>
+                            </div>
+                            <div class="row mr-0 ml-0">
+                                <div class="col-12 brd-b-dashed-footer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ml-0 mr-0 text-right">
+                    <div class="col-12">
+                        <div class="col-12 container-sum-price">
+                       
+                        </div>
+                    </div>
+                    <div class="col-12 text-center mt-4">
+                        <div class="col-12">
+                            <button class="btn bg-mabit-blue text-white pt-0 w-100 pointer pt-1 pb-2 book-btn">رزرو</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    /*
+      variables
+  */
+
+    var $imagesSlider = $(".gallery-slider .gallery-slider__images>div"),
+        $thumbnailsSlider = $(".gallery-slider__thumbnails>div");
+
+    /*
+        sliders
+    */
+
+    // images options
+    $imagesSlider.slick({
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        cssEase: 'linear',
+        fade: true,
+        draggable: false,
+        asNavFor: ".gallery-slider__thumbnails>div",
+        prevArrow: '.gallery-slider__images .prev-arrow',
+        nextArrow: '.gallery-slider__images .next-arrow'
+    });
+
+    // thumbnails options
+    $thumbnailsSlider.slick({
+        speed: 300,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        cssEase: 'linear',
+        centerMode: true,
+        draggable: false,
+        focusOnSelect: true,
+        asNavFor: ".gallery-slider .gallery-slider__images>div",
+        prevArrow: '.gallery-slider__thumbnails .prev-arrow',
+        nextArrow: '.gallery-slider__thumbnails .next-arrow',
+        responsive: [
+            {
+                breakpoint: 720,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 4
+                }
+            },
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3
+                }
+            },
+            {
+                breakpoint: 350,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            }
+        ]
+    });
+
+
+</script>
+<script src="~/css/Hamid/js/leaflet.js"></script>
+<script src="~/css/Hamid/js/leaflet-list-markers.js"></script>
+<script src="~/css/Hamid/js/cities-italy.js"></script>
+<script>
+
+
+     var cityList =@Html.Raw(Json.Serialize(Model));
+        var map = new L.Map('map', { zoom: 15, minZoom: 15, center: L.latLng(cityList.latitude, cityList.longitude) });
+
+        map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));
+
+          var markersLayer = new L.LayerGroup();
+
+              L.marker(L.latLng(cityList.latitude, cityList.longitude), { title: cityList.name }).addTo(markersLayer);
+        map.addLayer(markersLayer);
+
+        ////////////populate map from cities-italy.js
+
+        debugger;
+        //for (var i in cityList)
+        //  L.marker(L.latLng(cityList[i].latitude, cityList[i].longitude), { title: cityList[i].name,listid: cities[i].listid }).addTo(markersLayer);
+        //for (var i in cities)
+        //    L.marker(L.latLng(cities[i].loc), { title: cities[i].name, listid: cities[i].listid }).addTo(markersLayer);
+
+        //inizialize Leaflet List Markers
+        var list = new L.Control.ListMarkers({ layer: markersLayer, itemIcon: null });
+
+        list.on('item-mouseover', function (e) {
+            e.layer.setIcon(L.icon({
+                iconUrl: '~/img/select-marker.png'
+            }))
+        }).on('item-mouseout', function (e) {
+            e.layer.setIcon(L.icon({
+                iconUrl: '~/img/marker-icon.png'
+            }))
+        });
+
+        map.addControl(list);
+
+</script>
+<script>
+
+    $("#btnBook").click(function () {
+        var dateRange = $("#detailDateInp").val();
+        var guestsCount = $("#getguestSelect").val();
+        $(".inp-detail-people-count").val(guestsCount +"نفر");
+        startDate = dateRange.split('-')[0];
+        endDate = dateRange.split('-')[1];
+        $(".inp-detail-check-in").val(startDate);
+        
+        $(".inp-detail-check-out").val(endDate);
+        roomId = $(".span-id").text();
+        $.ajax({
+            url: '@Url.Action("GetBookInvoice", "Booking")',
+            type: 'Post',
+             data: {
+                 fromDate: startDate,
+                 toDate:endDate,
+                 roomId: roomId,
+                 peopleCount: guestsCount
+            },
+            success: function (res) {
+                $(".container-detail-price").empty();
+                $(".container-sum-price").empty();
+                debugger;
+                for (var i = 0; i < res.items.length; i++) {
+                    var $template = $('<div class="row ml-0 mr-0 pt-3"><div class="col-12 pr-0">' +
+                            '<span class="mabit-darkGray f-size-14">' + res.items[i].title + '</span>' +
+                            '<span class="font-weight-bold f-size-14 fa-pull-left">' + res.items[i].price + '</span>'
+                        );
+                        $(".container-detail-price").append($template);
+                }
+                  var $sumTemplate = $(' <span class="mabit-darkGray f-size-20">جمع کل</span>' +
+                        '<span class="font-weight-bold f-size-20 fa-pull-left">' + res.sum + '</span>')
+                    $(".container-sum-price").append($sumTemplate);
+                $("#basicModal").modal("show");
+
+            }
+        });
+    })
+    var middleWeekPrice =@(Model.middleWeekPrice);
+    var holydayPrice =@(Model.holydayPrice);
+    var extraPersonPrice =@(Model.extraPersonPrice);
+    $('input[name="dates"]').change(function () {
+        debugger;
+        dateRange = $(this).val();
+        startDate = dateRange.split('-')[0];
+        endDate = dateRange.split('-')[1];
+        var weekendCount = getWeekendCount(startDate, endDate);
+        var middleDaysCount = getMiddleDays(startDate, endDate);
+        var guestsCount = getguestsCount();
+        totalPrice = (middleWeekPrice * middleDaysCount) + (holydayPrice * weekendCount) + (extraPersonPrice * guestsCount);
+        $(".span-total-price").text(totalPrice);
+    });
+    $("#getguestSelect").change(function () {
+        dateRange = $('input[name="dates"]').val();
+        startDate = dateRange.split('-')[0];
+        endDate = dateRange.split('-')[1];
+        var weekendCount = getWeekendCount(startDate, endDate);
+        var middleDaysCount = getMiddleDays(startDate, endDate);
+        var guestsCount = getguestsCount();
+        totalPrice = (middleWeekPrice * middleDaysCount) + (holydayPrice * weekendCount) + (extraPersonPrice * guestsCount);
+        $(".span-total-price").text(totalPrice);
+    })
+    function getguestsCount() {
+        var guestsCount = $("#getguestSelect").val();
+        return guestsCount;
+    }
+    function getMiddleDays(start, end) {
+        var startDate = new Date(start),
+            endDate = new Date(end),
+            isWeekend = false;
+        var daysCount = 0;
+        while (startDate < endDate) {
+            var day = startDate.getDay();
+            isWeekend = (day === 6) || (day === 0);
+            if (!isWeekend) {
+                daysCount++;
+            }
+            startDate.setDate(startDate.getDate() + 1);
+        }
+        return daysCount;
+    }
+    function getWeekendCount(start, end) {
+        var startDate = new Date(start),
+            endDate = new Date(end),
+            isWeekend = false;
+
+        var weekendCount = 0;
+        while (startDate < endDate) {
+            var day = startDate.getDay();
+            isWeekend = (day === 6) || (day === 0);
+            if (isWeekend) {
+                weekendCount++;
+            }
+            startDate.setDate(startDate.getDate() + 1);
+        }
+        return weekendCount;
+    }
+</script>
