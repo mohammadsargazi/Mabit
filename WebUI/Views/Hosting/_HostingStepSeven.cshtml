@@ -1,0 +1,58 @@
+﻿@model WebUI.Models.HostingViewModel
+@{
+    var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
+}
+
+<div class="items">
+    <div class="item mb-3 ">
+        <h5 localize-content>Options</h5>
+        <p class="mb-0" localize-content>
+            Determine the option of your house
+        </p>
+    </div>
+    <div class="item">
+        <div class="mb-3">
+            <div class="col-12 ml-0 pl-0 d-flex flex-wrap justify-content-between">
+                @foreach (var item in Model.Options)
+                {
+                <div class="col-3">
+                    <div class="radio-wrapper">
+                        <input type="checkbox"
+                               class="radios"
+                               id="opt_@(item.id)"
+                               name="OptionsOptionsItem" />
+                        <label for="opt_@(item.id)">
+                            <span class="outer">
+                                <span class="inner animated"></span>
+                            </span>
+                            @(item.title)
+                        </label>
+                    </div>
+                </div>
+                }
+            </div>
+
+        </div>
+
+        <div class="col-8">
+            <div class="row">
+                <div class="col-12 ml-0 pl-0">
+                    <textarea placeholder="Description"
+                              class="form-control bg-input mt-0 inp-desc-options" name="desc"
+                              cols="30" rows="5"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="btn-container p-1">
+    <button type="button" class="btn-step-prev res-btn-gray btn"
+            data-class=".res-form-seven">
+        Back
+    </button>
+    <button type="button"
+            class="btn-step res-btn-orange mb-2 btn"
+            data-class=".res-form-seven">
+        Next
+    </button>
+</div>

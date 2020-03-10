@@ -1,0 +1,74 @@
+﻿@{
+    var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
+    var userName = "";
+    var userImage = "../../img/profile_user.jpg";
+}
+@if (User.Identity.IsAuthenticated)
+{
+
+
+    var claims = ((System.Security.Claims.ClaimsIdentity)User.Identity).Claims;
+
+    userName = claims.SingleOrDefault(x => x.Type == "usrFullName").Value;
+    userImage = claims.SingleOrDefault(x => x.Type == "userProfileImageUrl").Value;
+}
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-12 bg-box box-shadow-1 brd-r-15">
+    <div class="row pt-3 bg-mabit-gray pb-3">
+        <div class="col-lg-4 col-sm-4 col-4">
+            <img src="@(userImage)" class="img-fluid brd-r-50">
+        </div>
+        <div class="col-lg-8 col-sm-8 col-8 pl-0">
+            <p class="pt-2 mb-2 font-weight-bold">@userName</p>
+            <span class="mabit-darkGray">credit</span>
+            <span class="float-right bg-mabit-blue text-white brd-r-50 credit-sign-plus">
+                <i class="fa fa-plus"></i>
+            </span>
+            <span class="float-right font-weight-bold mr-2">350$</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-12">
+            <ul class="list-unstyled text-left pr-0">
+                <li class="pt-65 pb-5">
+                    <a class="pl-3 f-size-14 font-weight-bold" asp-controller="Reservation" asp-action="Index" asp-route-culture="@culture" localize-content>
+                        My Reservation
+                    </a>
+                    @*<a href="#" class="pl-3 f-size-14 font-weight-bold">
+                            My Reservation
+                        </a>*@
+                </li>
+                <li class="pb-5">
+                    <a class="pl-3 f-size-14 font-weight-bold" asp-controller="Reservation" asp-action="Index" asp-route-culture="@culture" localize-content>
+                        Personal info
+                    </a>
+                </li>
+                <li class="pb-5">
+                    <a href="#" class="pl-3 f-size-14 mabit-darkGray">
+                        Finance
+                    </a>
+                </li>
+                <li class="pb-5">
+                    <a href="#" class="pl-3 f-size-14 mabit-darkGray">
+                        Favourites
+                    </a>
+                </li>
+                <li class="pb-5">
+                    <a href="#" class="pl-3 f-size-14 mabit-darkGray">
+                        Message
+                    </a>
+                </li>
+                <li class="pb-5">
+                    <a href="#" class="pl-3 f-size-14 mabit-darkGray">
+                        Be Hosting
+                    </a>
+                </li>
+                <li class="pb-2">
+                    <a href="#" class="pl-3 logout f-size-14">
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

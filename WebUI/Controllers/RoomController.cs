@@ -33,6 +33,7 @@ namespace WebUI.Controllers
         {
             var reservationRoomModel = new ReservationRoomModel();
             DateTime dDate;
+            
             if (DateTime.TryParse(from, out dDate) || from.Equals("C"))
             {
                 reservationRoomModel.checkinDate = from;

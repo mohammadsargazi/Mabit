@@ -79,36 +79,40 @@
                             </div>
                             <div class="row ml-0 mr-0 pt-pb-15">
                                 <div class="col-7 d-flex align-items-center brd-r-6 brd-1 pb-8 pt-8 bg-mabit-gray pr-1 pl-1">
-                                    <i class="fa fa-calendar-alt ml-2"></i>
-                                    <input id="detailDateInp" type="text" placeholder="Check in - Check out" style="margin-left:10px;border: none;height: 26px;" name="dates" class="form-control pull-right bg-mabit-gray">
+
+                                    @if (culture == "en" || culture == "ar")
+                                    {
+                                        <i class="fa fa-calendar-alt ml-2"></i>
+                                        <input id="detailDateInp" type="text" placeholder="Check in - Check out" style="margin-left:10px;border: none;height: 26px;" name="dates" class="form-control pull-right bg-mabit-gray">
+                                        <script>
+                                            $(function () {
+                                                $('input[name="dates"]').daterangepicker();
+                                                $('input[name="dates"]').val("Check In - Check Out");
+                                            })
+                                        </script>
+                                    }
+                                    @if (culture == "fa")
+                                    {
+                                        <div class="input-group">
+                                            <i class="fa fa-calendar-alt ml-2"></i>
+                                            <input type="text" id="inputDate3-1" class="form-control"
+                                                   placeholder="ورود-خروج" aria-label="date3-1"
+                                                   aria-describedby="date3-1">
+                                        </div>
+                                        <script>
+                                            $('#inputDate3-1').MdPersianDateTimePicker({
+                                                targetTextSelector: '#inputDate3-1',
+                                                monthsToShow: [1, 1],
+                                                rangeSelector: true
+                                            });
+
+                                        </script>
+                                    }
+
                                 </div>
-                                @if (culture == "en")
-                                {
-                                    <script>
-                                        $(function () {
-                                            $('input[name="dates"]').daterangepicker();
-                                            $('input[name="dates"]').val("Check In - Check Out");
-                                        })
-                                    </script>
-                                }
-                                @if (culture == "fa")
-                                {
-                                    <script>
-                                        $(function () {
-                                            $('input[name="dates"]').daterangepicker();
-                                            $('input[name="dates"]').val("ورود - خروج");
-                                        })
-                                    </script>
-                                }
-                                @if (culture == "ar")
-                                {
-                                    <script>
-                                        $(function () {
-                                            $('input[name="dates"]').daterangepicker();
-                                            $('input[name="dates"]').val("الدخول - الخروج");
-                                        })
-                                    </script>
-                                }
+                            
+                             
+                              
                                 <div class="col-5">
                                     <select id="getguestSelect" class="form-control h-44 bg-mabit-gray f-size-12 pr-1 pl-1 brd-1 brd-r-6" style="height: 44px;">
                                         <option>guests</option>
@@ -122,10 +126,10 @@
                             </div>
                             <div class="row ml-0 mr-0">
                                 <div class="col-6 mt-1">
-                                    
+
                                 </div>
                                 <div class="col-6 text-right">
-                                    
+
                                     <button id="btnBook" class="btn bg-mabit-blue text-white pointer">Book</button>
                                 </div>
                             </div>
@@ -316,8 +320,8 @@
                     </div>
                 </div>
             </div>
-           
-        
+
+
 
             <!--------------------------- rate & comments----------------------->
             <div class="row pt-pb-15 mt-mb-15 mr-0 ml-0 box-shadow-2 bg-box">
@@ -570,12 +574,12 @@
                                     </div>
                                 </div>
                                 <div class="col-12 pt-2">
-                                    <input disabled="disabled" class="mr-8 form-control bg-mabit-gray inp-detail-people-count" >
+                                    <input disabled="disabled" class="mr-8 form-control bg-mabit-gray inp-detail-people-count">
                                 </div>
                             </div>
                             <div class="row mr-0 ml-0">
                                 <div class="col-12 pr-0 pl-0 container-detail-price">
-                                   
+
                                 </div>
                             </div>
                             <div class="row mr-0 ml-0">
@@ -587,7 +591,7 @@
                 <div class="row ml-0 mr-0 text-right">
                     <div class="col-12">
                         <div class="col-12 container-sum-price">
-                       
+
                         </div>
                     </div>
                     <div class="col-12 text-center mt-4">
@@ -714,7 +718,7 @@
         startDate = dateRange.split('-')[0];
         endDate = dateRange.split('-')[1];
         $(".inp-detail-check-in").val(startDate);
-        
+
         $(".inp-detail-check-out").val(endDate);
         roomId = $(".span-id").text();
         $.ajax({

@@ -1,0 +1,83 @@
+﻿@{
+    var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
+}
+
+<div class="items">
+    <div class="item mb-0">
+        <h5 localize-content>Cost</h5>
+        <p class="mb-0" localize-content>
+            Specify the price of house on regular days and holidays
+        </p>
+    </div>
+    <div class="col-8">
+        <div class="row">
+            <div class="col-6">
+                <input type="text" placeholder="Middle Of The Week"
+                       class="form-control bg-input inp-middle-of-the-week">
+                <input type="text" placeholder="Holidays"
+                       class="form-control bg-input inp-holidays">
+            </div>
+            <div class="col-6">
+                <input type="text" placeholder="Weekend"
+                       class="form-control bg-input inp-weekend">
+                <input type="number" placeholder="Extra people"
+                       class="form-control bg-input inp-extra-people">
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="item mb-3 pl-0 ml-0">
+            <p class="mb-0" localize-content>
+                Specify your discounts based on the number of days booked
+            </p>
+        </div>
+        <div class="col-8 mb-3">
+            <div class="row">
+                <div class="col-12 ml-0 pl-0 d-flex flex-wrap justify-content-between">
+                    <label class="d-inline-block" for="1">
+                        <span class="mr-3">Long booking discount(1)</span>
+                        <input id="1" type="number"
+                               class="form-control w-15 d-inline-block bg-input inp-long-booking-discount-1-day">
+                        <span class="mr-3 ml-3"> Day </span>
+                        <input id="2" type="number"
+                               class="form-control w-15 d-inline-block bg-input inp-long-booking-discount-1-percent">
+                        <span class="ml-3"> Percent </span>
+                    </label>
+
+                </div>
+                <div class="col-12 ml-0 pl-0 d-flex flex-wrap justify-content-between">
+                    <label class="d-inline-block" for="3">
+                        <span class="mr-3">Long booking discount(2) </span>
+                        <input id="3" type="number"
+                               class="form-control w-15 d-inline-block bg-input inp-long-booking-discount-2-day">
+                        <span class="mr-3 ml-3"> Day </span>
+                        <input id="4" type="number"
+                               class="form-control w-15 d-inline-block bg-input inp-long-booking-discount-2-percent">
+                        <span class="ml-3"> Percent </span>
+                    </label>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="row">
+                <div class="col-12 ml-0 pl-0">
+                    <textarea placeholder="Description"
+                              class="form-control bg-input mt-0" name="desc"
+                              cols="30" rows="5"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="btn-container p-1">
+    <button type="button" class="btn-step-prev res-btn-gray btn"
+            data-class=".res-form-nine">
+        Back
+    </button>
+    <button type="button" id="btnInsertUnit"
+            class="btn-step res-btn-orange mb-2 btn"
+            data-class=".res-form-nine">
+        Done
+    </button>
+</div>

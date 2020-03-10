@@ -1,0 +1,327 @@
+body {
+    overflow-x: hidden;
+}
+
+.btn-step {
+    cursor: pointer;
+    color: #fff !important;
+    background-color: #4567F4;
+    border-color: #4567F4;
+    border-radius: 8px;
+    padding: 5px 22px;
+    height: 30px;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.line-height1-9 {
+    line-height: 1.9;
+}
+
+.btn-step-prev {
+    color: #4567F4;
+    background-color: transparent;
+    border: #4567F4 1px solid;
+    border-radius: 8px;
+    padding: 5px 22px;
+    height: 30px;
+    margin: 0 10px;
+}
+
+#employer-post-new-job .res-steps-container {
+    margin: 0 -15px;
+}
+
+#employer-post-new-job .res-steps-container .res-steps {
+    width: 11%;
+    position: relative;
+    text-align: center;
+    float: left;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#employer-post-new-job .res-steps-container .res-steps .res-step-bar {
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    -ms-border-radius: 50% !important;
+    border-radius: 50% !important;
+    background: #E0E0E0;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin-top: 15px;
+    text-align: center;
+    color: #fff;
+    padding-top: 7px;
+    font-size: 20px
+}
+
+#employer-post-new-job .res-steps-container .res-steps .res-progress-title {
+    text-align: center;
+    font-size: 15px;
+    padding-top: 10px;
+    display: block
+}
+
+#employer-post-new-job .res-steps-container .res-steps .res-progress-bar {
+    height: 2px;
+    position: absolute;
+    background: #E0E0E0;
+    top: 24px;
+    left: 61%;
+    width: 100%;
+    float: left;
+    z-index: -1;
+}
+
+#employer-post-new-job .res-steps-container .res-steps.activated .res-progress-bar {
+    position: absolute;
+    top: 24px;
+    left: 61%;
+    width: 100%;
+    background: #4567F4;
+}
+
+
+
+
+#employer-post-new-job .res-steps-container .res-step-two .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-three .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-four .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-five .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-six .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-seven .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-eight .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-nine .res-progress-bar {
+    width: 100%;
+    margin-left: 0
+}
+
+#employer-post-new-job .res-steps-container .res-step-nine .res-progress-bar {
+    width: 0;
+    margin-right: 50%
+}
+
+
+#employer-post-new-job .res-step-form h3 {
+    margin: 10px 0;
+    color: #4567F4;
+    font-size: 18px
+}
+
+#employer-post-new-job .res-step-form .form-horizontal label {
+    font-weight: normal
+}
+
+#employer-post-new-job .res-form-two, #employer-post-new-job .res-form-three, #employer-post-new-job .res-form-four, #employer-post-new-job .res-form-five, #employer-post-new-job .res-form-six, #employer-post-new-job .res-form-seven, #employer-post-new-job .res-form-eight, #employer-post-new-job .res-form-nine {
+    left: 0;
+    display: none;
+}
+
+#employer-post-new-job .active .res-step-bar {
+    background: #4567F4 !important
+
+}
+
+#employer-post-new-job .activated .res-step-bar {
+    background: #f7f7f7 !important;
+    border: #4567F4 3px solid;
+}
+
+#employer-post-new-job .active .res-progress-title {
+    color: black;
+    font-weight: bold
+}
+
+#employer-post-new-job .bg-step {
+    background-color: #f7f7f7;
+    padding: 10px;
+    height: 123px;
+}
+
+.step-head {
+    display: block;
+    justify-content: space-between;
+    margin: 30px 0 0 0;
+}
+
+.step-head h5, h6 {
+    display: inline-block;
+    color: #727272;
+}
+
+.res-step-form p {
+    text-align: justify;
+}
+
+.step-head h5 {
+    margin: 20px 30px 10px 30PX;
+    color: #727272;
+    font-weight: bold;
+}
+
+.res-step-form .item {
+    margin: 0 20px 40px 20px;
+}
+
+.res-step-form .items:last-child .item {
+    margin: 0 20px 20px 20px;
+}
+
+.res-step-form h5 {
+    color: #727272;
+    font-weight: bold;
+}
+
+.step-head h6 {
+    margin: 20px 20px 10px 8PX;
+}
+
+.step {
+    width: 10px;
+    height: 10px;
+    background-color: #4567F4;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 2px 0;
+}
+
+
+.radio-wrapper {
+    display: inline-block;
+}
+
+.item .cat div.radio-wrapper:first-child {
+    margin: 0 20px 0 0;
+}
+
+.item .cat div.radio-wrapper:last-child {
+    margin: 0 20px 0 6px;
+}
+
+.radio-wrapper input[class="radios"] {
+    display: none;
+}
+
+.radio-wrapper input[class="radios"] + label {
+    color: #292321;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.radio-wrapper input[class="radios"] + label > span.outer {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+    position: relative;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #bcbcbc;
+}
+
+.radio-wrapper input[class="radios"] + label span.inner {
+    position: absolute;
+    display: none;
+    width: 10px;
+    height: 10px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    vertical-align: middle;
+    cursor: pointer;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-color: grey;
+}
+
+.radio-wrapper input[class="radios"]:checked + label span.inner {
+    background-color: #4567F4;
+    display: block;
+}
+
+/* container properties */
+.scrollbar {
+    width: 100%;
+    max-width: 100%;
+    height: 100px;
+    background-color: #ffffff;
+    overflow-y: scroll;
+    padding: 10px;
+    margin-bottom: 12px;
+}
+
+/* customize scrollbar css */
+#scrollbar-custom::-webkit-scrollbar {
+    width: 5px;
+    background-color: #ffffff;
+}
+
+#scrollbar-custom::-webkit-scrollbar:horizontal {
+    height: 5px;
+}
+
+#scrollbar-custom::-webkit-scrollbar-track {
+    border: 1px #E2E2E2 solid;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 0 6px #E2E2E2 inset;
+}
+
+#scrollbar-custom::-webkit-scrollbar-thumb {
+    background-color: #afafaf;
+    border: 1px solid #afafaf;
+    border-radius: 8px;
+}
+
+#scrollbar-custom::-webkit-scrollbar-thumb:hover {
+    background-color: #afafaf;
+    border: 1px solid #e2e2e2;
+}
+
+#scrollbar-custom::-webkit-scrollbar-thumb:active {
+    background-color: #afafaf;
+    border: 1px solid #afafaf;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-end;
+
+}
+
+.img-rounds {
+    border-radius: 18px;
+    width: 200px;
+    margin: 10px;
+}
+
+.gallery {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.gallery .image {
+    text-align: right;
+}
+
+.gallery .image h6 {
+    margin: 5px 15px 0 0;
+    color: #ED5410;
+}
+
+.bg-input {
+    background-color: #EFEFEF;
+    border: none;
+    border-radius: 11px !important;
+    margin: 30px 0;
+}
+
+.map-rounds {
+    border-radius: 6px;
+    -webkit-box-shadow: 0 8px 6px -7px #777;
+    -moz-box-shadow: 0 8px 6px -7px #777;
+    box-shadow: 0 8px 6px -7px #777;
+}
+
+.w-15 {
+    width: 15% !important;
+}

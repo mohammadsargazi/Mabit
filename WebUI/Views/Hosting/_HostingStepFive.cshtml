@@ -1,0 +1,119 @@
+﻿@{
+    var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
+}
+
+<div class="items">
+    <div class="item mb-0">
+        <h5 localize-content>Measurment</h5>
+        <p class="mb-0" localize-content>
+            Specify the type of accommodation, area and number of bedrooms
+        </p>
+    </div>
+    <div class="item">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-4 ml-0 pl-0">
+                    <select class="form-control bg-input" id="measurmentRoomTypeList">
+                        @foreach (var item in Model.RoomTypes)
+                        {
+                            <option value="@item.id">@(item.title)</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-4 ml-0 pl-0">
+                    <select class="form-control bg-input" id="measurmentLocationOptionsList">
+                        @foreach (var item in Model.LocationOptions)
+                        {
+                            <option value="@item.id">@(item.title)</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-4 ml-0 pl-0">
+                    <input type="number" placeholder="Number of bedrooms"
+                           class="form-control bg-input inp-bedroom-number">
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="col-12 ml-0 pl-0 d-flex flex-wrap justify-content-between">
+                <div class="radio-wrapper">
+                    <input type="checkbox"
+                           class="radios"
+                           id="exclusive"
+                           name="measurmentRadio" />
+                    <label for="exclusive" localize-content>
+                        <span class="outer">
+                            <span class="inner animated"></span>
+                        </span>
+                        Exclusive
+                    </label>
+                </div>
+                <div class="radio-wrapper">
+                    <input type="checkbox"
+                           class="radios"
+                           id="InsideTheTown"
+                           name="measurmentRadio" />
+                    <label for="radio13" localize-content>
+                        <span class="outer">
+                            <span class="inner animated"></span>
+                        </span>
+                        Inside the town
+                    </label>
+                </div>
+                <div class="radio-wrapper">
+                    <input type="checkbox"
+                           class="radios"
+                           id="radio14"
+                           name="measurmentRadio" />
+                    <label for="radio14" localize-content>
+                        <span class="outer">
+                            <span class="inner animated"></span>
+                        </span>
+                        Caretaker
+                    </label>
+                </div>
+                <div class="radio-wrapper">
+                    <input type="checkbox"
+                           class="radios"
+                           id="radio15"
+                           name="measurmentRadio" />
+                    <label for="radio15" localize-content>
+                        <span class="outer">
+                            <span class="inner animated"></span>
+                        </span>
+                        Yard - At Your Own
+                    </label>
+                </div>
+            </div>
+            
+        </div>
+        <div class="col-8">
+            <div class="row">
+                <div class="col-6 ml-0 pl-0">
+                    <input type="number" placeholder="Building Area"
+                           class="form-control bg-input inp-building-area">
+                </div>
+                <div class="col-6 ml-0 pl-0">
+                    <input type="number" placeholder="Yard Area"
+                           class="form-control bg-input inp-yard-area">
+                </div>
+                <div class="col-12 ml-0 pl-0">
+                    <textarea placeholder="Description"
+                              class="form-control bg-input mt-0 inp-desc-measurment" name="desc"
+                              cols="30" rows="5"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="btn-container p-1">
+    <button type="button" class="btn-step-prev res-btn-gray btn"
+            data-class=".res-form-five">
+        Back
+    </button>
+    <button type="button"
+            class="btn-step res-btn-orange mb-2 btn"
+            data-class=".res-form-five">
+        Next
+    </button>
+</div>

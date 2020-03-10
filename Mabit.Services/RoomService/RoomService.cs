@@ -35,7 +35,10 @@ namespace Mabit.Services.RoomService
         {
             return HttpHelper.Delete(url + id).IsCompleted;
         }
-
+        public bool AddRoom(AddRoomModel model)
+        {
+            return HttpHelper.Post("api/Rooms/AddRoom", culture, model).IsCompleted;
+        }
         #endregion
 
         #region SearchRoom

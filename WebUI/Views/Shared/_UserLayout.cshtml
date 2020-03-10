@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> - Mabit</title>
+    <link rel="icon" type="image/png" href="~/img/logo.png" sizes="16x16">
+    <link rel="stylesheet" type="text/css" href="~/fontawesome-free-5.11.2-web/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="~/fontawesome-free-5.11.2-web/css/fontawesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/fontawesome-free-5.11.2-web/css/solid.min.css">
+    <link rel="stylesheet" type="text/css" href="~/fontawesome-free-5.11.2-web/css/regular.min.css">
+
+    <link href="~/css/Mabit/style-fa.min.css" rel="stylesheet" />
+    @*<link href="~/css/Mabit/style-fa.css" rel="stylesheet" />*@
+    <link href="~/Plugins/intelTelInput/css/intelTelInput.min.css" rel="stylesheet" />
+    <link href="~/css/Mabit/header.min.css" rel="stylesheet" />
+    @*<link href="~/css/Mabit/header.css" rel="stylesheet" />*@
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/css/site.min.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="~/css/site.css" />*@
+    <link href="~/css/site.min.css" rel="stylesheet" />
+
+    @*<link href="~/css/Mabit/m-style.css" rel="stylesheet" />*@
+    <link href="~/Plugins/slick/css/slick.min.css" rel="stylesheet" />
+    <link href="~/css/Mabit/style.css" rel="stylesheet" />
+    @*<link href="~/Plugins/slick/css/slick.css" rel="stylesheet" />*@
+
+    @if (System.Globalization.CultureInfo.CurrentCulture.TextInfo.IsRightToLeft)
+    {
+        <link rel="stylesheet" href="~/css/rtl.css" />
+        <style>
+            body {
+                text-align: right;
+            }
+        </style>
+    }
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @*<script src="~/lib/jquery/dist/jquery.js"></script>*@
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>*@
+    <script src="~/MdBootstrapPersianDateTimePicker/jalaali.min.js"></script>
+    @*<script src="~/MdBootstrapPersianDateTimePicker/jalaali.js"></script>*@
+    <script src="~/MdBootstrapPersianDateTimePicker/jquery.Bootstrap-PersianDateTimePicker.min.js"></script>
+    @*<script src="~/MdBootstrapPersianDateTimePicker/jquery.Bootstrap-PersianDateTimePicker.js"></script>*@
+
+    <script src="~/Plugins/slick/js/slick.min.js"></script>
+    @*<script src="~/Plugins/slick/js/slick.js"></script>*@
+    <script src="~/Plugins/intelTelInput/js/intelTelInput.min.js"></script>
+    <script src="~/Plugins/intelTelInput/js/utils.min.js"></script>
+    @*<script src="~/Plugins/intelTelInput/js/utils.js"></script>*@
+    <script src="~/Plugins/intelTelInput/js/intlTelInput-jquery.min.js"></script>
+    <script src="~/Plugins/daterangepicker/moment.min.js"></script>
+    <script src="~/Plugins/daterangepicker/daterangepicker.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+
+    <link href="~/Plugins/daterangepicker/daterangepicker.min.css" rel="stylesheet" />
+    @*<link href="~/Plugins/daterangepicker/daterangepicker.css" rel="stylesheet" />*@
+    @*<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />*@
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/Plugins/LazyLoad/lazyload.min.js"></script>
+    <script src="~/Plugins/twbsPagination/jquery.twbsPagination.min.js"></script>
+    <link href="~/Plugins/persion-date-picker/demo.css" rel="stylesheet" />
+    <link href="~/Plugins/persion-date-picker/jquery.md.bootstrap.datetimepicker.style.css" rel="stylesheet" />
+    <script src="~/Plugins/persion-date-picker/jquery.md.bootstrap.datetimepicker.js"></script>
+
+    @*<link rel="stylesheet" type="text/css" href="dist/bootstrap-clockpicker.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/github.min.css">*@
+    <link href="~/Plugins/clock/bootstrap-clockpicker.min.css" rel="stylesheet" />
+    <link href="~/Plugins/clock/github.min.css" rel="stylesheet" />
+    @*<script type="text/javascript" src="dist/bootstrap-clockpicker.min.js"></script>*@
+    <script src="~/Plugins/clock/bootstrap-clockpicker.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</head>
+@{
+    var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
+    var wehreTo = culture == "fa" ? "کجا میروید ؟" : (culture == "ar" ? "إلى أين ؟" : "where to ?");
+    var fontClass = "mabit-font-en";
+}
+@if (culture == "fa")
+{
+    fontClass = "mabit-font-fa";
+}
+@if (culture == "ar")
+{
+    fontClass = "mabit-font-ar";
+}
+<body style="font-family: '@fontClass';" class="body-bg ">
+
+    <partial name="_header" />
+
+    <div class="container">
+        <div class="row pt-100 pb-100">
+            <div class="col-lg-3 col-sm-3 col-3">
+                <partial name="_UserLeftSidbar" />
+            </div>
+            <div class="col-lg-9 col-sm-9 col-9 bg-box box-shadow-1 brd-r-15">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+
+    <partial name="_footer" />
+
+</body>
+</html>

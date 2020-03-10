@@ -1,0 +1,61 @@
+﻿@{
+    var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
+    var wehreTo = culture == "fa" ? "کجا میروید ؟" : (culture == "ar" ? "إلى أين ؟" : "where to ?");
+}
+<div id="page-header">
+    <div id="page-logo">
+        <a asp-controller="Home" asp-action="Index" asp-route-culture="@culture">
+            <img src="~/img/page_logo.png">
+        </a>
+    </div>
+
+    <div id="page-search">
+        <input type="text" id="page-search-where" placeholder="@wehreTo">
+        <div id="page-search-date">
+            <input placeholder="Check in" type="text" name="dates" style="border: none;background-color: #f4f4f4;height: 20px;">
+            <script>
+                $(function () {
+                    $('input[name="dates"]').daterangepicker({});
+                    $('input[name="dates"]').val("Check In-Check Out");
+                })
+
+            </script>
+        </div>
+        <a href="#">
+            <div id="page-search-btn">Search</div>
+        </a>
+    </div>
+    <div class="page-menu-link">
+        <language-nav language-label="NativeName"></language-nav>
+    </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <partial name="_UserLogin" />
+    }
+    else
+    {
+        <div class="page-menu-link">
+            <img src="~/img/ph_signin.png">
+            <span data-toggle="modal" data-target="#loginMobileNumberModal" style="cursor:pointer;" localize-content> login / Register</span>
+            @*<a asp-area="" asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>
+                    login / Register
+                </a>*@
+        </div>
+    }
+
+    <div class="page-menu-link">
+        <img src="~/img/ph_host.png">
+        <a asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>Hosting</a>
+    </div>
+
+    <div class="page-menu-link">
+        <img src="~/img/ph_support.png">
+        <a asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>Support</a>
+    </div>
+
+    <div class="page-menu-link">
+        <img src="~/img/ph_app.png">
+        <a asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>App download</a>
+    </div>
+
+</div>

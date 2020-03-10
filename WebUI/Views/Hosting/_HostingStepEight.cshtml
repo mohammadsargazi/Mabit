@@ -1,0 +1,100 @@
+﻿@model WebUI.Models.HostingViewModel
+@{
+    var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
+}
+
+<div class="items">
+    <div class="item mb-0">
+        <h5>Rules</h5>
+        <p class="mb-0" localize-content>
+            What the guest should know about your house
+        </p>
+    </div>
+    <div class="col-8">
+        <div class="row">
+            <div class="col-6">
+                @*<input type="text" placeholder="Inter Time"
+        class="form-control bg-input">*@
+                <div class="clearfix">
+                    <div class="input-group clockpicker">
+                        <input type="text" class="form-control bg-input inp-inter-time" value="14:00">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-time"></span>
+                        </span>
+                    </div>
+                </div>
+              
+
+                <script type="text/javascript">
+                    $('.clockpicker').clockpicker();
+                </script>
+                <input type="text" placeholder="Minimum Reservation"
+                       class="form-control bg-input">
+            </div>
+            <div class="col-6">
+                @*<input type="text" placeholder="Exit Time"
+                       class="form-control bg-input">*@
+                <div class="clearfix">
+                    <div class="input-group clockpicker pull-center" data-placement="left" data-align="top" data-autoclose="true">
+                        <input type="text" class="form-control bg-input inp-exit-time" value="10:00">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-time"></span>
+                        </span>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $('.clockpicker').clockpicker();
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="item mb-3 pl-0 ml-0">
+            <p class="mb-0">
+                Suggested rules
+            </p>
+        </div>
+        <div class="mb-3">
+            <div class="col-12 ml-0 pl-0 d-flex flex-wrap justify-content-between">
+                @foreach (var item in Model.CustomRules)
+                {
+                <div class="col-6">
+                    <div class="radio-wrapper">
+                        <input type="checkbox"
+                               class="radios"
+                               id="rule_@(item.id+100)"
+                               name="customRulesItem" />
+                        <label for="rule_@(item.id+100)">
+                            <span class="outer">
+                                <span class="inner animated"></span>
+                            </span>
+                            @(item.title)
+                        </label>
+                    </div>
+                </div>
+                }
+            </div>
+   
+        </div>
+        <div class="col-8">
+            <div class="row">
+                <div class="col-12 ml-0 pl-0">
+                    <textarea placeholder="Description"
+                              class="form-control bg-input mt-0 inp-rule-desc" name="desc"
+                              cols="30" rows="5"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="btn-container p-1">
+    <button type="button" class="btn-step-prev res-btn-gray btn"
+            data-class=".res-form-eight">
+        Back
+    </button>
+    <button type="button"
+            class="btn-step res-btn-orange mb-2 btn"
+            data-class=".res-form-eight">
+        Next
+    </button>
+</div>

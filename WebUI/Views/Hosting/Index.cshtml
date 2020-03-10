@@ -1,0 +1,355 @@
+﻿@model WebUI.Models.HostingViewModel
+@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
+}
+
+<style>
+    .credit-sign-plus {
+        position: relative;
+        bottom: 3px;
+    }
+
+        .credit-sign-plus i {
+            padding: 6px 5px;
+            font-size: 10px;
+        }
+
+    .brd-r-15 {
+        border-radius: 15px;
+    }
+
+    .mabit-middle-gray {
+        color: #acacac;
+    }
+
+    .mabit-light-gray {
+        color: #cfcfcf;
+    }
+</style>
+<div class="step-head">
+    <h5 class="offset-1" localize-content>My Units</h5>
+    <div class="d-inline-block">
+        <i class="step"></i><h6 class="offset-2" localize-content>Reserved Requests</h6>
+    </div>
+</div>
+
+<section id="employer-post-new-job">
+    <div class="row">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12" id="container">
+                    <div class="res-steps-container bg-step">
+                        <div class="res-steps res-step-one active" data-class=".res-form-one">
+                            <div class="res-step-bar"></div>
+                            <div class="res-progress-bar"></div>
+                            <div class="res-progress-title" localize-content>Unit Kind & Rules</div>
+                        </div>
+                        <div class="res-steps res-step-two res-style" data-class=".res-form-two">
+                            <div class="res-step-bar"></div>
+                            <div class="res-progress-bar"></div>
+                            <div class="res-progress-title" localize-content>Images</div>
+                        </div>
+                        <div class="res-steps res-step-three res-style" data-class=".res-form-three">
+                            <div class="res-step-bar"></div>
+                            <div class="res-progress-bar"></div>
+                            <div class="res-progress-title" localize-content>Location</div>
+                        </div>
+                        <div class="res-steps res-step-four res-style" data-class=".res-form-four">
+                            <div class="res-step-bar"></div>
+                            <div class="res-progress-bar"></div>
+                            <div class="res-progress-title" localize-content>Description</div>
+                        </div>
+                        <div class="res-steps res-step-five res-style" data-class=".res-form-five">
+                            <div class="res-step-bar"></div>
+                            <div class="res-progress-bar"></div>
+                            <div class="res-progress-title" localize-content>Measurment</div>
+                        </div>
+                        <div class="res-steps res-step-six res-style" data-class=".res-form-six">
+                            <div class="res-step-bar"></div>
+                            <div class="res-progress-bar"></div>
+                            <div class="res-progress-title" localize-content>Capacity</div>
+                        </div>
+                        <div class="res-steps res-step-seven res-style" data-class=".res-form-seven">
+                            <div class="res-step-bar"></div>
+                            <div class="res-progress-bar"></div>
+                            <div class="res-progress-title" localize-content>Options</div>
+                        </div>
+                        <div class="res-steps res-step-eight res-style" data-class=".res-form-eight">
+                            <div class="res-step-bar"></div>
+                            <div class="res-progress-bar"></div>
+                            <div class="res-progress-title" localize-content>Rules</div>
+                        </div>
+                        <div class="res-steps res-step-nine res-style" data-class=".res-form-nine">
+                            <div class="res-step-bar"></div>
+                            <div class="res-progress-bar"></div>
+                            <div class="res-progress-title" localize-content>Cost</div>
+                        </div>
+                    </div>
+                    <div class="clearfix">&nbsp;</div>
+                    <div class="res-step-form col-12  res-form-one">
+                        <partial name="_HostingStepOne" />
+                    </div>
+                    <div class="res-step-form col-12 res-form-two">
+                        <partial name="_HostingStepTwo" />
+                    </div>
+                    <div class="res-step-form col-12 res-form-three">
+                        <partial name="_HostingStepThree" />
+                    </div>
+                    <div class="res-step-form col-12 res-form-four">
+                        <partial name="_HostingStepFour" model="@Model" />
+                    </div>
+                    <div class="res-step-form col-12  res-form-five">
+                        <partial name="_HostingStepFive" />
+                    </div>
+                    <div class="res-step-form col-12 res-form-six">
+                        <partial name="_HostingStepSix" />
+                    </div>
+                    <div class="res-step-form col-12 res-form-seven">
+                        <partial name="_HostingStepSeven" />
+                    </div>
+                    <div class="res-step-form col-12 res-form-eight">
+                        <partial name="_HostingStepEight" />
+                    </div>
+                    <div class="res-step-form col-12 res-form-nine">
+                        <partial name="_HostingStepNine" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(document).ready(function () {
+
+        var steps = $('.res-steps-container').children();
+        var i = 1;
+        $(".res-step-form .res-btn-orange").click(function () {
+
+            var getClass = $(this).attr('data-class');
+
+            if (getClass != ".res-form-nine") {
+                $(".res-steps").removeClass('active');
+                $(steps[i]).addClass('active');
+                $(steps[i - 1]).addClass('activated');
+                i++;
+            }
+            if (getClass != ".res-form-nine") {
+                $(getClass).css('display', 'none');
+                $(getClass).next().css('display', 'block');
+
+            }
+        });
+
+        /* step back */
+        $(".res-step-form .res-btn-gray").click(function () {
+            var getClass = $(this).attr('data-class');
+            $(".res-steps").removeClass('active');
+            if (i >= 1) {
+                i--;
+            } else {
+                i++;
+            }
+
+            $(steps[i - 1]).addClass('active');
+            $(steps[i - 1]).removeClass('activated');
+
+            $(getClass).css('display', 'none');
+            $(getClass).prev().css('display', 'block');
+        });
+    });
+</script>
+
+
+<script>
+     function getSelectRadioBtnIds(radioName) {
+        var ids = [];
+        $("input[name=" + radioName + "]:checked").each(function () {
+            ids.push($(this).attr('id').split('_')[1]);
+        });
+        return ids;
+     }
+    function setModel() {
+        var descOptionId = getSelectRadioBtnIds("descTextureOptionsItem");
+        var capacityLocationTypes = getSelectRadioBtnIds("capicityLocationTypesItem");
+        var optoptionIds = getSelectRadioBtnIds("OptionsOptionsItem");
+        var customRulesItem=getSelectRadioBtnIds("customRulesItem");
+        var addRoomModel = {
+            files: $("#file-1").get(0).files,
+                    unitName: $(".inp-unit-name").val(),
+            countryId: $("#countryList").val(),
+            provinceId: $("#provinceList").val(),
+            cityId: $("#cityList").val(),
+            address: $("#inp-address").text(),
+            descStructuresId: $("#descStructures").val(),
+            descOptionId: descOptionId,
+            descDescription: $("#inp-dec-description").text(),
+            measurmentroomtypeid: $("#measurmentroomtypelist").val(),
+            measurmentlocationoptionid: $("#measurmentlocationoptionslist").val(),
+            measurmentbedroomnumber: $(".inp-bedroom-number").val(),
+            measurmentinpbuildingarea: $(".inp-building-area").val(),
+            measurmentYardArea: $(".inp-yard-area").val(),
+            descMeasurment: $(".inp-desc-measurment").text(),
+            standardCapacity: $(".inp-standard-capacity").val(),
+            capacitySingleBed: $(".inp-single-bed").val(),
+            capacityMaximumCapacity: $(".inp-maximum-capacity").val(),
+            capacityDoubleBed: $(".inp-double-bed").val(),
+            capacityLocationTypes: capacityLocationTypes,
+            capacityDescCapacity: $(".inp-desc-capacity").text(),
+            optoptionIds: optoptionIds,
+            optDescOptions: $(".inp-desc-options").text(),
+            rulesInterTime: $(".inp-inter-time").val(),
+            rulesExitTime: $(".inp-exit-time").val(),
+            customRulesItem: customRulesItem,
+            ruleDesc: $(".inp-rule-desc").val(),
+            middleOfTheWeek: $(".inp-middle-of-the-week").val(),
+            holidays: $(".inp-holidays").val(),
+            weekend: $(".inp-weekend").val(),
+            extraPeople: $(".inp-extra-people").val(),
+            longBookingDiscount1Day: $(".inp-long-booking-discount-1-day").val(),
+            longBookingDiscount1Percent: $(".inp-long-booking-discount-1-percent").val(),
+            longBookingDiscount2Day: $(".inp-long-booking-discount-2-day").val(),
+            longBookingDiscount2Percent: $(".inp-long-booking-discount-2-percent").val()
+        };
+        return addRoomModel;
+    }
+
+    $("#btnInsertUnit").click(function () {
+        debugger;
+          var descOptionId = getSelectRadioBtnIds("descTextureOptionsItem");
+        var capacityLocationTypes = getSelectRadioBtnIds("capicityLocationTypesItem");
+        var optoptionIds = getSelectRadioBtnIds("OptionsOptionsItem");
+        var customRulesItem=getSelectRadioBtnIds("customRulesItem");
+        var data = JSON.stringify(setModel());
+
+         var files = $("#file-1").get(0).files;
+            var fileData = new FormData();
+
+            for (var i = 0; i < files.length; i++) {
+                fileData.append("fileInput", files[i]);
+            }
+        $.ajax({
+            url: '@Url.Action("AddRoom", "Hosting")',
+            type: 'Post',
+            data: {
+            unitName: $(".inp-unit-name").val(),
+            countryId: $("#countryList").val(),
+            provinceId: $("#provinceList").val(),
+            cityId: $("#cityList").val(),
+            address: $("#inp-address").val(),
+            descStructuresId: $("#descStructures").val(),
+            descTextureOptionsId: descOptionId,
+            descDescription: $("#inp-dec-description").val(),
+            measurmentroomtypeid: $("#measurmentroomtypelist").val(),
+            measurmentlocationoptionid: $("#measurmentlocationoptionslist").val(),
+            measurmentbedroomnumber: $(".inp-bedroom-number").val(),
+            measurmentinpbuildingarea: $(".inp-building-area").val(),
+            measurmentYardArea: $(".inp-yard-area").val(),
+            descMeasurment: $(".inp-desc-measurment").val(),
+            standardCapacity: $(".inp-standard-capacity").val(),
+            capacitySingleBed: $(".inp-single-bed").val(),
+            capacityMaximumCapacity: $(".inp-maximum-capacity").val(),
+            capacityDoubleBed: $(".inp-double-bed").val(),
+            capacityLocationTypes: capacityLocationTypes,
+            capacityDescCapacity: $(".inp-desc-capacity").val(),
+            optoptionIds: optoptionIds,
+            optDescOptions: $(".inp-desc-options").val(),
+            rulesInterTime: $(".inp-inter-time").val(),
+            rulesExitTime: $(".inp-exit-time").val(),
+            customRulesItem: customRulesItem,
+            ruleDesc: $(".inp-rule-desc").val(),
+            middleOfTheWeek: $(".inp-middle-of-the-week").val(),
+            holidays: $(".inp-holidays").val(),
+            weekend: $(".inp-weekend").val(),
+            extraPeople: $(".inp-extra-people").val(),
+            longBookingDiscount1Day: $(".inp-long-booking-discount-1-day").val(),
+            longBookingDiscount1Percent: $(".inp-long-booking-discount-1-percent").val(),
+            longBookingDiscount2Day: $(".inp-long-booking-discount-2-day").val(),
+            longBookingDiscount2Percent: $(".inp-long-booking-discount-2-percent").val()
+            },
+            success: function (res) {
+                $(".container-detail-price").empty();
+                $(".container-sum-price").empty();
+                debugger;
+                for (var i = 0; i < res.items.length; i++) {
+                    var $template = $('<div class="row ml-0 mr-0 pt-3"><div class="col-12 pr-0">' +
+                            '<span class="mabit-darkGray f-size-14">' + res.items[i].title + '</span>' +
+                            '<span class="font-weight-bold f-size-14 fa-pull-left">' + res.items[i].price + '</span>'
+                        );
+                        $(".container-detail-price").append($template);
+                }
+                  var $sumTemplate = $(' <span class="mabit-darkGray f-size-20">جمع کل</span>' +
+                        '<span class="font-weight-bold f-size-20 fa-pull-left">' + res.sum + '</span>')
+                    $(".container-sum-price").append($sumTemplate);
+                $("#basicModal").modal("show");
+
+            }
+        });
+    });
+    function model() {
+
+        //debugger;
+        //var files = $("#file-1").get(0).files;
+
+        //var location = {
+        //    unitName: $(".inp-unit-name").val(),
+        //    countryId: $("#countryList").val(),
+        //    provinceId: $("#provinceList").val(),
+        //    cityId: $("#cityList").val(),
+        //    address: $("#inp-address").text(),
+        //};
+
+        //var description = {
+        //    structuresId: $("#descStructures").val(),
+        //    optionId: $('input[type=radio][name=descTextureOptionsItem]:checked').attr('id'),
+        //    description: $("#inp-dec-description").text(),
+        //};
+
+        //var measurment = {
+        //    roomTypeId: $("#measurmentRoomTypeList").val(),
+        //    locationOptionId: $("#measurmentLocationOptionsList").val(),
+        //    bedRoomNumber: $(".inp-bedroom-number").val(),
+        //    //OptionId: $('input[type=radio][name=descTextureOptionsItem]:checked').attr('id'),
+        //    inpBuildingArea: $(".inp-building-area").val(),
+        //    yardArea: $(".inp-yard-area").val(),
+        //    descMeasurment: $(".inp-desc-measurment").text()
+        //};
+        //var capacity = {
+        //    standardCapacity: $(".inp-standard-capacity").val(),
+        //    singleBed: $(".inp-single-bed").val(),
+        //    maximumCapacity: $(".inp-maximum-capacity").val(),
+        //    doubleBed: $(".inp-double-bed").val(),
+        //    locationTypes: $('input[type=radio][name=capicityLocationTypesItem]:checked').attr('id'),
+        //    descCapacity: $(".inp-desc-capacity").text()
+        //}
+
+        //var options = {
+        //    options: $('input[type=radio][name=OptionsOptionsItem]:checked').attr('id'),
+        //    descOptions: $(".inp-desc-options")
+        //}
+
+        //var rules = {
+        //    interTime: $(".inp-inter-time").val(),
+        //    exitTime: $(".inp-exit-time").val(),
+        //    customRulesItem: $('input[type=radio][name=customRulesItem]:checked').attr('id'),
+        //    ruleDesc: $(".inp-rule-desc").val()
+        //}
+
+        //var cost = {
+        //    middleOfTheWeek: $(".inp-middle-of-the-week").val(),
+        //    holidays: $(".inp-holidays").val(),
+        //    weekend: $(".inp-weekend").val(),
+        //    extraPeople: $(".inp-extra-people").val(),
+        //    longBookingDiscount1Day: $(".inp-long-booking-discount-1-day").val(),
+        //    longBookingDiscount1Percent: $(".inp-long-booking-discount-1-percent").val(),
+        //    longBookingDiscount2Day: $(".inp-long-booking-discount-2-day").val(),
+        //    longBookingDiscount2Percent: $(".inp-long-booking-discount-2-percent").val()
+        //}
+
+        //var model = { files, location, description, measurment, capacity, options, rules, cost };
+        //var modelJson = JSON.stringify(model);
+        //console.log(modelJson);
+    }
+</script>

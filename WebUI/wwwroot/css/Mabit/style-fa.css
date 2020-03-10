@@ -1277,7 +1277,7 @@ input::-moz-focus-outer {
     background: none;
 }
 
-#telInput input, button {
+#telInput input, #telInput button {
     height: 50px;
     margin: 0;
     border-radius: 2px;

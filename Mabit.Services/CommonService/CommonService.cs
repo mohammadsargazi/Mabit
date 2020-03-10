@@ -43,6 +43,35 @@ namespace Mabit.Services.CommonService
         {
             return HttpHelper.GetAll<Province>("api/Common/Cities/" + provinceId, culture).Result;
         }
+
+        public List<BaseRelateModel> Options()
+        {
+            return HttpHelper.GetAll<BaseRelateModel>("api/Common/Options",culture).Result;
+        }
+        public List<BaseRelateModel> TextureOptions()
+        {
+            return HttpHelper.GetAll<BaseRelateModel>("api/Common/TextureOptions", culture).Result;
+        }
+        public List<BaseRelateModel> Structures()
+        {
+            return HttpHelper.GetAll<BaseRelateModel>("api/Common/Structures", culture).Result;
+        }
+        public List<BaseRelateModel> RoomTypes()
+        {
+            return HttpHelper.GetAll<BaseRelateModel>("api/Common/RoomTypes", culture).Result;
+        }
+        public List<BaseRelateModel> LocationOptions()
+        {
+            return HttpHelper.GetAll<BaseRelateModel>("api/Common/LocationOptions", culture).Result;
+        }
+        public List<BaseRelateModel> LocationTypes()
+        {
+            return HttpHelper.GetAll<BaseRelateModel>("api/Common/LocationTypes", culture).Result;
+        }
+        public List<BaseRelateModel> CustomRules()
+        {
+            return HttpHelper.GetAll<BaseRelateModel>("api/Common/CustomRules", culture).Result;
+        }
         #endregion
     }
 }

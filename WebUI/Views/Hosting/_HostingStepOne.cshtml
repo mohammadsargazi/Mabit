@@ -1,0 +1,92 @@
+﻿@{
+    var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
+}
+
+<style>
+    .container-role-singleunit{
+        display:block;
+    }
+    .container-role-hotel{
+        display:none;
+    }
+</style>
+<div class="items">
+    <div class="item">
+        <h5 localize-content>Add New Unit</h5>
+        <p>
+            You intend to register a hotel or house?
+        </p>
+        <div class="cat">
+            <div class="radio-wrapper">
+                <input type="radio"
+                       class="radios"
+                       id="singleUnit"
+                       name="catRadio" checked />
+                <label style="cursor:pointer" for="singleUnit" localize-content>
+                    <span class="outer">
+                        <span class="inner animated"></span>
+                    </span>
+                    Single Unit
+                </label>
+            </div>
+            <div class="radio-wrapper ml-5">
+                <input type="radio"
+                       class="radios"
+                       id="hotelOrMotel"
+                       name="catRadio" />
+                <label style="cursor:pointer" for="hotelOrMotel" localize-content>
+                    <span class="outer">
+                        <span class="inner animated"></span>
+                    </span>
+                    Hotel or Motel
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="item mb-1">
+
+        <div class="scrollbar" id="scrollbar-custom">
+            <div class="container-role-singleunit">
+                <h5 localize-content>Single Unit Rules</h5>
+                <partial name="_UnitHostingRole" />
+            </div>
+            <div class="container-role-hotel">
+                <h5 localize-content>Hotel Rules</h5>
+                <partial name="_HotelHostingRole" />
+            </div>
+        </div>
+        <div class="cat">
+            <div class="radio-wrapper">
+                <input type="radio"
+                       class="radios"
+                       id="radio3"
+                       name="rules" />
+                <label for="radio3" localize-content>
+                    <span class="outer">
+                        <span class="inner animated"></span>
+                    </span>
+                    Agree
+                </label>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="btn-container p-1">
+    <button type="button"
+            class="btn-step res-btn-orange mb-2 btn"
+            data-class=".res-form-one" localize-content>
+        Next
+    </button>
+</div>
+
+<script>
+    $("#singleUnit").click(function () {
+        $(".container-role-singleunit").css("display", "block");
+        $(".container-role-hotel").css("display", "none");
+    });
+     $("#hotelOrMotel").click(function () {
+        $(".container-role-singleunit").css("display", "none");
+        $(".container-role-hotel").css("display", "block");
+    });
+</script>

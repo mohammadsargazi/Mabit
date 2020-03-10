@@ -90,3 +90,398 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+h1 {
+    font-weight: bold;
+}
+
+.navbar {
+    position: fixed !important;
+    z-index: 999 !important;
+}
+
+.iti__country-list {
+    width: 250px !important;
+}
+.credit-sign-plus {
+    position: relative;
+    bottom: 3px;
+}
+
+    .credit-sign-plus i {
+        padding: 6px 5px;
+        font-size: 10px;
+    }
+
+.brd-r-15 {
+    border-radius: 15px;
+}
+
+.mabit-middle-gray {
+    color: #acacac;
+}
+
+.mabit-light-gray {
+    color: #cfcfcf;
+}
+
+
+.credit-sign-plus {
+    position: relative;
+    bottom: 3px;
+}
+
+.credit-sign-plus i {
+    padding: 5px;
+    font-size: 10px;
+}
+
+.brd-r-15 {
+    border-radius: 15px;
+}
+
+.mabit-middle-gray {
+    color: #acacac;
+}
+
+.mabit-light-gray {
+    color: #cfcfcf;
+}
+
+.active-link-dashboard2 {
+    font-weight: bold;
+}
+
+.pt-50 {
+    padding-top: 50px;
+}
+
+/*wizard*/
+
+h1 {
+    color: #fff;
+    margin: 15px;
+    padding: 15px;
+}
+
+.main {
+    height: 50%;
+}
+
+    .main .progress {
+        margin: 11px;
+        height: 2px;
+        background-color: #d3d3d3;
+        margin-top: 45px;
+        width: 365px;
+    }
+
+        .main .progress .progress-bar {
+            height: 15px;
+            color: #eeeeee;
+        }
+
+    .main .progreso1 {
+        transition-delay: 4s;
+        transition: all 0.45s ease-in-out;
+        width: 34.333333%;
+        animation: 0.5s;
+        background-color: #66ccff;
+    }
+
+@media (max-width: 768px) {
+    .container .main .progreso1 {
+        width: 34%;
+    }
+}
+
+.main .progreso2 {
+    width: 69.3333%;
+    animation: 0.5s;
+    background-color: #66ccff;
+    transition: all 0.45s ease;
+}
+
+@media (max-width: 768px) {
+    .container .main .progreso2 {
+        width: 73%;
+    }
+}
+
+.main .progreso3 {
+    width: 100%;
+    animation: 0.5s;
+    background-color: #66ccff;
+    transition: all 0.45s ease;
+}
+
+.main .block1 {
+    position: absolute;
+    margin: 0 0%;
+    border-radius: 50%;
+    background-color: #d3d3d3;
+    height: 25px;
+    width: 25px;
+    top: 0px;
+    padding: 4px;
+    margin-top: 33px;
+}
+
+.block11 {
+    position: absolute;
+    margin: 0 0%;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #4567f4;
+    height: 25px;
+    width: 25px;
+    top: 0px;
+    padding: 2px;
+    margin-top: 33px;
+}
+
+.main .block2, .block22 {
+    position: absolute;
+    margin: 0 25.33333%;
+    border-radius: 50%;
+    background-color: #d3d3d3;
+    height: 25px;
+    width: 25px;
+    top: 0px;
+    padding: 4px;
+    margin-top: 33px;
+}
+
+@media (max-width: 768px) {
+    .container .main .block2 {
+        margin: 0 31.5%;
+        margin-top: 90px;
+    }
+}
+
+.main .block3, .block33 {
+    position: absolute;
+    margin: 0 53%;
+    border-radius: 50%;
+    background-color: #d3d3d3;
+    height: 25px;
+    width: 25px;
+    top: 0px;
+    padding: 4px;
+    margin-top: 33px;
+}
+
+@media (max-width: 768px) {
+    .container .main .block3 {
+        margin: 0 62.5%;
+        margin-top: 90px;
+    }
+}
+
+.main .block4, .block44 {
+    position: absolute;
+    margin: 0 80%;
+    border-radius: 50%;
+    background-color: #d3d3d3;
+    height: 25px;
+    width: 25px;
+    top: 0px;
+    padding: 4px;
+    margin-top: 33px;
+}
+
+@media (max-width: 570px) {
+    .container .main .block4 {
+        margin: 0 86.5% !important;
+        margin-top: 90px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .container .main .block4 {
+        margin: 0 90.5%;
+        margin-top: 90px;
+    }
+}
+
+.main .circulo {
+    border-radius: 50%;
+    margin: 1px;
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    background-color: #d3d3d3;
+    top: 0;
+}
+
+.main .fa-check {
+    font-size: 11px;
+    color: #4567f4;
+    padding: 2px;
+}
+
+.main .fa-times {
+    font-size: 11px;
+    color: #ed500a;
+    padding: 2px;
+    padding-left: 3px;
+}
+
+.main .activeblock2 {
+    position: absolute;
+    margin: 0 25.33333%;
+    border-radius: 50%;
+    background-color: #d3d3d3 !important;
+    height: 25px;
+    width: 25px;
+    top: 0px;
+    padding: 4px;
+    margin-top: 33px;
+}
+
+.main .activeblock22 {
+    position: absolute;
+    margin: 0 25.33333%;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #4567f4;
+    height: 25px;
+    width: 25px;
+    top: 0px;
+    padding:1px 4px;
+    margin-top: 33px;
+}
+
+.main .deactiveblock22 {
+    position: absolute;
+    margin: 0 25.33333%;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #ed500a;
+    height: 25px;
+    width: 25px;
+    top: 0px;
+    padding: 1px 4px;
+    margin-top: 33px;
+}
+
+.main .activeblock3 {
+    position: absolute;
+    margin: 0 53%;
+    border-radius: 50%;
+    background-color: #d3d3d3;
+    height: 25px;
+    width: 25px;
+    top: 0px;
+    padding: 4px;
+    margin-top: 33px;
+}
+
+.activeblock33 {
+    position: absolute;
+    margin: 0 53%;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #4567f4;
+    height: 25px;
+    width: 25px;
+    top: 0px;
+    padding:1px 4px;
+    margin-top: 33px;
+}
+
+.main .activeblock4 {
+    position: absolute;
+    margin: 0 80%;
+    border-radius: 50%;
+    background-color: #d3d3d3;
+    height: 25px;
+    width: 25px;
+    top: 0px;
+    padding: 4px;
+    margin-top: 33px;
+}
+
+.activeblock44 {
+    position: absolute;
+    margin: 0 80%;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #4567f4;
+    height: 25px;
+    width: 25px;
+    top: 0px;
+    padding:1px 4px;
+    margin-top: 33px;
+}
+
+@media (max-width: 768px) {
+    .main .activeblock4 {
+        margin: 0 80%;
+        margin-top: 90px;
+    }
+}
+
+@media (min-width: 510px) and (max-width: 600px) {
+    .main .activeblock4 {
+        margin: 0 89.5%;
+        margin-top: 90px;
+    }
+}
+
+@media (min-width: 368px) and (max-width: 509px) {
+    .main .activeblock4 {
+        margin: 0 86%;
+        margin-top: 90px;
+    }
+}
+
+@media (min-width: 200px) and (max-width: 367px) {
+    .main .activeblock4 {
+        margin: 0 86%;
+        margin-top: 90px;
+    }
+}
+
+.main .activecirculo {
+    border-radius: 50%;
+    height: 12px;
+    width: 12px;
+    background-color: #4567f4;
+    margin: 2.5px;
+}
+
+.wizard-label {
+    position: relative;
+    top: 10px;
+    left: -8px;
+}
+
+.wizard-label-without-icon {
+    position: relative;
+    top: 30px;
+    left: -8px;
+}
+
+.btn-cancel {
+    border: 1px solid #ed500a;
+    color: #ed500a;
+    border-radius: 10px;
+}
+
+    .btn-cancel:hover {
+        color: #fff;
+        background: #ed500a;
+        transition: .5s ease;
+    }
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.request-btn {
+    color: #fff;
+    background: #4567f4;
+    border-radius: 10px;
+    font-size: 15px;
+}
+

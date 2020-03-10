@@ -1,0 +1,78 @@
+﻿@{
+    var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
+}
+
+<div class="items">
+    <div class="item mb-0">
+        <h5>Capacity</h5>
+        <p class="mb-0">
+            Determine the capacity of the home and the number of single and double beds
+        </p>
+    </div>
+    <div class="col-8">
+        <div class="row">
+            <div class="col-6">
+                <input type="number" placeholder="Standard capacity"
+                       class="form-control bg-input inp-standard-capacity">
+                <input type="number" placeholder="Single bed"
+                       class="form-control bg-input inp-single-bed">
+            </div>
+            <div class="col-6">
+                <input type="number" placeholder="Maximum capacity"
+                       class="form-control bg-input inp-maximum-capacity">
+                <input type="number" placeholder="Double bed"
+                       class="form-control bg-input inp-double-bed">
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="item mb-3 pl-0 ml-0">
+            <h5 localize-content>Local texture</h5>
+            <p class="mb-0" localize-content>
+                Specify the location of the residence and its local texture
+            </p>
+        </div>
+        <div class="mb-3">
+            <div class="col-12 ml-0 pl-0 d-flex flex-wrap justify-content-between">
+                @foreach (var item in Model.LocationTypes)
+                {
+                    <div class="col-3">
+                        <div class="radio-wrapper">
+                            <input type="checkbox"
+                                   class="radios"
+                                   id="capacity_@(item.id)"
+                                   name="capicityLocationTypesItem" />
+                            <label for="capacity_@(item.id)">
+                                <span class="outer">
+                                    <span class="inner animated"></span>
+                                </span>
+                                @(item.title)
+                            </label>
+                        </div>
+                    </div>
+                }
+            </div>
+            
+        </div>
+        <div class="col-8">
+            <div class="row">
+                <div class="col-12 ml-0 pl-0">
+                    <textarea placeholder="Description"
+                              class="form-control bg-input mt-0 inp-desc-capacity" name="desc"
+                              cols="30" rows="5"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="btn-container p-1">
+    <button type="button" class="btn-step-prev res-btn-gray btn"
+            data-class=".res-form-six">
+        Back
+    </button>
+    <button type="button"
+            class="btn-step res-btn-orange mb-2 btn"
+            data-class=".res-form-six">
+        Next
+    </button>
+</div>

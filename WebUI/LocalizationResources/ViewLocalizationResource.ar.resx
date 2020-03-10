@@ -243,6 +243,18 @@
   <data name="about us" xml:space="preserve">
     <value>نحن ما</value>
   </data>
+  <data name="about us1" xml:space="preserve">
+    <value>نحن ما</value>
+  </data>
+  <data name="accept" xml:space="preserve">
+    <value>تقبل</value>
+  </data>
+  <data name="accept1" xml:space="preserve">
+    <value>قبول</value>
+  </data>
+  <data name="accepted" xml:space="preserve">
+    <value>تم قبوله</value>
+  </data>
   <data name="Access denied" xml:space="preserve">
     <value>تم الرفض</value>
     <comment>Areas/Identity/Pages/Account/AccessDenied.cshtml</comment>
@@ -250,6 +262,9 @@
   <data name="Access denied1" xml:space="preserve">
     <value>تم الرفض</value>
     <comment>Areas/Identity/Pages/Account/AccessDenied.cshtml</comment>
+  </data>
+  <data name="active" xml:space="preserve">
+    <value>فعال</value>
   </data>
   <data name="Add another service to log in." xml:space="preserve">
     <value>إضافة خدمة أخرى لتسجيل الدخول.</value>
@@ -267,8 +282,26 @@
     <value>إضافة التطبيق الموثق</value>
     <comment>Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml</comment>
   </data>
+  <data name="add image" xml:space="preserve">
+    <value>إضافة الصورة</value>
+  </data>
+  <data name="add new" xml:space="preserve">
+    <value>إضافة عنصر جديد</value>
+  </data>
+  <data name="add new unit" xml:space="preserve">
+    <value>إضافة وحدة سکنیة جدیدة</value>
+  </data>
   <data name="address" xml:space="preserve">
     <value>عنوان</value>
+  </data>
+  <data name="address1" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="address2" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="agree" xml:space="preserve">
+    <value>قبول</value>
   </data>
   <data name="Air conditioning" xml:space="preserve">
     <value>مکیفه الهواء</value>
@@ -276,7 +309,19 @@
   <data name="Air conditioning1" xml:space="preserve">
     <value>مکیف</value>
   </data>
+  <data name="Air conditioning2" xml:space="preserve">
+    <value>مکیفه الهواء</value>
+  </data>
+  <data name="Air conditioning3" xml:space="preserve">
+    <value>مکیف</value>
+  </data>
+  <data name="all reserves" xml:space="preserve">
+    <value>حجوزات</value>
+  </data>
   <data name="Allow party" xml:space="preserve">
+    <value>إمكانية عقد الاحتفالات</value>
+  </data>
+  <data name="Allow party1" xml:space="preserve">
     <value>إمكانية عقد الاحتفالات</value>
   </data>
   <data name="An error occurred while processing your request." xml:space="preserve">
@@ -293,7 +338,16 @@
   <data name="Apartment1" xml:space="preserve">
     <value>الشقة</value>
   </data>
+  <data name="apartment2" xml:space="preserve">
+    <value>شقة</value>
+  </data>
+  <data name="Apartment3" xml:space="preserve">
+    <value>الشقة</value>
+  </data>
   <data name="app download" xml:space="preserve">
+    <value>تنزيل التطبيق</value>
+  </data>
+  <data name="app download1" xml:space="preserve">
     <value>تنزيل التطبيق</value>
   </data>
   <data name="Associate your {0} account." xml:space="preserve">
@@ -304,10 +358,19 @@
     <value>إقران {0} الحساب.</value>
     <comment>Areas/Identity/Pages/Account/ExternalLogin.cshtml</comment>
   </data>
+  <data name="back" xml:space="preserve">
+    <value>سابق</value>
+  </data>
   <data name="Barbecue" xml:space="preserve">
     <value>الشواء</value>
   </data>
   <data name="Barbecue1" xml:space="preserve">
+    <value>شوایه</value>
+  </data>
+  <data name="Barbecue2" xml:space="preserve">
+    <value>الشواء</value>
+  </data>
+  <data name="Barbecue3" xml:space="preserve">
     <value>شوایه</value>
   </data>
   <data name="Bathroom" xml:space="preserve">
@@ -316,7 +379,16 @@
   <data name="Bathroom1" xml:space="preserve">
     <value>الحمام</value>
   </data>
+  <data name="Bathroom2" xml:space="preserve">
+    <value>مرحاض</value>
+  </data>
+  <data name="Bathroom3" xml:space="preserve">
+    <value>الحمام</value>
+  </data>
   <data name="be hosting" xml:space="preserve">
+    <value>کن مستضیف</value>
+  </data>
+  <data name="be hosting1" xml:space="preserve">
     <value>کن مستضیف</value>
   </data>
   <data name="Best of week" xml:space="preserve">
@@ -325,8 +397,14 @@
   <data name="best of week1" xml:space="preserve">
     <value>أفضل من الأسبوع</value>
   </data>
+  <data name="best of week2" xml:space="preserve">
+    <value>أفضل من الأسبوع</value>
+  </data>
   <data name="BOOK YOUR CHECKED HOME" xml:space="preserve">
     <value>ملاحظة الحجز</value>
+  </data>
+  <data name="booking report" xml:space="preserve">
+    <value>تقاریرالحجز</value>
   </data>
   <data name="Breakfast" xml:space="preserve">
     <value>فطور</value>
@@ -334,10 +412,40 @@
   <data name="Breakfast1" xml:space="preserve">
     <value>الفطور</value>
   </data>
+  <data name="Breakfast2" xml:space="preserve">
+    <value>فطور</value>
+  </data>
+  <data name="Breakfast3" xml:space="preserve">
+    <value>الفطور</value>
+  </data>
+  <data name="building area" xml:space="preserve">
+    <value>مساحة البناء</value>
+  </data>
+  <data name="calendar" xml:space="preserve">
+    <value>التقویم</value>
+  </data>
+  <data name="calendar guid" xml:space="preserve">
+    <value>دلیل التقویم</value>
+  </data>
   <data name="cancel" xml:space="preserve">
     <value>إلغاء</value>
   </data>
+  <data name="cancel1" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="canceled" xml:space="preserve">
+    <value>ألغيت</value>
+  </data>
+  <data name="canceled1" xml:space="preserve">
+    <value>الغيت</value>
+  </data>
+  <data name="capacity" xml:space="preserve">
+    <value>سعة</value>
+  </data>
   <data name="cash" xml:space="preserve">
+    <value>دفع نقدا</value>
+  </data>
+  <data name="cash1" xml:space="preserve">
     <value>دفع نقدا</value>
   </data>
   <data name="CCTV" xml:space="preserve">
@@ -345,6 +453,12 @@
   </data>
   <data name="CCTV1" xml:space="preserve">
     <value>کامیرا المراقبه</value>
+  </data>
+  <data name="CCTV2" xml:space="preserve">
+    <value>کامیرات المراقبة</value>
+  </data>
+  <data name="CCTV3" xml:space="preserve">
+    <value>کامیرا المراقبة</value>
   </data>
   <data name="Change password" xml:space="preserve">
     <value>غير كلمة السر</value>
@@ -365,10 +479,19 @@
   <data name="changing password" xml:space="preserve">
     <value>تغيير كلمة المرور</value>
   </data>
+  <data name="changing password1" xml:space="preserve">
+    <value>تغيير كلمة المرور</value>
+  </data>
   <data name="charging credit" xml:space="preserve">
     <value>شحن الرصید</value>
   </data>
+  <data name="charging credit1" xml:space="preserve">
+    <value>شحن الرصید</value>
+  </data>
   <data name="chat" xml:space="preserve">
+    <value>دردشة</value>
+  </data>
+  <data name="chat1" xml:space="preserve">
     <value>دردشة</value>
   </data>
   <data name="Check in" xml:space="preserve">
@@ -377,11 +500,20 @@
   <data name="check in1" xml:space="preserve">
     <value>تسجیل الوصول</value>
   </data>
+  <data name="check in2" xml:space="preserve">
+    <value>تسجیل الوصول</value>
+  </data>
   <data name="Check out" xml:space="preserve">
     <value>الخروج</value>
   </data>
   <data name="check out1" xml:space="preserve">
     <value>تسجیل المغادرة</value>
+  </data>
+  <data name="check out2" xml:space="preserve">
+    <value>تسجیل المغادرة</value>
+  </data>
+  <data name="city" xml:space="preserve">
+    <value>مدینة</value>
   </data>
   <data name="Collaborate with the purpose" xml:space="preserve">
     <value>المشارکة معنا</value>
@@ -413,20 +545,44 @@
   <data name="contact us" xml:space="preserve">
     <value>اتصال معنا</value>
   </data>
+  <data name="contact us1" xml:space="preserve">
+    <value>اتصال معنا</value>
+  </data>
   <data name="Cooking equipment" xml:space="preserve">
     <value>معدات الطبخ</value>
   </data>
   <data name="Cooking equipment1" xml:space="preserve">
     <value>معدات الطبخ</value>
   </data>
+  <data name="Cooking equipment2" xml:space="preserve">
+    <value>معدات الطبخ</value>
+  </data>
+  <data name="Cooking equipment3" xml:space="preserve">
+    <value>معدات الطبخ</value>
+  </data>
   <data name="Coordinate by phone before booking foreign guests" xml:space="preserve">
+    <value>یجب التنسیق عبرالهاتف قبل حجز الضیوف الأجانب</value>
+  </data>
+  <data name="Coordinate by phone before booking foreign guests1" xml:space="preserve">
     <value>یجب التنسیق عبرالهاتف قبل حجز الضیوف الأجانب</value>
   </data>
   <data name="cost" xml:space="preserve">
     <value>السعر</value>
   </data>
+  <data name="cost1" xml:space="preserve">
+    <value>السعر</value>
+  </data>
+  <data name="cost2" xml:space="preserve">
+    <value>سعر</value>
+  </data>
   <data name="Counter" xml:space="preserve">
     <value />
+  </data>
+  <data name="Counter1" xml:space="preserve">
+    <value>عداد</value>
+  </data>
+  <data name="country" xml:space="preserve">
+    <value>بلد</value>
   </data>
   <data name="Create a new account." xml:space="preserve">
     <value>انشاء حساب جديد.</value>
@@ -439,11 +595,29 @@
   <data name="credit" xml:space="preserve">
     <value>رصید</value>
   </data>
+  <data name="credit1" xml:space="preserve">
+    <value>رصید</value>
+  </data>
+  <data name="credit2" xml:space="preserve">
+    <value>إعتبار</value>
+  </data>
   <data name="current password" xml:space="preserve">
+    <value>كلمة المرور الحالية</value>
+  </data>
+  <data name="current password1" xml:space="preserve">
     <value>كلمة المرور الحالية</value>
   </data>
   <data name="date of departure" xml:space="preserve">
     <value>تاریخ الخروج</value>
+  </data>
+  <data name="deactive" xml:space="preserve">
+    <value>معطل</value>
+  </data>
+  <data name="decline" xml:space="preserve">
+    <value>رفض</value>
+  </data>
+  <data name="decline1" xml:space="preserve">
+    <value>الرفض</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>حذف</value>
@@ -453,10 +627,19 @@
     <value>حذف</value>
     <comment>PersonalData.cshtml</comment>
   </data>
+  <data name="description" xml:space="preserve">
+    <value>تفاسیر</value>
+  </data>
+  <data name="deselect all" xml:space="preserve">
+    <value>إلغاء جميع الاختيارات</value>
+  </data>
   <data name="Detail" xml:space="preserve">
     <value>التفاصيل</value>
   </data>
   <data name="detail1" xml:space="preserve">
+    <value>التفاصيل</value>
+  </data>
+  <data name="detail2" xml:space="preserve">
     <value>التفاصيل</value>
   </data>
   <data name="Development Mode" xml:space="preserve">
@@ -473,6 +656,12 @@
   <data name="Digital Receiver1" xml:space="preserve">
     <value>المتلقی الرقمی</value>
   </data>
+  <data name="Digital Receiver2" xml:space="preserve">
+    <value>المتلقي الرقمي</value>
+  </data>
+  <data name="Digital Receiver3" xml:space="preserve">
+    <value>المتلقی الرقمی</value>
+  </data>
   <data name="Disable 2FA" xml:space="preserve">
     <value>2FA تعطيل</value>
     <comment>Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml</comment>
@@ -482,6 +671,9 @@
     <comment>Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml</comment>
   </data>
   <data name="discount code" xml:space="preserve">
+    <value>رمز التخفيض</value>
+  </data>
+  <data name="discount code1" xml:space="preserve">
     <value>رمز التخفيض</value>
   </data>
   <data name="Don't have access to your authenticator device? You can &lt;a id=&quot;recovery-code-login&quot; href=&quot;{0}&quot;&gt;log in with a recovery code&lt;/a&gt;." xml:space="preserve">
@@ -494,6 +686,18 @@
   </data>
   <data name="done" xml:space="preserve">
     <value>تم فعله</value>
+  </data>
+  <data name="done1" xml:space="preserve">
+    <value>تم فعله</value>
+  </data>
+  <data name="done2" xml:space="preserve">
+    <value>تم فعله</value>
+  </data>
+  <data name="double" xml:space="preserve">
+    <value>ذات الطابقين</value>
+  </data>
+  <data name="Double bed" xml:space="preserve">
+    <value>سرير مزدوج</value>
   </data>
   <data name="Download" xml:space="preserve">
     <value>تحميل</value>
@@ -522,7 +726,16 @@
   <data name="Duplex" xml:space="preserve">
     <value>مزدوج (سكن)</value>
   </data>
+  <data name="Duplex1" xml:space="preserve">
+    <value>مزدوج (سكن)</value>
+  </data>
+  <data name="edit" xml:space="preserve">
+    <value>تعدیل</value>
+  </data>
   <data name="edit profile image" xml:space="preserve">
+    <value>تصحیح صورة الملف الشخصي</value>
+  </data>
+  <data name="edit profile image1" xml:space="preserve">
     <value>تصحیح صورة الملف الشخصي</value>
   </data>
   <data name="Elevator" xml:space="preserve">
@@ -531,8 +744,26 @@
   <data name="Elevator1" xml:space="preserve">
     <value>مصعد</value>
   </data>
+  <data name="Elevator2" xml:space="preserve">
+    <value>مصعد</value>
+  </data>
+  <data name="Elevator3" xml:space="preserve">
+    <value>مصعد</value>
+  </data>
   <data name="email" xml:space="preserve">
     <value>البريد الإلكتروني</value>
+  </data>
+  <data name="email1" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="empty" xml:space="preserve">
+    <value>فارغ</value>
+  </data>
+  <data name="empty homes" xml:space="preserve">
+    <value>منازل فارغة</value>
+  </data>
+  <data name="enter time" xml:space="preserve">
+    <value>زمن الدخول</value>
   </data>
   <data name="Enter your email." xml:space="preserve">
     <value>ادخل بريدك الإلكتروني.</value>
@@ -577,6 +808,12 @@
     <value>خطأ</value>
     <comment>Pages/Error.cshtml</comment>
   </data>
+  <data name="exit time" xml:space="preserve">
+    <value>زمن المغادرة</value>
+  </data>
+  <data name="exit time1" xml:space="preserve">
+    <value>زمن المغادرة</value>
+  </data>
   <data name="External logins" xml:space="preserve">
     <value>تسجيلات خارجية</value>
     <comment>Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml</comment>
@@ -585,23 +822,50 @@
     <value>تسجيلات خارجية</value>
     <comment>Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml</comment>
   </data>
+  <data name="Extra people" xml:space="preserve">
+    <value>مزید من الأشخاص</value>
+  </data>
   <data name="fail" xml:space="preserve">
+    <value>خطأ</value>
+  </data>
+  <data name="fail1" xml:space="preserve">
     <value>خطأ</value>
   </data>
   <data name="FAQ" xml:space="preserve">
     <value>أسئلة مكررة</value>
   </data>
+  <data name="FAQ1" xml:space="preserve">
+    <value>أسئلة مكررة</value>
+  </data>
   <data name="favourites" xml:space="preserve">
+    <value>المفضلة</value>
+  </data>
+  <data name="favourites1" xml:space="preserve">
     <value>المفضلة</value>
   </data>
   <data name="finance" xml:space="preserve">
     <value>المالية</value>
+  </data>
+  <data name="finance1" xml:space="preserve">
+    <value>المالية</value>
+  </data>
+  <data name="floor" xml:space="preserve">
+    <value>طبقة</value>
   </data>
   <data name="Folding sofa bed" xml:space="preserve">
     <value>سریر اریکه قابله للطی</value>
   </data>
   <data name="Folding sofa bed1" xml:space="preserve">
     <value>اریکه مطواه</value>
+  </data>
+  <data name="Folding sofa bed2" xml:space="preserve">
+    <value>سریر اریکه قابله للطي</value>
+  </data>
+  <data name="Folding sofa bed3" xml:space="preserve">
+    <value>اریکة مطواه</value>
+  </data>
+  <data name="forest" xml:space="preserve">
+    <value>غابة</value>
   </data>
   <data name="Forget this browser" xml:space="preserve">
     <value>ننسى هذا المتصفح</value>
@@ -630,7 +894,16 @@
   <data name="Frequently Asked Questions" xml:space="preserve">
     <value>أسئلة المكررة</value>
   </data>
+  <data name="fri" xml:space="preserve">
+    <value>الجمعة</value>
+  </data>
+  <data name="full" xml:space="preserve">
+    <value>ممتليء</value>
+  </data>
   <data name="full name" xml:space="preserve">
+    <value>الاسم الكامل</value>
+  </data>
+  <data name="full name1" xml:space="preserve">
     <value>الاسم الكامل</value>
   </data>
   <data name="Furniture" xml:space="preserve">
@@ -639,7 +912,16 @@
   <data name="Furniture1" xml:space="preserve">
     <value>اراءک</value>
   </data>
+  <data name="Furniture2" xml:space="preserve">
+    <value>اریکه</value>
+  </data>
+  <data name="Furniture3" xml:space="preserve">
+    <value>ارائک</value>
+  </data>
   <data name="gender" xml:space="preserve">
+    <value>جنس</value>
+  </data>
+  <data name="gender1" xml:space="preserve">
     <value>جنس</value>
   </data>
   <data name="Generate Recovery Codes" xml:space="preserve">
@@ -669,13 +951,31 @@
   <data name="Guaranteed Cleanliness" xml:space="preserve">
     <value />
   </data>
+  <data name="Guaranteed Cleanliness1" xml:space="preserve">
+    <value>ضمان نظافة البیت</value>
+  </data>
   <data name="Guard" xml:space="preserve">
     <value>حارس</value>
   </data>
   <data name="Guard1" xml:space="preserve">
     <value>حارس</value>
   </data>
+  <data name="Guard2" xml:space="preserve">
+    <value>حارس</value>
+  </data>
+  <data name="Guard3" xml:space="preserve">
+    <value>حارس</value>
+  </data>
+  <data name="guest name" xml:space="preserve">
+    <value>اسم الضیف</value>
+  </data>
+  <data name="guest number" xml:space="preserve">
+    <value>عددالضیوف</value>
+  </data>
   <data name="guide" xml:space="preserve">
+    <value>إرشاد</value>
+  </data>
+  <data name="guide1" xml:space="preserve">
     <value>إرشاد</value>
   </data>
   <data name="Heating" xml:space="preserve">
@@ -684,6 +984,12 @@
   <data name="Heating1" xml:space="preserve">
     <value>تدفئه</value>
   </data>
+  <data name="Heating2" xml:space="preserve">
+    <value>تدفئة</value>
+  </data>
+  <data name="Heating3" xml:space="preserve">
+    <value>تدفئة</value>
+  </data>
   <data name="Hello {0}!" xml:space="preserve">
     <value>مرحبا {0}!</value>
     <comment>Pages/Shared/_LoginPartial.cshtml</comment>
@@ -691,6 +997,9 @@
   <data name="Hello {0}!1" xml:space="preserve">
     <value>مرحبا {0}!</value>
     <comment>Pages/Shared/_LoginPartial.cshtml</comment>
+  </data>
+  <data name="Holidays" xml:space="preserve">
+    <value>العطل</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>الصفحة الرئيسية</value>
@@ -709,17 +1018,47 @@
   <data name="home2" xml:space="preserve">
     <value>الصفحة الرئیسیة</value>
   </data>
+  <data name="home3" xml:space="preserve">
+    <value>الصفحة الرئیسیة</value>
+  </data>
+  <data name="homepage image" xml:space="preserve">
+    <value>الصورة الرئیسیة</value>
+  </data>
   <data name="hosting" xml:space="preserve">
+    <value>الاستضافة</value>
+  </data>
+  <data name="hosting1" xml:space="preserve">
     <value>الاستضافة</value>
   </data>
   <data name="Hotel" xml:space="preserve">
     <value>فندق</value>
   </data>
+  <data name="hotel and motel" xml:space="preserve">
+    <value>الفندق والموتیل</value>
+  </data>
+  <data name="Hotel1" xml:space="preserve">
+    <value>فندق</value>
+  </data>
+  <data name="hotel2" xml:space="preserve">
+    <value>الفندق</value>
+  </data>
   <data name="houses" xml:space="preserve">
+    <value>البیوت</value>
+  </data>
+  <data name="houses1" xml:space="preserve">
     <value>البیوت</value>
   </data>
   <data name="How to host" xml:space="preserve">
     <value>کیف نستضیف</value>
+  </data>
+  <data name="How to host1" xml:space="preserve">
+    <value>کیف نستضیف</value>
+  </data>
+  <data name="images" xml:space="preserve">
+    <value>الصور</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>الدخول</value>
   </data>
   <data name="Incorrect username or password" xml:space="preserve">
     <value>اسم المستخدم أو كلمة المرور غير صحيحة</value>
@@ -729,6 +1068,18 @@
   </data>
   <data name="indoor swimming pool1" xml:space="preserve">
     <value>حمام سباحه داخلی</value>
+  </data>
+  <data name="indoor swimming pool2" xml:space="preserve">
+    <value>مسبح مغلق</value>
+  </data>
+  <data name="indoor swimming pool3" xml:space="preserve">
+    <value>حمام سباحه داخلی</value>
+  </data>
+  <data name="information" xml:space="preserve">
+    <value>معلومات</value>
+  </data>
+  <data name="inter time" xml:space="preserve">
+    <value>زمن الدخول</value>
   </data>
   <data name="Invalid authenticator code." xml:space="preserve">
     <value>كود الموثق صالح.</value>
@@ -757,16 +1108,31 @@
   <data name="invite friends" xml:space="preserve">
     <value>دعوة الأصدقاء</value>
   </data>
+  <data name="invite friends1" xml:space="preserve">
+    <value>دعوة الأصدقاء</value>
+  </data>
   <data name="It has a yard" xml:space="preserve">
     <value>لديه فناء</value>
   </data>
+  <data name="It has a yard1" xml:space="preserve">
+    <value>لديه فناء</value>
+  </data>
   <data name="join us" xml:space="preserve">
+    <value>انضم إلينا</value>
+  </data>
+  <data name="join us1" xml:space="preserve">
     <value>انضم إلينا</value>
   </data>
   <data name="LCD TV" xml:space="preserve">
     <value>تلفاز Lcd</value>
   </data>
   <data name="LCD TV1" xml:space="preserve">
+    <value>تلفاز ال سی دی</value>
+  </data>
+  <data name="LCD TV2" xml:space="preserve">
+    <value>تلفاز Lcd</value>
+  </data>
+  <data name="LCD TV3" xml:space="preserve">
     <value>تلفاز ال سی دی</value>
   </data>
   <data name="Learn about &lt;a href=&quot;{0}&quot;&gt;building Web apps with ASP.NET Core&lt;/a&gt;." xml:space="preserve">
@@ -780,6 +1146,9 @@
   <data name="list of Your Residences" xml:space="preserve">
     <value>قائمة مساکنک</value>
   </data>
+  <data name="list of Your Residences1" xml:space="preserve">
+    <value>قائمة مساکنک</value>
+  </data>
   <data name="List your property" xml:space="preserve">
     <value>قائمة المساکن</value>
   </data>
@@ -788,6 +1157,9 @@
   </data>
   <data name="location type" xml:space="preserve">
     <value />
+  </data>
+  <data name="location type1" xml:space="preserve">
+    <value>نوع المکان</value>
   </data>
   <data name="Locked out" xml:space="preserve">
     <value>اقفل</value>
@@ -832,17 +1204,34 @@
   <data name="login2" xml:space="preserve">
     <value>الدخول</value>
   </data>
+  <data name="login3" xml:space="preserve">
+    <value>الدخول</value>
+  </data>
   <data name="logout" xml:space="preserve">
     <value>خروج</value>
   </data>
+  <data name="logout1" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="Long booking discount" xml:space="preserve">
+    <value>تخفیضات لحجوزات طویلة المدی</value>
+  </data>
   <data name="Lost Cost And High Quality" xml:space="preserve">
     <value />
+  </data>
+  <data name="Lost Cost And High Quality1" xml:space="preserve">
+    <value>بأقل رسم و أعلی جودة</value>
   </data>
   <data name="MABIT COMPANY" xml:space="preserve">
     <value>مجموعة مبیت</value>
   </data>
   <data name="Mabit intends to take a big step towards tourism and introduce Iran to neighboring countries by focusing on Iranian and foreign tourists.&#xA;To this end, the system started its activity by renting accommodation, hotels and other accommodation and booking online.&#xA;It is hoped that with the satisfaction of our guests and hosts, we can take a big step in the direction of Iranian tourism." xml:space="preserve">
     <value />
+  </data>
+  <data name="Mabit intends to take a big step towards tourism and introduce Iran to neighboring countries by focusing on Iranian and foreign tourists.&#xA;To this end, the system started its activity by renting accommodation, hotels and other accommodation and booking online.&#xA;It is hoped that with the satisfaction of our guests and hosts, we can take a big step in the direction of Iranian tourism.1" xml:space="preserve">
+    <value>تهدف شرکة مبیت اتخاذ خطوة كبيرة نحو السياحة وتٌعرف إيران علی الدول المجاورة من خلال التركيز على السٌياح ألأجانب.
+و بسبب تحقیق هذه الغاية ، بدأت شرکة مبیت نشاطاتها من خلال ایجار أماكن الإقامة والفنادق وأماكن المشابه الأخرى , حجزها عبر الإنترنت.
+نأمل مع الموافقة و الإرتیاح لضیوفنا و المضیفین یمکننا أن نتخذ خطوة کبیرة في مجال السیاحة في ايران .</value>
   </data>
   <data name="Manage" xml:space="preserve">
     <value>الإدارة</value>
@@ -868,8 +1257,29 @@
     <value>الإدارة</value>
     <comment>Pages/Shared/_LoginPartial.cshtml</comment>
   </data>
+  <data name="manual reserves" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Maximum capacity" xml:space="preserve">
+    <value>السعة القصوی</value>
+  </data>
+  <data name="measurment" xml:space="preserve">
+    <value>مساحة</value>
+  </data>
   <data name="messagges" xml:space="preserve">
     <value>رسائل</value>
+  </data>
+  <data name="messagges1" xml:space="preserve">
+    <value>رسائل</value>
+  </data>
+  <data name="middle of the week" xml:space="preserve">
+    <value>منتصف الأسبوع</value>
+  </data>
+  <data name="Minimum reservation" xml:space="preserve">
+    <value>الحدالأدنی للحجز</value>
+  </data>
+  <data name="mon" xml:space="preserve">
+    <value>الإثنين</value>
   </data>
   <data name="Most Popular cities" xml:space="preserve">
     <value>المدن الأكثر شعبية</value>
@@ -877,17 +1287,47 @@
   <data name="Most Popular cities1" xml:space="preserve">
     <value>المدن الأكثر شعبية</value>
   </data>
+  <data name="Most Popular cities2" xml:space="preserve">
+    <value>المدن الأكثر شعبية</value>
+  </data>
   <data name="motel" xml:space="preserve">
     <value />
+  </data>
+  <data name="motel1" xml:space="preserve">
+    <value>النزل</value>
+  </data>
+  <data name="mountain" xml:space="preserve">
+    <value>الجبلیة</value>
   </data>
   <data name="my reservations" xml:space="preserve">
     <value>حجوزاتي</value>
   </data>
+  <data name="my reservations1" xml:space="preserve">
+    <value>حجوزاتي</value>
+  </data>
+  <data name="my units" xml:space="preserve">
+    <value>وحداتي السکنیة</value>
+  </data>
   <data name="new password" xml:space="preserve">
     <value>كلمة مرور جديدة</value>
   </data>
+  <data name="new password1" xml:space="preserve">
+    <value>كلمة مرور جديدة</value>
+  </data>
+  <data name="next" xml:space="preserve">
+    <value>تالي</value>
+  </data>
+  <data name="normal" xml:space="preserve">
+    <value>عادي</value>
+  </data>
   <data name="notification" xml:space="preserve">
     <value>إعلان</value>
+  </data>
+  <data name="notification1" xml:space="preserve">
+    <value>إعلان</value>
+  </data>
+  <data name="notifications" xml:space="preserve">
+    <value>الإعلامات</value>
   </data>
   <data name="Once you have scanned the QR code or input the key above, your two factor authentication app will provide you with a unique code. Enter the code in the confirmation box below." xml:space="preserve">
     <value>وبمجرد الانتهاء من تفحص رمز الاستجابة السريعة أو إدخال مفتاح أعلاه، سيكون لديك التطبيق المصادقة اثنين عامل توفر لك مع رمز فريد من نوعه. أدخل رمز في مربع التأكيد أدناه.</value>
@@ -900,17 +1340,41 @@
   <data name="One floor" xml:space="preserve">
     <value>في مستوی واحد</value>
   </data>
+  <data name="One floor1" xml:space="preserve">
+    <value>في مستوی واحد</value>
+  </data>
   <data name="open pool" xml:space="preserve">
     <value>مسبح مفتوح</value>
   </data>
   <data name="open pool1" xml:space="preserve">
     <value>حمام سباحه خارجی</value>
   </data>
+  <data name="open pool2" xml:space="preserve">
+    <value>مسبح مفتوح</value>
+  </data>
+  <data name="open pool3" xml:space="preserve">
+    <value>حمام سباحه خارجی</value>
+  </data>
   <data name="options" xml:space="preserve">
     <value>خیارات</value>
   </data>
+  <data name="options1" xml:space="preserve">
+    <value>خیارات</value>
+  </data>
+  <data name="options2" xml:space="preserve">
+    <value>خیارات</value>
+  </data>
+  <data name="Our goal: &#xA;Mabit intends to take a big step towards tourism and introduce Iran to neighboring countries by focusing on Iranian and foreign tourists. To this end, Mabit started its activity by renting accommodation, hotels and other accommodation and booking it online. We hope you enjoy our team's activities." xml:space="preserve">
+    <value />
+  </data>
   <data name="our team" xml:space="preserve">
     <value>مجموعتنا</value>
+  </data>
+  <data name="our team1" xml:space="preserve">
+    <value>مجموعتنا</value>
+  </data>
+  <data name="out" xml:space="preserve">
+    <value>الخروج</value>
   </data>
   <data name="package" xml:space="preserve">
     <value>حزمه</value>
@@ -918,10 +1382,25 @@
   <data name="package1" xml:space="preserve">
     <value>نظام التدفءه</value>
   </data>
+  <data name="package2" xml:space="preserve">
+    <value>حزمة</value>
+  </data>
+  <data name="package3" xml:space="preserve">
+    <value>نظام التدفئة</value>
+  </data>
+  <data name="paid" xml:space="preserve">
+    <value>تم دفعه</value>
+  </data>
   <data name="Parking" xml:space="preserve">
     <value>موقف السیارات</value>
   </data>
   <data name="Parking1" xml:space="preserve">
+    <value>موقف سیارات</value>
+  </data>
+  <data name="Parking2" xml:space="preserve">
+    <value>موقف السیارات</value>
+  </data>
+  <data name="Parking3" xml:space="preserve">
     <value>موقف سیارات</value>
   </data>
   <data name="Password" xml:space="preserve">
@@ -943,11 +1422,26 @@
   <data name="Password2" xml:space="preserve">
     <value>كلمه السر</value>
   </data>
+  <data name="Password3" xml:space="preserve">
+    <value>كلمه السر</value>
+  </data>
   <data name="payment" xml:space="preserve">
     <value>دفع</value>
   </data>
   <data name="payment history" xml:space="preserve">
     <value>تاريخ الدفع</value>
+  </data>
+  <data name="payment history1" xml:space="preserve">
+    <value>تاريخ الدفع</value>
+  </data>
+  <data name="payment1" xml:space="preserve">
+    <value>دفع</value>
+  </data>
+  <data name="pending" xml:space="preserve">
+    <value>في الإنتظار</value>
+  </data>
+  <data name="percent" xml:space="preserve">
+    <value>في المئة</value>
   </data>
   <data name="Personal Data" xml:space="preserve">
     <value>بيانات شخصية</value>
@@ -960,10 +1454,19 @@
   <data name="personal info" xml:space="preserve">
     <value>معلومات شخصية</value>
   </data>
+  <data name="personal info1" xml:space="preserve">
+    <value>معلومات شخصية</value>
+  </data>
   <data name="Pets can enter" xml:space="preserve">
     <value>أمکان دخول الحیوانات الألیفة</value>
   </data>
+  <data name="Pets can enter1" xml:space="preserve">
+    <value>أمکان دخول الحیوانات الألیفة</value>
+  </data>
   <data name="phone number" xml:space="preserve">
+    <value>رقم الهاتف</value>
+  </data>
+  <data name="phone number1" xml:space="preserve">
     <value>رقم الهاتف</value>
   </data>
   <data name="Please check your email to reset your password." xml:space="preserve">
@@ -1025,14 +1528,29 @@
   <data name="profile2" xml:space="preserve">
     <value>الملف الشخصي</value>
   </data>
+  <data name="profile3" xml:space="preserve">
+    <value>الملف الشخصي</value>
+  </data>
   <data name="Provide valid identification documents" xml:space="preserve">
     <value>یجب أن یکون معک وثائق الهویة</value>
+  </data>
+  <data name="Provide valid identification documents1" xml:space="preserve">
+    <value>یجب أن یکون معک وثائق الهویة</value>
+  </data>
+  <data name="province" xml:space="preserve">
+    <value>محافظة</value>
   </data>
   <data name="Provision of valid evidence is required in accordance with site rules" xml:space="preserve">
     <value>یجب تقدیم الوثائق وفقا لقوانین الموقع</value>
   </data>
+  <data name="Provision of valid evidence is required in accordance with site rules1" xml:space="preserve">
+    <value>یجب تقدیم الوثائق وفقا لقوانین الموقع</value>
+  </data>
   <data name="rate of" xml:space="preserve">
     <value>السعر</value>
+  </data>
+  <data name="ready" xml:space="preserve">
+    <value>جاهز للتسليم</value>
   </data>
   <data name="Ready Homes Delivery" xml:space="preserve">
     <value>بیوت جاهزة للتسلیم</value>
@@ -1062,6 +1580,9 @@
     <comment>Areas/Identity/Pages/Account/Register.cshtml</comment>
   </data>
   <data name="register2" xml:space="preserve">
+    <value>تسجيل</value>
+  </data>
+  <data name="register3" xml:space="preserve">
     <value>تسجيل</value>
   </data>
   <data name="Registered Logins" xml:space="preserve">
@@ -1096,10 +1617,16 @@
     <value>إزالة {0}</value>
     <comment>Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml</comment>
   </data>
+  <data name="rented homes" xml:space="preserve">
+    <value>بیوت مستأجرة</value>
+  </data>
   <data name="request" xml:space="preserve">
     <value>طلب</value>
   </data>
   <data name="request again" xml:space="preserve">
+    <value>طلب مرة أخری</value>
+  </data>
+  <data name="request again1" xml:space="preserve">
     <value>طلب مرة أخری</value>
   </data>
   <data name="Request ID:" xml:space="preserve">
@@ -1110,11 +1637,26 @@
     <value>طلب معرف:</value>
     <comment>Pages/Error.cshtml</comment>
   </data>
+  <data name="request1" xml:space="preserve">
+    <value>طلب</value>
+  </data>
   <data name="Resend email confirmation" xml:space="preserve">
     <value>إعادة إرسال التوثيق على البريد الإلكتروني</value>
   </data>
   <data name="Resend email confirmation1" xml:space="preserve">
     <value>إعادة إرسال التوثيق على البريد الإلكتروني</value>
+  </data>
+  <data name="reserve" xml:space="preserve">
+    <value>یوم</value>
+  </data>
+  <data name="reserved" xml:space="preserve">
+    <value>محجوز</value>
+  </data>
+  <data name="reserved request" xml:space="preserve">
+    <value>الطلبات المحجوزَة</value>
+  </data>
+  <data name="reserved1" xml:space="preserve">
+    <value>محجوزات</value>
   </data>
   <data name="Reset" xml:space="preserve">
     <value>إعادة تعيين</value>
@@ -1175,8 +1717,23 @@
   <data name="Residence Delivery Gurantee" xml:space="preserve">
     <value />
   </data>
+  <data name="Residence Delivery Gurantee1" xml:space="preserve">
+    <value>ضمان تسلیم الإقامة</value>
+  </data>
+  <data name="room" xml:space="preserve">
+    <value>غرفة</value>
+  </data>
+  <data name="room number" xml:space="preserve">
+    <value>رقم الغرفة</value>
+  </data>
   <data name="room type" xml:space="preserve">
     <value />
+  </data>
+  <data name="room type1" xml:space="preserve">
+    <value>نوع الغرفة</value>
+  </data>
+  <data name="rules" xml:space="preserve">
+    <value>قوانین</value>
   </data>
   <data name="Sample Form" xml:space="preserve">
     <value>نموذج عينة</value>
@@ -1186,10 +1743,19 @@
     <value>نموذج عينة</value>
     <comment>Pages/SampleForm.cshtml</comment>
   </data>
+  <data name="sat" xml:space="preserve">
+    <value>السبت</value>
+  </data>
   <data name="Satellite" xml:space="preserve">
     <value>ستلایت</value>
   </data>
   <data name="Satellite1" xml:space="preserve">
+    <value>ستلایت</value>
+  </data>
+  <data name="Satellite2" xml:space="preserve">
+    <value>ستلایت</value>
+  </data>
+  <data name="Satellite3" xml:space="preserve">
     <value>ستلایت</value>
   </data>
   <data name="Save" xml:space="preserve">
@@ -1200,14 +1766,29 @@
     <value>حفظ</value>
     <comment>Areas/Identity/Pages/Account/Manage/Index.cshtml</comment>
   </data>
+  <data name="sea side" xml:space="preserve">
+    <value>جنب البحر</value>
+  </data>
   <data name="search" xml:space="preserve">
     <value>البحث</value>
   </data>
   <data name="search1" xml:space="preserve">
     <value>البحث</value>
   </data>
+  <data name="search2" xml:space="preserve">
+    <value>البحث</value>
+  </data>
+  <data name="seaside" xml:space="preserve">
+    <value>شاطئي</value>
+  </data>
   <data name="see all" xml:space="preserve">
     <value>رؤية الکل</value>
+  </data>
+  <data name="see all1" xml:space="preserve">
+    <value>رؤية الکل</value>
+  </data>
+  <data name="select your unit" xml:space="preserve">
+    <value>انتخب وحدتک السکنیة</value>
   </data>
   <data name="send" xml:space="preserve">
     <value>إرسال</value>
@@ -1219,6 +1800,9 @@
   <data name="Send verification email1" xml:space="preserve">
     <value>ارسل ايميل التفعيل</value>
     <comment>Areas/Identity/Pages/Account/Manage/Index.cshtml</comment>
+  </data>
+  <data name="send1" xml:space="preserve">
+    <value>إرسال</value>
   </data>
   <data name="Set password" xml:space="preserve">
     <value>ضبط كلمة السر</value>
@@ -1236,11 +1820,32 @@
     <value>التطبيق الموثق الإعداد</value>
     <comment>Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml</comment>
   </data>
+  <data name="show comments" xml:space="preserve">
+    <value>عرض التعليقات</value>
+  </data>
   <data name="show factor" xml:space="preserve">
     <value>عرض الفاتورة</value>
   </data>
+  <data name="show factor1" xml:space="preserve">
+    <value>عرض الفاتورة</value>
+  </data>
+  <data name="show requests" xml:space="preserve">
+    <value>عرض الطلبات</value>
+  </data>
   <data name="similar houses" xml:space="preserve">
     <value>منازل مماثلة</value>
+  </data>
+  <data name="similar houses1" xml:space="preserve">
+    <value>منازل مماثلة</value>
+  </data>
+  <data name="Single bed" xml:space="preserve">
+    <value>سرير منفرد</value>
+  </data>
+  <data name="single unit" xml:space="preserve">
+    <value>وحدة سکنیة مفردة</value>
+  </data>
+  <data name="single unit rules" xml:space="preserve">
+    <value>قوانین الوحدات السکنیة</value>
   </data>
   <data name="smart House" xml:space="preserve">
     <value>المنزل الذکی</value>
@@ -1248,7 +1853,22 @@
   <data name="smart House1" xml:space="preserve">
     <value>بیت الذکی</value>
   </data>
+  <data name="smart House2" xml:space="preserve">
+    <value>المنزل الذکي</value>
+  </data>
+  <data name="smart House3" xml:space="preserve">
+    <value>بیت الذکی</value>
+  </data>
+  <data name="sort by" xml:space="preserve">
+    <value>ترتيب حسب</value>
+  </data>
+  <data name="Standard capacity" xml:space="preserve">
+    <value>سعة المعیار</value>
+  </data>
   <data name="status" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="status1" xml:space="preserve">
     <value>الحالة</value>
   </data>
   <data name="String" xml:space="preserve">
@@ -1256,6 +1876,12 @@
   </data>
   <data name="Structures" xml:space="preserve">
     <value />
+  </data>
+  <data name="Structures1" xml:space="preserve">
+    <value>هیکل الإقامة</value>
+  </data>
+  <data name="style" xml:space="preserve">
+    <value>شكل</value>
   </data>
   <data name="Submit" xml:space="preserve">
     <value>إرسال</value>
@@ -1268,19 +1894,40 @@
   <data name="Submitting a complaint" xml:space="preserve">
     <value>تقدیم شکوی</value>
   </data>
+  <data name="Submitting a complaint1" xml:space="preserve">
+    <value>تقدیم شکوی</value>
+  </data>
+  <data name="sun" xml:space="preserve">
+    <value>أحد</value>
+  </data>
   <data name="Support" xml:space="preserve">
     <value>الدعم</value>
   </data>
   <data name="Support Until The End Of The Trip" xml:space="preserve">
     <value />
   </data>
+  <data name="Support Until The End Of The Trip1" xml:space="preserve">
+    <value>الدعم حتى نهاية الرحلة</value>
+  </data>
   <data name="support1" xml:space="preserve">
     <value>الدعم</value>
+  </data>
+  <data name="support2" xml:space="preserve">
+    <value>الدعم</value>
+  </data>
+  <data name="tell" xml:space="preserve">
+    <value>الهاتف</value>
   </data>
   <data name="Terms and Conditions" xml:space="preserve">
     <value>الأحكام والشروط</value>
   </data>
   <data name="Terms and Conditions1" xml:space="preserve">
+    <value>الأحكام والشروط</value>
+  </data>
+  <data name="Terms and Conditions2" xml:space="preserve">
+    <value>الأحكام والشروط</value>
+  </data>
+  <data name="Terms and Conditions3" xml:space="preserve">
     <value>الأحكام والشروط</value>
   </data>
   <data name="Terms of Use" xml:space="preserve">
@@ -1291,6 +1938,12 @@
   </data>
   <data name="Terrace1" xml:space="preserve">
     <value>شرفه</value>
+  </data>
+  <data name="Terrace2" xml:space="preserve">
+    <value>شرفه</value>
+  </data>
+  <data name="Terrace3" xml:space="preserve">
+    <value>شرفة</value>
   </data>
   <data name="Thank you for confirming your email." xml:space="preserve">
     <value>شكرا لكم لتأكيد بريدك الإلكتروني.</value>
@@ -1332,6 +1985,9 @@
     <value>لا توجد خدمات التوثيق الخارجي تكوينه. انظر &lt;a href='{0}'&gt; هذه المقالة &lt;/a&gt; للحصول على تفاصيل حول إعداد هذا التطبيق ASP.NET لدعم تسجيل الدخول عبر الخدمات الخارجية.</value>
     <comment>Areas/Identity/Pages/Account/Login.cshtml</comment>
   </data>
+  <data name="thi" xml:space="preserve">
+    <value>الخميس</value>
+  </data>
   <data name="This account has been locked out, please try again later." xml:space="preserve">
     <value>تم تأمين هذا الحساب خارج، يرجى المحاولة مرة أخرى في وقت لاحق.</value>
     <comment>Areas/Identity/Pages/Account/Lockout.cshtml</comment>
@@ -1359,8 +2015,17 @@
   <data name="Tobacco and hookah smoking is prohibited indoors" xml:space="preserve">
     <value>یمنع التدخین و أستعمال الشیشة</value>
   </data>
+  <data name="Tobacco and hookah smoking is prohibited indoors1" xml:space="preserve">
+    <value>یمنع التدخین و أستعمال الشیشة</value>
+  </data>
   <data name="traditional home" xml:space="preserve">
     <value>سیاحه المناطق الریفیه</value>
+  </data>
+  <data name="traditional home1" xml:space="preserve">
+    <value>سیاحة المناطق الریفیة</value>
+  </data>
+  <data name="tus" xml:space="preserve">
+    <value>الثلاثاء</value>
   </data>
   <data name="Two-factor authentication" xml:space="preserve">
     <value>توثيق ذو عاملين</value>
@@ -1381,6 +2046,27 @@
   <data name="type your text..." xml:space="preserve">
     <value>اكتب النص الخاص بك...</value>
   </data>
+  <data name="type your text...1" xml:space="preserve">
+    <value>اكتب النص الخاص بك...</value>
+  </data>
+  <data name="unit description" xml:space="preserve">
+    <value>تفاسیر الوحدة السکنیة</value>
+  </data>
+  <data name="unit information" xml:space="preserve">
+    <value>معلومات الوحدة السکنیة</value>
+  </data>
+  <data name="unit kind" xml:space="preserve">
+    <value />
+  </data>
+  <data name="unit kind and rules" xml:space="preserve">
+    <value>نوع وقوانین الوحدة السکنیة</value>
+  </data>
+  <data name="unit name" xml:space="preserve">
+    <value>إسم الوحدة السکنیة</value>
+  </data>
+  <data name="unit style" xml:space="preserve">
+    <value />
+  </data>
   <data name="Update password" xml:space="preserve">
     <value>تطوير كلمة السر</value>
     <comment>Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml</comment>
@@ -1388,6 +2074,15 @@
   <data name="Update password1" xml:space="preserve">
     <value>تطوير كلمة السر</value>
     <comment>Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml</comment>
+  </data>
+  <data name="update selected item" xml:space="preserve">
+    <value>تحدیث العناصر المختارة</value>
+  </data>
+  <data name="update unit option" xml:space="preserve">
+    <value>تعدیل میزات الوحدة السکنیة</value>
+  </data>
+  <data name="Upload your Residence Pictures here, obviously the quality of the images has a direct impact on increasing your Reservation" xml:space="preserve">
+    <value />
   </data>
   <data name="Use a local account to log in." xml:space="preserve">
     <value>استخدام حساب محلي لتسجيل الدخول.</value>
@@ -1430,6 +2125,9 @@
   <data name="UserName" xml:space="preserve">
     <value>اسم المستخدم</value>
   </data>
+  <data name="UserName1" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
   <data name="users" xml:space="preserve">
     <value>المستخدمين</value>
   </data>
@@ -1452,6 +2150,9 @@
     <value>تم إرسال رسالة التحقق. من فضلك تفقد بريدك الالكتروني.</value>
     <comment>Custom back end message</comment>
   </data>
+  <data name="verification1" xml:space="preserve">
+    <value>تأیید</value>
+  </data>
   <data name="Verify" xml:space="preserve">
     <value>التحقق</value>
     <comment>Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml</comment>
@@ -1460,8 +2161,17 @@
     <value>التحقق</value>
     <comment>Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml</comment>
   </data>
+  <data name="view fiance history" xml:space="preserve">
+    <value>مشاهدة تاریخ الدفوعات</value>
+  </data>
   <data name="Villa" xml:space="preserve">
     <value>فیلا</value>
+  </data>
+  <data name="Villa1" xml:space="preserve">
+    <value>فیلا</value>
+  </data>
+  <data name="vip" xml:space="preserve">
+    <value>vip</value>
   </data>
   <data name="Visit the bustling cities" xml:space="preserve">
     <value>مدن الاکثر زیارة</value>
@@ -1472,14 +2182,35 @@
   <data name="Water Cooler1" xml:space="preserve">
     <value>مبرده مائیه</value>
   </data>
+  <data name="Water Cooler2" xml:space="preserve">
+    <value>مبرد المیاه</value>
+  </data>
+  <data name="Water Cooler3" xml:space="preserve">
+    <value>مبردة مائیه</value>
+  </data>
   <data name="wc" xml:space="preserve">
     <value>مرحاض</value>
   </data>
   <data name="wc1" xml:space="preserve">
     <value>مرحاض</value>
   </data>
+  <data name="wc2" xml:space="preserve">
+    <value>مرحاض</value>
+  </data>
+  <data name="wc3" xml:space="preserve">
+    <value>مرحاض wc</value>
+  </data>
   <data name="weblog" xml:space="preserve">
     <value>الموقع</value>
+  </data>
+  <data name="weblog1" xml:space="preserve">
+    <value>الموقع</value>
+  </data>
+  <data name="wed" xml:space="preserve">
+    <value>الأربعاء</value>
+  </data>
+  <data name="weekend" xml:space="preserve">
+    <value>نهاية الأسبوع</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>أهلا بك</value>
@@ -1495,8 +2226,14 @@
   <data name="Where do you want to go?" xml:space="preserve">
     <value>الى أين تريد السفر</value>
   </data>
+  <data name="where1" xml:space="preserve">
+    <value>أیت تذهب؟</value>
+  </data>
   <data name="who we are" xml:space="preserve">
     <value />
+  </data>
+  <data name="who we are1" xml:space="preserve">
+    <value>من نحن؟</value>
   </data>
   <data name="WHO WE ARE?" xml:space="preserve">
     <value>من نحن</value>
@@ -1506,6 +2243,15 @@
   </data>
   <data name="wifi1" xml:space="preserve">
     <value>وای فای</value>
+  </data>
+  <data name="wifi2" xml:space="preserve">
+    <value>الإنترنت</value>
+  </data>
+  <data name="wifi3" xml:space="preserve">
+    <value>وای فای</value>
+  </data>
+  <data name="yard area" xml:space="preserve">
+    <value>مساحة الفناء</value>
   </data>
   <data name="You do not have a local username/password for this site. Add a local account so you can log in without an external login." xml:space="preserve">
     <value>لم يكن لديك اسم مستخدم المحلية / كلمة المرور لهذا الموقع. إضافة حساب محلي حتى تتمكن من تسجيل الدخول بدون تسجيل الدخول الخارجي.</value>
@@ -1546,6 +2292,9 @@
   <data name="You have successfully logged out of the application.1" xml:space="preserve">
     <value>قمت بتسجيل الدخول بنجاح للخروج من التطبيق.</value>
     <comment>Areas/Identity/Pages/Account/Logout.cshtml</comment>
+  </data>
+  <data name="You intend to register a hotel or accommodation" xml:space="preserve">
+    <value />
   </data>
   <data name="You've successfully authenticated with &lt;strong&gt;{0}&lt;/strong&gt;. Please enter an email address for this site below and click the Register button to finish logging in." xml:space="preserve">
     <value>لقد مصادقة بنجاح مع على &lt;strong&gt; {0} &lt;/ قوي&gt;. يرجى إدخال عنوان البريد الإلكتروني لهذا الموقع أدناه وانقر على زر التسجيل لإنهاء تسجيل في.</value>

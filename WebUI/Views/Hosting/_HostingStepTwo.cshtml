@@ -1,0 +1,47 @@
+﻿@{
+    var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
+}
+
+<div class="items">
+    <div class="item">
+        <h5 localize-content>Add New Unit</h5>
+        <p localize-content>
+            Upload your Residence Pictures here, obviously the quality of the images has a direct impact on increasing your Reservation
+        </p>
+    </div>
+    @*<div class="btn-container p-1">
+            <button type="button" id="btnAddImage"
+                    class="btn-step  mb-2" localize-content>
+                Add Image
+            </button>
+        </div>*@
+    <div class="item">
+        <h6 localize-content>Home Page Image</h6>
+        <partial name="_bootstrapFileupload" />
+        @*<div class="gallery">
+                <div class="image">
+                    <img class="img-fluid img-rounds" src="~/img/bg_iran.png"
+                         alt="bg_iran" />
+                    <h6 class="d-block" localize-content>Delete</h6>
+                </div>
+            </div>*@
+    </div>
+
+</div>
+<div class="btn-container p-1">
+    <button type="button" class="btn-step-prev res-btn-gray btn"
+            data-class=".res-form-two" localize-content>
+        Back
+    </button>
+    <button type="button"
+            class="btn-step res-btn-orange mb-2 btn"
+            data-class=".res-form-two" localize-content>
+        Next
+    </button>
+</div>
+
+<script>
+    $("#btnAddImage").click(function () {
+
+    })
+</script>

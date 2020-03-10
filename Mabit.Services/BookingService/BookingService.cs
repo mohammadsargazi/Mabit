@@ -17,5 +17,10 @@ namespace Mabit.Services.BookingService
                 .Result;
         }
 
+        public List<MyBookModel> MyBooks(string token)
+        {
+            return HttpHelper.GetAllWithAuthentication<MyBookModel>("/api/Booking/MyBooks", token, culture).Result;
+        }
+
     }
 }

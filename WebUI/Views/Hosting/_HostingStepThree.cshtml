@@ -1,0 +1,154 @@
+﻿@model WebUI.Models.HostingViewModel
+@{
+    var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
+    var latitude = "35.6892";
+    var longitude = "51.3890";
+}
+@if (culture == "fa")
+{
+    latitude = "35.6892";
+    longitude = "51.3890";
+}
+
+<div class="items">
+    <div class="item mb-0">
+        <h5 localize-content>Unit Location</h5>
+        <p class="mb-0" localize-content>
+            Please enter the address of your residence.
+        </p>
+    </div>
+    <div class="item">
+        <div class="col-8">
+            <div class="row">
+                <div class="col-6 ml-0 pl-0">
+                    <input type="text" placeholder="Unit Name"
+                           class="form-control bg-input inp-unit-name">
+                    @*<input type="text" placeholder="Province"
+                        class="form-control bg-input inp-province">*@
+                    <select class="form-control bg-input" id="provinceList"></select>
+                </div>
+                <div class="col-6 ml-0 pl-0">
+                    @*<input type="text" placeholder="Country"
+                        class="form-control bg-input inp-country">*@
+                    <select class="form-control bg-input" id="countryList">
+                        <option value="0" localize-content>Select</option>
+                        @foreach (var item in Model.Countries)
+                        {
+                            <option value="@item.id">@item.title</option>
+                        }
+                    </select>
+                    @*<input type="text" placeholder="City"
+                        class="form-control bg-input inp-city">*@
+                    <select class="form-control bg-input" id="cityList"></select>
+                </div>
+                <script>
+                    function setOptions(res, $element) {
+                        $element.find('option').remove();
+                        $.each(res, function (index, item) {
+                            $element.append($("<option></option>")
+                                    .attr("value", item.id)
+                                    .text(item.title));
+                        });
+                    }
+                    $("#countryList").change(function () {
+                        var countyId = $(this).val();
+                        if (countyId != 0) {
+                                $.ajax({
+                                type: "Get",
+                                url: "@Url.Action("GetProvince","Common")",
+                                data: {
+                                    countryId: $(this).val()
+                                },
+                                success: function (res) {
+                                    setOptions(res, $("#provinceList"));
+                                },
+                                error: function (req, status, error) {
+                                    // do something with error
+                                }
+                            });
+                        }
+                    })
+                    $("#provinceList").change(function () {
+                        $.ajax({
+                            type: "Get",
+                            url: "@Url.Action("GetCity","Common")",
+                            data: {
+                                provinceId: $(this).val()
+                            },
+                            success: function (res) {
+                                setOptions(res, $("#cityList"));
+                            },
+                            error: function (req, status, error) {
+                                // do something with error
+                            }
+                        });
+                    })
+                </script>
+                <div class="col-12 ml-0 pl-0">
+                    <textarea placeholder="Address"
+                              class="form-control bg-input mt-0 inp-address" name="desc"
+                              cols="30" rows="3"></textarea>
+                    <p class="mb-1" localize-content>
+                        specify the exact location on the map
+
+                    </p>
+
+                </div>
+                <div class="col-12">
+                    <div class="mapouter">
+                        <div class="gmap_canvas">
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="btn-container p-1">
+    <button type="button" class="btn-step-prev res-btn-gray btn"
+            data-class=".res-form-three">
+        Back
+    </button>
+    <button type="button"
+            class="btn-step res-btn-orange mb-2 btn"
+            data-class=".res-form-three">
+        Next
+    </button>
+</div>
+
+<script src="~/css/Hamid/js/leaflet.js"></script>
+<script src="~/css/Hamid/js/leaflet-list-markers.js"></script>
+<script src="~/css/Hamid/js/cities-italy.js"></script>
+<script>
+    var map = new L.Map('map', { zoom: 10, minZoom: 5, center: L.latLng(@latitude, @longitude) });
+
+        map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));
+
+        var markersLayer = new L.LayerGroup();
+        map.addLayer(markersLayer);
+
+        ////////////populate map from cities-italy.js
+
+        debugger;
+        //for (var i in cityList)
+        //  L.marker(L.latLng(cityList[i].latitude, cityList[i].longitude), { title: cityList[i].name,listid: cities[i].listid }).addTo(markersLayer);
+        //for (var i in cities)
+        //    L.marker(L.latLng(cities[i].loc), { title: cities[i].name, listid: cities[i].listid }).addTo(markersLayer);
+
+        //inizialize Leaflet List Markers
+        var list = new L.Control.ListMarkers({ layer: markersLayer, itemIcon: null });
+
+        list.on('item-mouseover', function (e) {
+            e.layer.setIcon(L.icon({
+                iconUrl: '~/img/select-marker.png'
+            }))
+        }).on('item-mouseout', function (e) {
+            e.layer.setIcon(L.icon({
+                iconUrl: '~/img/marker-icon.png'
+            }))
+        });
+
+        map.addControl(list);
+
+</script>
