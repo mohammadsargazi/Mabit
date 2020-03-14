@@ -10,7 +10,7 @@ namespace WebUI.Models
 {
     public class AddRoomViewModel
     {
-        public List<IFormFile> Files { get; set; }
+        public int[] picturesId { get; set; }
         public string UnitName { get; set; }
         public int CountryId { get; set; }
         public int ProvinceId { get; set; }
@@ -79,7 +79,7 @@ public static class ExtentionModel
             standardCapacity=model.StandardCapacity,
             maxCapacity=model.CapacityMaximumCapacity,
             singleBedCount=model.CapacitySingleBed,
-            //locationTypeId=model.CapacityLocationTypes,
+            locationTypeId=model.CapacityLocationTypes?.ToArray(),
             //capicityDesc=model.CapacityDescCapacity,
             optionsId=model.OptoptionIds,
             optionsDescription=model.OptDescOptions,

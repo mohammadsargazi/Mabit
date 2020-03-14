@@ -29,6 +29,11 @@ namespace WebUI.Controllers
             var model = _bookingService.MyBooks(token);
             return View(model);
         }
+
+        public IActionResult List()
+        {
+            return View();
+        }
         #endregion
     }
 }

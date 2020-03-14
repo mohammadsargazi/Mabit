@@ -1,4 +1,7 @@
 ﻿using Mabit.Models.Auth;
+using Mabit.Models.Model.Common;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Internal;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -51,8 +54,73 @@ namespace Mabit.Services.Helper
                 return resultContent;
             }
         }
+        public static async Task<int> UploadBase64(string url, FileUploadModel file)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(apiBasicUri);
+                var content = new StringContent(JsonConvert.SerializeObject(file), Encoding.UTF8, "application/json");
+                var result = await client.PostAsync(apiBasicUri + url, content);
+                result.EnsureSuccessStatusCode();
+                string resultContentString = await result.Content.ReadAsStringAsync();
+                var resultContent = JsonConvert.DeserializeObject<FileUploadResult>(resultContentString);
+                return resultContent.id;
+            }
+        }
+        public static async Task<int> Upload(string url, string culture, IList<IFormFile> files)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(apiBasicUri);
+                //client.DefaultRequestHeaders.Add("lang", culture);
+                string boundary = $"{Guid.NewGuid().ToString()}";
+                MultipartFormDataContent requestContent = new MultipartFormDataContent(boundary);
+                requestContent.Headers.Remove("Content-Type");
+                // The two dashes in front of the boundary are important as the framework includes them when serializing the request content.
+                requestContent.Headers.TryAddWithoutValidation("Content-Type", $"multipart/form-data; boundary=--{boundary}");
+                foreach (IFormFile file in files)
+                {
+                    StreamContent streamContent = new StreamContent(file.OpenReadStream());
+                    requestContent.Add(streamContent, file.Name, file.FileName);
+                    streamContent.Headers.ContentDisposition.FileNameStar = "";
+                }
+                var result = await client.PostAsync(apiBasicUri + url, requestContent);
+                //result.EnsureSuccessStatusCode();
+                string resultContentString = await result.Content.ReadAsStringAsync();
+                int resultContent = JsonConvert.DeserializeObject<int>(resultContentString);
+                return resultContent;
+            }
+        }
+        //public async Task PostAttachmentAsync(int ticketID, IFormFileCollection files, CancellationToken cancellationToken = default)
+        //{
+        //    using (HttpRequestMessage request = new HttpRequestMessage())
+        //    {
+        //        string boundary = $"{Guid.NewGuid().ToString()}";
+        //        MultipartFormDataContent requestContent = new MultipartFormDataContent(boundary);
+        //        requestContent.Headers.Remove("Content-Type");
+        //        // The two dashes in front of the boundary are important as the framework includes them when serializing the request content.
+        //        requestContent.Headers.TryAddWithoutValidation("Content-Type", $"multipart/form-data; boundary=--{boundary}");
 
+        //        foreach (IFormFile file in files)
+        //        {
+        //            StreamContent streamContent = new StreamContent(file.OpenReadStream());
+        //            requestContent.Add(streamContent, file.Name, file.FileName);
+        //            streamContent.Headers.ContentDisposition.FileNameStar = "";
+        //        }
 
+        //        request.Content = requestContent;
+        //        request.Method = new HttpMethod("POST");
+        //        request.RequestUri = new Uri($"api/v3/Services/WorkItem/Ticket/Attachment?ticketID={ticketID}", UriKind.Relative);
+
+        //        HttpClient client = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+
+        //        using (HttpResponseMessage response =
+        //            await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false)
+        //        )
+        //        {
+        //        }
+        //    }
+        //}
         public static async Task Put<T>(string url, T stringValue)
         {
             using (var client = new HttpClient())

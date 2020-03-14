@@ -1,5 +1,7 @@
 ﻿using Mabit.Models.Model.Common;
 using Mabit.Services.Helper;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Internal;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -26,6 +28,7 @@ namespace Mabit.Services.CommonService
 
         public List<Country> GetCountries()
         {
+            
             return HttpHelper.GetAll<Country>("api/Common/Countries", culture).Result;
         }
 
@@ -36,6 +39,7 @@ namespace Mabit.Services.CommonService
 
         public List<Countries> Countries()
         {
+            
             return HttpHelper.GetAll<Countries>("api/Common/Countries", culture).Result;
         }
 
@@ -71,6 +75,14 @@ namespace Mabit.Services.CommonService
         public List<BaseRelateModel> CustomRules()
         {
             return HttpHelper.GetAll<BaseRelateModel>("api/Common/CustomRules", culture).Result;
+        }
+        public int Upload(IList<IFormFile> files)
+        {
+            return HttpHelper.Upload("api/Files/Upload", culture, files).Result;
+        }
+        public int UploadBase64(FileUploadModel file)
+        {
+            return HttpHelper.UploadBase64("api/Files/UploadBase64", file).Result;
         }
         #endregion
     }

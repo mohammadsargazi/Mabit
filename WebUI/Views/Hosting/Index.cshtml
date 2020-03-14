@@ -215,25 +215,18 @@
         };
         return addRoomModel;
     }
-
-    $("#btnInsertUnit").click(function () {
-        debugger;
-          var descOptionId = getSelectRadioBtnIds("descTextureOptionsItem");
+    var picturesId = [];
+    function saveData() {
+        var descOptionId = getSelectRadioBtnIds("descTextureOptionsItem");
         var capacityLocationTypes = getSelectRadioBtnIds("capicityLocationTypesItem");
         var optoptionIds = getSelectRadioBtnIds("OptionsOptionsItem");
-        var customRulesItem=getSelectRadioBtnIds("customRulesItem");
-        var data = JSON.stringify(setModel());
+        var customRulesItem = getSelectRadioBtnIds("customRulesItem");
 
-         var files = $("#file-1").get(0).files;
-            var fileData = new FormData();
-
-            for (var i = 0; i < files.length; i++) {
-                fileData.append("fileInput", files[i]);
-            }
         $.ajax({
             url: '@Url.Action("AddRoom", "Hosting")',
             type: 'Post',
             data: {
+            picturesId:picturesId,
             unitName: $(".inp-unit-name").val(),
             countryId: $("#countryList").val(),
             provinceId: $("#provinceList").val(),
@@ -242,7 +235,7 @@
             descStructuresId: $("#descStructures").val(),
             descTextureOptionsId: descOptionId,
             descDescription: $("#inp-dec-description").val(),
-            measurmentroomtypeid: $("#measurmentroomtypelist").val(),
+            measurmentroomtypeid: $("#measurmentRoomTypeList").val(),
             measurmentlocationoptionid: $("#measurmentlocationoptionslist").val(),
             measurmentbedroomnumber: $(".inp-bedroom-number").val(),
             measurmentinpbuildingarea: $(".inp-building-area").val(),
@@ -270,23 +263,43 @@
             longBookingDiscount2Percent: $(".inp-long-booking-discount-2-percent").val()
             },
             success: function (res) {
-                $(".container-detail-price").empty();
-                $(".container-sum-price").empty();
-                debugger;
-                for (var i = 0; i < res.items.length; i++) {
-                    var $template = $('<div class="row ml-0 mr-0 pt-3"><div class="col-12 pr-0">' +
-                            '<span class="mabit-darkGray f-size-14">' + res.items[i].title + '</span>' +
-                            '<span class="font-weight-bold f-size-14 fa-pull-left">' + res.items[i].price + '</span>'
-                        );
-                        $(".container-detail-price").append($template);
-                }
-                  var $sumTemplate = $(' <span class="mabit-darkGray f-size-20">جمع کل</span>' +
-                        '<span class="font-weight-bold f-size-20 fa-pull-left">' + res.sum + '</span>')
-                    $(".container-sum-price").append($sumTemplate);
-                $("#basicModal").modal("show");
-
+              
             }
         });
+    }
+
+    $("#btnInsertUnit").click(function () {
+        debugger;
+          var descOptionId = getSelectRadioBtnIds("descTextureOptionsItem");
+        var capacityLocationTypes = getSelectRadioBtnIds("capicityLocationTypesItem");
+        var optoptionIds = getSelectRadioBtnIds("OptionsOptionsItem");
+        var customRulesItem=getSelectRadioBtnIds("customRulesItem");
+        var data = JSON.stringify(setModel());
+        var input = document.getElementById("file-1");
+        var files = input.files;
+        var formData = new FormData();
+
+
+        for (var i = 0; i != files.length; i++) {
+         formData.append("files", files[i]);
+        }
+
+          $.ajax({
+              url: '@Url.Action("Upload", "Hosting")',
+              data: formData,
+              processData: false,
+              contentType: false,
+              type: "POST",
+              success: function (data) {
+                  debugger;
+                  for (var i = 0; i < data.length; i++) {
+                      picturesId.push(data[i])
+                  }
+                  saveData();
+              }
+            }
+        );
+
     });
     function model() {
 

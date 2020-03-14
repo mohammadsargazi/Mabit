@@ -39,6 +39,10 @@ namespace Mabit.Services.RoomService
         {
             return HttpHelper.Post("api/Rooms/AddRoom", culture, model).IsCompleted;
         }
+        public List<TopRoom> MyRooms(string token)
+        {
+            return HttpHelper.GetAllWithAuthentication<TopRoom>("api/Rooms/MyRooms", token, culture).Result;
+        }
         #endregion
 
         #region SearchRoom

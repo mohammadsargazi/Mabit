@@ -23,7 +23,7 @@ namespace Mabit.Models.Model.RoomModel
         public int roomCount { get; set; }
         public int standardCapacity { get; set; }
         public int maxCapacity { get; set; }
-        public int locationTypeId { get; set; }
+        public int[] locationTypeId { get; set; }
         public List<int> optionsId { get; set; }
         public string checkingTime { get; set; }
         public string checkoutTime { get; set; }

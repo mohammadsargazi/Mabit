@@ -109,6 +109,13 @@
 
 
     <partial name="_footer" />
-
+    <script>
+          $("#page-search-btn").click(function () {
+            var wherTo = $("#page-search-where").val();
+            var from = $('input[name="dates"]').val().split('-')[0];
+            var to = $('input[name="dates"]').val().split('-')[1];
+            window.location.href ='/'+"@(culture)"+'/Room/Search?wherTo=' + wherTo + "&from=" + from + "&to=" + to;
+        })
+    </script>
 </body>
 </html>
