@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="~/fontawesome-free-5.11.2-web/css/fontawesome.min.css">
     <link rel="stylesheet" type="text/css" href="~/fontawesome-free-5.11.2-web/css/solid.min.css">
     <link rel="stylesheet" type="text/css" href="~/fontawesome-free-5.11.2-web/css/regular.min.css">
-    
+
     <link href="~/css/Mabit/style-fa.css" rel="stylesheet" />
     <link href="~/css/Hamid/css/leaflet.min.css" rel="stylesheet" />
     @*<link rel="stylesheet" href="~/css/Hamid/css/leaflet.css" />*@
@@ -199,22 +199,40 @@
                 <div class="main-menu-link" style="color:black !important;">
                     <language-nav language-label="NativeName"></language-nav>
                 </div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    var claims = ((System.Security.Claims.ClaimsIdentity)User.Identity).Claims;
 
-                <div class="main-menu-link">
-                    <img src="img/header_signin_icon.svg">
-                    <span data-toggle="modal" data-target="#loginMobileNumberModal" style="cursor:pointer;" localize-content> login / Register</span>
-                    @*<a asp-area="" asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>login / Register</a>*@
-                </div>
+                    var userName = claims.SingleOrDefault(x => x.Type == "usrFullName").Value;
+                    var userImage = claims.SingleOrDefault(x => x.Type == "userProfileImageUrl").Value;
+                    <div class="main-menu-link">
+                        <img src="@(userImage)">
+                        <span style="cursor:pointer;" localize-content>@(userName)</span>
+                        @*<a asp-area="" asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>login / Register</a>*@
+                    </div>
+                }
+                else
+                {
+                    <div class="main-menu-link">
+                        <img src="img/header_signin_icon.svg">
+                        <span data-toggle="modal" data-target="#loginMobileNumberModal" style="cursor:pointer;" localize-content> login / Register</span>
+                        @*<a asp-area="" asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>login / Register</a>*@
+                    </div>
+                }
 
-                <div class="main-menu-link">
-                    <img src="img/header_host_icon.svg">
-                    <a asp-controller="Home" asp-action="Privacy" asp-route-culture="@culture" localize-content>Hosting</a>
-                </div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="main-menu-link">
+                        <img src="img/header_host_icon.svg">
+                        <a asp-controller="Hosting" asp-action="List" asp-route-culture="@culture" localize-content>Hosting</a>
+                    </div>
 
-                <div class="main-menu-link">
-                    <img src="img/header_support_icon.svg">
-                    <a asp-controller="Residence" asp-action="Index" asp-route-culture="@culture" localize-content>Support</a>
-                </div>
+                    <div class="main-menu-link">
+                        <img src="img/header_support_icon.svg">
+                        <a asp-controller="Reservation" asp-action="Index" asp-route-culture="@culture" localize-content>Reservation</a>
+                    </div>
+                }
+
 
                 <div class="main-menu-link">
                     <img src="img/header_app_icon.svg">
@@ -601,6 +619,72 @@
                 }
             });
         });
+    </script>
+    <script>
+
+        $("#phone").intlTelInput({});
+        $("#btnLogin").click(function () {
+            $.ajax({
+                url: '@Url.Action("Login", "Account")',
+                type: 'POST',
+                data: {
+                    userName: $("#userName").val(),
+                    password: $("#password").val(),
+                },
+                beforeSend: function () {
+
+                },
+                success: function (e) {
+                    debugger;
+                    if (e) {
+                        location.reload();
+                    }
+                    else {
+                        $(".container-error-message").css("display", "block");
+                    }
+
+                },
+                error: function (request, error) {
+
+                },
+                complete: function () {
+                    //loadingBoxStop();
+                }
+            });
+        });
+        $("#btnRegister").click(function () {
+            $.ajax({
+                url: '@Url.Action("Register", "Account")',
+                type: 'POST',
+                data: {
+                    FirstName: $("#FirstName").val(),
+                    LastName: $("#LastName").val(),
+                    Mobile: $("#Mobile").val(),
+                    UserName: $("#UserName").val(),
+                    Password: $("#Password").val(),
+                },
+                beforeSend: function () {
+
+                },
+                success: function (e) {
+                    debugger;
+
+
+                },
+                error: function (request, error) {
+
+                },
+                complete: function () {
+                    //loadingBoxStop();
+                }
+            });
+        });
+        $("#page-search-btn").click(function () {
+            var wherTo = $("#page-search-where").val();
+            var from = $('input[name="dates"]').val().split('-')[0];
+            var to = $('input[name="dates"]').val().split('-')[1];
+            window.location.href ='/'+"@(culture)"+'/Room/Search?wherTo=' + wherTo + "&from=" + from + "&to=" + to;
+        })
     </script>
 </body>
 </html>

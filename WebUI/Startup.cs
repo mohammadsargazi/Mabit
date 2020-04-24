@@ -51,6 +51,19 @@ namespace WebUI
                     o.DefaultRequestCulture = new RequestCulture("en");
                 };
             });
+            //services.Configure<RequestLocalizationOptions>(options =>
+            //{
+            //    //...
+
+            //    options.RequestCultureProviders.Insert(0, new CustomRequestCultureProvider(context =>
+            //    {
+            //        //...
+            //        var userLangs = context.Request.Headers["Accept-Language"].ToString();
+            //        var firstLang = userLangs.Split(',').FirstOrDefault();
+            //        var defaultLang = string.IsNullOrEmpty(firstLang) ? "en" : firstLang;
+            //        return Task.FromResult(new ProviderCultureResult(defaultLang, defaultLang));
+            //    }));
+            //});
             services.AddScoped<CustomCookieAuthenticationEvents>();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>

@@ -21,11 +21,11 @@ namespace Mabit.Services.RoomService
         }
         public TopRoom Get(int id)
         {
-            return HttpHelper.Get<TopRoom>(url +"/"+ id).Result;
+            return HttpHelper.Get<TopRoom>(url + "/" + id).Result;
         }
         public bool Post(Room model)
         {
-            return HttpHelper.Post(url,culture, model).IsCompleted;
+            return HttpHelper.Post(url, culture, model).IsCompleted;
         }
         public bool Put(Room model)
         {
@@ -35,20 +35,20 @@ namespace Mabit.Services.RoomService
         {
             return HttpHelper.Delete(url + id).IsCompleted;
         }
-        public bool AddRoom(AddRoomModel model)
+        public AddRoomResultModel AddRoom(AddRoomModel model, string token)
         {
-            return HttpHelper.Post("api/Rooms/AddRoom", culture, model).IsCompleted;
+            return HttpHelper.Post<AddRoomResultModel, AddRoomModel>("api/Rooms/AddRoom", culture, model, token).Result;
         }
         public List<TopRoom> MyRooms(string token)
         {
-            return HttpHelper.GetAllWithAuthentication<TopRoom>("api/Rooms/MyRooms", token, culture).Result;
+            return HttpHelper.GetAllWithPost<TopRoom>("api/Rooms/MyRooms", culture, token).Result;
         }
         #endregion
 
         #region SearchRoom
         public List<TopRoom> GetReservationRooms(ReservationRoomModel model)
         {
-             return HttpHelper.GetAll<TopRoom, ReservationRoomModel>("api/Rooms/GetReservationRooms", model, culture).Result;
+            return HttpHelper.GetAll<TopRoom, ReservationRoomModel>("api/Rooms/GetReservationRooms", model, culture).Result;
         }
         public SearchRoomResultModel GetReservationRoom(ReservationRoomModel model)
         {
@@ -56,7 +56,7 @@ namespace Mabit.Services.RoomService
         }
         public List<TopRoom> SearchRoom(SearchRoomModel model)
         {
-            
+
             return HttpHelper.GetAll<TopRoom, SearchRoomModel>("api/Rooms/GetRooms", model, culture).Result;
         }
         #endregion

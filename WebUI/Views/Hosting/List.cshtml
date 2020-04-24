@@ -140,13 +140,52 @@
                         <option value="4">Full</option>
                         <option value="5">Empty</option>
                     </select>
-                    <button type="button" class="btn bg-mabit-blue brd-r-15 text-white done-btn">
+                    <a asp-controller="Hosting" asp-action="Index" class="btn bg-mabit-blue brd-r-15 text-white done-btn">
                         Add New
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="row pt-4 pb-4 brd-b-1-gray">
+        @foreach (var item in Model)
+        {
+            <div class="row pt-4 pb-4 brd-b-1-gray">
+                <div class="col-4">
+                    @if (item.pictures == null)
+                    {
+                        <img src="~/img/layer_886.jpg" class="img-fluid brd-r-15 box-shadow-1" />
+                    }
+                    else
+                    {
+                        <img src="@(item.pictures.First().apiUrl)" class="img-fluid brd-r-15 box-shadow-1">
+                    }
+                </div>
+                <div class="col-4">
+                    <div class="d-flex text-left ">
+                        <h5 class="font-weight-bolder mabit-darkGray mb-1">@(item.title)</h5>
+                        <span class="pl-2">
+                            <i class="fa fa-star mabit-middle-gray"></i>
+                            <span class="mabit-light-gray">@(item.averageRate)</span>
+                            <span class="mabit-light-gray">/</span>
+                            <span class="mabit-light-gray">5</span>
+                        </span>
+                    </div>
+                    <div class="d-flex text-left mb-1">
+                        <span>@(item.Country?.title)</span><span>,</span><span>@(item.City?.title)</span>
+                        <span class="pl-1">(Ads id:</span><span class="pl-1">@(item.id)</span><span>)</span>
+                    </div>
+                    <span class="mabit-blue font-weight-bold f-size-15">@(item.middleWeekPrice) $</span>
+                </div>
+                <div class="col-4 text-right calendar-units">
+                    <button class="btn brd-1-blue mabit-blue brd-r-15" type="button">calendar</button>
+                    <div class="d-flex justify-content-between units-links">
+                        <a href="#" class="mabit-blue">Edit</a>
+                        <a href="#" class="mabit-blue">Show Comments</a>
+                        <a href="#" class="mabit-blue">Show Requests</a>
+                    </div>
+                </div>
+            </div>
+        }
+        @*<div class="row pt-4 pb-4 brd-b-1-gray">
             <div class="col-4">
                 <span class="bg-white mabit-blue font-weight-bolder brd-r-15 tag-img">Hotel</span>
                 <img src="~/img/layer_886.jpg" class="img-fluid brd-r-15 box-shadow-1">
@@ -263,6 +302,6 @@
                     <a href="#" class="mabit-blue">Show Requests</a>
                 </div>
             </div>
-        </div>
+        </div>*@
     </div>
 </div>

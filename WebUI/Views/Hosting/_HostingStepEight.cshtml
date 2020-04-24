@@ -16,8 +16,8 @@
                 @*<input type="text" placeholder="Inter Time"
         class="form-control bg-input">*@
                 <div class="clearfix">
-                    <div class="input-group clockpicker">
-                        <input type="text" class="form-control bg-input inp-inter-time" value="14:00">
+                    <div class="input-group clockpicker" data-autoclose="true">
+                        <input type="text" class="form-control bg-input inp-inter-time" placeholder="interTime">
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-time"></span>
                         </span>
@@ -28,15 +28,15 @@
                 <script type="text/javascript">
                     $('.clockpicker').clockpicker();
                 </script>
-                <input type="text" placeholder="Minimum Reservation"
+                <input type="number" placeholder="Minimum Reservation"
                        class="form-control bg-input">
             </div>
             <div class="col-6">
                 @*<input type="text" placeholder="Exit Time"
                        class="form-control bg-input">*@
                 <div class="clearfix">
-                    <div class="input-group clockpicker pull-center" data-placement="left" data-align="top" data-autoclose="true">
-                        <input type="text" class="form-control bg-input inp-exit-time" value="10:00">
+                    <div class="input-group clockpicker" data-autoclose="true">
+                        <input type="text" class="form-control bg-input inp-exit-time" placeholder="ExitTime">
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-time"></span>
                         </span>
@@ -62,9 +62,9 @@
                     <div class="radio-wrapper">
                         <input type="checkbox"
                                class="radios"
-                               id="rule_@(item.id+100)"
+                               id="rule_@(item.id)"
                                name="customRulesItem" />
-                        <label for="rule_@(item.id+100)">
+                        <label for="rule_@(item.id)">
                             <span class="outer">
                                 <span class="inner animated"></span>
                             </span>

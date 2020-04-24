@@ -83,6 +83,8 @@
 
     <link href="~/Plugins/persion-date-picker/jquery.md.bootstrap.datetimepicker.style.css" rel="stylesheet" />
     <script src="~/Plugins/persion-date-picker/jquery.md.bootstrap.datetimepicker.js"></script>
+    <link href="~/Plugins/Preloader/css/preloader.css" rel="stylesheet" />
+    <script src="~/Plugins/Preloader/js/jquery.preloader.min.js"></script>
     @RenderSection("Scripts", required: false)
 </head>
 @{
@@ -139,16 +141,19 @@
                     </a>*@
             </div>
         }
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="page-menu-link">
+                <img src="~/img/ph_host.png">
+                <a asp-controller="Hosting" asp-action="List" asp-route-culture="@culture" localize-content>Hosting</a>
+            </div>
 
-        <div class="page-menu-link">
-            <img src="~/img/ph_host.png">
-            <a asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>Hosting</a>
-        </div>
+            <div class="page-menu-link">
+                <img src="~/img/ph_support.png">
+                <a asp-controller="Reservation" asp-action="Index" asp-route-culture="@culture" localize-content>Reservation</a>
+            </div>
+        }
 
-        <div class="page-menu-link">
-            <img src="~/img/ph_support.png">
-            <a asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>Support</a>
-        </div>
 
         <div class="page-menu-link">
             <img src="~/img/ph_app.png">
@@ -158,7 +163,7 @@
     </div>
 
     <div class="container-fluid pt-60">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3 someBlock">
             @RenderBody()
         </main>
     </div>
@@ -210,6 +215,7 @@
                             <button id="btnLogin" class="btn btn-primary text-white pointer " localize-content>
                                 Login
                             </button>
+                            <a asp-controller="Account" asp-action="Register" localize-content>Register</a>
                         </div>
                         <div class="col-3"></div>
                     </div>
@@ -342,6 +348,24 @@
             var to = $('input[name="dates"]').val().split('-')[1];
             window.location.href ='/'+"@(culture)"+'/Room/Search?wherTo=' + wherTo + "&from=" + from + "&to=" + to;
         })
+    </script>
+    <script>
+        var obj = {},
+            someBlock = $('.someBlock');
+        function loadingBoxStart() {
+            someBlock.preloader({
+                text: obj.textVal,
+                percent: obj.percentVal,
+                duration: obj.durationVal
+            });
+            //$('.form-control').each(function (k, v) {
+            //    if (v.value.length == 0) $(v).attr('disabled', true);
+            //});
+        }
+        function loadingBoxStop() {
+            someBlock.preloader('remove');
+            //$('.form-control').attr('disabled', false);
+        }
     </script>
 </body>
 </html>

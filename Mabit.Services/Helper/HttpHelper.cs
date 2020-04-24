@@ -29,23 +29,26 @@ namespace Mabit.Services.Helper
                 return JsonConvert.DeserializeObject<RequestTokenResult>(response);
             }
         }
-        public static async Task Post<T>(string url, string culture, T contentValue)
+        public static async Task Post<T>(string url, string culture, T contentValue, string token = null)
         {
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(apiBasicUri);
                 client.DefaultRequestHeaders.Add("lang", culture);
+                if (token != null)
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 var content = new StringContent(JsonConvert.SerializeObject(contentValue), Encoding.UTF8, "application/json");
                 var result = await client.PostAsync(apiBasicUri + url, content);
                 result.EnsureSuccessStatusCode();
             }
         }
-        public static async Task<T> Post<T, T1>(string url, string culture, T1 contentValue)
+        public static async Task<T> Post<T, T1>(string url, string culture, T1 contentValue, string token = null)
         {
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(apiBasicUri);
-                client.DefaultRequestHeaders.Add("lang", culture);
+                if (token != null)
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 var content = new StringContent(JsonConvert.SerializeObject(contentValue), Encoding.UTF8, "application/json");
                 var result = await client.PostAsync(apiBasicUri + url, content);
                 result.EnsureSuccessStatusCode();
@@ -144,13 +147,30 @@ namespace Mabit.Services.Helper
                 return resultContent;
             }
         }
-        public static async Task<List<T>> GetAll<T>(string url, string culture = "fa")
+        public static async Task<List<T>> GetAll<T>(string url, string culture = "fa", string token = null)
         {
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(apiBasicUri);
                 client.DefaultRequestHeaders.Add("lang", culture);
+                if (token != null)
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 var result = await client.GetAsync(url);
+                result.EnsureSuccessStatusCode();
+                string resultContentString = await result.Content.ReadAsStringAsync();
+                List<T> resultContent = JsonConvert.DeserializeObject<List<T>>(resultContentString);
+                return resultContent;
+            }
+        }
+        public static async Task<List<T>> GetAllWithPost<T>(string url, string culture = "fa", string token = null)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(apiBasicUri);
+                // client.DefaultRequestHeaders.Add("lang", culture);
+                if (token != null)
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                var result = await client.PostAsync(url, null);
                 result.EnsureSuccessStatusCode();
                 string resultContentString = await result.Content.ReadAsStringAsync();
                 List<T> resultContent = JsonConvert.DeserializeObject<List<T>>(resultContentString);

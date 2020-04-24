@@ -12,6 +12,8 @@ namespace WebUI.Models
     {
         public int[] picturesId { get; set; }
         public string UnitName { get; set; }
+        public double longitude { get; set; }
+        public double latitude { get; set; }
         public int CountryId { get; set; }
         public int ProvinceId { get; set; }
         public int CityId { get; set; }
@@ -60,8 +62,8 @@ public static class ExtentionModel
         {
             title = model.UnitName,
             aboutRoom = model.DescDescription,
-            textureOptionsId=model.DescTextureOptionsId?.ToArray(),
-            structureId=model.DescStructuresId,
+            textureOptionsId = model.DescTextureOptionsId?.ToArray(),
+            structureId = model.DescStructuresId,
             address = model.address,
             buildingArea = model.MeasurmentYardArea,
             checkingTime = model.RulesInterTime,
@@ -74,24 +76,26 @@ public static class ExtentionModel
             extraPersonPrice = model.ExtraPeople,
             holydayPrice = model.Holidays,
             landArea = model.MeasurmentYardArea,
-            roomTypeId=model.MeasurmentRoomTypeId,
+            roomTypeId = model.MeasurmentRoomTypeId,
             //locationOptionsId=model.MeasurmentLocationOptionId,
-            standardCapacity=model.StandardCapacity,
-            maxCapacity=model.CapacityMaximumCapacity,
-            singleBedCount=model.CapacitySingleBed,
-            locationTypeId=model.CapacityLocationTypes?.ToArray(),
+            standardCapacity = model.StandardCapacity,
+            maxCapacity = model.CapacityMaximumCapacity,
+            singleBedCount = model.CapacitySingleBed,
+            locationTypeId = model.CapacityLocationTypes?.ToArray(),
             //capicityDesc=model.CapacityDescCapacity,
-            optionsId=model.OptoptionIds,
-            optionsDescription=model.OptDescOptions,
-            rulesDescription=model.RuleDesc,
-            middleWeekPrice=model.MiddleOfTheWeek,
+            optionsId = model.OptoptionIds,
+            optionsDescription = model.OptDescOptions,
+            rulesDescription = model.RuleDesc,
+            middleWeekPrice = model.MiddleOfTheWeek,
             //minimumDays=model.
             //extraPersonPrice=model.ExtraPeople,
-            roomCount=model.MeasurmentBedRoomNumber,
-            peakDayPrice=model.Weekend,
-            longDaysDiscountPercent1=model.LongBookingDiscount1Percent,
-            longDaysDiscountPercent2=model.LongBookingDiscount2Percent
-
+            roomCount = model.MeasurmentBedRoomNumber,
+            peakDayPrice = model.Weekend,
+            longDaysDiscountPercent1 = model.LongBookingDiscount1Percent,
+            longDaysDiscountPercent2 = model.LongBookingDiscount2Percent,
+            latitude = model.latitude,
+            longitude = model.longitude,
+            picturesId = model.picturesId
         };
     }
 }

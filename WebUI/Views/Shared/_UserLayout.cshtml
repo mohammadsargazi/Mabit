@@ -77,6 +77,9 @@
     <link href="~/Plugins/clock/github.min.css" rel="stylesheet" />
     @*<script type="text/javascript" src="dist/bootstrap-clockpicker.min.js"></script>*@
     <script src="~/Plugins/clock/bootstrap-clockpicker.min.js"></script>
+    <link href="~/Plugins/Preloader/css/preloader.css" rel="stylesheet" />
+    <script src="~/Plugins/Preloader/js/jquery.preloader.min.js"></script>
+    
     @RenderSection("Scripts", required: false)
 </head>
 @{
@@ -101,7 +104,7 @@
             <div class="col-lg-3 col-sm-3 col-3">
                 <partial name="_UserLeftSidbar" />
             </div>
-            <div class="col-lg-9 col-sm-9 col-9 bg-box box-shadow-1 brd-r-15">
+            <div class="col-lg-9 col-sm-9 col-9 bg-box box-shadow-1 brd-r-15 someBlock">
                 @RenderBody()
             </div>
         </div>
@@ -109,6 +112,24 @@
 
 
     <partial name="_footer" />
+    <script>
+        var obj = {},
+            someBlock = $('.someBlock');
+        function loadingBoxStart() {
+            someBlock.preloader({
+                text: obj.textVal,
+                percent: obj.percentVal,
+                duration: obj.durationVal
+            });
+            //$('.form-control').each(function (k, v) {
+            //    if (v.value.length == 0) $(v).attr('disabled', true);
+            //});
+        }
+        function loadingBoxStop() {
+            someBlock.preloader('remove');
+            //$('.form-control').attr('disabled', false);
+        }
+    </script>
     <script>
           $("#page-search-btn").click(function () {
             var wherTo = $("#page-search-where").val();

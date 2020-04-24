@@ -1,0 +1,77 @@
+﻿<script src="~/css/Hamid/js/leaflet.js"></script>
+<script src="~/css/Hamid/js/leaflet-list-markers.js"></script>
+<script src="~/css/Hamid/js/cities-italy.js"></script>
+<div class="row">
+    <div class="col-12">
+        <div class="mapouter">
+            <div class="gmap_canvas">
+                <div id="map"></div>
+            </div>
+        </div>
+        <input type="hidden" id="lat" />
+        <input type="hidden" id="lon" />
+    </div>
+</div>
+<script>
+    var map = new L.Map('map', { zoom: 15, minZoom: 5, center: [35.6892, 51.3890] });
+    map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));
+    map.on('click', onMapClick);
+
+    var markers = [];
+
+    // Script for adding marker on map click
+    function onMapClick(e) {
+
+        var lat = e.latlng.lat.toFixed(5);
+        var lon = e.latlng.lng.toFixed(5);
+        $("#lat").val(lat);
+        $("#lon").val(lon);
+
+        var geojsonFeature = {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "Point",
+                "coordinates": [lat , lon]
+            }
+        }
+        // remove previous marker
+        if (markers.length > 0) {
+            map.removeLayer(markers.pop());
+        }
+        var marker;
+
+        L.geoJson(geojsonFeature, {
+
+            pointToLayer: function (feature, latlng) {
+
+                marker = L.marker(e.latlng, {
+
+                    title: "Resource Location",
+                    alt: "Resource Location",
+                    riseOnHover: true,
+                    draggable: true,
+
+                });
+                markers.push(marker)
+
+                return marker;
+            }
+        }).addTo(map);
+    }
+
+    //function onMapClick(e) {
+    //    debugger;
+    //    if (markers.length > 0) {
+    //        map.removeLayer(markers.pop());
+    //    }
+    //    var lat = e.latlng.lat.toFixed(5);
+    //    var lon = e.latlng.lng.toFixed(5);
+    //    $("#lat").val(lat);
+    //    $("#lon").val(lon);
+    //    var markersLayer = new L.LayerGroup();
+    //    L.marker(L.latLng(lat, lon)).addTo(markersLayer);
+    //    map.addLayer(markersLayer);
+    //}
+
+</script>

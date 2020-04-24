@@ -6,6 +6,7 @@ namespace Mabit.Models.Model.RoomModel
 {
     public class AddRoomModel
     {
+        public int[] picturesId { get; set; }
         public string title { get; set; }
         public int cityId { get; set; }
         public string address { get; set; }
@@ -41,4 +42,8 @@ namespace Mabit.Models.Model.RoomModel
         public string description { get; set; }
         public string aboutRoom { get; set; }
     }
+}
+public class AddRoomResultModel
+{
+    public bool submited { get; set; }
 }

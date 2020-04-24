@@ -95,13 +95,13 @@
                                     {
                                         <div class="input-group">
                                             <i class="fa fa-calendar-alt ml-2"></i>
-                                            <input type="text" id="inputDate3-1" class="form-control"
+                                            <input type="text" id="detailDateInp" class="form-control"
                                                    placeholder="ورود-خروج" aria-label="date3-1"
                                                    aria-describedby="date3-1">
                                         </div>
                                         <script>
-                                            $('#inputDate3-1').MdPersianDateTimePicker({
-                                                targetTextSelector: '#inputDate3-1',
+                                            $('#detailDateInp').MdPersianDateTimePicker({
+                                                targetTextSelector: '#detailDateInp',
                                                 monthsToShow: [1, 1],
                                                 rangeSelector: true
                                             });
@@ -596,7 +596,7 @@
                     </div>
                     <div class="col-12 text-center mt-4">
                         <div class="col-12">
-                            <button class="btn bg-mabit-blue text-white pt-0 w-100 pointer pt-1 pb-2 book-btn">رزرو</button>
+                            <button id="btn-booking" class="btn bg-mabit-blue text-white pt-0 w-100 pointer pt-1 pb-2 book-btn">رزرو</button>
                         </div>
                     </div>
                 </div>
@@ -680,9 +680,13 @@
 
         map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));
 
-          var markersLayer = new L.LayerGroup();
+    var markersLayer = new L.LayerGroup();
 
-              L.marker(L.latLng(cityList.latitude, cityList.longitude), { title: cityList.name }).addTo(markersLayer);
+    var popup = '<b>Name:</b> ' + cityList.title +
+        '<br/><b>Latitude:</b> ' + cityList.latitude +
+        '<br/><b>Longitude:</b> ' + cityList.longitude;
+
+              L.marker(L.latLng(cityList.latitude, cityList.longitude), { title: cityList.name }).bindTooltip(popup).addTo(markersLayer);
         map.addLayer(markersLayer);
 
         ////////////populate map from cities-italy.js
@@ -714,7 +718,7 @@
     $("#btnBook").click(function () {
         var dateRange = $("#detailDateInp").val();
         var guestsCount = $("#getguestSelect").val();
-        $(".inp-detail-people-count").val(guestsCount +"نفر");
+        $(".inp-detail-people-count").val(guestsCount + "نفر");
         startDate = dateRange.split('-')[0];
         endDate = dateRange.split('-')[1];
         $(".inp-detail-check-in").val(startDate);
@@ -724,11 +728,11 @@
         $.ajax({
             url: '@Url.Action("GetBookInvoice", "Booking")',
             type: 'Post',
-             data: {
-                 fromDate: startDate,
-                 toDate:endDate,
-                 roomId: roomId,
-                 peopleCount: guestsCount
+            data: {
+                fromDate: startDate,
+                toDate: endDate,
+                roomId: roomId,
+                peopleCount: guestsCount
             },
             success: function (res) {
                 $(".container-detail-price").empty();
@@ -736,19 +740,45 @@
                 debugger;
                 for (var i = 0; i < res.items.length; i++) {
                     var $template = $('<div class="row ml-0 mr-0 pt-3"><div class="col-12 pr-0">' +
-                            '<span class="mabit-darkGray f-size-14">' + res.items[i].title + '</span>' +
-                            '<span class="font-weight-bold f-size-14 fa-pull-left">' + res.items[i].price + '</span>'
-                        );
-                        $(".container-detail-price").append($template);
+                        '<span class="mabit-darkGray f-size-14">' + res.items[i].title + '</span>' +
+                        '<span class="font-weight-bold f-size-14 fa-pull-left">' + res.items[i].price + '</span>'
+                    );
+                    $(".container-detail-price").append($template);
                 }
-                  var $sumTemplate = $(' <span class="mabit-darkGray f-size-20">جمع کل</span>' +
-                        '<span class="font-weight-bold f-size-20 fa-pull-left">' + res.sum + '</span>')
-                    $(".container-sum-price").append($sumTemplate);
+                var $sumTemplate = $(' <span class="mabit-darkGray f-size-20">جمع کل</span>' +
+                    '<span class="font-weight-bold f-size-20 fa-pull-left">' + res.sum + '</span>')
+                $(".container-sum-price").append($sumTemplate);
                 $("#basicModal").modal("show");
 
             }
         });
-    })
+    });
+
+    $("#btn-booking").click(function () {
+          loadingBoxStart();
+         var dateRange = $("#detailDateInp").val();
+        var guestsCount = $("#getguestSelect").val();
+        $(".inp-detail-people-count").val(guestsCount + "نفر");
+        startDate = dateRange.split('-')[0];
+        endDate = dateRange.split('-')[1];
+        $(".inp-detail-check-in").val(startDate);
+
+        $(".inp-detail-check-out").val(endDate);
+        $.ajax({
+            url: '@Url.Action("BookRoom", "Booking")',
+            type: 'Post',
+            data: {
+                fromDate: startDate,
+                toDate: endDate,
+                roomId: roomId,
+                peopleCount: guestsCount
+            },
+            success: function (res) {
+                $("#basicModal").modal('toggle');
+                loadingBoxStop();
+            }
+        });
+    });
     var middleWeekPrice =@(Model.middleWeekPrice);
     var holydayPrice =@(Model.holydayPrice);
     var extraPersonPrice =@(Model.extraPersonPrice);

@@ -42,16 +42,19 @@
                 </a>*@
         </div>
     }
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="page-menu-link">
+            <img src="~/img/ph_host.png">
+            <a asp-controller="Hosting" asp-action="List" asp-route-culture="@culture" localize-content>Hosting</a>
+        </div>
 
-    <div class="page-menu-link">
-        <img src="~/img/ph_host.png">
-        <a asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>Hosting</a>
-    </div>
+        <div class="page-menu-link">
+            <img src="~/img/ph_support.png">
+            <a asp-controller="Reservation" asp-action="Index" asp-route-culture="@culture" localize-content>Reservation</a>
+        </div>
+    }
 
-    <div class="page-menu-link">
-        <img src="~/img/ph_support.png">
-        <a asp-controller="Account" asp-action="Login" asp-route-culture="@culture" localize-content>Support</a>
-    </div>
 
     <div class="page-menu-link">
         <img src="~/img/ph_app.png">

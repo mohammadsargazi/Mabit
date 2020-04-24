@@ -62,15 +62,16 @@ namespace WebUI.Controllers
             var claims = ((System.Security.Claims.ClaimsIdentity)User.Identity).Claims;
             var token = claims.SingleOrDefault(x => x.Type == "AcessToken").Value;
             var model = _roomService.MyRooms(token);
-            return View();
+            return View(model);
         }
 
         public IActionResult AddRoom(AddRoomViewModel model)
         {
             var newRoom = model.ToModel();
-            // var jsonModel= JsonConvert.DeserializeObject<AddRoomModel>(newRoom.ToString());
-            _roomService.AddRoom(newRoom);
-            return Json(true);
+            var claims = ((System.Security.Claims.ClaimsIdentity)User.Identity).Claims;
+            var token = claims.SingleOrDefault(x => x.Type == "AcessToken").Value;
+            var res = _roomService.AddRoom(newRoom, token).submited;
+            return Json(res);
         }
         public static byte[] ReadToEnd(System.IO.Stream stream)
         {
@@ -145,7 +146,7 @@ namespace WebUI.Controllers
                 };
                 var fileId = _commonService.UploadBase64(newFileUploadModel);
                 fileIds.Add(fileId);
-            }         
+            }
             return Json(fileIds);
         }
 

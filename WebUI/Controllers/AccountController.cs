@@ -58,9 +58,10 @@ namespace WebUI.Controllers
             {
                 //Create the identity for the user  
                 var identity = new ClaimsIdentity(new[] {
+                    
                         new Claim("usrFullName", requestTokenResult.User.firstName + " " + requestTokenResult.User.lastName),
                         new Claim("userProfileImageUrl",requestTokenResult.User.profileImageUrl),
-                        new Claim ("AcessToken",string.Format("Bearer {0}", requestTokenResult.Token))
+                        new Claim ("AcessToken",string.Format("{0}", requestTokenResult.Token))
                     }, CookieAuthenticationDefaults.AuthenticationScheme);
 
                 var principal = new ClaimsPrincipal(identity);
@@ -71,12 +72,16 @@ namespace WebUI.Controllers
             }
             return Json(false);
         }
-       
 
+        public IActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]
         public IActionResult Register(Register model)
         {
             var res = _userService.Register(model);
-            return Json(res);
+            return RedirectToAction("Index", "Home");
         }
 
 

@@ -46,6 +46,8 @@
     <Folder Include="wwwroot\Plugins\fileUploader\bootstrap\" />
     <Folder Include="wwwroot\Plugins\clock\" />
     <Folder Include="wwwroot\Plugins\persion-date-picker\" />
+    <Folder Include="wwwroot\Plugins\Preloader\css\" />
+    <Folder Include="wwwroot\Plugins\Preloader\js\" />
     <Folder Include="wwwroot\Plugins\twbsPagination\" />
     <Folder Include="wwwroot\Plugins\Range-Slider-jQuery-UI\" />
     <Folder Include="wwwroot\Script\" />

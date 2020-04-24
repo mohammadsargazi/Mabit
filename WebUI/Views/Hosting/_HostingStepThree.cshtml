@@ -97,9 +97,12 @@
                 <div class="col-12">
                     <div class="mapouter">
                         <div class="gmap_canvas">
-                            <div id="map"></div>
+                            @*<div id="map"></div>*@
+                            <partial name="_Map" />
                         </div>
                     </div>
+                   
+
                 </div>
             </div>
         </div>
@@ -117,38 +120,38 @@
     </button>
 </div>
 
-<script src="~/css/Hamid/js/leaflet.js"></script>
-<script src="~/css/Hamid/js/leaflet-list-markers.js"></script>
-<script src="~/css/Hamid/js/cities-italy.js"></script>
-<script>
-    var map = new L.Map('map', { zoom: 10, minZoom: 5, center: L.latLng(@latitude, @longitude) });
+@*<script src="~/css/Hamid/js/leaflet.js"></script>
+    <script src="~/css/Hamid/js/leaflet-list-markers.js"></script>
+    <script src="~/css/Hamid/js/cities-italy.js"></script>
+    <script>
+        var map = new L.Map('map', { zoom: 15, minZoom: 15, center: L.latLng(@latitude, @longitude) });
 
-        map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));
+            map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));
 
-        var markersLayer = new L.LayerGroup();
-        map.addLayer(markersLayer);
+            var markersLayer = new L.LayerGroup();
+            map.addLayer(markersLayer);
 
-        ////////////populate map from cities-italy.js
+            ////////////populate map from cities-italy.js
 
-        debugger;
-        //for (var i in cityList)
-        //  L.marker(L.latLng(cityList[i].latitude, cityList[i].longitude), { title: cityList[i].name,listid: cities[i].listid }).addTo(markersLayer);
-        //for (var i in cities)
-        //    L.marker(L.latLng(cities[i].loc), { title: cities[i].name, listid: cities[i].listid }).addTo(markersLayer);
+            debugger;
+            //for (var i in cityList)
+            //  L.marker(L.latLng(cityList[i].latitude, cityList[i].longitude), { title: cityList[i].name,listid: cities[i].listid }).addTo(markersLayer);
+            //for (var i in cities)
+            //    L.marker(L.latLng(cities[i].loc), { title: cities[i].name, listid: cities[i].listid }).addTo(markersLayer);
 
-        //inizialize Leaflet List Markers
-        var list = new L.Control.ListMarkers({ layer: markersLayer, itemIcon: null });
+            //inizialize Leaflet List Markers
+            var list = new L.Control.ListMarkers({ layer: markersLayer, itemIcon: null });
 
-        list.on('item-mouseover', function (e) {
-            e.layer.setIcon(L.icon({
-                iconUrl: '~/img/select-marker.png'
-            }))
-        }).on('item-mouseout', function (e) {
-            e.layer.setIcon(L.icon({
-                iconUrl: '~/img/marker-icon.png'
-            }))
-        });
+            list.on('item-mouseover', function (e) {
+                e.layer.setIcon(L.icon({
+                    iconUrl: '~/img/select-marker.png'
+                }))
+            }).on('item-mouseout', function (e) {
+                e.layer.setIcon(L.icon({
+                    iconUrl: '~/img/marker-icon.png'
+                }))
+            });
 
-        map.addControl(list);
+            map.addControl(list);
 
-</script>
+    </script>*@

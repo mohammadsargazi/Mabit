@@ -33,7 +33,8 @@ namespace WebUI.Controllers
        
         public IActionResult Index()
         {
-           
+            //var claims = ((System.Security.Claims.ClaimsIdentity)User.Identity).Claims;
+            //var token = claims.SingleOrDefault(x => x.Type == "AcessToken").Value;
             var topCities = _commonService.GetTopCities();
             var topRooms = _commonService.GetTopRooms();
             var Countries = _commonService.Countries();

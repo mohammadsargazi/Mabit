@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace WebUI.Controllers
 {
-    public class BookingController :  BaseController<BookingController>
+    public class BookingController : BaseController<BookingController>
     {
         #region Fileds
         private readonly BookingService _bookingService = new BookingService();
@@ -27,6 +27,13 @@ namespace WebUI.Controllers
         public IActionResult GetBookInvoice(BookingModel model)
         {
             var res = _bookingService.GetBookInvoice(model);
+            return Json(res);
+        }
+        public IActionResult BookRoom(BookingModel model)
+        {
+            var claims = ((System.Security.Claims.ClaimsIdentity)User.Identity).Claims;
+            var token = claims.SingleOrDefault(x => x.Type == "AcessToken").Value;
+            var res = _bookingService.BookRoom(model, token).submited;
             return Json(res);
         }
     }

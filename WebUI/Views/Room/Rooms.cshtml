@@ -311,12 +311,64 @@
             box-shadow: 0 !important;
         }
 </style>
+@if (culture == "fa" || culture == "ar")
+{
+    <style>
+        .country-dialog {
+            margin: 0;
+            float: right;
+            position: relative;
+            top: 118px;
+            right: 32px;
+        }
+
+        .city-dialog {
+            margin: 0;
+            float: right;
+            position: relative;
+            top: 118px;
+            right: 127px;
+        }
+
+        .ready-dialog {
+            margin: 0;
+            float: right;
+            position: relative;
+            top: 118px;
+            right: 279px;
+        }
+
+        .people-dialog {
+            margin: 0;
+            float: right;
+            position: relative;
+            top: 118px;
+            right: 433px;
+        }
+
+        .room-dialog {
+            margin: 0;
+            float: right;
+            position: relative;
+            top: 118px;
+            right: 555px;
+        }
+
+        .price-dialog {
+            margin: 0;
+            float: right;
+            position: relative;
+            top: 118px;
+            right: 744px;
+        }
+    </style>
+}
 
 <div class="container-fluid bg-box box-shadow-1 brd-r-6">
     <div class="row container-filter-btn" style="margin-bottom:30px;">
         <div class="col-10 d-flex align-items-center justify-content-between" style="margin-top: 80px">
-            <div class="search-filter-btn country-filter-btn" data-toggle="modal" data-target="#myModal-country"><span>country</span></div>
-            <div class="search-filter-btn city-filter-btn" data-toggle="modal" data-target="#myModal-city"><span>city</span></div>
+            <div class="search-filter-btn country-filter-btn" data-toggle="modal" data-target="#myModal-country"><span #country>country</span></div>
+            <div class="search-filter-btn city-filter-btn" data-toggle="modal" data-target="#myModal-city"><span #city>city</span></div>
             <div class="search-filter-btn date-filter-btn"><span>Date</span></div>
             <div class="search-filter-btn ready-filter-btn" data-toggle="modal" data-target="#myModal-ready"><span>Ready for delivery</span></div>
             <div class="search-filter-btn people-filter-btn" data-toggle="modal" data-target="#myModal-people"><span>People count</span></div>
@@ -343,7 +395,7 @@
         $('.date-filter-btn').daterangepicker({});
         //$('input[name="dates"]').val("Check In-Check Out");
     });
-   
+
 </script>
 <!------------------- country modal ---------------------->
 <div class="modal fade" id="myModal-country" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -556,6 +608,7 @@
         pagingRooms(page);
     });
     function pagingRooms(page) {
+        loadingBoxStart();
         var wherTo = $("#page-search-where").val();
         var from = $('input[name="dates"]').val().split('-')[0];
         var to = $('input[name="dates"]').val().split('-')[1];
@@ -642,7 +695,7 @@
     $("#province").change(function () {
         getCities();
     });
-    
+
     function getCities() {
         $.ajax({
             url: '@Url.Action("GetCity", "Room")',
@@ -708,7 +761,7 @@
     }
     function setFilter() {
         var countryId = $("input[type='radio']:checked").val();
-        
+
     }
 </script>
 <script>
@@ -742,3 +795,11 @@
         });
     });
 </script>
+
+
+@*<script>
+    // this is for filter 
+     $( ".hidden-radio" ).on( "click", function() {
+        $( "#country" ).html( $( ".hidden-radio" ).val() + " is checked!" );
+    });
+</script>*@

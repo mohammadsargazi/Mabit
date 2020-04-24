@@ -216,10 +216,15 @@
         map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));
 
           var markersLayer = new L.LayerGroup();
-        for (var i in cityList)
+        for (var i in cityList) {
+            var popup = '<b>Name:</b> ' + cityList[i].title +
+        '<br/><b>Latitude:</b> ' + cityList[i].latitude +
+        '<br/><b>Longitude:</b> ' + cityList[i].longitude;
+            L.marker(L.latLng(cityList[i].latitude, cityList[i].longitude), { title: cityList[i].name }).bindTooltip(popup).addTo(markersLayer);
+        }
              //L.rectangle([(cityList[i].latitude, cityList[i].longitude)], { title: cityList[i].name }).bindTooltip(cityList[i].title).addTo(markersLayer);
            // L.rectangle(L.latLng(cityList[i].latitude, cityList[i].longitude), { title: cityList[i].name }).bindTooltip(cityList[i].title).addTo(markersLayer);
-              L.marker(L.latLng(cityList[i].latitude, cityList[i].longitude), { title: cityList[i].name }).bindTooltip(cityList[i].title).addTo(markersLayer);
+              
 
         map.addLayer(markersLayer);
 

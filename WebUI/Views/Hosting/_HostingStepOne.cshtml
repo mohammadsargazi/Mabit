@@ -59,9 +59,9 @@
             <div class="radio-wrapper">
                 <input type="radio"
                        class="radios"
-                       id="radio3"
-                       name="rules" />
-                <label for="radio3" localize-content>
+                       id="agreeRd"
+                       name="agree" />
+                <label for="agreeRd" localize-content>
                     <span class="outer">
                         <span class="inner animated"></span>
                     </span>
@@ -73,14 +73,23 @@
 
 </div>
 <div class="btn-container p-1">
-    <button type="button"
-            class="btn-step res-btn-orange mb-2 btn"
+    <button type="button" disabled id="nextBtnStepOne"
+            class="btn-step res-btn-orange mb-2 btn" style="border-color:white;"
             data-class=".res-form-one" localize-content>
         Next
     </button>
 </div>
 
 <script>
+    $("#agreeRd").change(function () {
+        if ($(this).prop("checked")) {
+            $("#nextBtnStepOne").prop("disabled", false);
+            $("#nextBtnStepOne").css("border-color", "#4567F4");
+        } else {
+            $("#nextBtnStepOne").prop("disabled", true);
+            $("#nextBtnStepOne").css("border-color", "white");
+        }
+    });
     $("#singleUnit").click(function () {
         $(".container-role-singleunit").css("display", "block");
         $(".container-role-hotel").css("display", "none");

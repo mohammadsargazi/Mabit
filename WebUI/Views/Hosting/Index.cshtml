@@ -260,15 +260,18 @@
             longBookingDiscount1Day: $(".inp-long-booking-discount-1-day").val(),
             longBookingDiscount1Percent: $(".inp-long-booking-discount-1-percent").val(),
             longBookingDiscount2Day: $(".inp-long-booking-discount-2-day").val(),
-            longBookingDiscount2Percent: $(".inp-long-booking-discount-2-percent").val()
+            longBookingDiscount2Percent: $(".inp-long-booking-discount-2-percent").val(),
+            latitude: $("#lat").val(),
+            longitude: $("#lon").val()
             },
             success: function (res) {
-              
+                loadingBoxStop();
             }
         });
     }
 
     $("#btnInsertUnit").click(function () {
+         loadingBoxStart();
         debugger;
           var descOptionId = getSelectRadioBtnIds("descTextureOptionsItem");
         var capacityLocationTypes = getSelectRadioBtnIds("capicityLocationTypesItem");
@@ -283,7 +286,7 @@
         for (var i = 0; i != files.length; i++) {
          formData.append("files", files[i]);
         }
-
+         
           $.ajax({
               url: '@Url.Action("Upload", "Hosting")',
               data: formData,
@@ -291,6 +294,7 @@
               contentType: false,
               type: "POST",
               success: function (data) {
+                
                   debugger;
                   for (var i = 0; i < data.length; i++) {
                       picturesId.push(data[i])
