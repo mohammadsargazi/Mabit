@@ -29,11 +29,11 @@ namespace WebUI.Controllers
 
         #region Actions
 
-        public IActionResult Search(string wherTo, string from, string to,int page=1)
+        public IActionResult Search(string wherTo, string from, string to, int page = 1)
         {
             var reservationRoomModel = new ReservationRoomModel();
             DateTime dDate;
-            
+
             if (DateTime.TryParse(from, out dDate) || from.Equals("C"))
             {
                 reservationRoomModel.checkinDate = from;
@@ -48,11 +48,13 @@ namespace WebUI.Controllers
             reservationRoomModel.roomTypeId = null;
             reservationRoomModel.fromPrice = null;
             reservationRoomModel.toPrice = null;
-            //reservationRoomModel.take =  10;
-            //reservationRoomModel.skip = (page-1) * 10;
+            reservationRoomModel.take = 10;
+            reservationRoomModel.skip = (page - 1) * 10;
+            reservationRoomModel.roomCount = null;
+            reservationRoomModel.bedCount = null;
             var model = _roomService.GetReservationRoom(reservationRoomModel);
             ViewBag.Country = _commonService.GetCountries();
-            ViewBag.PageCount = Convert.ToInt32(model.count / 10);
+            ViewBag.PageCount = 10;//Convert.ToInt32(model.count / 10);
             //var model = new List<Mabit.Models.Model.Common.TopRoom>();
             return View("Rooms", model.items);
         }
@@ -65,10 +67,23 @@ namespace WebUI.Controllers
             }
             reservationRoomModel.take = 10;
             reservationRoomModel.skip = (reservationRoomModel.page - 1) * 10;
-            reservationRoomModel.peopleCount = null;
+            if (reservationRoomModel.countryId == 0)
+                reservationRoomModel.countryId = null;
+            if (reservationRoomModel.provinceId == 0)
+                reservationRoomModel.provinceId = null;
+            if (reservationRoomModel.peopleCount == 0)
+                reservationRoomModel.peopleCount = null;
+            if (reservationRoomModel.roomCount == 0)
+                reservationRoomModel.roomCount = null;
+            if (reservationRoomModel.bedCount == 0)
+                reservationRoomModel.bedCount = null;
+            if (!reservationRoomModel.isPriceRangeChecked)
+            {
+                reservationRoomModel.fromPrice = null;
+                reservationRoomModel.toPrice = null;
+            }
             reservationRoomModel.roomTypeId = null;
-            reservationRoomModel.fromPrice = null;
-            reservationRoomModel.toPrice = null;
+
 
             var model = _roomService.GetReservationRoom(reservationRoomModel);
             return View("_SearchRooms", model.items);

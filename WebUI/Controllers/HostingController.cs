@@ -67,11 +67,22 @@ namespace WebUI.Controllers
 
         public IActionResult AddRoom(AddRoomViewModel model)
         {
-            var newRoom = model.ToModel();
-            var claims = ((System.Security.Claims.ClaimsIdentity)User.Identity).Claims;
-            var token = claims.SingleOrDefault(x => x.Type == "AcessToken").Value;
-            var res = _roomService.AddRoom(newRoom, token).submited;
-            return Json(res);
+            if (ModelState.IsValid)
+            {
+                var newRoom = model.ToModel();
+                var claims = ((System.Security.Claims.ClaimsIdentity)User.Identity).Claims;
+                var token = claims.SingleOrDefault(x => x.Type == "AcessToken").Value;
+                var res = _roomService.AddRoom(newRoom, token).submited;
+                return Json(new
+                {
+                    Valid = true
+                });
+            }
+            return Json(new
+            {
+                Valid = false,
+                Errors = GetErrorsFromModelState()
+            });
         }
         public static byte[] ReadToEnd(System.IO.Stream stream)
         {

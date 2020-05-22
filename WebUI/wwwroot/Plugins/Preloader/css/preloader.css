@@ -18,7 +18,7 @@
       left: calc(50% - 3.25em); }
   .preloader-container {
     position: absolute;
-    top: calc(50% - 3.25em);
+    top: calc(20% - 3.25em);
     text-align: center;
     width: 100%; }
   .preloader-animation {

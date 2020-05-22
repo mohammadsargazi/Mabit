@@ -5,6 +5,10 @@
 }
 
 <style>
+    #roomMessage {
+        display: none;
+    }
+
     .credit-sign-plus {
         position: relative;
         bottom: 3px;
@@ -39,6 +43,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12" id="container">
+                    <div class="alert alert-danger" role="alert" id="roomMessage">
+                    </div>
                     <div class="res-steps-container bg-step">
                         <div class="res-steps res-step-one active" data-class=".res-form-one">
                             <div class="res-step-bar"></div>
@@ -217,6 +223,10 @@
     }
     var picturesId = [];
     function saveData() {
+        $("#roomMessage").css("display", "none");
+        $("#roomMessage div").each(function () {
+            $(this).remove()
+        });
         var descOptionId = getSelectRadioBtnIds("descTextureOptionsItem");
         var capacityLocationTypes = getSelectRadioBtnIds("capicityLocationTypesItem");
         var optoptionIds = getSelectRadioBtnIds("OptionsOptionsItem");
@@ -265,7 +275,21 @@
             longitude: $("#lon").val()
             },
             success: function (res) {
-                loadingBoxStop();
+                if (res.Valid) {
+                    loadingBoxStop();
+                    window.Location = @(culture)+"/Hosting/List";
+                }
+                debugger;
+                $.each(res.errors, function (key, value) {
+                    debugger;
+                    if (value != null) {
+                        debugger;
+                         var errorMessageTemplate = '<div class="row">' + value[0].errorMessage + '</div>';
+                         $("#roomMessage").append(errorMessageTemplate);
+                         $("#roomMessage").css("display", "block");
+                    }
+                });
+                 loadingBoxStop();
             }
         });
     }
@@ -286,7 +310,7 @@
         for (var i = 0; i != files.length; i++) {
          formData.append("files", files[i]);
         }
-         
+
           $.ajax({
               url: '@Url.Action("Upload", "Hosting")',
               data: formData,
@@ -294,7 +318,7 @@
               contentType: false,
               type: "POST",
               success: function (data) {
-                
+
                   debugger;
                   for (var i = 0; i < data.length; i++) {
                       picturesId.push(data[i])
