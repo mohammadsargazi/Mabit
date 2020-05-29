@@ -1,0 +1,299 @@
+﻿<div class="items">
+    <div class="item table-main table-main-category">
+        <table id="category"
+               class="table table-light table-prs table-striped table-responsive-md">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Area</th>
+                    <th>Double bed</th>
+                    <th>Bed</th>
+                    <th>Options</th>
+                    <th>Images</th>
+                    <th></th>
+                </tr>
+                <tr class="input-row">
+                    <td><input id="category-name" type="text" /></td>
+                    <td><input id="category-area" type="text" /></td>
+                    <td><input id="category-double" type="text" /></td>
+                    <td><input id="category-bed" type="text" /></td>
+                    <td>
+                        <div class="button-group combo-box">
+                            <button type="button"
+                                    class="btn btn-default dropdown-toggle"
+                                    data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-cog"></span>
+                            </button>
+                            <ul id="category-options" class="dropdown-menu">
+                                <li class="custom-control custom-checkbox">
+                                    <a href="#" class="small" tabIndex="-1">
+                                        <span class="glyphicon glyphicon-cog"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="small" data-value="option1"
+                                       tabIndex="-1">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox"
+                                                   class="custom-control-input"
+                                                   id="Wifi" value="Wifi">
+                                            <label class="custom-control-label"
+                                                   for="Wifi">&nbsp;Wifi</label>
+                                        </div>
+                                        <!--                                                                        <input type="checkbox" value="Wifi"  class="custom-control-input"/>-->
+                                        <!--                                                                        <span class="custom-control-indicator"></span>&nbsp;Wifi-->
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="small" data-value="option2"
+                                       tabIndex="-1">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox"
+                                                   class="custom-control-input" id="Wc"
+                                                   value="Wc">
+                                            <label class="custom-control-label"
+                                                   for="Wc">&nbsp;Wc</label>
+                                        </div>
+                                        <!--                                                                        <input type="checkbox" value="Wc"  class="custom-control-input"/>&nbsp;Wc-->
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="small" data-value="option3"
+                                       tabIndex="-1">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox"
+                                                   class="custom-control-input"
+                                                   id="Elevator" value="Elevator">
+                                            <label class="custom-control-label"
+                                                   for="Elevator">&nbsp;Elevator</label>
+                                        </div>
+                                        <!--                                                                        <input type="checkbox" value="Elevator"  class="custom-control-input"/>&nbsp;Elevator-->
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="small" data-value="option4"
+                                       tabIndex="-1">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox"
+                                                   class="custom-control-input"
+                                                   id="Parking" value="Parking">
+                                            <label class="custom-control-label"
+                                                   for="Parking">&nbsp;Parking</label>
+                                        </div>
+                                        <!--                                                                        <input type="checkbox" value="Parking"  class="custom-control-input"/>&nbsp;Parking-->
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="small" data-value="option5"
+                                       tabIndex="-1">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox"
+                                                   class="custom-control-input" id="Tv"
+                                                   value="Tv">
+                                            <label class="custom-control-label"
+                                                   for="Tv">&nbsp;Tv</label>
+                                        </div>
+                                        <!--                                                                        <input type="checkbox" value="Tv"  class="custom-control-input"/>&nbsp;Tv-->
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="small" data-value="option6"
+                                       tabIndex="-1">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox"
+                                                   class="custom-control-input"
+                                                   id="Bathroom" value="Bathroom">
+                                            <label class="custom-control-label"
+                                                   for="Bathroom">&nbsp;Bathroom</label>
+                                        </div>
+                                        <!--                                                                        <input type="checkbox" value="Bathroom" class="custom-control-input"/>&nbsp;Bathroom-->
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="small" data-value="option6"
+                                       tabIndex="-1">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox"
+                                                   class="custom-control-input"
+                                                   id="Pool" value="Pool">
+                                            <label class="custom-control-label"
+                                                   for="Pool">&nbsp;Pool</label>
+                                        </div>
+                                        <!--                                                                        <input type="checkbox" value="Pool" class="custom-control-input"/>&nbsp;Pool-->
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td style="width: 25%" id="category-images">
+                        <ul class="uploaded-img" id="avatar-preview">
+                            <li class="avatar-preview">
+                                <div style="background-image: url('~/img/nature.jpg')"></div>
+                                <i class="fa fa-times"></i>
+                            </li>
+                            <li class="avatar-preview">
+                                <div style="background-image: url('~/img/nature2.jpg')"></div>
+                                <i class="fa fa-times"></i>
+                            </li>
+                        </ul>
+
+                        <div class="fileUpload" id="fileUpload-btn">
+                            <input type='file' id="imageUpload"
+                                   accept=".png, .jpg, .jpeg" class="upload" />
+                            <i class="fa fa-image"></i>
+                        </div>
+
+                    </td>
+                    <td>
+                        <button id="btn-new-category" style="width: 60px;" class="new-button">
+                            <i class="fa fa-plus"></i>
+                            New
+                        </button>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>VIP</td>
+                    <td>95 m</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>Lorem Ipsum is,Lorem Ipsum is</td>
+                    <td>
+                        <ul class="uploaded-img">
+                            <li>
+                                <img src="../img/nature.jpg">
+                            </li>
+                            <li>
+                                <img src="../img/nature2.jpg">
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="text-left">
+                        <div class="operation">
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>VIP</td>
+                    <td>80 m</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>Lorem Ipsum is, Lorem Ipsum is, Lorem Ipsum is</td>
+                    <td>
+                        <ul class="uploaded-img">
+                            <li>
+                                <img src="../img/nature.jpg">
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="text-left">
+                        <div class="operation">
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<div class="btn-container p-1">
+    <button type="button" class="btn-step-prev res-btn-gray"
+            data-class=".res-form-ten">
+        Back
+    </button>
+    <button type="button"
+            class="btn-step res-btn-orange mb-2"
+            data-class=".res-form-ten">
+        Next
+    </button>
+</div>
+
+<script>
+    var picturesId = [];
+    $("#btn-new-category").click(function () {
+        var options = [];
+        $("input:checkbox").each(function () {
+            var $this = $(this);
+            if ($this.is(":checked"))
+                options.push($this.attr("id"));
+        });
+        var catVal = $("#category-name").val();
+        var areaVal = $("#category-area").val();
+        var doubleBedVal = $("#category-double").val();
+        var bedVal = $("#category-bed").val();
+        $.ajax({
+            url: '@Url.Action("Upload", "Hosting")',
+            data: formData,
+            processData: false,
+            contentType: false,
+            type: "POST",
+            success: function (data) {
+                debugger;
+                for (var i = 0; i < data.length; i++) {
+                    picturesId.push(data[i])
+                }
+                saveData();
+            }
+        });
+
+    });
+      function saveData() {
+            $.ajax({
+                url: '@Url.Action("AddHotel", "Hosting")',
+                type: 'Post',
+                data: {
+                },
+                success: function (res) {
+                    if (res.Valid) {
+                        loadingBoxStop();
+                        addTableRow(catVal, areaVal, doubleVal, bedVal, options);
+                    }
+                    debugger;
+                    $.each(res.errors, function (key, value) {
+                        debugger;
+                        if (value != null) {
+                            debugger;
+                             var errorMessageTemplate = '<div class="row">' + value[0].errorMessage + '</div>';
+                             $("#roomMessage").append(errorMessageTemplate);
+                             $("#roomMessage").css("display", "block");
+                        }
+                    });
+                     loadingBoxStop();
+                }
+            });
+    }
+      function addTableRow(categoryName, categoryArea, categoryDouble, categoryBed, options) {
+        var template = '<tr><td>' + categoryName + '</td> ' +
+            '<td>' + categoryArea + '</td> <td>' + categoryDouble + '</td> ' +
+            '<td>' + categoryBed + '</td><td>' + options + '</td>' +
+            '<td></td>' +
+            '<td class="text-left">\n' +
+            '<div class="operation">\n' +
+            '<button class="edit-btn">Edit</button>\n' +
+            '<button class="delete-btn">Delete</button>\n' +
+            '</div>\n' +
+            '</td></tr>';
+        $('#category > tbody:last-child').append(template);
+    }
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#avatar-preview').append('<li class="avatar-preview">\n' +
+                    '<div  style="background-image: url('+e.target.result +')"></div>\n' +
+                    '<i class="fa fa-check" aria-hidden="true"></i>\n' +
+                    '</li>')
+                $('#uploaded-img li div').fadeIn(650);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#imageUpload").change(function() {
+        readURL(this);
+    });
+</script>

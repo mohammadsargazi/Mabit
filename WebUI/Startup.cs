@@ -72,6 +72,7 @@ namespace WebUI
                     options.LoginPath = new PathString("/Account/Login");
                     options.EventsType = typeof(CustomCookieAuthenticationEvents);
                 });
+            services.AddDistributedMemoryCache();
             
             //var persianCulture = new PersianCulture();
             //Thread.CurrentThread.CurrentCulture = persianCulture;

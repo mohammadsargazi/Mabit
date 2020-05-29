@@ -69,12 +69,19 @@
                         <div class="res-steps res-step-five res-style" data-class=".res-form-five">
                             <div class="res-step-bar"></div>
                             <div class="res-progress-bar"></div>
-                            <div class="res-progress-title" localize-content>Measurment</div>
+                            <div class="res-progress-title unit-txt" localize-content>Measurment</div>
+                            <div class="res-progress-title hotel-txt" style="display:none;" localize-content>Internal Specification</div>
                         </div>
+                        @*<div class="res-steps res-step-five res-style hotel-txt" data-class=".res-form-five-hotel">
+                                <div class="res-step-bar"></div>
+                                <div class="res-progress-bar"></div>
+                                <div class="res-progress-title" localize-content>Internal specifications</div>
+                            </div>*@
                         <div class="res-steps res-step-six res-style" data-class=".res-form-six">
                             <div class="res-step-bar"></div>
                             <div class="res-progress-bar"></div>
-                            <div class="res-progress-title" localize-content>Capacity</div>
+                            <div class="res-progress-title unit-txt" localize-content>Capacity</div>
+                            <div class="res-progress-title hotel-txt" style="display:none;" localize-content>Area Culture</div>
                         </div>
                         <div class="res-steps res-step-seven res-style" data-class=".res-form-seven">
                             <div class="res-step-bar"></div>
@@ -89,8 +96,15 @@
                         <div class="res-steps res-step-nine res-style" data-class=".res-form-nine">
                             <div class="res-step-bar"></div>
                             <div class="res-progress-bar"></div>
-                            <div class="res-progress-title" localize-content>Cost</div>
+                            <div class="res-progress-title unit-txt" localize-content>Cost</div>
+                            <div class="res-progress-title hotel-txt" style="display:none;" localize-content>Category</div>
                         </div>
+                        <div class="res-steps res-step-ten res-style" data-class=".res-form-ten">
+                            <div class="res-step-bar"></div>
+                            <div class="res-progress-bar"></div>
+                            <div class="res-progress-title">Rooms</div>
+                        </div>
+
                     </div>
                     <div class="clearfix">&nbsp;</div>
                     <div class="res-step-form col-12  res-form-one">
@@ -105,9 +119,12 @@
                     <div class="res-step-form col-12 res-form-four">
                         <partial name="_HostingStepFour" model="@Model" />
                     </div>
-                    <div class="res-step-form col-12  res-form-five">
+                    <div class="res-step-form col-12 res-form-five">
                         <partial name="_HostingStepFive" />
                     </div>
+                    @*<div class="res-step-form col-12 res-form-five-hotel">
+                            <partial name="_HotelHostingStepFive" />
+                        </div>*@
                     <div class="res-step-form col-12 res-form-six">
                         <partial name="_HostingStepSix" />
                     </div>
@@ -120,20 +137,92 @@
                     <div class="res-step-form col-12 res-form-nine">
                         <partial name="_HostingStepNine" />
                     </div>
-
+                    @*<div class="res-step-form col-12 res-form-ten">
+                            <partial name="_HotelStepTen" />
+                        </div>
+                        <div class="res-step-form col-12 res-form-eleven">
+                            <partial name="_HotelStepEleven" />
+                        </div>*@
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+@*<script>
+        var steps = [];
+        $("input[name='categoryType']").change(function () {
+            debugger;
+            var radioId = $(this).attr('id');
+            if (radioId == "singleUnit") {
+                setUnitSteps();
+            } else {
+                setHotelSteps();
+            }
+        });
+
+        function setUnitSteps() {
+            steps = [];
+            $('.res-steps-container').children().each(function () {
+                if (!$(this).hasClass("hotel-txt")) {
+                    steps.push($(this));
+                }
+            });
+        }
+
+        function setHotelSteps() {
+            steps = [];
+            $('.res-steps-container').children().each(function () {
+                if (!$(this).hasClass("unit-txt")) {
+                    steps.push($(this));
+                }
+            });
+        }
+
+         var i = 1;
+            $(".res-step-form .res-btn-orange").click(function () {
+                debugger;
+                var getClass = $(this).attr('data-class');
+
+                if (getClass != ".res-form-nine") {
+                    $(".res-steps").removeClass('active');
+                    $(steps[i]).addClass('active');
+                    $(steps[i - 1]).addClass('activated');
+                    i++;
+                }
+                if (getClass != ".res-form-nine") {
+                    $(getClass).css('display', 'none');
+                    $(getClass).next().css('display', 'block');
+
+                }
+            });
+
+            /* step back */
+            $(".res-step-form .res-btn-gray").click(function () {
+                var getClass = $(this).attr('data-class');
+                $(".res-steps").removeClass('active');
+                if (i >= 1) {
+                    i--;
+                } else {
+                    i++;
+                }
+
+                $(steps[i - 1]).addClass('active');
+                $(steps[i - 1]).removeClass('activated');
+
+                $(getClass).css('display', 'none');
+                $(getClass).prev().css('display', 'block');
+            });
+
+    </script>*@
 <script>
     $(document).ready(function () {
 
         var steps = $('.res-steps-container').children();
+
         var i = 1;
         $(".res-step-form .res-btn-orange").click(function () {
-
+            debugger;
             var getClass = $(this).attr('data-class');
 
             if (getClass != ".res-form-nine") {
@@ -165,6 +254,81 @@
             $(getClass).css('display', 'none');
             $(getClass).prev().css('display', 'block');
         });
+    });
+
+     var options = [];
+
+    $('.dropdown-menu a').on('click', function (event) {
+
+        var $target = $(event.currentTarget),
+            val = $target.attr('data-value'),
+            $inp = $target.find('input'),
+            idx;
+
+        if ((idx = options.indexOf(val)) > -1) {
+            options.splice(idx, 1);
+            setTimeout(function () {
+                $inp.prop('checked', false)
+            }, 0);
+        } else {
+            options.push(val);
+            setTimeout(function () {
+                $inp.prop('checked', true)
+            }, 0);
+        }
+
+        $(event.target).blur();
+        return false;
+    });
+
+
+
+    $('#category-new-btn').on('click', function (event) {
+        let categoryName = document.getElementById('category-name').value;
+        let categoryArea = document.getElementById('category-area').value;
+        let categoryDouble = document.getElementById('category-double').value;
+        let categoryBed = document.getElementById('category-bed').value;
+        let categoryOptions = $("#category-options li input:checked");
+        let options = '';
+        let listItems = categoryOptions.each(function () {
+            options = options + $(this).val() + ' , '
+        })
+        $('#category > tbody:last-child').append('<tr><td>' + categoryName + '</td> ' +
+            '<td>' + categoryArea + '</td> <td>' + categoryDouble + '</td> ' +
+            '<td>' + categoryBed + '</td><td>' + options + '</td>' +
+            '<td></td>'+
+            '<td class="text-left">\n' +
+            '<div class="operation">\n' +
+            '<button class="edit-btn">Edit</button>\n' +
+            '<button class="delete-btn">Delete</button>\n' +
+            '</div>\n' +
+            '</td>'+
+            // '<td><ul class="uploaded-img not-clean">'+avatarPreview.html()+'</ul></td>' +
+            '</tr>');
+    });
+    $('#room-new-btn').on('click', function (event) {
+        console.log(event)
+        let roomFlour = document.getElementById('room-flour').value;
+        let room = document.getElementById('room-number').value;
+        let roomCost = document.getElementById('room-cost').value;
+        let roomDesc = document.getElementById('room-desc').value;
+       let roomOptions = $("#room-options li input:checked");
+        let options = '';
+        let listItems = roomOptions.each(function () {
+            options = options + $(this).val() + ' , '
+        })
+        $('#room > tbody:last-child').append('<tr><td>' + roomFlour + '</td> ' +
+            '<td>' + room + '</td> <td>' + options + '</td>' +
+            '<td>' + roomCost + '</td>'+
+            '<td>' + roomDesc + '</td>'+
+            '<td class="text-left">\n' +
+            '<div class="operation">\n' +
+            '<button class="edit-btn">Edit</button>\n' +
+            '<button class="delete-btn">Delete</button>\n' +
+            '</div>\n' +
+            '</td>'+
+            // '<td><ul class="uploaded-img not-clean">'+avatarPreview.html()+'</ul></td>' +
+            '</tr>');
     });
 </script>
 
@@ -231,67 +395,6 @@
         var capacityLocationTypes = getSelectRadioBtnIds("capicityLocationTypesItem");
         var optoptionIds = getSelectRadioBtnIds("OptionsOptionsItem");
         var customRulesItem = getSelectRadioBtnIds("customRulesItem");
-
-        $.ajax({
-            url: '@Url.Action("AddRoom", "Hosting")',
-            type: 'Post',
-            data: {
-            picturesId:picturesId,
-            unitName: $(".inp-unit-name").val(),
-            countryId: $("#countryList").val(),
-            provinceId: $("#provinceList").val(),
-            cityId: $("#cityList").val(),
-            address: $("#inp-address").val(),
-            descStructuresId: $("#descStructures").val(),
-            descTextureOptionsId: descOptionId,
-            descDescription: $("#inp-dec-description").val(),
-            measurmentroomtypeid: $("#measurmentRoomTypeList").val(),
-            measurmentlocationoptionid: $("#measurmentlocationoptionslist").val(),
-            measurmentbedroomnumber: $(".inp-bedroom-number").val(),
-            measurmentinpbuildingarea: $(".inp-building-area").val(),
-            measurmentYardArea: $(".inp-yard-area").val(),
-            descMeasurment: $(".inp-desc-measurment").val(),
-            standardCapacity: $(".inp-standard-capacity").val(),
-            capacitySingleBed: $(".inp-single-bed").val(),
-            capacityMaximumCapacity: $(".inp-maximum-capacity").val(),
-            capacityDoubleBed: $(".inp-double-bed").val(),
-            capacityLocationTypes: capacityLocationTypes,
-            capacityDescCapacity: $(".inp-desc-capacity").val(),
-            optoptionIds: optoptionIds,
-            optDescOptions: $(".inp-desc-options").val(),
-            rulesInterTime: $(".inp-inter-time").val(),
-            rulesExitTime: $(".inp-exit-time").val(),
-            customRulesItem: customRulesItem,
-            ruleDesc: $(".inp-rule-desc").val(),
-            middleOfTheWeek: $(".inp-middle-of-the-week").val(),
-            holidays: $(".inp-holidays").val(),
-            weekend: $(".inp-weekend").val(),
-            extraPeople: $(".inp-extra-people").val(),
-            longBookingDiscount1Day: $(".inp-long-booking-discount-1-day").val(),
-            longBookingDiscount1Percent: $(".inp-long-booking-discount-1-percent").val(),
-            longBookingDiscount2Day: $(".inp-long-booking-discount-2-day").val(),
-            longBookingDiscount2Percent: $(".inp-long-booking-discount-2-percent").val(),
-            latitude: $("#lat").val(),
-            longitude: $("#lon").val()
-            },
-            success: function (res) {
-                if (res.Valid) {
-                    loadingBoxStop();
-                    window.Location = @(culture)+"/Hosting/List";
-                }
-                debugger;
-                $.each(res.errors, function (key, value) {
-                    debugger;
-                    if (value != null) {
-                        debugger;
-                         var errorMessageTemplate = '<div class="row">' + value[0].errorMessage + '</div>';
-                         $("#roomMessage").append(errorMessageTemplate);
-                         $("#roomMessage").css("display", "block");
-                    }
-                });
-                 loadingBoxStop();
-            }
-        });
     }
 
     $("#btnInsertUnit").click(function () {
@@ -325,8 +428,7 @@
                   }
                   saveData();
               }
-            }
-        );
+            });
 
     });
     function model() {

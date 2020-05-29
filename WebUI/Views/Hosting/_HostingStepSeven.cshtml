@@ -15,20 +15,20 @@
             <div class="col-12 ml-0 pl-0 d-flex flex-wrap justify-content-between">
                 @foreach (var item in Model.Options)
                 {
-                <div class="col-3">
-                    <div class="radio-wrapper">
-                        <input type="checkbox"
-                               class="radios"
-                               id="opt_@(item.id)"
-                               name="OptionsOptionsItem" />
-                        <label for="opt_@(item.id)">
-                            <span class="outer">
-                                <span class="inner animated"></span>
-                            </span>
-                            @(item.title)
-                        </label>
+                    <div class="col-3">
+                        <div class="radio-wrapper">
+                            <input type="checkbox"
+                                   class="radios"
+                                   id="opt_@(item.id)"
+                                   name="OptionsOptionsItem" />
+                            <label for="opt_@(item.id)">
+                                <span class="outer">
+                                    <span class="inner animated"></span>
+                                </span>
+                                @(item.title)
+                            </label>
+                        </div>
                     </div>
-                </div>
                 }
             </div>
 

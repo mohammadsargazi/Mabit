@@ -3,16 +3,21 @@
 }
 
 <style>
-    .container-role-singleunit{
-        display:block;
+    .container-role-singleunit {
+        display: block;
     }
-    .container-role-hotel{
+
+    .container-role-hotel {
+        display: none;
+    }
+    .hotel-txt{
         display:none;
     }
 </style>
 <div class="items">
     <div class="item">
-        <h5 localize-content>Add New Unit</h5>
+        <h5 class="unit-txt" localize-content>Add New Unit</h5>
+        <h5 class="hotel-txt" localize-content>Add New Hotel</h5>
         <p>
             You intend to register a hotel or house?
         </p>
@@ -21,7 +26,7 @@
                 <input type="radio"
                        class="radios"
                        id="singleUnit"
-                       name="catRadio" checked />
+                       name="categoryType" checked />
                 <label style="cursor:pointer" for="singleUnit" localize-content>
                     <span class="outer">
                         <span class="inner animated"></span>
@@ -33,7 +38,7 @@
                 <input type="radio"
                        class="radios"
                        id="hotelOrMotel"
-                       name="catRadio" />
+                       name="categoryType" />
                 <label style="cursor:pointer" for="hotelOrMotel" localize-content>
                     <span class="outer">
                         <span class="inner animated"></span>
@@ -93,9 +98,15 @@
     $("#singleUnit").click(function () {
         $(".container-role-singleunit").css("display", "block");
         $(".container-role-hotel").css("display", "none");
+        $(".unit-txt").css("display", "block");
+        $(".hotel-txt").css("display", "none");
+        $(".res-steps").css("width", "92.5px");
     });
-     $("#hotelOrMotel").click(function () {
+    $("#hotelOrMotel").click(function () {
         $(".container-role-singleunit").css("display", "none");
         $(".container-role-hotel").css("display", "block");
+        $(".unit-txt").css("display", "none");
+        $(".hotel-txt").css("display", "block");
+        $(".res-steps").css("width", "83.5px");
     });
 </script>

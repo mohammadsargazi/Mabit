@@ -8,7 +8,8 @@ namespace Mabit.Models.Model.Common
     public class TopRoom : BaseModel
     {
         private string _picUrl;
-        public string mainPictureApiUrl { get; set; }
+        public string _mainPictureApiUrl;
+        public string mainPictureApiUrl { get { return _mainPictureApiUrl; } set { _mainPictureApiUrl = "http://185.173.105.237:81" + value; } }
         public string middleWeekPrice { get; set; }
         public string holydayPrice { get; set; }
         public string peakDayPrice { get; set; }

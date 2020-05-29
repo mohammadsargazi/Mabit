@@ -5,14 +5,15 @@
 
 <div class="items">
     <div class="item mb-0">
-        <h5>Unit Description</h5>
+        <h5 class="unit-txt" localize-content>Unit Description</h5>
+        <h5 class="hotel-txt" localize-content>Hotel Description</h5>
         <p class="mb-0" localize-content>
             Specify the type of accommodation, proximity to tourist sites and shopping centers, etc.
         </p>
     </div>
     <div class="item">
         <div class="col-8">
-            <div class="row">
+            <div class="row unit-txt">
                 <div class="col-6 ml-0 pl-0">
                     <select class="form-control bg-input" id="descStructures">
                         @foreach (var item in Model.Structures)
@@ -24,35 +25,49 @@
                 <div class="col-6 ml-0 pl-0">
                 </div>
             </div>
-        </div>
-        <div class="mb-3">
-            <div class="col-12 ml-0 pl-0 d-flex flex-wrap justify-content-between">
-                @foreach (var item in Model.TextureOptions)
-                {
-                    <div class="radio-wrapper">
-                        <input type="checkbox"
-                               class="radios"
-                               id="desc_@(item.id)"
-                               name="descTextureOptionsItem" />
-                        <label for="desc_@(item.id)">
-                            <span class="outer">
-                                <span class="inner animated"></span>
-                            </span>
-                            @(item.title)
-                        </label>
+
+            <div class="row hotel-txt">
+                <div class="row">
+                    <div class="col-6 ml-0 pl-0">
+                        <input type="number" placeholder="Hotel Kind"
+                               class="form-control bg-input inp-building-area">
                     </div>
-                }
-            </div>
-        </div>
-        <div class="col-8">
-            <div class="col-12 ml-0 pl-0">
-                <textarea placeholder="Description"
-                          class="form-control bg-input mt-0 inp-dec-description" name="desc"
-                          cols="30" rows="3"></textarea>
+                    <div class="col-6 ml-0 pl-0">
+                        <input type="number" placeholder="Hotel Star"
+                               class="form-control bg-input inp-yard-area">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <div class="mb-3">
+        <div class="col-12 ml-0 pl-0 d-flex flex-wrap justify-content-between">
+            @foreach (var item in Model.TextureOptions)
+            {
+                <div class="radio-wrapper">
+                    <input type="checkbox"
+                           class="radios"
+                           id="desc_@(item.id)"
+                           name="descTextureOptionsItem" />
+                    <label for="desc_@(item.id)">
+                        <span class="outer">
+                            <span class="inner animated"></span>
+                        </span>
+                        @(item.title)
+                    </label>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="col-12 ml-0 pl-0">
+            <textarea placeholder="Description"
+                      class="form-control bg-input mt-0 inp-dec-description" name="desc"
+                      cols="30" rows="3"></textarea>
+        </div>
+    </div>
 </div>
+
 <div class="btn-container p-1">
     <button type="button" class="btn-step-prev res-btn-gray btn"
             data-class=".res-form-four">

@@ -28,46 +28,54 @@
             <div class="place-items-parent owl-carousel owl-theme">
                 @foreach (var item in Model.TopRooms)
                 {
-                    <div class="list-item-alt" id="item-1">
+                <div class="list-item-alt" id="item-1">
+                    @if (item.pictures == null)
+                    {
+                        <img src="@(item.mainPictureApiUrl)" class="list-img">
+                    }
+                    else
+                    {
                         <img src="@(item.pictures.First().apiUrl)" class="list-img">
-                        <div class="list-title-price">
-                            <div class="list-title">
-                                @(item.title)
-                            </div>
-                            <div class="list-price">
-                                @(item.middleWeekPrice) $
-                            </div>
+                    }
+
+                    <div class="list-title-price">
+                        <div class="list-title">
+                            @(item.title)
                         </div>
-                        <div class="list-city">
-                            @(item.Province.title), @(item.Country.title)
-                        </div>
-                        <div class="list-star">
-                            @(item.averageRate) <span localize-content>rate of</span> 34 <span localize-content>users</span>
-                        </div>
-                        <div class="list-features-parent">
-                            <div class="list-feature"></div>
-                            <div class="list-feature"></div>
-                            <div class="list-feature"></div>
-                            <div class="list-feature"></div>
-                            <div class="list-feature"></div>
-                        </div>
-                        <div class="list-footer">
-                            <div class="list-footer-item">
-                                <a style="height: 30px;line-height: 27px;" asp-area="" asp-controller="Room" asp-action="Detail" asp-route-id="@item.id" class="btn bg-mabit-blue text-white pt-0 pb-0 detail-btn f-size-12" asp-route-culture="@culture" localize-content>
-                                    Detail
-                                </a>
-                                @*<a href="#">
-                                    <div class="list-footer-detail">Detail</div>
-                                </a>*@
-                            </div>
-                            <div class="list-footer-item">
-                                <img src="~/img/rooms.svg"> @(item.roomCount)
-                            </div>
-                            <div class="list-footer-item">
-                                <img src="~/img/house-scale.svg">@(item.buildingArea)
-                            </div>
+                        <div class="list-price">
+                            @(item.middleWeekPrice) $
                         </div>
                     </div>
+                    <div class="list-city">
+                        @(item.Province.title), @(item.Country.title)
+                    </div>
+                    <div class="list-star">
+                        @(item.averageRate) <span localize-content>rate of</span> 34 <span localize-content>users</span>
+                    </div>
+                    <div class="list-features-parent">
+                        <div class="list-feature"></div>
+                        <div class="list-feature"></div>
+                        <div class="list-feature"></div>
+                        <div class="list-feature"></div>
+                        <div class="list-feature"></div>
+                    </div>
+                    <div class="list-footer">
+                        <div class="list-footer-item">
+                            <a style="height: 30px;line-height: 27px;" asp-area="" asp-controller="Room" asp-action="Detail" asp-route-id="@item.id" class="btn bg-mabit-blue text-white pt-0 pb-0 detail-btn f-size-12" asp-route-culture="@culture" localize-content>
+                                Detail
+                            </a>
+                            @*<a href="#">
+                    <div class="list-footer-detail">Detail</div>
+                </a>*@
+                        </div>
+                        <div class="list-footer-item">
+                            <img src="~/img/rooms.svg"> @(item.roomCount)
+                        </div>
+                        <div class="list-footer-item">
+                            <img src="~/img/house-scale.svg">@(item.buildingArea)
+                        </div>
+                    </div>
+                </div>
                 }
             </div>
             @*<div class="see-all-btn">

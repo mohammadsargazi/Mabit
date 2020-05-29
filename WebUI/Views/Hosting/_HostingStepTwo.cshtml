@@ -4,7 +4,8 @@
 
 <div class="items">
     <div class="item">
-        <h5 localize-content>Add New Unit</h5>
+        <h5 class="unit-txt" localize-content>Add New Unit</h5>
+        <h5 class="hotel-txt" localize-content>Add New Hotel</h5>
         <p localize-content>
             Upload your Residence Pictures here, obviously the quality of the images has a direct impact on increasing your Reservation
         </p>
@@ -15,17 +16,18 @@
                 Add Image
             </button>
         </div>*@
-    <div class="item">
-        <h6 localize-content>Home Page Image</h6>
-        <partial name="_bootstrapFileupload" />
-        @*<div class="gallery">
-                <div class="image">
-                    <img class="img-fluid img-rounds" src="~/img/bg_iran.png"
-                         alt="bg_iran" />
-                    <h6 class="d-block" localize-content>Delete</h6>
-                </div>
-            </div>*@
-    </div>
+<div class="item">
+    <h6 class="unit-txt" localize-content>Home Page Image</h6>
+    <h6 class="hotel-txt" localize-content>Room Page Image</h6>
+    <partial name="_bootstrapFileupload" />
+    @*<div class="gallery">
+            <div class="image">
+                <img class="img-fluid img-rounds" src="~/img/bg_iran.png"
+                     alt="bg_iran" />
+                <h6 class="d-block" localize-content>Delete</h6>
+            </div>
+        </div>*@
+</div>
 
 </div>
 <div class="btn-container p-1">

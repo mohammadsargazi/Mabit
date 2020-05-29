@@ -3,6 +3,7 @@
     var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
     var latitude = "35.6892";
     var longitude = "51.3890";
+    var isRoom = true;
 }
 @if (culture == "fa")
 {
@@ -12,7 +13,8 @@
 
 <div class="items">
     <div class="item mb-0">
-        <h5 localize-content>Unit Location</h5>
+        <h5 class="unit-txt" localize-content>Unit Location</h5>
+        <h5 class="hotel-txt" localize-content>Hotel Location</h5>
         <p class="mb-0" localize-content>
             Please enter the address of your residence.
         </p>
@@ -21,8 +23,10 @@
         <div class="col-8">
             <div class="row">
                 <div class="col-6 ml-0 pl-0">
+                    <input type="text" placeholder="Hotel Name"
+                           class="form-control bg-input hotel-txt inp-hotel-name">
                     <input type="text" placeholder="Unit Name"
-                           class="form-control bg-input inp-unit-name">
+                           class="form-control bg-input unit-txt inp-unit-name">
                     @*<input type="text" placeholder="Province"
                         class="form-control bg-input inp-province">*@
                     <select class="form-control bg-input" id="provinceList"></select>
@@ -120,38 +124,3 @@
     </button>
 </div>
 
-@*<script src="~/css/Hamid/js/leaflet.js"></script>
-    <script src="~/css/Hamid/js/leaflet-list-markers.js"></script>
-    <script src="~/css/Hamid/js/cities-italy.js"></script>
-    <script>
-        var map = new L.Map('map', { zoom: 15, minZoom: 15, center: L.latLng(@latitude, @longitude) });
-
-            map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));
-
-            var markersLayer = new L.LayerGroup();
-            map.addLayer(markersLayer);
-
-            ////////////populate map from cities-italy.js
-
-            debugger;
-            //for (var i in cityList)
-            //  L.marker(L.latLng(cityList[i].latitude, cityList[i].longitude), { title: cityList[i].name,listid: cities[i].listid }).addTo(markersLayer);
-            //for (var i in cities)
-            //    L.marker(L.latLng(cities[i].loc), { title: cities[i].name, listid: cities[i].listid }).addTo(markersLayer);
-
-            //inizialize Leaflet List Markers
-            var list = new L.Control.ListMarkers({ layer: markersLayer, itemIcon: null });
-
-            list.on('item-mouseover', function (e) {
-                e.layer.setIcon(L.icon({
-                    iconUrl: '~/img/select-marker.png'
-                }))
-            }).on('item-mouseout', function (e) {
-                e.layer.setIcon(L.icon({
-                    iconUrl: '~/img/marker-icon.png'
-                }))
-            });
-
-            map.addControl(list);
-
-    </script>*@

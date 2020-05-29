@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-6">
                 @*<input type="text" placeholder="Inter Time"
-        class="form-control bg-input">*@
+                    class="form-control bg-input">*@
                 <div class="clearfix">
                     <div class="input-group clockpicker" data-autoclose="true">
                         <input type="text" class="form-control bg-input inp-inter-time" placeholder="interTime">
@@ -23,7 +23,7 @@
                         </span>
                     </div>
                 </div>
-              
+
 
                 <script type="text/javascript">
                     $('.clockpicker').clockpicker();
@@ -33,7 +33,7 @@
             </div>
             <div class="col-6">
                 @*<input type="text" placeholder="Exit Time"
-                       class="form-control bg-input">*@
+                    class="form-control bg-input">*@
                 <div class="clearfix">
                     <div class="input-group clockpicker" data-autoclose="true">
                         <input type="text" class="form-control bg-input inp-exit-time" placeholder="ExitTime">
@@ -58,23 +58,23 @@
             <div class="col-12 ml-0 pl-0 d-flex flex-wrap justify-content-between">
                 @foreach (var item in Model.CustomRules)
                 {
-                <div class="col-6">
-                    <div class="radio-wrapper">
-                        <input type="checkbox"
-                               class="radios"
-                               id="rule_@(item.id)"
-                               name="customRulesItem" />
-                        <label for="rule_@(item.id)">
-                            <span class="outer">
-                                <span class="inner animated"></span>
-                            </span>
-                            @(item.title)
-                        </label>
+                    <div class="col-6">
+                        <div class="radio-wrapper">
+                            <input type="checkbox"
+                                   class="radios"
+                                   id="rule_@(item.id)"
+                                   name="customRulesItem" />
+                            <label for="rule_@(item.id)">
+                                <span class="outer">
+                                    <span class="inner animated"></span>
+                                </span>
+                                @(item.title)
+                            </label>
+                        </div>
                     </div>
-                </div>
                 }
             </div>
-   
+
         </div>
         <div class="col-8">
             <div class="row">
