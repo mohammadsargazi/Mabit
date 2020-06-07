@@ -29,6 +29,11 @@ namespace WebUI.Controllers
             var res = _bookingService.GetBookInvoice(model);
             return Json(res);
         }
+        /// <summary>
+        ///  bookin room,call api by ajax
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public IActionResult BookRoom(BookingModel model)
         {
             var claims = ((System.Security.Claims.ClaimsIdentity)User.Identity).Claims;
