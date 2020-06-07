@@ -38,7 +38,7 @@ body {
 }
 
     #employer-post-new-job .res-steps-container .res-steps {
-        width: 9%;
+        width: 92.5px;
         position: relative;
         text-align: center;
         float: left;
@@ -91,7 +91,7 @@ body {
 
 
 
-    #employer-post-new-job .res-steps-container .res-step-two .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-three .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-four .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-five .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-six .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-seven .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-eight .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-nine .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-ten .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-eleven .res-progress-bar {
+    #employer-post-new-job .res-steps-container .res-step-two .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-three .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-four .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-five .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-six .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-seven .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-eight .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-nine .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-ten .res-progress-bar {
         width: 100%;
         margin-left: 0
     }
@@ -100,11 +100,23 @@ body {
     /*    width: 0;*/
     /*    margin-right: 50%*/
     /*}*/
-    #employer-post-new-job .res-steps-container .res-step-eleven .res-progress-bar {
+    #employer-post-new-job .res-steps-container .res-step-ten .res-progress-bar {
         width: 0;
         margin-right: 50%
     }
+    #employer-post-new-job .res-steps-container .res-step-two .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-three .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-four .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-five .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-six .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-seven .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-eight .res-progress-bar, #employer-post-new-job .res-steps-container .res-step-nine .res-progress-bar{
+        width: 100%;
+        margin-left: 0
+    }
 
+    /*#employer-post-new-job .res-steps-container .res-step-nine .res-progress-bar {*/
+    /*    width: 0;*/
+    /*    margin-right: 50%*/
+    /*}*/
+    #employer-post-new-job .res-steps-container .res-step-nine .res-progress-bar {
+        width: 0;
+        margin-right: 50%
+    }
 
 #employer-post-new-job .res-step-form h3 {
     margin: 10px 0;

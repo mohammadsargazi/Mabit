@@ -116,7 +116,7 @@ public static class ExtentionModel
             holydayPrice = model.Holidays,
             landArea = model.MeasurmentYardArea,
             roomTypeId = model.MeasurmentRoomTypeId,
-            //locationOptionsId=model.MeasurmentLocationOptionId,
+            //locationOptionsId=model.MeasurmentLocationOptionId,//end point
             standardCapacity = model.StandardCapacity,
             maxCapacity = model.CapacityMaximumCapacity,
             singleBedCount = model.CapacitySingleBed,

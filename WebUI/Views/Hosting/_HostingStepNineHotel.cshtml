@@ -203,12 +203,12 @@
 </div>
 <div class="btn-container p-1">
     <button type="button" class="btn-step-prev res-btn-gray"
-            data-class=".res-form-ten">
+            data-class=".res-form-nine">
         Back
     </button>
     <button type="button"
             class="btn-step res-btn-orange mb-2"
-            data-class=".res-form-ten">
+            data-class=".res-form-nine">
         Next
     </button>
 </div>
@@ -244,7 +244,7 @@
     });
       function saveData() {
             $.ajax({
-                url: '@Url.Action("AddHotel", "Hosting")',
+                url: '@Url.Action("AddCategoryHotel", "Hosting")',
                 type: 'Post',
                 data: {
                 },
