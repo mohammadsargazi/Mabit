@@ -1,4 +1,8 @@
-﻿<div class="item table-main table-main-room">
+﻿@model WebUI.Models.HostingViewModel
+@{
+    var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
+}
+<div class="item table-main table-main-room">
     <table id="room" class="table table-light table-prs table-striped table-responsive-md">
         <thead>
             <tr>
@@ -25,61 +29,20 @@
                                     <span class="glyphicon glyphicon-cog"></span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="#" class="small" data-value="option1"
-                                   tabIndex="-1">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input"
-                                               id="Vip" value="Vip">
-                                        <label class="custom-control-label" for="Vip">&nbsp;Vip</label>
-                                    </div>
-                                    <!--                                                                <input type="checkbox"/>&nbsp;Vip-->
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="small" data-value="option2"
-                                   tabIndex="-1">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input"
-                                               id="Normal" value="Normal">
-                                        <label class="custom-control-label" for="Normal">&nbsp;Normal</label>
-                                    </div>
-                                    <!--                                                                <input type="checkbox"/>&nbsp;Normal-->
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="small" data-value="option3"
-                                   tabIndex="-1">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input"
-                                               id="Suit" value="Suit">
-                                        <label class="custom-control-label" for="Suit">&nbsp;Suit</label>
-                                    </div>
-                                    <!--                                                                <input type="checkbox"/>&nbsp;Suit-->
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="small" data-value="option4"
-                                   tabIndex="-1">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input"
-                                               id="Seaside" value="Seaside">
-                                        <label class="custom-control-label" for="Seaside">&nbsp;Seaside</label>
-                                    </div>
-                                    <!--                                                                <input type="checkbox"/>&nbsp;Seaside-->
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="small" data-value="option5"
-                                   tabIndex="-1">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input"
-                                               id="2beds" value="2beds">
-                                        <label class="custom-control-label" for="2beds">&nbsp;2beds</label>
-                                    </div>
-                                    <!--                                                                <input type="checkbox"/>&nbsp;2beds-->
-                                </a>
-                            </li>
+                            @foreach (var item in Model.HotelCategories)
+                            {
+                                <li>
+                                    <a href="#" class="small" data-value="option1"
+                                       tabIndex="-1">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="@(item.id)" value="@(item.id)">
+                                            <label class="custom-control-label" for="@(item.id)">&nbsp;@(item.title)</label>
+                                        </div>
+                                        <!--                                                                <input type="checkbox"/>&nbsp;Vip-->
+                                    </a>
+                                </li>
+                            }
                         </ul>
                     </div>
                 </td>
@@ -134,9 +97,51 @@
             data-class=".res-form-ten">
         Back
     </button>
-    <button type="button" id="addHotel"
+    <button type="button" id="addHotelRoom"
             class="btn-step res-btn-orange mb-2"
             data-class=".res-form-ten">
         Done
     </button>
 </div>
+
+<script>
+    
+    $("#addHotelRoom").click(function () {
+        addHotelRoom();
+    });
+
+    
+
+    function addHotelRoom() {
+        let roomOptions = $("#room-options li input:checked");
+         $.ajax({
+            url: '@Url.Action("AddHotelRoom", "Hosting")',
+            type: 'Post',
+             data: {
+                 hotelId: hotelId,
+                 Flour: $("#room-flour").val(),
+                 Room: $("#room-number").val(),
+                 HotelCategoryId: roomOptions,
+                 Cost: $("#room-cost").val(),
+                 Description: $("#room-desc").val()
+
+            },
+            success: function (res) {
+                if (res.Valid) {
+                    loadingBoxStop();
+                }
+                debugger;
+                $.each(res.errors, function (key, value) {
+                    debugger;
+                    if (value != null) {
+                        debugger;
+                        var errorMessageTemplate = '<div class="row">' + value[0].errorMessage + '</div>';
+                        $("#roomMessage").append(errorMessageTemplate);
+                        $("#roomMessage").css("display", "block");
+                    }
+                });
+                loadingBoxStop();
+            }
+        });
+    }
+</script>

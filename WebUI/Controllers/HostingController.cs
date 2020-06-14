@@ -7,6 +7,7 @@ using LazZiya.ExpressLocalization;
 using Mabit.Models.Model.Common;
 using Mabit.Models.Model.RoomModel;
 using Mabit.Services.CommonService;
+using Mabit.Services.HotelService;
 using Mabit.Services.RoomService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +22,7 @@ namespace WebUI.Controllers
         #region Fileds
         private readonly CommonService _commonService = new CommonService();
         private readonly RoomService _roomService = new RoomService();
+        private readonly HotelService _hotelService = new HotelService();
         #endregion
 
         #region Const 
@@ -43,6 +45,9 @@ namespace WebUI.Controllers
             var locationTypes = _commonService.LocationTypes();
             var customRules = _commonService.CustomRules();
             var countries = _commonService.GetCountries();
+            var categoryOptopns = new List<CategoryOption> { new CategoryOption { Id = 1, Title = "" } }; //_commonService.GetCategoryOption();
+            var hotelTypes = new List<HotelType> { new HotelType { Id = 1, Title = "WIFI" } };//_commonService.GetHotelType();
+            var hotelCategories = new List<BaseRelateModel> { new BaseRelateModel { id = 1, title = "" } };// _commonService.GetHotelCategory();
             var model = new HostingViewModel
             {
                 Options = options,
@@ -52,7 +57,10 @@ namespace WebUI.Controllers
                 RoomTypes = roomTypes,
                 Structures = structures,
                 TextureOptions = textureOptions,
-                Countries = countries
+                Countries = countries,
+                HotelTypes = hotelTypes,
+                CategoryOptions = categoryOptopns,
+                HotelCategories = hotelCategories
             };
             return View(model);
         }
@@ -84,6 +92,29 @@ namespace WebUI.Controllers
                 Errors = GetErrorsFromModelState()
             });
         }
+
+        public IActionResult AddCategoryHotel(AddCategoryHotelViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var newCategoryHotel = model.ToModel();
+                var claims = ((System.Security.Claims.ClaimsIdentity)User.Identity).Claims;
+                var token = claims.SingleOrDefault(x => x.Type == "AcessToken").Value;
+                var res = _hotelService.AddHotelCategory(newCategoryHotel, token).submited;
+                return Json(new
+                {
+                    Valid = true
+                });
+            }
+            return Json(new
+            {
+                Valid = false,
+                Errors = GetErrorsFromModelState()
+            });
+        }
+
+
+
         public static byte[] ReadToEnd(System.IO.Stream stream)
         {
             long originalPosition = 0;
@@ -136,13 +167,6 @@ namespace WebUI.Controllers
             }
         }
 
-        //public IActionResult UploadImage()
-        //{
-        //    var files = HttpContext.Request.Form.Files;
-        //    var fileName = files[0].FileName;
-        //    var fileId = _commonService.Upload(files, fileName);
-        //    return Json(true);
-        //}
         [HttpPost]
         public IActionResult Upload(IList<IFormFile> files)
         {
@@ -160,7 +184,17 @@ namespace WebUI.Controllers
             }
             return Json(fileIds);
         }
-
+        public IActionResult UploadImageString(string base64)
+        {
+            var newFileUploadModel = new FileUploadModel()
+            {
+                base64 = base64,
+                fileName = "",
+                mimeType = ".jpg"
+            };
+            var fileId = _commonService.UploadBase64(newFileUploadModel);
+            return Json(fileId);
+        }
 
         #endregion
     }

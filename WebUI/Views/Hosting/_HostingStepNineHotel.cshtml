@@ -1,4 +1,8 @@
-﻿<div class="items">
+﻿@model WebUI.Models.HostingViewModel
+@{
+    var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
+}
+<div class="items">
     <div class="item table-main table-main-category">
         <table id="category"
                class="table table-light table-prs table-striped table-responsive-md">
@@ -30,111 +34,37 @@
                                         <span class="glyphicon glyphicon-cog"></span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#" class="small" data-value="option1"
-                                       tabIndex="-1">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox"
-                                                   class="custom-control-input"
-                                                   id="Wifi" value="Wifi">
-                                            <label class="custom-control-label"
-                                                   for="Wifi">&nbsp;Wifi</label>
-                                        </div>
-                                        <!--                                                                        <input type="checkbox" value="Wifi"  class="custom-control-input"/>-->
-                                        <!--                                                                        <span class="custom-control-indicator"></span>&nbsp;Wifi-->
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="small" data-value="option2"
-                                       tabIndex="-1">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox"
-                                                   class="custom-control-input" id="Wc"
-                                                   value="Wc">
-                                            <label class="custom-control-label"
-                                                   for="Wc">&nbsp;Wc</label>
-                                        </div>
-                                        <!--                                                                        <input type="checkbox" value="Wc"  class="custom-control-input"/>&nbsp;Wc-->
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="small" data-value="option3"
-                                       tabIndex="-1">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox"
-                                                   class="custom-control-input"
-                                                   id="Elevator" value="Elevator">
-                                            <label class="custom-control-label"
-                                                   for="Elevator">&nbsp;Elevator</label>
-                                        </div>
-                                        <!--                                                                        <input type="checkbox" value="Elevator"  class="custom-control-input"/>&nbsp;Elevator-->
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="small" data-value="option4"
-                                       tabIndex="-1">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox"
-                                                   class="custom-control-input"
-                                                   id="Parking" value="Parking">
-                                            <label class="custom-control-label"
-                                                   for="Parking">&nbsp;Parking</label>
-                                        </div>
-                                        <!--                                                                        <input type="checkbox" value="Parking"  class="custom-control-input"/>&nbsp;Parking-->
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="small" data-value="option5"
-                                       tabIndex="-1">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox"
-                                                   class="custom-control-input" id="Tv"
-                                                   value="Tv">
-                                            <label class="custom-control-label"
-                                                   for="Tv">&nbsp;Tv</label>
-                                        </div>
-                                        <!--                                                                        <input type="checkbox" value="Tv"  class="custom-control-input"/>&nbsp;Tv-->
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="small" data-value="option6"
-                                       tabIndex="-1">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox"
-                                                   class="custom-control-input"
-                                                   id="Bathroom" value="Bathroom">
-                                            <label class="custom-control-label"
-                                                   for="Bathroom">&nbsp;Bathroom</label>
-                                        </div>
-                                        <!--                                                                        <input type="checkbox" value="Bathroom" class="custom-control-input"/>&nbsp;Bathroom-->
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="small" data-value="option6"
-                                       tabIndex="-1">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox"
-                                                   class="custom-control-input"
-                                                   id="Pool" value="Pool">
-                                            <label class="custom-control-label"
-                                                   for="Pool">&nbsp;Pool</label>
-                                        </div>
-                                        <!--                                                                        <input type="checkbox" value="Pool" class="custom-control-input"/>&nbsp;Pool-->
-                                    </a>
-                                </li>
+                                @foreach (var item in Model.HotelTypes)
+                                {
+                                    <li>
+                                        <a href="#" class="small" data-value="option1"
+                                           tabIndex="-1">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox"
+                                                       class="custom-control-input"
+                                                       id="@(item.Id)" value="@(item.Id)" data-value="@(item.Title)">
+                                                <label class="custom-control-label"
+                                                       for="@(item.Id)">&nbsp;@(item.Title)</label>
+                                            </div>
+                                            <!--                                                                        <input type="checkbox" value="Wifi"  class="custom-control-input"/>-->
+                                            <!--                                                                        <span class="custom-control-indicator"></span>&nbsp;Wifi-->
+                                        </a>
+                                    </li>
+                                }
+
                             </ul>
                         </div>
                     </td>
                     <td style="width: 25%" id="category-images">
                         <ul class="uploaded-img" id="avatar-preview">
-                            <li class="avatar-preview">
-                                <div style="background-image: url('~/img/nature.jpg')"></div>
-                                <i class="fa fa-times"></i>
-                            </li>
-                            <li class="avatar-preview">
-                                <div style="background-image: url('~/img/nature2.jpg')"></div>
-                                <i class="fa fa-times"></i>
-                            </li>
+                            @*<li class="avatar-preview">
+                                    <div style="background-image: url('~/img/nature.jpg')"></div>
+                                    <i class="fa fa-times"></i>
+                                </li>
+                                <li class="avatar-preview">
+                                    <div style="background-image: url('~/img/nature2.jpg')"></div>
+                                    <i class="fa fa-times"></i>
+                                </li>*@
                         </ul>
 
                         <div class="fileUpload" id="fileUpload-btn">
@@ -152,7 +82,7 @@
                     </td>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="tbody">
                 <tr>
                     <td>VIP</td>
                     <td>95 m</td>
@@ -215,43 +145,68 @@
 
 <script>
     var picturesId = [];
+    var hotelpicturesId = [];
+    var hotelId = 0;
     $("#btn-new-category").click(function () {
-        var options = [];
-        $("input:checkbox").each(function () {
-            var $this = $(this);
-            if ($this.is(":checked"))
-                options.push($this.attr("id"));
+        loadingBoxStart();
+        getImages();
+        
+    });
+    function getImages() {
+        $(".avatar-preview div").each(function () {
+            var bg = $(this).css('background-image');
+            UploadImage(bg);
         });
-        var catVal = $("#category-name").val();
-        var areaVal = $("#category-area").val();
-        var doubleBedVal = $("#category-double").val();
-        var bedVal = $("#category-bed").val();
+        saveData();
+    }
+
+    function UploadImage(image) {
         $.ajax({
-            url: '@Url.Action("Upload", "Hosting")',
-            data: formData,
+            url: '@Url.Action("UploadImageString", "Hosting")',
+            data: { base64: image },
             processData: false,
             contentType: false,
             type: "POST",
             success: function (data) {
-                debugger;
-                for (var i = 0; i < data.length; i++) {
-                    picturesId.push(data[i])
-                }
-                saveData();
+                picturesId.push(data[i]); 
             }
         });
+    }
 
-    });
-      function saveData() {
+    function saveData() {
+        var options = [];
+        var optionsval = [];
+        $("input:checkbox").each(function () {
+            var $this = $(this);
+            if ($this.is(":checked")) {
+                options.push($this.attr("id"));
+                optionsval.push($this.attr("data-value"));
+            }
+        });
+        var Name = $("#category-name").val();
+        var Area = $("#category-area").val();
+        var DoubleBed = $("#category-double").val();
+        var Bed = $("#category-bed").val();
+        var HotelCategoryOptionsId = options;
+        //var input = document.getElementById("file-1");
+        //var files = input.files;
+        var formData = new FormData();
             $.ajax({
                 url: '@Url.Action("AddCategoryHotel", "Hosting")',
                 type: 'Post',
                 data: {
+                    Name: Name,
+                    Area: Area,
+                    DoubleBed: DoubleBed,
+                    Bed: Bed,
+                    HotelCategoryOptionsId: HotelCategoryOptionsId,
+                    picturesId: picturesId
                 },
                 success: function (res) {
                     if (res.Valid) {
                         loadingBoxStop();
-                        addTableRow(catVal, areaVal, doubleVal, bedVal, options);
+                        addTableRow(Name, Area, DoubleBed, Bed, optionsval);
+                        saveHotelImages();
                     }
                     debugger;
                     $.each(res.errors, function (key, value) {
@@ -267,7 +222,7 @@
                 }
             });
     }
-      function addTableRow(categoryName, categoryArea, categoryDouble, categoryBed, options) {
+    function addTableRow(categoryName, categoryArea, categoryDouble, categoryBed, options) {
         var template = '<tr><td>' + categoryName + '</td> ' +
             '<td>' + categoryArea + '</td> <td>' + categoryDouble + '</td> ' +
             '<td>' + categoryBed + '</td><td>' + options + '</td>' +
@@ -285,8 +240,8 @@
             var reader = new FileReader();
             reader.onload = function(e) {
                 $('#avatar-preview').append('<li class="avatar-preview">\n' +
-                    '<div  style="background-image: url('+e.target.result +')"></div>\n' +
-                    '<i class="fa fa-check" aria-hidden="true"></i>\n' +
+                    '<div style="background-image: url('+e.target.result +')"></div>\n' +
+                    '<i class="fa fa-times"></i>\n' +
                     '</li>')
                 $('#uploaded-img li div').fadeIn(650);
             }
@@ -296,4 +251,80 @@
     $("#imageUpload").change(function() {
         readURL(this);
     });
+
+    function saveHotelImages() {
+        var input = document.getElementById("file-1");
+        var files = input.files;
+        var formData = new FormData();
+        for (var i = 0; i != files.length; i++) {
+         formData.append("files", files[i]);
+        }
+        $.ajax({
+            url: '@Url.Action("Upload", "Hosting")',
+            data: formData,
+            processData: false,
+            contentType: false,
+            type: "POST",
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    hotelpicturesId.push(data[i])
+                }
+                addHotel();
+            }
+         });
+    }
+
+    function addHotel() {
+        $("#roomMessage").css("display", "none");
+        $("#roomMessage div").each(function () {
+            $(this).remove()
+        });
+        var descOptionId = getSelectRadioBtnIds("descTextureOptionsItem");
+        var capacityLocationTypes = getSelectRadioBtnIds("capicityLocationTypesItem");
+        var optoptionIds = getSelectRadioBtnIds("OptionsOptionsItem");
+        var customRulesItem = getSelectRadioBtnIds("customRulesItem");
+        $.ajax({
+            url: '@Url.Action("AddHotel", "Hosting")',
+            type: 'Post',
+            data: {
+                picturesId: hotelpicturesId,
+                unitName: $(".inp-hotel-name").val(),
+                countryId: $("#countryList").val(),
+                provinceId: $("#provinceList").val(),
+                cityId: $("#cityList").val(),
+                address: $("#inp-address").val(),
+                descTextureOptionsId: descOptionId,
+                descDescription: $("#inp-dec-description").val(),//stepFourEnd
+                roomNum: $(".inp-roon-num").val(),
+                floorNum: $(".inp-floor-num").val(),
+                descMeasurment: $(".inp-desc-measurment").val(),//stepFiveEnd
+                areaCultureLocationTypes: capacityLocationTypes,
+                areaCultureDescCapacity: $(".inp-desc-capacity").val(),//stepSixEnd
+                optoptionIds: optoptionIds,
+                optDescOptions: $(".inp-desc-options").val(),//stepSevenEnd
+                rulesInterTime: $(".inp-inter-time").val(),
+                rulesExitTime: $(".inp-exit-time").val(),
+                customRulesItem: customRulesItem,
+                ruleDesc: $(".inp-rule-desc").val(),
+                latitude: $("#lat").val(),
+                longitude: $("#lon").val()
+            },
+            success: function (res) {
+                if (res.Valid) {
+                    loadingBoxStop();
+                }
+                debugger;
+                $.each(res.errors, function (key, value) {
+                    debugger;
+                    if (value != null) {
+                        debugger;
+                        var errorMessageTemplate = '<div class="row">' + value[0].errorMessage + '</div>';
+                        $("#roomMessage").append(errorMessageTemplate);
+                        $("#roomMessage").css("display", "block");
+                    }
+                });
+                loadingBoxStop();
+            }
+        });
+    }
 </script>

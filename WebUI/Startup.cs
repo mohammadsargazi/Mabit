@@ -40,7 +40,7 @@ namespace WebUI
                 new CultureInfo("fa"),
 
             };
-            services.AddControllersWithViews()
+            var mvcBuilder = services.AddControllersWithViews()
                 .AddExpressLocalization<ExpressLocalizationResource, ViewLocalizationResource>(ops =>
             {
                 ops.ResourcesPath = "LocalizationResources";
@@ -51,6 +51,7 @@ namespace WebUI
                     o.DefaultRequestCulture = new RequestCulture("en");
                 };
             });
+           
             //services.Configure<RequestLocalizationOptions>(options =>
             //{
             //    //...
@@ -73,7 +74,7 @@ namespace WebUI
                     options.EventsType = typeof(CustomCookieAuthenticationEvents);
                 });
             services.AddDistributedMemoryCache();
-            
+            //services.AddMvc().AddRazorOptions(options => options.AllowRecompilingViewsOnFileChange = true);
             //var persianCulture = new PersianCulture();
             //Thread.CurrentThread.CurrentCulture = persianCulture;
             //Thread.CurrentThread.CurrentUICulture = persianCulture;

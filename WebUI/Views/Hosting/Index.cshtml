@@ -296,29 +296,29 @@
 
 
 
-    $('#category-new-btn').on('click', function (event) {
-        let categoryName = document.getElementById('category-name').value;
-        let categoryArea = document.getElementById('category-area').value;
-        let categoryDouble = document.getElementById('category-double').value;
-        let categoryBed = document.getElementById('category-bed').value;
-        let categoryOptions = $("#category-options li input:checked");
-        let options = '';
-        let listItems = categoryOptions.each(function () {
-            options = options + $(this).val() + ' , '
-        })
-        $('#category > tbody:last-child').append('<tr><td>' + categoryName + '</td> ' +
-            '<td>' + categoryArea + '</td> <td>' + categoryDouble + '</td> ' +
-            '<td>' + categoryBed + '</td><td>' + options + '</td>' +
-            '<td></td>' +
-            '<td class="text-left">\n' +
-            '<div class="operation">\n' +
-            '<button class="edit-btn">Edit</button>\n' +
-            '<button class="delete-btn">Delete</button>\n' +
-            '</div>\n' +
-            '</td>' +
-            // '<td><ul class="uploaded-img not-clean">'+avatarPreview.html()+'</ul></td>' +
-            '</tr>');
-    });
+    //$('#category-new-btn').on('click', function (event) {
+    //    let categoryName = document.getElementById('category-name').value;
+    //    let categoryArea = document.getElementById('category-area').value;
+    //    let categoryDouble = document.getElementById('category-double').value;
+    //    let categoryBed = document.getElementById('category-bed').value;
+    //    let categoryOptions = $("#category-options li input:checked");
+    //    let options = '';
+    //    let listItems = categoryOptions.each(function () {
+    //        options = options + $(this).val() + ' , '
+    //    })
+    //    $('#category > tbody:last-child').append('<tr><td>' + categoryName + '</td> ' +
+    //        '<td>' + categoryArea + '</td> <td>' + categoryDouble + '</td> ' +
+    //        '<td>' + categoryBed + '</td><td>' + options + '</td>' +
+    //        '<td></td>' +
+    //        '<td class="text-left">\n' +
+    //        '<div class="operation">\n' +
+    //        '<button class="edit-btn">Edit</button>\n' +
+    //        '<button class="delete-btn">Delete</button>\n' +
+    //        '</div>\n' +
+    //        '</td>' +
+    //        // '<td><ul class="uploaded-img not-clean">'+avatarPreview.html()+'</ul></td>' +
+    //        '</tr>');
+    //});
 
     $('#room-new-btn').on('click', function (event) {
         console.log(event)
@@ -474,7 +474,7 @@
     $("#btnInsertUnit").click(function () {
          loadingBoxStart();
         debugger;
-          var descOptionId = getSelectRadioBtnIds("descTextureOptionsItem");
+        var descOptionId = getSelectRadioBtnIds("descTextureOptionsItem");
         var capacityLocationTypes = getSelectRadioBtnIds("capicityLocationTypesItem");
         var optoptionIds = getSelectRadioBtnIds("OptionsOptionsItem");
         var customRulesItem=getSelectRadioBtnIds("customRulesItem");
