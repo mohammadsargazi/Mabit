@@ -7,8 +7,11 @@
     <div class="item mb-0">
         <h5 class="unit-txt" localize-content>Unit Description</h5>
         <h5 class="hotel-txt" localize-content>Hotel Description</h5>
-        <p class="mb-0" localize-content>
+        <p class="mb-0 unit-txt" localize-content>
             Specify the type of accommodation, proximity to tourist sites and shopping centers, etc.
+        </p>
+        <p class="mb-0 hotel-txt" localize-content>
+            Specify the type of hotel and how many stars it is
         </p>
     </div>
     <div class="item">
@@ -29,12 +32,26 @@
             <div class="row hotel-txt">
                 <div class="row">
                     <div class="col-6 ml-0 pl-0">
-                        <input type="number" placeholder="Hotel Kind"
-                               class="form-control bg-input inp-building-area">
+                        <select class="form-control bg-input" id="hotelType">
+                            <option value="0">Hotel Kinde</option>
+                            @foreach (var item in Model.HotelTypes)
+                            {
+                                <option value="@item.Id">@(item.Title)</option>
+                            }
+                        </select>
+                        @*<input type="number" placeholder="Hotel Kind"
+                               class="form-control bg-input inp-building-area">*@
                     </div>
                     <div class="col-6 ml-0 pl-0">
-                        <input type="number" placeholder="Hotel Star"
-                               class="form-control bg-input inp-yard-area">
+                        <select class="form-control bg-input" id="hotelstar">
+                            <option value="0">Hotel Stars</option>
+                            @foreach (var item in Model.HotelTypes)
+                            {
+                                <option value="@item.Id">@(item.Title)</option>
+                            }
+                        </select>
+                        @*<input type="number" placeholder="Hotel Star"
+        class="form-control bg-input inp-yard-area">*@
                     </div>
                 </div>
             </div>

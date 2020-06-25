@@ -12,7 +12,6 @@ namespace Mabit.Services.RoomService
     public class RoomService
     {
         private readonly string url = "api/Rooms";
-        private static readonly string apiBasicUri = "http://185.173.105.237:81/";
         private string culture = System.Globalization.CultureInfo.CurrentCulture.Name;
         #region CRUD
         public List<Room> GetAll()

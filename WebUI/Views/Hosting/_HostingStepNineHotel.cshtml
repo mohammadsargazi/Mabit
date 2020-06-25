@@ -2,62 +2,67 @@
 @{
     var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
 }
-<div class="items">
-    <div class="item table-main table-main-category">
-        <table id="category"
-               class="table table-light table-prs table-striped table-responsive-md">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Area</th>
-                    <th>Double bed</th>
-                    <th>Bed</th>
-                    <th>Options</th>
-                    <th>Images</th>
-                    <th></th>
-                </tr>
-                <tr class="input-row">
-                    <td><input id="category-name" type="text" /></td>
-                    <td><input id="category-area" type="text" /></td>
-                    <td><input id="category-double" type="text" /></td>
-                    <td><input id="category-bed" type="text" /></td>
-                    <td>
-                        <div class="button-group combo-box">
-                            <button type="button"
-                                    class="btn btn-default dropdown-toggle"
-                                    data-toggle="dropdown">
-                                <span class="glyphicon glyphicon-cog"></span>
-                            </button>
-                            <ul id="category-options" class="dropdown-menu">
-                                <li class="custom-control custom-checkbox">
-                                    <a href="#" class="small" tabIndex="-1">
-                                        <span class="glyphicon glyphicon-cog"></span>
-                                    </a>
-                                </li>
-                                @foreach (var item in Model.HotelTypes)
-                                {
-                                    <li>
-                                        <a href="#" class="small" data-value="option1"
-                                           tabIndex="-1">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox"
-                                                       class="custom-control-input"
-                                                       id="@(item.Id)" value="@(item.Id)" data-value="@(item.Title)">
-                                                <label class="custom-control-label"
-                                                       for="@(item.Id)">&nbsp;@(item.Title)</label>
-                                            </div>
-                                            <!--                                                                        <input type="checkbox" value="Wifi"  class="custom-control-input"/>-->
-                                            <!--                                                                        <span class="custom-control-indicator"></span>&nbsp;Wifi-->
+    <div class="items">
+            <h5>Category</h5>
+            <p class="mb-0" localize-content>
+                Specify the classification of your hotel rooms
+            </p>
+
+        <div class="item table-main table-main-category">
+            <table id="category"
+                   class="table table-light table-prs table-striped table-responsive-md">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Area</th>
+                        <th>Double bed</th>
+                        <th>Bed</th>
+                        <th>Options</th>
+                        <th>Images</th>
+                        <th></th>
+                    </tr>
+                    <tr class="input-row">
+                        <td><input id="category-name" type="text" /></td>
+                        <td><input id="category-area" type="text" /></td>
+                        <td><input id="category-double" type="text" /></td>
+                        <td><input id="category-bed" type="text" /></td>
+                        <td>
+                            <div class="button-group combo-box">
+                                <button type="button"
+                                        class="btn btn-default dropdown-toggle"
+                                        data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-cog"></span>
+                                </button>
+                                <ul id="category-options" class="dropdown-menu">
+                                    <li class="custom-control custom-checkbox">
+                                        <a href="#" class="small" tabIndex="-1">
+                                            <span class="glyphicon glyphicon-cog"></span>
                                         </a>
                                     </li>
-                                }
+                                    @foreach (var item in Model.CategoryOptions)
+                                    {
+                                        <li>
+                                            <a href="#" class="small" data-value="option1"
+                                               tabIndex="-1">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox"
+                                                           class="custom-control-input"
+                                                           id="@(item.Id)" value="@(item.Id)" data-value="@(item.Title)">
+                                                    <label class="custom-control-label"
+                                                           for="@(item.Id)">&nbsp;@(item.Title)</label>
+                                                </div>
+                                                <!--                                                                        <input type="checkbox" value="Wifi"  class="custom-control-input"/>-->
+                                                <!--                                                                        <span class="custom-control-indicator"></span>&nbsp;Wifi-->
+                                            </a>
+                                        </li>
+                                    }
 
-                            </ul>
-                        </div>
-                    </td>
-                    <td style="width: 25%" id="category-images">
-                        <ul class="uploaded-img" id="avatar-preview">
-                            @*<li class="avatar-preview">
+                                </ul>
+                            </div>
+                        </td>
+                        <td style="width: 25%" id="category-images">
+                            <ul class="uploaded-img" id="avatar-preview">
+                                @*<li class="avatar-preview">
                                     <div style="background-image: url('~/img/nature.jpg')"></div>
                                     <i class="fa fa-times"></i>
                                 </li>
@@ -65,72 +70,72 @@
                                     <div style="background-image: url('~/img/nature2.jpg')"></div>
                                     <i class="fa fa-times"></i>
                                 </li>*@
-                        </ul>
+                            </ul>
 
-                        <div class="fileUpload" id="fileUpload-btn">
-                            <input type='file' id="imageUpload"
-                                   accept=".png, .jpg, .jpeg" class="upload" />
-                            <i class="fa fa-image"></i>
-                        </div>
+                            <div class="fileUpload" id="fileUpload-btn">
+                                <input type='file' id="imageUpload"
+                                       accept=".png, .jpg, .jpeg" class="upload" />
+                                <i class="fa fa-image"></i>
+                            </div>
 
-                    </td>
-                    <td>
-                        <button id="btn-new-category" style="width: 60px;" class="new-button">
-                            <i class="fa fa-plus"></i>
-                            New
-                        </button>
-                    </td>
-                </tr>
-            </thead>
-            <tbody class="tbody">
-                <tr>
-                    <td>VIP</td>
-                    <td>95 m</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>Lorem Ipsum is,Lorem Ipsum is</td>
-                    <td>
-                        <ul class="uploaded-img">
-                            <li>
-                                <img src="../img/nature.jpg">
-                            </li>
-                            <li>
-                                <img src="../img/nature2.jpg">
-                            </li>
-                        </ul>
-                    </td>
-                    <td class="text-left">
-                        <div class="operation">
-                            <button class="edit-btn">Edit</button>
-                            <button class="delete-btn">Delete</button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>VIP</td>
-                    <td>80 m</td>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>Lorem Ipsum is, Lorem Ipsum is, Lorem Ipsum is</td>
-                    <td>
-                        <ul class="uploaded-img">
-                            <li>
-                                <img src="../img/nature.jpg">
-                            </li>
-                        </ul>
-                    </td>
-                    <td class="text-left">
-                        <div class="operation">
-                            <button class="edit-btn">Edit</button>
-                            <button class="delete-btn">Delete</button>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                        </td>
+                        <td>
+                            <button id="btn-new-category" style="width: 60px;" class="new-button">
+                                <i class="fa fa-plus"></i>
+                                New
+                            </button>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+                    <tr>
+                        <td>VIP</td>
+                        <td>95 m</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>Lorem Ipsum is,Lorem Ipsum is</td>
+                        <td>
+                            <ul class="uploaded-img">
+                                <li>
+                                    <img src="../img/nature.jpg">
+                                </li>
+                                <li>
+                                    <img src="../img/nature2.jpg">
+                                </li>
+                            </ul>
+                        </td>
+                        <td class="text-left">
+                            <div class="operation">
+                                <button class="edit-btn">Edit</button>
+                                <button class="delete-btn">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>VIP</td>
+                        <td>80 m</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>Lorem Ipsum is, Lorem Ipsum is, Lorem Ipsum is</td>
+                        <td>
+                            <ul class="uploaded-img">
+                                <li>
+                                    <img src="../img/nature.jpg">
+                                </li>
+                            </ul>
+                        </td>
+                        <td class="text-left">
+                            <div class="operation">
+                                <button class="edit-btn">Edit</button>
+                                <button class="delete-btn">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
     </div>
-
-</div>
 <div class="btn-container p-1">
     <button type="button" class="btn-step-prev res-btn-gray"
             data-class=".res-form-nine">
@@ -147,33 +152,34 @@
     var picturesId = [];
     var hotelpicturesId = [];
     var hotelId = 0;
+    var formData = new FormData();
     $("#btn-new-category").click(function () {
+        debugger;
         loadingBoxStart();
-        getImages();
-        
-    });
-    function getImages() {
-        $(".avatar-preview div").each(function () {
-            var bg = $(this).css('background-image');
-            UploadImage(bg);
-        });
-        saveData();
-    }
+        UploadImage();
 
-    function UploadImage(image) {
+    });
+
+    function UploadImage() {
+        debugger;
         $.ajax({
-            url: '@Url.Action("UploadImageString", "Hosting")',
-            data: { base64: image },
+            url: '@Url.Action("Upload", "Hosting")',
+            data: formData,
             processData: false,
             contentType: false,
             type: "POST",
+            type: "POST", 
             success: function (data) {
-                picturesId.push(data[i]); 
+                for (var i = 0; i < data.length; i++) {
+                    picturesId.push(data[i]);
+                }
+                saveHotelCategory();
             }
+            
         });
     }
 
-    function saveData() {
+    function saveHotelCategory() {
         var options = [];
         var optionsval = [];
         $("input:checkbox").each(function () {
@@ -237,6 +243,7 @@
     }
     function readURL(input) {
         if (input.files && input.files[0]) {
+            formData.append("files", input.files);
             var reader = new FileReader();
             reader.onload = function(e) {
                 $('#avatar-preview').append('<li class="avatar-preview">\n' +

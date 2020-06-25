@@ -1,16 +1,7 @@
 ﻿@model WebUI.Models.HostingViewModel
 @{
     var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
-    var latitude = "35.6892";
-    var longitude = "51.3890";
-    var isRoom = true;
 }
-@if (culture == "fa")
-{
-    latitude = "35.6892";
-    longitude = "51.3890";
-}
-
 <div class="items">
     <div class="item mb-0">
         <h5 class="unit-txt" localize-content>Unit Location</h5>
@@ -105,7 +96,7 @@
                             <partial name="_Map" />
                         </div>
                     </div>
-                   
+
 
                 </div>
             </div>

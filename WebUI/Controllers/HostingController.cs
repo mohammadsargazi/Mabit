@@ -45,9 +45,9 @@ namespace WebUI.Controllers
             var locationTypes = _commonService.LocationTypes();
             var customRules = _commonService.CustomRules();
             var countries = _commonService.GetCountries();
-            var categoryOptopns = new List<CategoryOption> { new CategoryOption { Id = 1, Title = "" } }; //_commonService.GetCategoryOption();
-            var hotelTypes = new List<HotelType> { new HotelType { Id = 1, Title = "WIFI" } };//_commonService.GetHotelType();
-            var hotelCategories = new List<BaseRelateModel> { new BaseRelateModel { id = 1, title = "" } };// _commonService.GetHotelCategory();
+            var categoryOptopns =_commonService.GetCategoryOption();
+            var hotelTypes = _commonService.GetHotelType();
+            var hotelCategories = _commonService.GetHotelCategory();
             var model = new HostingViewModel
             {
                 Options = options,
