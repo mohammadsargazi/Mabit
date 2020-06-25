@@ -82,8 +82,13 @@
         border-radius: 50px;
         padding: 5px 15px;
         cursor: pointer;
+        margin-top:5px;
+        margin-right:5px;
     }
-
+    .btn-filter-nf {
+        margin-top: 5px;
+        margin-right: 5px;
+    }
     /*radio btn*/
     .radio-country, .radio-city {
         position: relative;
@@ -921,7 +926,7 @@
 
 <div class="container-fluid bg-box box-shadow-1 brd-r-6">
     <div class="row container-filter-btn" style="margin-bottom:30px;">
-        <div class="col-8 d-flex align-items-center justify-content-between" style="margin-top: 80px">
+        <div class="row mb-0 mx-2 d-flex justify-content-end align-items-center" style="margin-top: 70px">
             <div class="search-filter-btn country-filter-btn" data-toggle="modal" data-target="#myModal-country">
                 <span id="country-spn">country</span>
             </div>
@@ -943,12 +948,11 @@
             </div>
             @*<div class="search-filter-btn type-filter-btn"><span>Type of residence</span></div>
                 <div class="search-filter-btn more-filter-btn"><span>more filter</span></div>*@
-            <button class="btn btn-success" id="btnFilter">
+            <button class="btn btn-success btn-filter-nf" id="btnFilter">
                 <i class="fa fa-filter" aria-hidden="true" style="font-size: 11px;"></i>
                 Filter
             </button>
         </div>
-        <div class="col-2"></div>
     </div>
     <div class="row container-body">
         <partial name="_SearchRooms" model="@Model" />

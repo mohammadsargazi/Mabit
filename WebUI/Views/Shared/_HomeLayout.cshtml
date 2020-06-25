@@ -44,6 +44,7 @@
     {
         <link rel="stylesheet" href="~/css/rtl.css" />
         <style>
+
             #main-search-text {
                 padding: 10px;
             }
@@ -192,7 +193,7 @@
     <div id="main-home-header">
         <div id="main-header">
             <a asp-controller="Home" asp-action="Index" asp-route-culture="@culture">
-                <img id="main-logo" src="img/main-logo.png">
+                <img id="main-logo" src="img/main-logo.png" class="d-none d-sm-flex">
             </a>
             <div id="main-menu-parent">
 
@@ -245,87 +246,7 @@
                 <div class="main-country-btn-left">Iraq</div>
             </div>*@
         <script>
-            $(".main-country-btn-right").click(function () {
-                var rightText = $(".main-country-btn-right").text();
-                var leftText = $(".main-country-btn-left").text();
-                if (rightText == "Turkey" && leftText == "Iraq") {
-                    $(this).text("Iran");
-                    $('#main-home-header').css('background', "url('../css/Hamid/img/bg_turkey.png') no-repeat");
-                    $('#main-home-header').css('background-attachment', "fixed");
-                    $('#main-home-header').css('background-size', "cover");
-                }
-                if (rightText == "Turkey" && leftText == "Iran") {
-                    $(this).text("Iraq");
-                    $('#main-home-header').css('background', "url('../css/Hamid/img/bg_turkey.png') no-repeat");
-                    $('#main-home-header').css('background-attachment', "fixed");
-                    $('#main-home-header').css('background-size', "cover");
-                }
-                if (rightText == "Iran" && leftText == "Iraq") {
-                    $(this).text("Turkey");
-                    $('#main-home-header').css('background', "url('../css/Hamid/img/bg_iran.png') no-repeat");
-                    $('#main-home-header').css('background-attachment', "fixed");
-                    $('#main-home-header').css('background-size', "cover");
-                }
-                if (rightText == "Iraq" && leftText == "Iran") {
-                    $(this).text("Turkey");
-                    $('#main-home-header').css('background', "url('../css/Hamid/img/bg_iraq.png') no-repeat");
-                    $('#main-home-header').css('background-attachment', "fixed");
-                    $('#main-home-header').css('background-size', "cover");
-                }
-                if (rightText == "Iraq" && leftText == "Turkey") {
-                    $(this).text("Iran");
-                    $('#main-home-header').css('background', "url('../css/Hamid/img/bg_iraq.png') no-repeat");
-                    $('#main-home-header').css('background-attachment', "fixed");
-                    $('#main-home-header').css('background-size', "cover");
-                }
-                if (rightText == "Iran" && leftText == "Turkey") {
-                    $(this).text("Iraq");
-                    $('#main-home-header').css('background', "url('../css/Hamid/img/bg_iran.png') no-repeat");
-                    $('#main-home-header').css('background-attachment', "fixed");
-                    $('#main-home-header').css('background-size', "cover");
-                }
-            });
-
-            $(".main-country-btn-left").click(function () {
-                var rightText = $(".main-country-btn-right").text();
-                var leftText = $(".main-country-btn-left").text();
-                if (rightText == "Turkey" && leftText == "Iraq") {
-                    $(this).text("Iran");
-                    $('#main-home-header').css('background', "url('../css/Hamid/img/bg_iraq.png') no-repeat");
-                    $('#main-home-header').css('background-attachment', "fixed");
-                    $('#main-home-header').css('background-size', "cover");
-                }
-                if (rightText == "Iran" && leftText == "Iraq") {
-                    $(this).text("Turkey");
-                    $('#main-home-header').css('background', "url('../css/Hamid/img/bg_iraq.png') no-repeat");
-                    $('#main-home-header').css('background-attachment', "fixed");
-                    $('#main-home-header').css('background-size', "cover");
-                }
-                if (rightText == "Iraq" && leftText == "Iran") {
-                    $(this).text("Turkey");
-                    $('#main-home-header').css('background', "url('../css/Hamid/img/bg_iran.png') no-repeat");
-                    $('#main-home-header').css('background-attachment', "fixed");
-                    $('#main-home-header').css('background-size', "cover");
-                }
-                if (rightText == "Iran" && leftText == "Turkey") {
-                    $(this).text("Iraq");
-                    $('#main-home-header').css('background', "url('../css/Hamid/img/bg_turkey.png') no-repeat");
-                    $('#main-home-header').css('background-attachment', "fixed");
-                    $('#main-home-header').css('background-size', "cover");
-                }
-                if (rightText == "Iraq" && leftText == "Turkey") {
-                    $(this).text("Iran");
-                    $('#main-home-header').css('background', "url('../css/Hamid/img/bg_turkey.png') no-repeat");
-                    $('#main-home-header').css('background-attachment', "fixed");
-                    $('#main-home-header').css('background-size', "cover");
-                }
-                if (rightText == "Turkey" && leftText == "Iran") {
-                    $(this).text("Iraq");
-                    $('#main-home-header').css('background', "url('../css/Hamid/img/bg_iran.png') no-repeat");
-                    $('#main-home-header').css('background-attachment', "fixed");
-                    $('#main-home-header').css('background-size', "cover");
-                }
-            });
+           
             function change_test(country) {
                 //$('#main-home-header').removeClass('main-iran-header');
 
@@ -439,7 +360,7 @@
 
 
     <div>
-        <div class="wrapper">
+        <div class="container">
             <div id="home-five-section-top">
                 <div id="home-five-section-title" localize-content>
                     Your Confidence Is Our Purpose
@@ -480,6 +401,7 @@
                 @RenderBody()
             </main>
         </div>
+       
 
     </div>
 
@@ -489,8 +411,8 @@
         <div id="home-mid-btn" localize-content>List your property</div>
     </div>
 
-    <div id="home-about-parent" class="wrapper mb-5">
-        <div id="home-about-image">
+    <div id="home-about-parent" class="mb-5 mx-5 d-flex justify-content-around">
+        <div id="home-about-image" class="order-2 d-none d-md-flex">
             <img src="img/home_about.png">
         </div>
         <div id="home-about-text">
