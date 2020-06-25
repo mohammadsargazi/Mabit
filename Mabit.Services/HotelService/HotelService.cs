@@ -8,7 +8,6 @@ namespace Mabit.Services.HotelService
 {
     public class HotelService
     {
-        private readonly string url = "api/Hotel";
         private string culture = System.Globalization.CultureInfo.CurrentCulture.Name;
 
         public AddRoomResultModel AddHotelCategory(AddHotelCategoryModel model, string token)
