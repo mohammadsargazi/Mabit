@@ -28,10 +28,20 @@ namespace Mabit.Services.CommonService
 
         public List<Country> GetCountries()
         {
-            
             return HttpHelper.GetAll<Country>("api/Common/Countries", culture).Result;
         }
-
+        public List<HotelType> GetHotelType()
+        {
+            return HttpHelper.GetAll<HotelType>("api/Common/HotelType", culture).Result;
+        }
+        public List<BaseRelateModel> GetHotelCategory()
+        {
+            return HttpHelper.GetAll<BaseRelateModel>("api/Common/HotelCategory", culture).Result;
+        }
+        public List<CategoryOption> GetCategoryOption()
+        {
+            return HttpHelper.GetAll<CategoryOption>("api/Common/CategoryOption", culture).Result;
+        }
         public List<Province> GetProvince(int countryId)
         {
             return HttpHelper.GetAll<Province>("api/Common/Provinces" + "/" + countryId, culture).Result;

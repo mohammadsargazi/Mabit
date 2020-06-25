@@ -32,10 +32,11 @@
     }
 </style>
 <div class="step-head">
-    <h5 class="offset-1" localize-content>My Units</h5>
-    <div class="d-inline-block">
+    <h5 class="offset-1 unit-txt" localize-content>My Unit</h5>
+    <h5 class="offset-1 hotel-txt" localize-content>My Hotel</h5>
+    @*<div class="d-inline-block">
         <i class="step"></i><h6 class="offset-2" localize-content>Reserved Requests</h6>
-    </div>
+    </div>*@
 </div>
 
 <section id="employer-post-new-job">
@@ -99,7 +100,7 @@
                             <div class="res-progress-title unit-txt" localize-content>Cost</div>
                             <div class="res-progress-title hotel-txt" style="display:none;" localize-content>Category</div>
                         </div>
-                        <div class="res-steps res-step-ten res-style" data-class=".res-form-ten">
+                        <div class="res-steps res-step-ten res-style hotel-txt" data-class=".res-form-ten">
                             <div class="res-step-bar"></div>
                             <div class="res-progress-bar"></div>
                             <div class="res-progress-title">Rooms</div>
@@ -137,12 +138,10 @@
                     <div class="res-step-form col-12 res-form-nine">
                         <partial name="_HostingStepNine" />
                     </div>
-                    @*<div class="res-step-form col-12 res-form-ten">
-                            <partial name="_HotelStepTen" />
-                        </div>
-                        <div class="res-step-form col-12 res-form-eleven">
-                            <partial name="_HotelStepEleven" />
-                        </div>*@
+                    <div class="res-step-form col-12 res-form-ten">
+                        <partial name="_HostingStepTen" />
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -224,18 +223,32 @@
         $(".res-step-form .res-btn-orange").click(function () {
             debugger;
             var getClass = $(this).attr('data-class');
+            if ($("input[name='categoryType']:checked").attr('id') == "singleUnit") {
+                if (getClass != ".res-form-nine") {
+                    $(".res-steps").removeClass('active');
+                    $(steps[i]).addClass('active');
+                    $(steps[i - 1]).addClass('activated');
+                    i++;
+                }
+                if (getClass != ".res-form-nine") {
+                    $(getClass).css('display', 'none');
+                    $(getClass).next().css('display', 'block');
 
-            if (getClass != ".res-form-nine") {
-                $(".res-steps").removeClass('active');
-                $(steps[i]).addClass('active');
-                $(steps[i - 1]).addClass('activated');
-                i++;
-            }
-            if (getClass != ".res-form-nine") {
-                $(getClass).css('display', 'none');
-                $(getClass).next().css('display', 'block');
+                }
+            } else {
+                if (getClass != ".res-form-ten") {
+                    $(".res-steps").removeClass('active');
+                    $(steps[i]).addClass('active');
+                    $(steps[i - 1]).addClass('activated');
+                    i++;
+                }
+                if (getClass != ".res-form-ten") {
+                    $(getClass).css('display', 'none');
+                    $(getClass).next().css('display', 'block');
 
+                }
             }
+
         });
 
         /* step back */
@@ -256,7 +269,7 @@
         });
     });
 
-     var options = [];
+    var options = [];
 
     $('.dropdown-menu a').on('click', function (event) {
 
@@ -283,50 +296,51 @@
 
 
 
-    $('#category-new-btn').on('click', function (event) {
-        let categoryName = document.getElementById('category-name').value;
-        let categoryArea = document.getElementById('category-area').value;
-        let categoryDouble = document.getElementById('category-double').value;
-        let categoryBed = document.getElementById('category-bed').value;
-        let categoryOptions = $("#category-options li input:checked");
-        let options = '';
-        let listItems = categoryOptions.each(function () {
-            options = options + $(this).val() + ' , '
-        })
-        $('#category > tbody:last-child').append('<tr><td>' + categoryName + '</td> ' +
-            '<td>' + categoryArea + '</td> <td>' + categoryDouble + '</td> ' +
-            '<td>' + categoryBed + '</td><td>' + options + '</td>' +
-            '<td></td>'+
-            '<td class="text-left">\n' +
-            '<div class="operation">\n' +
-            '<button class="edit-btn">Edit</button>\n' +
-            '<button class="delete-btn">Delete</button>\n' +
-            '</div>\n' +
-            '</td>'+
-            // '<td><ul class="uploaded-img not-clean">'+avatarPreview.html()+'</ul></td>' +
-            '</tr>');
-    });
+    //$('#category-new-btn').on('click', function (event) {
+    //    let categoryName = document.getElementById('category-name').value;
+    //    let categoryArea = document.getElementById('category-area').value;
+    //    let categoryDouble = document.getElementById('category-double').value;
+    //    let categoryBed = document.getElementById('category-bed').value;
+    //    let categoryOptions = $("#category-options li input:checked");
+    //    let options = '';
+    //    let listItems = categoryOptions.each(function () {
+    //        options = options + $(this).val() + ' , '
+    //    })
+    //    $('#category > tbody:last-child').append('<tr><td>' + categoryName + '</td> ' +
+    //        '<td>' + categoryArea + '</td> <td>' + categoryDouble + '</td> ' +
+    //        '<td>' + categoryBed + '</td><td>' + options + '</td>' +
+    //        '<td></td>' +
+    //        '<td class="text-left">\n' +
+    //        '<div class="operation">\n' +
+    //        '<button class="edit-btn">Edit</button>\n' +
+    //        '<button class="delete-btn">Delete</button>\n' +
+    //        '</div>\n' +
+    //        '</td>' +
+    //        // '<td><ul class="uploaded-img not-clean">'+avatarPreview.html()+'</ul></td>' +
+    //        '</tr>');
+    //});
+
     $('#room-new-btn').on('click', function (event) {
         console.log(event)
         let roomFlour = document.getElementById('room-flour').value;
         let room = document.getElementById('room-number').value;
         let roomCost = document.getElementById('room-cost').value;
         let roomDesc = document.getElementById('room-desc').value;
-       let roomOptions = $("#room-options li input:checked");
+        let roomOptions = $("#room-options li input:checked");
         let options = '';
         let listItems = roomOptions.each(function () {
             options = options + $(this).val() + ' , '
         })
         $('#room > tbody:last-child').append('<tr><td>' + roomFlour + '</td> ' +
             '<td>' + room + '</td> <td>' + options + '</td>' +
-            '<td>' + roomCost + '</td>'+
-            '<td>' + roomDesc + '</td>'+
+            '<td>' + roomCost + '</td>' +
+            '<td>' + roomDesc + '</td>' +
             '<td class="text-left">\n' +
             '<div class="operation">\n' +
             '<button class="edit-btn">Edit</button>\n' +
             '<button class="delete-btn">Delete</button>\n' +
             '</div>\n' +
-            '</td>'+
+            '</td>' +
             // '<td><ul class="uploaded-img not-clean">'+avatarPreview.html()+'</ul></td>' +
             '</tr>');
     });
@@ -395,12 +409,72 @@
         var capacityLocationTypes = getSelectRadioBtnIds("capicityLocationTypesItem");
         var optoptionIds = getSelectRadioBtnIds("OptionsOptionsItem");
         var customRulesItem = getSelectRadioBtnIds("customRulesItem");
+        $.ajax({
+            url: '/en/Hosting/AddRoom',
+            type: 'Post',
+            data: {
+            picturesId:picturesId,
+            unitName: $(".inp-unit-name").val(),
+            countryId: $("#countryList").val(),
+            provinceId: $("#provinceList").val(),
+            cityId: $("#cityList").val(),
+            address: $("#inp-address").val(),
+            descStructuresId: $("#descStructures").val(),
+            descTextureOptionsId: descOptionId,
+            descDescription: $("#inp-dec-description").val(),
+            measurmentroomtypeid: $("#measurmentRoomTypeList").val(),
+            measurmentlocationoptionid: $("#measurmentlocationoptionslist").val(),
+            measurmentbedroomnumber: $(".inp-bedroom-number").val(),
+            measurmentinpbuildingarea: $(".inp-building-area").val(),
+            measurmentYardArea: $(".inp-yard-area").val(),
+            descMeasurment: $(".inp-desc-measurment").val(),
+            standardCapacity: $(".inp-standard-capacity").val(),
+            capacitySingleBed: $(".inp-single-bed").val(),
+            capacityMaximumCapacity: $(".inp-maximum-capacity").val(),
+            capacityDoubleBed: $(".inp-double-bed").val(),
+            capacityLocationTypes: capacityLocationTypes,
+            capacityDescCapacity: $(".inp-desc-capacity").val(),
+            optoptionIds: optoptionIds,
+            optDescOptions: $(".inp-desc-options").val(),
+            rulesInterTime: $(".inp-inter-time").val(),
+            rulesExitTime: $(".inp-exit-time").val(),
+            customRulesItem: customRulesItem,
+            ruleDesc: $(".inp-rule-desc").val(),
+            middleOfTheWeek: $(".inp-middle-of-the-week").val(),
+            holidays: $(".inp-holidays").val(),
+            weekend: $(".inp-weekend").val(),
+            extraPeople: $(".inp-extra-people").val(),
+            longBookingDiscount1Day: $(".inp-long-booking-discount-1-day").val(),
+            longBookingDiscount1Percent: $(".inp-long-booking-discount-1-percent").val(),
+            longBookingDiscount2Day: $(".inp-long-booking-discount-2-day").val(),
+            longBookingDiscount2Percent: $(".inp-long-booking-discount-2-percent").val(),
+            latitude: $("#lat").val(),
+            longitude: $("#lon").val()
+            },
+            success: function (res) {
+                if (res.Valid) {
+                    loadingBoxStop();
+                    window.Location = en+"/Hosting/List";
+                }
+                debugger;
+                $.each(res.errors, function (key, value) {
+                    debugger;
+                    if (value != null) {
+                        debugger;
+                         var errorMessageTemplate = '<div class="row">' + value[0].errorMessage + '</div>';
+                         $("#roomMessage").append(errorMessageTemplate);
+                         $("#roomMessage").css("display", "block");
+                    }
+                });
+                 loadingBoxStop();
+            }
+        });
     }
 
     $("#btnInsertUnit").click(function () {
          loadingBoxStart();
         debugger;
-          var descOptionId = getSelectRadioBtnIds("descTextureOptionsItem");
+        var descOptionId = getSelectRadioBtnIds("descTextureOptionsItem");
         var capacityLocationTypes = getSelectRadioBtnIds("capicityLocationTypesItem");
         var optoptionIds = getSelectRadioBtnIds("OptionsOptionsItem");
         var customRulesItem=getSelectRadioBtnIds("customRulesItem");
@@ -431,68 +505,5 @@
             });
 
     });
-    function model() {
-
-        //debugger;
-        //var files = $("#file-1").get(0).files;
-
-        //var location = {
-        //    unitName: $(".inp-unit-name").val(),
-        //    countryId: $("#countryList").val(),
-        //    provinceId: $("#provinceList").val(),
-        //    cityId: $("#cityList").val(),
-        //    address: $("#inp-address").text(),
-        //};
-
-        //var description = {
-        //    structuresId: $("#descStructures").val(),
-        //    optionId: $('input[type=radio][name=descTextureOptionsItem]:checked').attr('id'),
-        //    description: $("#inp-dec-description").text(),
-        //};
-
-        //var measurment = {
-        //    roomTypeId: $("#measurmentRoomTypeList").val(),
-        //    locationOptionId: $("#measurmentLocationOptionsList").val(),
-        //    bedRoomNumber: $(".inp-bedroom-number").val(),
-        //    //OptionId: $('input[type=radio][name=descTextureOptionsItem]:checked').attr('id'),
-        //    inpBuildingArea: $(".inp-building-area").val(),
-        //    yardArea: $(".inp-yard-area").val(),
-        //    descMeasurment: $(".inp-desc-measurment").text()
-        //};
-        //var capacity = {
-        //    standardCapacity: $(".inp-standard-capacity").val(),
-        //    singleBed: $(".inp-single-bed").val(),
-        //    maximumCapacity: $(".inp-maximum-capacity").val(),
-        //    doubleBed: $(".inp-double-bed").val(),
-        //    locationTypes: $('input[type=radio][name=capicityLocationTypesItem]:checked').attr('id'),
-        //    descCapacity: $(".inp-desc-capacity").text()
-        //}
-
-        //var options = {
-        //    options: $('input[type=radio][name=OptionsOptionsItem]:checked').attr('id'),
-        //    descOptions: $(".inp-desc-options")
-        //}
-
-        //var rules = {
-        //    interTime: $(".inp-inter-time").val(),
-        //    exitTime: $(".inp-exit-time").val(),
-        //    customRulesItem: $('input[type=radio][name=customRulesItem]:checked').attr('id'),
-        //    ruleDesc: $(".inp-rule-desc").val()
-        //}
-
-        //var cost = {
-        //    middleOfTheWeek: $(".inp-middle-of-the-week").val(),
-        //    holidays: $(".inp-holidays").val(),
-        //    weekend: $(".inp-weekend").val(),
-        //    extraPeople: $(".inp-extra-people").val(),
-        //    longBookingDiscount1Day: $(".inp-long-booking-discount-1-day").val(),
-        //    longBookingDiscount1Percent: $(".inp-long-booking-discount-1-percent").val(),
-        //    longBookingDiscount2Day: $(".inp-long-booking-discount-2-day").val(),
-        //    longBookingDiscount2Percent: $(".inp-long-booking-discount-2-percent").val()
-        //}
-
-        //var model = { files, location, description, measurment, capacity, options, rules, cost };
-        //var modelJson = JSON.stringify(model);
-        //console.log(modelJson);
-    }
+   
 </script>
