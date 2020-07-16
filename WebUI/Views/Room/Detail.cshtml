@@ -3,6 +3,13 @@
 
     var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
 }
+<style>
+    @@media screen and (min-width:1200px){
+        .mg-top{
+            margin-top:-260px;
+        }
+    }
+</style>
     <div class="container-fluid">
         <div class="row pt-65">
             <div class="col-12 col-sm-12 col-md-12 col-lg-8">
@@ -162,8 +169,8 @@
                                 <div class="row ml-0 mr-0 pt-pb-15">
                                     <div class="col-5 d-flex align-items-center brd-r-6 brd-1 bg-mabit-gray">
                                         <div class="input-group">
-                                            <i class="fa fa-calendar-alt ml-2"></i>
-                                            <input type="text" id="detailDateInp" class="form-control" placeholder="ورود-خروج" aria-label="date3-1" data-mdpersiandatetimepicker="" data-original-title="" title="" data-mdpersiandatetimepickershowing="false">
+                                            <i class="fa fa-calendar-alt ml-2" style="align-self: center;"></i>
+                                            <input type="text" style=" background: #f4f4f4;border: none;" id="detailDateInp" class="form-control" placeholder="ورود-خروج" aria-label="date3-1" data-mdpersiandatetimepicker="" data-original-title="" title="" data-mdpersiandatetimepickershowing="false">
                                         </div>
                                         <script>
                                             $('#detailDateInp').MdPersianDateTimePicker({
@@ -193,60 +200,56 @@
                         <div class="row pt-pb-15 mt-mb-15 mr-0 ml-0 box-shadow-2 bg-box">
                             <div class="col-12">
                                 <h4 class="mb-3">Amenities</h4>
-                                <div class="row pt-2 d-flex justify-content-around align-items-center">
-                                    <div class="col-4">
+                                <div class="row pt-2 d-flex justify-content-start align-items-center mr-2">
+                                    <div class="col-6 col-md-4">
                                         <span class="circle-bg">
                                             <img src="/img/air_conditioner.png" width="15" height="15">
                                         </span>
                                         <span class="amenities mr-2">کولر</span>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-6 col-md-4 my-3">
                                         <span class="circle-bg">
                                             <img src="/img/iron.png" width="15" height="15">
                                         </span>
                                         <span class="amenities mr-2">Iron</span>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-6 col-md-4 my-3">
                                         <span class="circle-bg">
                                             <img src="/img/air_conditioner.png" width="15" height="15">
                                         </span>
                                         <span class="amenities mr-2">کولر گازی</span>
                                     </div>
-                                </div>
-                                <div class="row my-5 d-flex justify-content-around align-items-center">
-                                    <div class="col-4">
+                                    <div class="col-6 col-md-4 my-3">
                                         <span class="circle-bg">
                                             <img src="/img/couch.png" width="15" height="15">
                                         </span>
                                         <span class="amenities mr-2">مبلمان</span>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-6 col-md-4 my-3">
                                         <span class="circle-bg">
                                             <img src="/img/parking.png" width="15" height="15">
                                         </span>
                                         <span class="amenities mr-2">پارکینگ</span>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-6 col-md-4 my-3">
                                         <span class="circle-bg">
                                             <img src="/img/couch.png" width="15" height="15">
                                         </span>
                                         <span class="amenities mr-2">مبلمان</span>
                                     </div>
-                                </div>
-                                <div class="row pb-2 d-flex justify-content-around align-items-center">
-                                    <div class="col-4">
+                                    <div class="col-6 col-md-4 my-3">
                                         <span class="circle-bg">
                                             <img src="/img/dryer.png" width="15" height="15">
                                         </span>
                                         <span class="amenities mr-2">خشک کن</span>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-6 col-md-4 my-3">
                                         <span class="circle-bg">
                                             <img src="/img/kitchen.png" width="15" height="15">
                                         </span>
                                         <span class="amenities mr-2">آشپزخانه</span>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-6 col-md-4 my-3">
                                         <span class="circle-bg">
                                             <img src="/img/dryer.png" width="15" height="15">
                                         </span>
@@ -308,11 +311,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4 mg-top">
                 <!--------------------------- rate & comments----------------------->
-                <div class="row pt-pb-15 mt-mb-15 mr-0 ml-0 box-shadow-2 bg-box">
+                <div class="row mx-0 my-2 box-shadow-2 bg-box">
                     <div class="col-12">
-                        <h4 class="mb-3">Rate and Comment</h4>
+                        <h4 class="my-3">Rate and Comment</h4>
                         <div class="row text-right pt-2">
                             <div class="col-5">
                                 <div class="d-flex flex-column align-items-center">
@@ -328,7 +331,7 @@
                                 </div>
                             </div>
                             <div class="col-1 text-left pr-0 pl-0">
-                                <ul class="bar-graph list-unstyled pr-0">
+                                <ul class="bar-graph list-unstyled ">
                                     <li class="mb-rate">
                                         <span class="mabit-darkGray">1</span>
                                     </li>

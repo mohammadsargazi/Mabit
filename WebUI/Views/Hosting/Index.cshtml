@@ -38,6 +38,20 @@
         <i class="step"></i><h6 class="offset-2" localize-content>Reserved Requests</h6>
     </div>*@
 </div>
+@if(culture=="ar" || culture == "fa")
+{
+    <style>
+        #employer-post-new-job .res-steps-container .res-steps .res-progress-bar {
+            height: 2px;
+            position: absolute;
+            background: #E0E0E0;
+            top: 24px;
+            right: 60%;
+            width: 100%;
+            z-index: -1;
+        }
+    </style>
+}
 
 <section id="employer-post-new-job">
     <div class="row">
