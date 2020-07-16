@@ -6,36 +6,36 @@ namespace Mabit.Models.Model.HotelModel
 {
     public class AddHotelModel
     {
-        public int[] picturesId { get; set; }
-        public string title { get; set; }
-        public int cityId { get; set; }
-        public string address { get; set; }
-        public double longitude { get; set; }
-        public double latitude { get; set; }
-        public int structureId { get; set; }
-        public int[] textureOptionsId { get; set; }
-        public int[] locationOptionsId { get; set; }
-        public int roomTypeId { get; set; }
-        public int singleBedCount { get; set; }
-        public int doubleBedCount { get; set; }
-        public int extraBedCount { get; set; }
-        public int buildingArea { get; set; }
-        public int landArea { get; set; }
-        public int roomCount { get; set; }
-        public int standardCapacity { get; set; }
-        public int maxCapacity { get; set; }
-        public int[] locationTypeId { get; set; }
-        public List<int> optionsId { get; set; }
-        public string checkingTime { get; set; }
-        public string checkoutTime { get; set; }
-        public int minimumDays { get; set; }
-        public int[] customRulesId { get; set; }
-    
+        public int? PictureId { get; set; }
+        public List<int> PicturesId { get; set; }
+        public string Title { get; set; }
+        public int CityId { get; set; }
+        public string Address { get; set; }
+        public double Longitude { get; set; }
+        public double Latitude { get; set; }
+        public List<int> TextureOptionsId { get; set; }
+        public int HotelTypeId { get; set; }
+        public byte Star { get; set; }
+        public int? RoomNum { get; set; }
+        public int? FloorNum { get; set; }
+        public string InternalSpecificationDesc { get; set; }
+        public List<int> LocationTypeId { get; set; }
+        public List<int> OptionsId { get; set; }
+        public string CheckingTime { get; set; }
+        public string CheckoutTime { get; set; }
+        public int? MinimumDays { get; set; }
+        public List<int> CustomRulesId { get; set; }
+        public string TextureDescription { get; set; }
+        public string OptionsDescription { get; set; }
+
+        public string Description { get; set; }
+        public List<int> HotelRoomsId { get; set; }
+
         public string textureDescription { get; set; }
         public string optionsDescription { get; set; }
         public string rulesDescription { get; set; }
         public string description { get; set; }
-        public string aboutRoom { get; set; }
+        public string aboutHotel { get; set; }
     }
     public class AddHotelResultModel
     {

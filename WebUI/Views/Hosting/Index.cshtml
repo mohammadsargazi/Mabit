@@ -320,34 +320,12 @@
     //        '</tr>');
     //});
 
-    $('#room-new-btn').on('click', function (event) {
-        console.log(event)
-        let roomFlour = document.getElementById('room-flour').value;
-        let room = document.getElementById('room-number').value;
-        let roomCost = document.getElementById('room-cost').value;
-        let roomDesc = document.getElementById('room-desc').value;
-        let roomOptions = $("#room-options li input:checked");
-        let options = '';
-        let listItems = roomOptions.each(function () {
-            options = options + $(this).val() + ' , '
-        })
-        $('#room > tbody:last-child').append('<tr><td>' + roomFlour + '</td> ' +
-            '<td>' + room + '</td> <td>' + options + '</td>' +
-            '<td>' + roomCost + '</td>' +
-            '<td>' + roomDesc + '</td>' +
-            '<td class="text-left">\n' +
-            '<div class="operation">\n' +
-            '<button class="edit-btn">Edit</button>\n' +
-            '<button class="delete-btn">Delete</button>\n' +
-            '</div>\n' +
-            '</td>' +
-            // '<td><ul class="uploaded-img not-clean">'+avatarPreview.html()+'</ul></td>' +
-            '</tr>');
-    });
+    
 </script>
 
 
 <script>
+    var hotelId = 0;
      function getSelectRadioBtnIds(radioName) {
         var ids = [];
         $("input[name=" + radioName + "]:checked").each(function () {

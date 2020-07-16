@@ -32,7 +32,7 @@
                     $('.clockpicker').clockpicker();
                 </script>
                 <input type="number" placeholder="Minimum Reservation"
-                       class="form-control bg-input">
+                       class="form-control bg-input inp-minimum-reservation">
             </div>
             <div class="col-6">
                 @*<input type="text" placeholder="Exit Time"
@@ -90,7 +90,7 @@
         </div>
     </div>
 </div>
-<div class="btn-container p-1">
+<div class="btn-container p-1 unit-txt">
     <button type="button" class="btn-step-prev res-btn-gray btn"
             data-class=".res-form-eight">
         Back
@@ -101,3 +101,99 @@
         Next
     </button>
 </div>
+<div class="btn-container p-1 hotel-txt">
+    <button type="button" class="btn-step-prev res-btn-gray btn"
+            data-class=".res-form-eight">
+        Back
+    </button>
+    <button type="button"
+            class="btn-step res-btn-orange mb-2 btn" id="addHotel"
+            data-class=".res-form-eight">
+        Next
+    </button>
+</div>
+<script>
+    var hotelpicturesId = [];
+    $("#addHotel").click(function () {
+        saveHotelImages();
+    });
+     function saveHotelImages() {
+        var input = document.getElementById("file-1");
+        var files = input.files;
+        var formData = new FormData();
+        for (var i = 0; i != files.length; i++) {
+         formData.append("files", files[i]);
+        }
+        $.ajax({
+            url: '@Url.Action("Upload", "Hosting")',
+            data: formData,
+            processData: false,
+            contentType: false,
+            type: "POST",
+            success: function (data) {
+                hotelpicturesId = [];
+                for (var i = 0; i < data.length; i++) {
+                    hotelpicturesId.push(data[i])
+                }
+                addHotel();
+            }
+         });
+    }
+
+    function addHotel() {
+        $("#roomMessage").css("display", "none");
+        $("#roomMessage div").each(function () {
+            $(this).remove()
+        });
+        var descOptionId = getSelectRadioBtnIds("descTextureOptionsItem");
+        var capacityLocationTypes = getSelectRadioBtnIds("capicityLocationTypesItem");
+        var optoptionIds = getSelectRadioBtnIds("OptionsOptionsItem");
+        var customRulesItem = getSelectRadioBtnIds("customRulesItem");
+        $.ajax({
+            url: '@Url.Action("AddHotel", "Hosting")',
+            type: 'Post',
+            data: {
+                picturesId: hotelpicturesId,
+                hotelName: $(".inp-hotel-name").val(),
+                countryId: $("#countryList").val(),
+                provinceId: $("#provinceList").val(),
+                cityId: $("#cityList").val(),
+                address: $("#inp-address").val(),
+                descTextureOptionsId: descOptionId,
+                descDescription: $("#inp-dec-description").val(),//stepFourEnd
+                roomNum: $(".inp-roon-num").val(),
+                floorNum: $(".inp-floor-num").val(),
+                descMeasurment: $(".inp-desc-measurment").val(),//stepFiveEnd
+                areaCultureLocationTypes: capacityLocationTypes,
+                areaCultureDescCapacity: $(".inp-desc-capacity").val(),//stepSixEnd
+                optoptionIds: optoptionIds,
+                optDescOptions: $(".inp-desc-options").val(),//stepSevenEnd
+                rulesInterTime: $(".inp-inter-time").val(),
+                rulesExitTime: $(".inp-exit-time").val(),
+                customRulesItem: customRulesItem,
+                ruleDesc: $(".inp-rule-desc").val(),
+                latitude: $("#lat").val(),
+                longitude: $("#lon").val(),
+                minimumreservation: $(".inp-minimum-reservation").val()
+            },
+            success: function (res) {
+                if (res.valid) {
+                    debugger;
+                    hotelId = res.hotelId;
+                    loadingBoxStop();
+                }
+                debugger;
+                $.each(res.errors, function (key, value) {
+                    debugger;
+                    if (value != null) {
+                        debugger;
+                        var errorMessageTemplate = '<div class="row">' + value[0].errorMessage + '</div>';
+                        $("#roomMessage").append(errorMessageTemplate);
+                        $("#roomMessage").css("display", "block");
+                    }
+                });
+                loadingBoxStop();
+            }
+        });
+    }
+</script>
