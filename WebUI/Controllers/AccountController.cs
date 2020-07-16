@@ -84,7 +84,10 @@ namespace WebUI.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
 
         public IActionResult Logout()
         {

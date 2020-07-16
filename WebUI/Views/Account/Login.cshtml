@@ -1,52 +1,67 @@
 ﻿@{
-    Layout = null;
     ViewData["Title"] = "Log in";
     var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
 }
 
 
+@*customs style ( Farshid )*@
+<style>
+    .custom-mg-top {
+        margin-top: 280px;
+    }
+
+    .input-new-style {
+        background-color: rgba(201, 201, 201, 0.301);
+    }
+
+    .bg-new-style {
+        direction: rtl;
+    }
+</style>
+@* / customs style ( Farshid )*@
 <div class="container">
-    <h1 class="display-4 text-center mb-4">Bootstrap Modals</h1>
-
-    <div class="row mb-4">
-        <div class="col text-center">
-            <h3>The Basic Modal</h3>
-            <a href="#" class="btn btn-lg btn-success" data-toggle="modal" data-target="#basicModal">
-                Click to open
-                Modal
-            </a>
+    <div class="row justify-content-center">
+        <div class="col-md-9 col-lg-10 col-xl-10 mt-5">
+            <div class="card shadow-lg o-hidden border-0 my-5">
+                <div class="card-body p-0">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="p-5">
+                                <div class="row">
+                                    <div class="col col-md-6 text-center"><button class="btn btn-lg font-weight-bold">Login</button></div>
+                                    <div class="col col-md-6 text-center"><button class="btn btn-lg font-weight-bold">SignUp</button></div>
+                                </div>
+                                <hr>
+                                <form class="user">
+                                    <div class="row mt-4">
+                                        <div class="form-group col-md-6"><input class="form-control form-control-user input-new-style" type="text" id="" aria-describedby="emailHelp" placeholder="User Name"></div>
+                                        <div class="form-group col-md-6"><input class="form-control form-control-user input-new-style" type="password" id="" placeholder="Password"></div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <div class="form-check"><input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1"><label class="form-check-label custom-control-label pt-2" for="formCheck-1">Remember Me</label></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row d-flex justify-content-md-start justify-content-center custom-mg-top">
+                                        <div class="col-10 col-md-6 col-lg-3">
+                                            <button class="btn btn-primary text-white mt-1 w-100" type="submit">Login</button>
+                                        </div>
+                                        <div class="col-10 col-md-6 col-lg-6">
+                                            <button class="btn btn-outline-primary mt-1 w-100" type="submit">Forgot Password ?</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 d-none d-lg-flex">
+                            <div class="flex-grow-1 bg-login-image">
+                                <img src="~/img/2mabit.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body modal-body-web-custom pr-0 pl-0 pt-0 pb-0">
-                <div class="oval-header3">
-                    <button type="button" class="close close-web-custom" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <div class="pt-4">
-                        <img src="~/img/tell.png" width="145" class="ml-3">
-                    </div>
-                    <span class="text-white">لطفا برای ورود شماره خود را وارد کنید</span>
-                    <div class="oval-header--mask3">
-                    </div>
-                </div>
-            </div>
-            <div class="content2 pb-40">
-                <form id="telInput" class="ltr">
-                    <input id="phone" name="phone" type="tel" class="text-left brd-1-blue border-top-0 border-right-0 border-left-0">
-                </form>
-                <div class="row mt-3">
-                    <div class="col-3"></div>
-                    <div class="col-6">
-                        <button type="submit" class="btn btn-primary form-control" tabindex="-1">ارسال کد</button>
-                    </div>
-                    <div class="col-3"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
