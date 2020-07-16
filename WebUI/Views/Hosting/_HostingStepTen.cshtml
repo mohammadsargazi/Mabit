@@ -2,100 +2,68 @@
 @{
     var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
 }
-    <div class="item table-main table-main-room">
-        <h5>Room Details</h5>
-        <p class="mb-0" localize-content>
-            Enter your room details
-        </p>
-        <table id="room" class="table table-light table-prs table-striped table-responsive-md">
-            <thead>
-                <tr>
-                    <th>Flour</th>
-                    <th>Room</th>
-                    <th>Category</th>
-                    <th>Cost</th>
-                    <th>Description</th>
-                    <th></th>
-                </tr>
-                <tr class="input-row">
-                    <td><input id="room-flour" type="text" /></td>
-                    <td><input id="room-number" type="text" /></td>
-                    <td>
-                        <div class="button-group combo-box">
-                            <button type="button"
-                                    class="btn btn-default dropdown-toggle"
-                                    data-toggle="dropdown">
-                                <span class="glyphicon glyphicon-cog"></span>
-                            </button>
-                            <ul id="room-options" class="dropdown-menu">
+<div class="item table-main table-main-room">
+    <h5>Room Details</h5>
+    <p class="mb-0" localize-content>
+        Enter your room details
+    </p>
+    <table id="room" class="table table-light table-prs table-striped table-responsive-md">
+        <thead>
+            <tr>
+                <th>Flour</th>
+                <th>Room</th>
+                <th>Category</th>
+                <th>Cost</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+            <tr class="input-row">
+                <td><input id="room-flour" type="text" /></td>
+                <td><input id="room-number" type="text" /></td>
+                <td>
+                    <div class="button-group combo-box">
+                        <button type="button"
+                                class="btn btn-default dropdown-toggle"
+                                data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-cog"></span>
+                        </button>
+                        <ul id="room-options" class="dropdown-menu">
+                            <li>
+                                <a href="#" class="small" tabIndex="-1">
+                                    <span class="glyphicon glyphicon-cog"></span>
+                                </a>
+                            </li>
+                            @foreach (var item in Model.HotelCategories)
+                            {
                                 <li>
-                                    <a href="#" class="small" tabIndex="-1">
-                                        <span class="glyphicon glyphicon-cog"></span>
+                                    <a href="#" class="small" data-value="option1"
+                                       tabIndex="-1">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input"
+                                                   id="@(item.id)" value="@(item.id)">
+                                            <label class="custom-control-label" for="@(item.id)">&nbsp;@(item.title)</label>
+                                        </div>
+                                        <!--                                                                <input type="checkbox"/>&nbsp;Vip-->
                                     </a>
                                 </li>
-                                @foreach (var item in Model.HotelCategories)
-                                {
-                                    <li>
-                                        <a href="#" class="small" data-value="option1"
-                                           tabIndex="-1">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
-                                                       id="@(item.id)" value="@(item.id)">
-                                                <label class="custom-control-label" for="@(item.id)">&nbsp;@(item.title)</label>
-                                            </div>
-                                            <!--                                                                <input type="checkbox"/>&nbsp;Vip-->
-                                        </a>
-                                    </li>
-                                }
-                            </ul>
-                        </div>
-                    </td>
-                    <td><input id="room-cost" type="text" /></td>
-                    <td><input id="room-desc" type="text" /></td>
-                    <td>
-                        <button class="new-button" style="width: 60px;" id="room-new-btn">
-                            <i class="fa fa-plus"></i>
-                            New
-                        </button>
-                    </td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>VIP</td>
-                    <td><span>512</span> $</td>
-                    <td class="text-left">
-                        Lorem Ipsum is,Lorem Ipsum isLorem Ipsum is,Lorem
-                        Ipsum is Lorem Ipsum is,Lorem Ipsum is
-                    </td>
-
-                    <td class="text-left">
-                        <div class="operation">
-                            <button class="edit-btn">Edit</button>
-                            <button class="delete-btn">Delete</button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>1</td>
-                    <td>VIP</td>
-                    <td><span>600</span> $</td>
-                    <td class="text-left">
-                        Lorem Ipsum is, Lorem Ipsum is, Lorem Ipsum is
-                    </td>
-                    <td class="text-left">
-                        <div class="operation">
-                            <button class="edit-btn">Edit</button>
-                            <button class="delete-btn">Delete</button>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+                            }
+                        </ul>
+                    </div>
+                </td>
+                <td><input id="room-cost" type="text" /></td>
+                <td><input id="room-desc" type="text" /></td>
+                <td>
+                    <button class="new-button" style="width: 60px;" id="room-new-btn">
+                        <i class="fa fa-plus"></i>
+                        New
+                    </button>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
 <div class="btn-container p-1">
     <button type="button" class="btn-step-prev res-btn-gray"
             data-class=".res-form-ten">
@@ -109,15 +77,15 @@
 </div>
 
 <script>
-    
-    $("#addHotelRoom").click(function () {
-        addHotelRoom();
+
+    $("#room-new-btn").click(function () {
+        saveHotelRoom();
     });
 
-    
 
-    function addHotelRoom() {
-        let roomOptions = $("#room-options li input:checked");
+
+    function saveHotelRoom() {
+        let roomOptions = $("#room-options li input:checked").val();
          $.ajax({
             url: '@Url.Action("AddHotelRoom", "Hosting")',
             type: 'Post',
@@ -133,6 +101,7 @@
             success: function (res) {
                 if (res.Valid) {
                     loadingBoxStop();
+                    addHotelRoom();
                 }
                 debugger;
                 $.each(res.errors, function (key, value) {
@@ -147,5 +116,32 @@
                 loadingBoxStop();
             }
         });
+    }
+
+
+
+    function addHotelRoom() {
+        console.log(event)
+        let roomFlour = document.getElementById('room-flour').value;
+        let room = document.getElementById('room-number').value;
+        let roomCost = document.getElementById('room-cost').value;
+        let roomDesc = document.getElementById('room-desc').value;
+        let roomOptions = $("#room-options li input:checked");
+        let options = '';
+        let listItems = roomOptions.each(function () {
+            options = options + $(this).val() + ' , '
+        })
+        $('#room > tbody:last-child').append('<tr><td>' + roomFlour + '</td> ' +
+            '<td>' + room + '</td> <td>' + options + '</td>' +
+            '<td>' + roomCost + '</td>' +
+            '<td>' + roomDesc + '</td>' +
+            '<td class="text-left">\n' +
+            '<div class="operation">\n' +
+            '<button class="edit-btn">Edit</button>\n' +
+            '<button class="delete-btn">Delete</button>\n' +
+            '</div>\n' +
+            '</td>' +
+            // '<td><ul class="uploaded-img not-clean">'+avatarPreview.html()+'</ul></td>' +
+            '</tr>');
     }
 </script>

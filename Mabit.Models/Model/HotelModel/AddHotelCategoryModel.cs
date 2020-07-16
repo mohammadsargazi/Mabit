@@ -12,5 +12,6 @@ namespace Mabit.Models.Model.HotelModel
         public int Bed { get; set; }
         public List<int> HotelCategoryOptionsId { get; set; }
         public List<int> PicturesId { get; set; }
+        public int HotelId { get; set; }
     }
 }

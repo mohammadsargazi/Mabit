@@ -14,6 +14,7 @@ namespace WebUI.Models
         public int Bed { get; set; }
         public int[] HotelCategoryOptionsId { get; set; }
         public int[] PicturesId { get; set; }
+        public int HotelId { get; set; }
     }
     public static class ExtentionModel
     {
@@ -30,7 +31,8 @@ namespace WebUI.Models
                     DoubleBed = model.DoubleBed,
                     HotelCategoryOptionsId = model.HotelCategoryOptionsId.ToList(),
                     Title = model.Name,
-                    PicturesId = model.PicturesId?.ToList()
+                    PicturesId = model.PicturesId?.ToList(),
+                    HotelId = model.HotelId
                 };
             }
             catch(Exception ex)

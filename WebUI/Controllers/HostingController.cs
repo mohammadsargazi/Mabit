@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using LazZiya.ExpressLocalization;
 using Mabit.Models.Model.Common;
+using Mabit.Models.Model.HotelModel;
 using Mabit.Models.Model.RoomModel;
 using Mabit.Services.CommonService;
 using Mabit.Services.HotelService;
@@ -45,7 +46,7 @@ namespace WebUI.Controllers
             var locationTypes = _commonService.LocationTypes();
             var customRules = _commonService.CustomRules();
             var countries = _commonService.GetCountries();
-            var categoryOptopns =_commonService.GetCategoryOption();
+            var categoryOptopns = _commonService.GetCategoryOption();
             var hotelTypes = _commonService.GetHotelType();
             var hotelCategories = _commonService.GetHotelCategory();
             var model = new HostingViewModel
@@ -93,27 +94,46 @@ namespace WebUI.Controllers
             });
         }
 
-        public IActionResult AddCategoryHotel(AddCategoryHotelViewModel model)
+        public IActionResult AddHotel(AddHotelViewModel model)
         {
-            if (ModelState.IsValid)
-            {
-                var newCategoryHotel = model.ToModel();
-                var claims = ((System.Security.Claims.ClaimsIdentity)User.Identity).Claims;
-                var token = claims.SingleOrDefault(x => x.Type == "AcessToken").Value;
-                var res = _hotelService.AddHotelCategory(newCategoryHotel, token).submited;
-                return Json(new
-                {
-                    Valid = true
-                });
-            }
+
+            var newHotel = model.ToModel();
+            var claims = ((System.Security.Claims.ClaimsIdentity)User.Identity).Claims;
+            var token = claims.SingleOrDefault(x => x.Type == "AcessToken").Value;
+            var res = _hotelService.AddHotel(newHotel, token);
             return Json(new
             {
-                Valid = false,
-                Errors = GetErrorsFromModelState()
+                Valid = true,
+                hotelId = res
             });
+
+
         }
 
+        public IActionResult AddCategoryHotel(AddCategoryHotelViewModel model)
+        {
 
+            var newCategoryHotel = model.ToModel();
+            var claims = ((System.Security.Claims.ClaimsIdentity)User.Identity).Claims;
+            var token = claims.SingleOrDefault(x => x.Type == "AcessToken").Value;
+            var res = _hotelService.AddHotelCategory(newCategoryHotel, token).submited;
+            return Json(new
+            {
+                Valid = true
+            });
+
+        }
+        [HttpPost]
+        public IActionResult AddHotelRoom(AddHotelRoomModel model)
+        {
+            var claims = ((System.Security.Claims.ClaimsIdentity)User.Identity).Claims;
+            var token = claims.SingleOrDefault(x => x.Type == "AcessToken").Value;
+            var res = _hotelService.AddHotelRoom(model, token).submited;
+            return Json(new
+            {
+                Valid = true
+            });
+        }
 
         public static byte[] ReadToEnd(System.IO.Stream stream)
         {
@@ -184,16 +204,21 @@ namespace WebUI.Controllers
             }
             return Json(fileIds);
         }
-        public IActionResult UploadImageString(string base64)
+        public IActionResult UploadImageString(List<string> base64)
         {
-            var newFileUploadModel = new FileUploadModel()
+            var fileIds = new List<int>();
+            foreach (var item in base64)
             {
-                base64 = base64,
-                fileName = "",
-                mimeType = ".jpg"
-            };
-            var fileId = _commonService.UploadBase64(newFileUploadModel);
-            return Json(fileId);
+                var newFileUploadModel = new FileUploadModel()
+                {
+                    base64 = item,
+                    fileName = "",
+                    mimeType = ".jpg"
+                };
+                var fileId = _commonService.UploadBase64(newFileUploadModel);
+                fileIds.Add(fileId);
+            }
+            return Json(fileIds);
         }
 
         #endregion

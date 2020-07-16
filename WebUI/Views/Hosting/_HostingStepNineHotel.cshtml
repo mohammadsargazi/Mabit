@@ -2,67 +2,67 @@
 @{
     var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
 }
-    <div class="items">
-            <h5>Category</h5>
-            <p class="mb-0" localize-content>
-                Specify the classification of your hotel rooms
-            </p>
+<div class="items">
+    <h5>Category</h5>
+    <p class="mb-0" localize-content>
+        Specify the classification of your hotel rooms
+    </p>
 
-        <div class="item table-main table-main-category">
-            <table id="category"
-                   class="table table-light table-prs table-striped table-responsive-md">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Area</th>
-                        <th>Double bed</th>
-                        <th>Bed</th>
-                        <th>Options</th>
-                        <th>Images</th>
-                        <th></th>
-                    </tr>
-                    <tr class="input-row">
-                        <td><input id="category-name" type="text" /></td>
-                        <td><input id="category-area" type="text" /></td>
-                        <td><input id="category-double" type="text" /></td>
-                        <td><input id="category-bed" type="text" /></td>
-                        <td>
-                            <div class="button-group combo-box">
-                                <button type="button"
-                                        class="btn btn-default dropdown-toggle"
-                                        data-toggle="dropdown">
-                                    <span class="glyphicon glyphicon-cog"></span>
-                                </button>
-                                <ul id="category-options" class="dropdown-menu">
-                                    <li class="custom-control custom-checkbox">
-                                        <a href="#" class="small" tabIndex="-1">
-                                            <span class="glyphicon glyphicon-cog"></span>
+    <div class="item table-main table-main-category">
+        <table id="category"
+               class="table table-light table-prs table-striped table-responsive-md">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Area</th>
+                    <th>Double bed</th>
+                    <th>Bed</th>
+                    <th>Options</th>
+                    <th>Images</th>
+                    <th></th>
+                </tr>
+                <tr class="input-row">
+                    <td><input id="category-name" type="text" /></td>
+                    <td><input id="category-area" type="text" /></td>
+                    <td><input id="category-double" type="text" /></td>
+                    <td><input id="category-bed" type="text" /></td>
+                    <td>
+                        <div class="button-group combo-box">
+                            <button type="button"
+                                    class="btn btn-default dropdown-toggle"
+                                    data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-cog"></span>
+                            </button>
+                            <ul id="category-options" class="dropdown-menu">
+                                <li class="custom-control custom-checkbox">
+                                    <a href="#" class="small" tabIndex="-1">
+                                        <span class="glyphicon glyphicon-cog"></span>
+                                    </a>
+                                </li>
+                                @foreach (var item in Model.CategoryOptions)
+                                {
+                                    <li>
+                                        <a href="#" class="small" data-value="option1"
+                                           tabIndex="-1">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox"
+                                                       class="custom-control-input"
+                                                       id="@(item.Id)" value="@(item.Id)" data-value="@(item.Title)">
+                                                <label class="custom-control-label"
+                                                       for="@(item.Id)">&nbsp;@(item.Title)</label>
+                                            </div>
+                                            <!--                                                                        <input type="checkbox" value="Wifi"  class="custom-control-input"/>-->
+                                            <!--                                                                        <span class="custom-control-indicator"></span>&nbsp;Wifi-->
                                         </a>
                                     </li>
-                                    @foreach (var item in Model.CategoryOptions)
-                                    {
-                                        <li>
-                                            <a href="#" class="small" data-value="option1"
-                                               tabIndex="-1">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox"
-                                                           class="custom-control-input"
-                                                           id="@(item.Id)" value="@(item.Id)" data-value="@(item.Title)">
-                                                    <label class="custom-control-label"
-                                                           for="@(item.Id)">&nbsp;@(item.Title)</label>
-                                                </div>
-                                                <!--                                                                        <input type="checkbox" value="Wifi"  class="custom-control-input"/>-->
-                                                <!--                                                                        <span class="custom-control-indicator"></span>&nbsp;Wifi-->
-                                            </a>
-                                        </li>
-                                    }
+                                }
 
-                                </ul>
-                            </div>
-                        </td>
-                        <td style="width: 25%" id="category-images">
-                            <ul class="uploaded-img" id="avatar-preview">
-                                @*<li class="avatar-preview">
+                            </ul>
+                        </div>
+                    </td>
+                    <td style="width: 25%" id="category-images">
+                        <ul class="uploaded-img" id="avatar-preview">
+                            @*<li class="avatar-preview">
                                     <div style="background-image: url('~/img/nature.jpg')"></div>
                                     <i class="fa fa-times"></i>
                                 </li>
@@ -70,72 +70,30 @@
                                     <div style="background-image: url('~/img/nature2.jpg')"></div>
                                     <i class="fa fa-times"></i>
                                 </li>*@
-                            </ul>
+                        </ul>
 
-                            <div class="fileUpload" id="fileUpload-btn">
-                                <input type='file' id="imageUpload"
-                                       accept=".png, .jpg, .jpeg" class="upload" />
-                                <i class="fa fa-image"></i>
-                            </div>
+                        <div class="fileUpload" id="fileUpload-btn">
+                            <input type='file' id="imageUpload"
+                                   accept=".png, .jpg, .jpeg" class="upload" />
+                            <i class="fa fa-image"></i>
+                        </div>
 
-                        </td>
-                        <td>
-                            <button id="btn-new-category" style="width: 60px;" class="new-button">
-                                <i class="fa fa-plus"></i>
-                                New
-                            </button>
-                        </td>
-                    </tr>
-                </thead>
-                <tbody class="tbody">
-                    <tr>
-                        <td>VIP</td>
-                        <td>95 m</td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>Lorem Ipsum is,Lorem Ipsum is</td>
-                        <td>
-                            <ul class="uploaded-img">
-                                <li>
-                                    <img src="../img/nature.jpg">
-                                </li>
-                                <li>
-                                    <img src="../img/nature2.jpg">
-                                </li>
-                            </ul>
-                        </td>
-                        <td class="text-left">
-                            <div class="operation">
-                                <button class="edit-btn">Edit</button>
-                                <button class="delete-btn">Delete</button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>VIP</td>
-                        <td>80 m</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>Lorem Ipsum is, Lorem Ipsum is, Lorem Ipsum is</td>
-                        <td>
-                            <ul class="uploaded-img">
-                                <li>
-                                    <img src="../img/nature.jpg">
-                                </li>
-                            </ul>
-                        </td>
-                        <td class="text-left">
-                            <div class="operation">
-                                <button class="edit-btn">Edit</button>
-                                <button class="delete-btn">Delete</button>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
+                    </td>
+                    <td>
+                        <button id="btn-new-category" style="width: 60px;" class="new-button">
+                            <i class="fa fa-plus"></i>
+                            New
+                        </button>
+                    </td>
+                </tr>
+            </thead>
+            <tbody class="tbody" >
+             
+            </tbody>
+        </table>
     </div>
+    
+</div>
 <div class="btn-container p-1">
     <button type="button" class="btn-step-prev res-btn-gray"
             data-class=".res-form-nine">
@@ -150,36 +108,44 @@
 
 <script>
     var picturesId = [];
-    var hotelpicturesId = [];
-    var hotelId = 0;
-    var formData = new FormData();
+    var formDatab = new FormData();
     $("#btn-new-category").click(function () {
         debugger;
         loadingBoxStart();
+        getFormData();
         UploadImage();
 
     });
+    function getFormData() {
+        $(".container-hotel-cat-img").each(function () {
+            var bg = $(this).css('background-image');
+            bg = bg.replace('url(', '').replace(')', '').replace(/\"/gi, "");
+            formDatab.append("base64", bg.split(',')[1]);
+            debugger;
+        })
+    }
 
     function UploadImage() {
         debugger;
         $.ajax({
-            url: '@Url.Action("Upload", "Hosting")',
-            data: formData,
+            url: '@Url.Action("UploadImageString", "Hosting")',
+            data: formDatab,
             processData: false,
             contentType: false,
             type: "POST",
-            type: "POST", 
+            type: "POST",
             success: function (data) {
                 for (var i = 0; i < data.length; i++) {
                     picturesId.push(data[i]);
                 }
                 saveHotelCategory();
             }
-            
+
         });
     }
 
     function saveHotelCategory() {
+        debugger;
         var options = [];
         var optionsval = [];
         $("input:checkbox").each(function () {
@@ -206,13 +172,15 @@
                     DoubleBed: DoubleBed,
                     Bed: Bed,
                     HotelCategoryOptionsId: HotelCategoryOptionsId,
-                    picturesId: picturesId
+                    picturesId: picturesId,
+                    hotelId: hotelId
                 },
                 success: function (res) {
-                    if (res.Valid) {
+                    if (res.valid) {
                         loadingBoxStop();
+                        debugger;
                         addTableRow(Name, Area, DoubleBed, Bed, optionsval);
-                        saveHotelImages();
+                        //saveHotelImages();
                     }
                     debugger;
                     $.each(res.errors, function (key, value) {
@@ -229,27 +197,44 @@
             });
     }
     function addTableRow(categoryName, categoryArea, categoryDouble, categoryBed, options) {
+        debugger;
         var template = '<tr><td>' + categoryName + '</td> ' +
             '<td>' + categoryArea + '</td> <td>' + categoryDouble + '</td> ' +
             '<td>' + categoryBed + '</td><td>' + options + '</td>' +
-            '<td></td>' +
-            '<td class="text-left">\n' +
+            '<td>';
+        var imgTemplate = '<ul class="uploaded-img">';
+        formDatab.forEach((value, key) => {
+            var newImgTemplate = '<li><img src="data:image/jpeg;base64,' + value + '"></li>';
+            imgTemplate = imgTemplate + newImgTemplate;
+        });
+        imgTemplate = imgTemplate + '</ul></td > ';
+        template = template + imgTemplate;
+        template = template + '<td class="text-left">\n' +
             '<div class="operation">\n' +
             '<button class="edit-btn">Edit</button>\n' +
             '<button class="delete-btn">Delete</button>\n' +
             '</div>\n' +
             '</td></tr>';
+
+
+
+            
         $('#category > tbody:last-child').append(template);
+    }
+    function faTimeClick() {
+        $(this).closest(".avatar-preview").remove();
     }
     function readURL(input) {
         if (input.files && input.files[0]) {
-            formData.append("files", input.files);
             var reader = new FileReader();
-            reader.onload = function(e) {
-                $('#avatar-preview').append('<li class="avatar-preview">\n' +
-                    '<div style="background-image: url('+e.target.result +')"></div>\n' +
-                    '<i class="fa fa-times"></i>\n' +
-                    '</li>')
+            debugger;
+            reader.onload = function (e) {
+                var $imgTemplate = $('<li class="avatar-preview">\n' +
+                    '<div class="container-hotel-cat-img" style="background-image: url(' + e.target.result + ')"></div>\n' +
+                    '<i class="fa fa-times" ></i>\n' +
+                    '</li>');
+                $imgTemplate.find(".fa-times").click(faTimeClick);
+                $('#avatar-preview').append($imgTemplate);
                 $('#uploaded-img li div').fadeIn(650);
             }
             reader.readAsDataURL(input.files[0]);
@@ -259,79 +244,5 @@
         readURL(this);
     });
 
-    function saveHotelImages() {
-        var input = document.getElementById("file-1");
-        var files = input.files;
-        var formData = new FormData();
-        for (var i = 0; i != files.length; i++) {
-         formData.append("files", files[i]);
-        }
-        $.ajax({
-            url: '@Url.Action("Upload", "Hosting")',
-            data: formData,
-            processData: false,
-            contentType: false,
-            type: "POST",
-            success: function (data) {
-                for (var i = 0; i < data.length; i++) {
-                    hotelpicturesId.push(data[i])
-                }
-                addHotel();
-            }
-         });
-    }
 
-    function addHotel() {
-        $("#roomMessage").css("display", "none");
-        $("#roomMessage div").each(function () {
-            $(this).remove()
-        });
-        var descOptionId = getSelectRadioBtnIds("descTextureOptionsItem");
-        var capacityLocationTypes = getSelectRadioBtnIds("capicityLocationTypesItem");
-        var optoptionIds = getSelectRadioBtnIds("OptionsOptionsItem");
-        var customRulesItem = getSelectRadioBtnIds("customRulesItem");
-        $.ajax({
-            url: '@Url.Action("AddHotel", "Hosting")',
-            type: 'Post',
-            data: {
-                picturesId: hotelpicturesId,
-                unitName: $(".inp-hotel-name").val(),
-                countryId: $("#countryList").val(),
-                provinceId: $("#provinceList").val(),
-                cityId: $("#cityList").val(),
-                address: $("#inp-address").val(),
-                descTextureOptionsId: descOptionId,
-                descDescription: $("#inp-dec-description").val(),//stepFourEnd
-                roomNum: $(".inp-roon-num").val(),
-                floorNum: $(".inp-floor-num").val(),
-                descMeasurment: $(".inp-desc-measurment").val(),//stepFiveEnd
-                areaCultureLocationTypes: capacityLocationTypes,
-                areaCultureDescCapacity: $(".inp-desc-capacity").val(),//stepSixEnd
-                optoptionIds: optoptionIds,
-                optDescOptions: $(".inp-desc-options").val(),//stepSevenEnd
-                rulesInterTime: $(".inp-inter-time").val(),
-                rulesExitTime: $(".inp-exit-time").val(),
-                customRulesItem: customRulesItem,
-                ruleDesc: $(".inp-rule-desc").val(),
-                latitude: $("#lat").val(),
-                longitude: $("#lon").val()
-            },
-            success: function (res) {
-                if (res.Valid) {
-                    loadingBoxStop();
-                }
-                debugger;
-                $.each(res.errors, function (key, value) {
-                    debugger;
-                    if (value != null) {
-                        debugger;
-                        var errorMessageTemplate = '<div class="row">' + value[0].errorMessage + '</div>';
-                        $("#roomMessage").append(errorMessageTemplate);
-                        $("#roomMessage").css("display", "block");
-                    }
-                });
-                loadingBoxStop();
-            }
-        });
-    }
 </script>

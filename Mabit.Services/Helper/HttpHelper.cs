@@ -57,6 +57,23 @@ namespace Mabit.Services.Helper
                 return resultContent;
             }
         }
+
+        public static async Task<int> Post<T1>(string url, T1 contentValue, string token = null)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(apiBasicUri);
+                if (token != null)
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                var content = new StringContent(JsonConvert.SerializeObject(contentValue), Encoding.UTF8, "application/json");
+                var result = await client.PostAsync(apiBasicUri + url, content);
+                result.EnsureSuccessStatusCode();
+                string resultContentString = await result.Content.ReadAsStringAsync();
+                var resultContent = JsonConvert.DeserializeObject<FileUploadResult>(resultContentString);
+                return resultContent.id;
+            }
+        }
+
         public static async Task<int> UploadBase64(string url, FileUploadModel file)
         {
             using (var client = new HttpClient())
