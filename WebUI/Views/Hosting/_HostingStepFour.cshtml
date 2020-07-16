@@ -14,7 +14,7 @@
             Specify the type of hotel and how many stars it is
         </p>
     </div>
-    <div class="item">
+    <div class="mx-3 my-2">
         <div class="col-8">
             <div class="row unit-txt">
                 <div class="col-6 ml-0 pl-0">
@@ -58,7 +58,7 @@
         </div>
     </div>
     <div class="mb-3">
-        <div class="col-12 ml-0 pl-0 d-flex flex-wrap justify-content-between">
+        <div class="col-12 ml-0 pl-0 d-flex flex-wrap justify-content-around">
             @foreach (var item in Model.TextureOptions)
             {
                 <div class="radio-wrapper">
@@ -85,7 +85,7 @@
     </div>
 </div>
 
-<div class="btn-container p-1">
+<div class="btn-container p-1 mb-3">
     <button type="button" class="btn-step-prev res-btn-gray btn"
             data-class=".res-form-four">
         Back
