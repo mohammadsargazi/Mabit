@@ -35,10 +35,28 @@
     <h5 class="offset-1 unit-txt" localize-content>My Unit</h5>
     <h5 class="offset-1 hotel-txt" localize-content>My Hotel</h5>
     @*<div class="d-inline-block">
-        <i class="step"></i><h6 class="offset-2" localize-content>Reserved Requests</h6>
-    </div>*@
+            <i class="step"></i><h6 class="offset-2" localize-content>Reserved Requests</h6>
+        </div>*@
 </div>
+<script>
+    function callActions(action,callBackFunction) {
+         $.ajax({
+              url: '@Url.Action("Upload", "Hosting")',
+              data: formData,
+              processData: false,
+              contentType: false,
+              type: "POST",
+              success: function (data) {
 
+                  debugger;
+                  for (var i = 0; i < data.length; i++) {
+                      picturesId.push(data[i])
+                  }
+                  saveData();
+              }
+            });
+    }
+</script>
 <section id="employer-post-new-job">
     <div class="row">
         <div class="container-fluid">
@@ -320,7 +338,7 @@
     //        '</tr>');
     //});
 
-    
+
 </script>
 
 
@@ -483,5 +501,5 @@
             });
 
     });
-   
+
 </script>
