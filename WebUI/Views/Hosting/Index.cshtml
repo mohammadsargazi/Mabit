@@ -35,24 +35,19 @@
     <h5 class="offset-1 unit-txt" localize-content>My Unit</h5>
     <h5 class="offset-1 hotel-txt" localize-content>My Hotel</h5>
     @*<div class="d-inline-block">
-        <i class="step"></i><h6 class="offset-2" localize-content>Reserved Requests</h6>
-    </div>*@
+            <i class="step"></i><h6 class="offset-2" localize-content>Reserved Requests</h6>
+        </div>*@
 </div>
-@if(culture=="ar" || culture == "fa")
-{
-    <style>
-        #employer-post-new-job .res-steps-container .res-steps .res-progress-bar {
-            height: 2px;
-            position: absolute;
-            background: #E0E0E0;
-            top: 24px;
-            right: 60%;
-            width: 100%;
-            z-index: -1;
-        }
-    </style>
-}
 
+                  debugger;
+                  for (var i = 0; i < data.length; i++) {
+                      picturesId.push(data[i])
+                  }
+                  saveData();
+              }
+            });
+    }
+</script>
 <section id="employer-post-new-job">
     <div class="row">
         <div class="container-fluid">
@@ -334,7 +329,7 @@
     //        '</tr>');
     //});
 
-    
+
 </script>
 
 
@@ -497,5 +492,5 @@
             });
 
     });
-   
+
 </script>
