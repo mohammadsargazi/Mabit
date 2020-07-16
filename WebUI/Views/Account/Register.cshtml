@@ -2,58 +2,117 @@
 @{
     var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
 }
+
 @*<div class="row">
-    <div class="col-md-4">
-        <form asp-controller="Account" asp-action="Register"
-              method="post" asp-route-culture="@culture">
-            <h4 localize-content>Create a new account.</h4>
-            <hr />
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="FirstName"></label>
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
+        <div class="col-md-4">
+            <form asp-controller="Account" asp-action="Register"
+                  method="post" asp-route-culture="@culture">
+                <h4 localize-content>Create a new account.</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="FirstName"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Mobile"></label>
+                    <input asp-for="Mobile" class="form-control" />
+                    <span asp-validation-for="Mobile" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UserName"></label>
+                    <input asp-for="UserName" class="form-control" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword"></label>
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary" localize-content>Register</button>
+            </form>
+        </div>
+    </div>
+
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }*@
+
+
+
+
+@*customs style ( Farshid )*@
+<style>
+    .custom-mg-top {
+        margin-top: 200px;
+    }
+
+    .input-new-style {
+        background-color: rgba(201, 201, 201, 0.301);
+        border:10px;
+    }
+</style>
+@* / customs style ( Farshid )*@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-9 col-lg-10 col-xl-10 mt-5">
+            <div class="card shadow-lg o-hidden border-0 my-5">
+                <div class="card-body p-0">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="p-5">
+                                <div class="row">
+                                    <div class="col col-md-6 text-center"><button class="btn btn-lg font-weight-bold">Login</button></div>
+                                    <div class="col col-md-6 text-center"><button class="btn btn-lg font-weight-bold">SignUp</button></div>
+                                </div>
+                                <hr>
+                                <form class="user">
+                                    <div class="row mt-4">
+                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="text" id="" aria-describedby="emailHelp" placeholder="First Name"></div>
+                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="text" id="" aria-describedby="emailHelp" placeholder="Last Name"></div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="email" id="" aria-describedby="emailHelp" placeholder="Enter Email Address ..."></div>
+                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="number" id="" aria-describedby="emailHelp" placeholder="Enter Phone Number ..."></div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="password" id="" placeholder="Password"></div>
+                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="password" id="" placeholder="Confirm Password"></div>
+                                    </div>
+                                    <div class="col hr-1-new-style"></div>
+                                    <div class="row d-flex justify-content-center justify-content-md-start">
+                                        <div class="col-10 col-md-4">
+                                            <button class="btn btn-primary text-white custom-mg-top w-100" type="submit">SingUp</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 d-none d-lg-flex">
+                            <div class="flex-grow-1 bg-login-image">
+                                <img src="~/img/1mabit.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="LastName"></label>
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName"
-                      class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Mobile"></label>
-                <input asp-for="Mobile" class="form-control" />
-                <span asp-validation-for="Mobile" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserName"></label>
-                <input asp-for="UserName" class="form-control" />
-                <span asp-validation-for="UserName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ConfirmPassword"></label>
-                <input asp-for="ConfirmPassword" class="form-control" />
-                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-            </div>
-            <button type="submit" class="btn btn-primary" localize-content>Register</button>
-        </form>
+        </div>
     </div>
 </div>
-
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}*@
-
-
-
-
