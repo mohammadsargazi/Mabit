@@ -60,8 +60,16 @@
 
 @*customs style and script ( Farshid )*@
 <style>
-    .custom-mg-top {
-        margin-top: 185px;
+    @@media screen and (min-width:768px) {
+        .custom-mg-top {
+            margin-top: 180px;
+        }
+    }
+
+    @@media screen and (max-width:767px) {
+        .custom-mg-top {
+            margin-top: 80px;
+        }
     }
 
     .input-new-style {
@@ -87,41 +95,40 @@
             // validation inputs
             if (name == "") {
                 $('#c-name').css('border', '1px solid red');
-                $("#c-name").after("<small class='mx-3 text-danger position-absolute pt-1'>please inter your name ...</small>");
+                $("#c-name").after("<small class='mx-2 text-danger position-absolute pt-1'>please inter your name ...</small>");
                 return false
             }
             if (family == "") {
                 $('#c-family').css('border', '1px solid red');
-                $("#c-family").after("<small class='mx-3 text-danger position-absolute pt-1'>please inter your family ...</small>");
+                $("#c-family").after("<small class='mx-2 text-danger position-absolute pt-1'>please inter your family ...</small>");
                 return false
             }
             if (email == "") {
                 $('#c-email').css('border', '1px solid red');
-                $('#c-email').after("<small class='mx-3 text-danger position-absolute pt-1'>please inter your email address ...</small>");
+                $('#c-email').after("<small class='mx-2 text-danger position-absolute pt-1'>please inter your email address ...</small>");
                 return false
             }
             if (phone == "") {
                 $('#c-phone').css('border', '1px solid red');
-                $('#c-phone').after("<small class='mx-3 text-danger position-absolute pt-1'>please inter your phone number ...</small>");
+                $('#c-phone').after("<small class='mx-2 text-danger position-absolute pt-1'>please inter your phone number ...</small>");
                 return false
             }
             if (pass == "") {
                 $('#c-pass').css('border', '1px solid red');
-                $("#c-pass").after("<small class='mx-3 text-danger position-absolute pt-1'>please inter your password ...</small>");
+                $("#c-pass").after("<small class='mx-2 text-danger position-absolute pt-1'>please inter your password ...</small>");
                 return false
             }
             if (cpass == "") {
                 $('#cc-pass').css('border', '1px solid red');
-                $("#cc-pass").after("<small class='mx-3 text-danger position-absolute pt-1'>please inter your password ...</small>");
+                $("#cc-pass").after("<small class='mx-2 text-danger position-absolute pt-1'>please inter your password ...</small>");
                 return false
             }
             if (pass != cpass) {
                 $('#c-pass').css('border', '1px solid red');
                 $('#cc-pass').css('border', '1px solid red');
-                $("#c-pass").after("<small class='mx-3 text-danger position-absolute pt-1'>please inter same password ...</small>");
+                $("#pass-div").after("<small class='mx-2 text-danger position-absolute pt-1'>please inter same password ...</small>");
                 return false
             }
-
         });
 
     });
@@ -143,17 +150,17 @@
                                 </div>
                                 <hr>
                                 <form class="user">
-                                    <div class="row mt-4">
-                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="text" id="c-name" aria-describedby="emailHelp" placeholder="First Name"></div>
-                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="text" id="c-family" aria-describedby="emailHelp" placeholder="Last Name"></div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6 pt-3"><input class="form-control input-new-style" type="text" id="c-name" aria-describedby="emailHelp" placeholder="First Name"></div>
+                                        <div class="form-group col-md-6 pt-3"><input class="form-control input-new-style" type="text" id="c-family" aria-describedby="emailHelp" placeholder="Last Name"></div>
                                     </div>
-                                    <div class="row pt-3">
-                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="email" id="c-email" aria-describedby="emailHelp" placeholder="Enter Email Address ..."></div>
-                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="number" id="c-phone" aria-describedby="emailHelp" placeholder="Enter Phone Number ..."></div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6 pt-3"><input class="form-control input-new-style" type="email" id="c-email" aria-describedby="emailHelp" placeholder="Enter Email Address ..."></div>
+                                        <div class="form-group col-md-6 pt-3"><input class="form-control input-new-style" type="number" id="c-phone" aria-describedby="emailHelp" placeholder="Enter Phone Number ..."></div>
                                     </div>
-                                    <div class="row pt-3">
-                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="password" id="c-pass" placeholder="Password"></div>
-                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="password" id="cc-pass" placeholder="Confirm Password"></div>
+                                    <div class="row" id="pass-div">
+                                        <div class="form-group col-md-6 pt-3"><input class="form-control input-new-style" type="password" id="c-pass" placeholder="Password"></div>
+                                        <div class="form-group col-md-6 pt-3"><input class="form-control input-new-style" type="password" id="cc-pass" placeholder="Confirm Password"></div>
                                     </div>
                                     <div class="row d-flex justify-content-center justify-content-md-start custom-mg-top">
                                         <div class="col-10 col-md-4">
