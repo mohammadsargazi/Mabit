@@ -58,18 +58,77 @@
 
 
 
-@*customs style ( Farshid )*@
+@*customs style and script ( Farshid )*@
 <style>
     .custom-mg-top {
-        margin-top: 200px;
+        margin-top: 185px;
     }
 
     .input-new-style {
         background-color: rgba(201, 201, 201, 0.301);
-        border:10px;
+        border: 10px;
     }
 </style>
-@* / customs style ( Farshid )*@
+<script>
+
+    $(document).ready(function () {
+
+        //Validation Submit
+        $("#btn-singup").click(function () {
+            // remove comments
+            $('small').remove();
+            // variables
+            var name = $("#c-name").val();
+            var family = $("#c-family").val();
+            var email = $("#c-email").val();
+            var phone = $("#c-phone").val();
+            var pass = $("#c-pass").val();
+            var cpass = $("#cc-pass").val();
+            // validation inputs
+            if (name == "") {
+                $('#c-name').css('border', '1px solid red');
+                $("#c-name").after("<small class='mx-3 text-danger position-absolute pt-1'>please inter your name ...</small>");
+                return false
+            }
+            if (family == "") {
+                $('#c-family').css('border', '1px solid red');
+                $("#c-family").after("<small class='mx-3 text-danger position-absolute pt-1'>please inter your family ...</small>");
+                return false
+            }
+            if (email == "") {
+                $('#c-email').css('border', '1px solid red');
+                $('#c-email').after("<small class='mx-3 text-danger position-absolute pt-1'>please inter your email address ...</small>");
+                return false
+            }
+            if (phone == "") {
+                $('#c-phone').css('border', '1px solid red');
+                $('#c-phone').after("<small class='mx-3 text-danger position-absolute pt-1'>please inter your phone number ...</small>");
+                return false
+            }
+            if (pass == "") {
+                $('#c-pass').css('border', '1px solid red');
+                $("#c-pass").after("<small class='mx-3 text-danger position-absolute pt-1'>please inter your password ...</small>");
+                return false
+            }
+            if (cpass == "") {
+                $('#cc-pass').css('border', '1px solid red');
+                $("#cc-pass").after("<small class='mx-3 text-danger position-absolute pt-1'>please inter your password ...</small>");
+                return false
+            }
+            if (pass != cpass) {
+                $('#c-pass').css('border', '1px solid red');
+                $('#cc-pass').css('border', '1px solid red');
+                $("#c-pass").after("<small class='mx-3 text-danger position-absolute pt-1'>please inter same password ...</small>");
+                return false
+            }
+
+        });
+
+    });
+
+</script>
+@* / customs style and script ( Farshid )*@
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-9 col-lg-10 col-xl-10 mt-5">
@@ -85,20 +144,20 @@
                                 <hr>
                                 <form class="user">
                                     <div class="row mt-4">
-                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="text" id="" aria-describedby="emailHelp" placeholder="First Name"></div>
-                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="text" id="" aria-describedby="emailHelp" placeholder="Last Name"></div>
+                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="text" id="c-name" aria-describedby="emailHelp" placeholder="First Name"></div>
+                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="text" id="c-family" aria-describedby="emailHelp" placeholder="Last Name"></div>
                                     </div>
-                                    <div class="row mt-2">
-                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="email" id="" aria-describedby="emailHelp" placeholder="Enter Email Address ..."></div>
-                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="number" id="" aria-describedby="emailHelp" placeholder="Enter Phone Number ..."></div>
+                                    <div class="row pt-3">
+                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="email" id="c-email" aria-describedby="emailHelp" placeholder="Enter Email Address ..."></div>
+                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="number" id="c-phone" aria-describedby="emailHelp" placeholder="Enter Phone Number ..."></div>
                                     </div>
-                                    <div class="row mt-2">
-                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="password" id="" placeholder="Password"></div>
-                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="password" id="" placeholder="Confirm Password"></div>
+                                    <div class="row pt-3">
+                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="password" id="c-pass" placeholder="Password"></div>
+                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="password" id="cc-pass" placeholder="Confirm Password"></div>
                                     </div>
                                     <div class="row d-flex justify-content-center justify-content-md-start custom-mg-top">
                                         <div class="col-10 col-md-4">
-                                            <button class="btn btn-primary text-white w-100" type="submit">SingUp</button>
+                                            <button class="btn btn-primary text-white w-100" id="btn-singup" type="submit">SingUp</button>
                                         </div>
                                     </div>
                                 </form>

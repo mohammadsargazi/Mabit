@@ -7,7 +7,7 @@
 @*customs style and script ( Farshid )*@
 <style>
     .custom-mg-top {
-        margin-top: 260px;
+        margin-top: 275px;
     }
 
     .input-new-style {
@@ -29,12 +29,12 @@
             // validation inputs
             if (name == "") {
                 $('#user-name').css('border', '1px solid red');
-                $("#user-name").after("<small class='text-danger'>please inter your name ...</small>");
+                $("#user-name").after("<small class='text-danger position-absolute pt-1'>please inter your name ...</small>");
                 return false
             }
             if (pass == "") {
                 $('#pass').css('border', '1px solid red');
-                $("#pass").after("<small class='text-danger'>please inter your password ...</small>");
+                $("#pass").after("<small class='text-danger position-absolute pt-1'>please inter your password ...</small>");
                 return false
             }
         });
@@ -60,7 +60,7 @@
                                     <div class="row mt-4">
                                         <div class="form-group col-md-6"><input class="form-control input-new-style" type="text" id="user-name" aria-describedby="" placeholder="User Name"></div>
                                         <div class="form-group col-md-6"><input class="form-control input-new-style" type="password" id="pass" placeholder="Password"></div>
-                                        <div class="form-group">
+                                        <div class="form-group mt-2">
                                             <div class="custom-control custom-checkbox small">
                                                 <div class="form-check"><input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1"><label class="form-check-label custom-control-label pt-2 pr-3" for="formCheck-1">Remember Me</label></div>
                                             </div>
