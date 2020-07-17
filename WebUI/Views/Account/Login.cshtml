@@ -21,6 +21,8 @@
 
         //Validation Submit
         $("#btn-login").click(function () {
+            // remove comments
+            $('small').remove();
             // variables
             var name = $("#user-name").val();
             var pass = $("#pass").val();
