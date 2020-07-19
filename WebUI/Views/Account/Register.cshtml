@@ -77,6 +77,9 @@
         background-color: rgba(201, 201, 201, 0.301);
         border: 10px;
     }
+    .addBorder{
+        border: 1px solid red ;
+    }
 
 </style>
 <script>
@@ -87,6 +90,7 @@
         $("#btn-singup").click(function () {
             // remove comments
             $('small').remove();
+            $('input').removeClass('addBorder');
             // variables
             var name = $("#c-name").val();
             var family = $("#c-family").val();
@@ -96,42 +100,44 @@
             var cpass = $("#cc-pass").val();
             // validation inputs
             if (name == "") {
-                $('#c-name').css('border', '1px solid red');
+                $('#c-name').addClass('addBorder');
                 $("#c-name").after("<small class='mx-2 text-danger position-absolute pt-1'>please inter your name ...</small>");
                 return false
             }
             if (family == "") {
-                $('#c-family').css('border', '1px solid red');
+                $('#c-family').addClass('addBorder');
                 $("#c-family").after("<small class='mx-2 text-danger position-absolute pt-1'>please inter your family ...</small>");
                 return false
             }
             if (email == "") {
-                $('#c-email').css('border', '1px solid red');
+                $('#c-email').addClass('addBorder');
                 $('#c-email').after("<small class='mx-2 text-danger position-absolute pt-1'>please inter your email address ...</small>");
                 return false
             }
             if (phone == "") {
-                $('#c-phone').css('border', '1px solid red');
+                $('#c-phone').addClass('addBorder');
                 $('#c-phone').after("<small class='mx-2 text-danger position-absolute pt-1'>please inter your phone number ...</small>");
                 return false
             }
             if (pass == "") {
-                $('#c-pass').css('border', '1px solid red');
+                $('#c-pass').addClass('addBorder');
                 $("#c-pass").after("<small class='mx-2 text-danger position-absolute pt-1'>please inter your password ...</small>");
                 return false
             }
             if (cpass == "") {
-                $('#cc-pass').css('border', '1px solid red');
+                $('#cc-pass').addClass('addBorder');
                 $("#cc-pass").after("<small class='mx-2 text-danger position-absolute pt-1'>please inter your password ...</small>");
                 return false
             }
             if (pass != cpass) {
-                $('#c-pass').css('border', '1px solid red');
-                $('#cc-pass').css('border', '1px solid red');
+                $('#c-pass').addClass('addBorder');
+                $('#cc-pass').addClass('addBorder');
                 $("#pass-div").after("<small class='mx-2 text-danger position-absolute pt-1'>please inter same password ...</small>");
                 return false
             }
         });
+        // phone and email MASKs
+        //$('#c-phone').mask('+98 000 000 0000', { plaseholder: 'exmple: 912 123 1234' });
 
     });
 

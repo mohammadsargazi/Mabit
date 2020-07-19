@@ -23,6 +23,9 @@
         background-color: rgba(201, 201, 201, 0.301);
         border: 10px;
     }
+    .addBorder {
+        border: 1px solid red;
+    }
 
 </style>
 <script>
@@ -32,17 +35,18 @@
         $("#btn-login").click(function () {
             // remove comments
             $('small').remove();
+            $('input').removeClass('addBorder');
             // variables
             var name = $("#user-name").val();
             var pass = $("#pass").val();
             // validation inputs
             if (name == "") {
-                $('#user-name').css('border', '1px solid red');
+                $('#user-name').addClass('addBorder');
                 $("#user-name").after("<small class='text-danger position-absolute pt-1 mx-2'>please inter your name ...</small>");
                 return false
             }
             if (pass == "") {
-                $('#pass').css('border', '1px solid red');
+                $('#pass').addClass('addBorder');
                 $("#pass").after("<small class='text-danger position-absolute pt-1 mx-2'>please inter your password ...</small>");
                 return false
             }
