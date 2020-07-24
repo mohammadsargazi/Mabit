@@ -4,22 +4,58 @@
 }
 
 
-@*customs style ( Farshid )*@
+@*customs style and script ( Farshid )*@
 <style>
-    .custom-mg-top {
-        margin-top: 290px;
-    }
 
+    /* buttons style */
+    @@media screen and (min-width:768px) {
+        .custom-mg-top {
+            margin-top: 270px;
+        }
+    }
+    @@media screen and (max-width:767px) {
+        .custom-mg-top {
+            margin-top: 170px;
+        }
+    }
+    /* inputs style*/
     .input-new-style {
         background-color: rgba(201, 201, 201, 0.301);
         border: 10px;
     }
-
-    .alert-danger {
-        display: none;
+    .addBorder {
+        border: 1px solid red;
     }
+
 </style>
-@* / customs style ( Farshid )*@
+<script>
+    $(document).ready(function () {
+
+        //Validation Submit
+        $("#btn-login").click(function () {
+            // remove comments
+            $('small').remove();
+            $('input').removeClass('addBorder');
+            // variables
+            var name = $("#user-name").val();
+            var pass = $("#pass").val();
+            // validation inputs
+            if (name == "") {
+                $('#user-name').addClass('addBorder');
+                $("#user-name").after("<small class='text-danger position-absolute pt-1 mx-2'>please inter your name ...</small>");
+                return false
+            }
+            if (pass == "") {
+                $('#pass').addClass('addBorder');
+                $("#pass").after("<small class='text-danger position-absolute pt-1 mx-2'>please inter your password ...</small>");
+                return false
+            }
+        });
+
+    });
+</script>
+@* / customs style and script ( Farshid )*@
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-9 col-lg-10 col-xl-10 mt-5">
@@ -27,9 +63,6 @@
                 <div class="card-body p-0">
                     <div class="row">
                         <div class="col-lg-8">
-                            <div class="alert alert-danger">
-
-                            </div>
                             <div class="p-5">
                                 <div class="row">
                                     <div class="col col-md-6 text-center"><button class="btn btn-lg font-weight-bold">Login</button></div>
@@ -37,25 +70,21 @@
                                 </div>
                                 <hr>
                                 <form class="user">
-                                    <div class="row mt-4">
-                                        <div class="form-group col-md-6">
-                                            <input class="form-control input-new-style" type="text" id="newUserName" placeholder="User Name">
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <input class="form-control input-new-style" type="password" id="newPassword" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
+                                    <div class="row">
+                                        <div class="form-group col-md-6 pt-3"><input class="form-control input-new-style" type="text" id="user-name" aria-describedby="" placeholder="User Name"></div>
+                                        <div class="form-group col-md-6 pt-3"><input class="form-control input-new-style" type="password" id="pass" placeholder="Password"></div>
+                                        <div class="form-group mt-2">
                                             <div class="custom-control custom-checkbox small">
-                                                <div class="form-check"><input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1"><label class="form-check-label custom-control-label pt-2 pr-4" for="formCheck-1">Remember Me</label></div>
+                                                <div class="form-check"><input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1"><label class="form-check-label custom-control-label pt-2 pr-3" for="formCheck-1">Remember Me</label></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row d-flex justify-content-md-start justify-content-center custom-mg-top">
                                         <div class="col-10 col-md-6 col-lg-3">
-                                            <button class="btn btn-primary text-white mt-1 w-100" id="newBtnLogin">Login</button>
+                                            <button class="btn btn-primary text-white mt-1 w-100" id="btn-login" type="submit">Login</button>
                                         </div>
                                         <div class="col-10 col-md-6 col-lg-6">
-                                            <button class="btn btn-outline-primary mt-1 w-100">Forgot Password</button>
+                                            <button class="btn btn-outline-primary mt-1 w-100" type="submit">Forgot Password ?</button>
                                         </div>
                                     </div>
                                 </form>
@@ -73,36 +102,3 @@
     </div>
 </div>
 
-<script>
-
-
-    $("#newBtnLogin").click(function () {
-            $.ajax({
-                url: '@Url.Action("Login", "Account")',
-                type: 'POST',
-                data: {
-                    userName: $("#newUserName").val(),
-                    password: $("#newPassword").val(),
-                },
-                beforeSend: function () {
-
-                },
-                success: function (e) {
-                    debugger;
-                    if (e) {
-                        location.reload();
-                    }
-                    else {
-                        $(".container-error-message").css("display", "block");
-                    }
-
-                },
-                error: function (request, error) {
-
-                },
-                complete: function () {
-                    //loadingBoxStop();
-                }
-            });
-        });
-</script>

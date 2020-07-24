@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29403.142
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mabit.Services", "Mabit.Services\Mabit.Services.csproj", "{C90A25A1-1097-4087-8304-459311386BF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mabit.Services", "Mabit.Services\Mabit.Services.csproj", "{C90A25A1-1097-4087-8304-459311386BF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mabit.Models", "Mabit.Models\Mabit.Models.csproj", "{C22FC824-6E1F-4379-90BD-FE4D11DCE243}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mabit.Models", "Mabit.Models\Mabit.Models.csproj", "{C22FC824-6E1F-4379-90BD-FE4D11DCE243}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{D9265175-56D8-4349-A72C-32635295F944}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUI", "WebUI\WebUI.csproj", "{F1F6A88F-27E9-4C72-BAED-E4131FB91830}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebUI", "WebUI\WebUI.csproj", "{F1F6A88F-27E9-4C72-BAED-E4131FB91830}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
