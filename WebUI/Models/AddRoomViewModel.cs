@@ -14,7 +14,7 @@ namespace WebUI.Models
     {
         public int[] picturesId { get; set; }
         [Required(ErrorMessage = DataAnnotationsErrorMessages.RequiredAttribute_ValidationError)]
-        [StringLength(100, ErrorMessage = DataAnnotationsErrorMessages.StringLengthAttribute_ValidationErrorIncludingMinimum, MinimumLength = 6)]
+        //[StringLength(100, ErrorMessage = DataAnnotationsErrorMessages.sele, MinimumLength = 6)]
         public string UnitName { get; set; }
         //[Required(ErrorMessage = DataAnnotationsErrorMessages.RequiredAttribute_ValidationError)]
         public double longitude { get; set; }

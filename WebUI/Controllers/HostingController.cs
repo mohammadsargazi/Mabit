@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using WebUI.Models;
+using WebUI.Views.validations.Room;
 
 namespace WebUI.Controllers
 {
@@ -221,6 +222,13 @@ namespace WebUI.Controllers
             return Json(fileIds);
         }
 
+        #endregion
+
+        #region RoomValidation
+        //public IActionResult RoomStepTwoValidation(StepTwoValidationViewModel model)
+        //{
+        //    return Json()
+        //}
         #endregion
     }
 }
