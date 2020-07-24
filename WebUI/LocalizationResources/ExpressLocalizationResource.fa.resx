@@ -449,6 +449,10 @@
     <value>نام نقش '{0}' نامعتبر است.</value>
     <comment>Identity: InvalidRoleName</comment>
   </data>
+  <data name="Selecting at least one image is necessary" xml:space="preserve">
+    <value>انتخاب حداقل یک عکس الزامی است</value>
+    <comment>DataAnnotations: ValidationAttribute_Selecting_One_Image_Necessary</comment>
+  </data>
   <data name="The argument '{0}' cannot be null, empty or contain only whitespace." xml:space="preserve">
     <value>آرگومان {0} 'نمی تواند تهی، خالی است و یا فقط شامل فضای خالی.</value>
     <comment>DataAnnotations: ArgumentIsNullOrWhitespace</comment>

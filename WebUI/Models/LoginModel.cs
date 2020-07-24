@@ -9,6 +9,7 @@ namespace WebUI.Models
 {
     public class LoginModel
     {
+        [Required(ErrorMessage = DataAnnotationsErrorMessages.RequiredAttribute_ValidationError)]
         public string UserName { get; set; }
         public string Password { get; set; }
     }

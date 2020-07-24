@@ -283,6 +283,10 @@
     <value>Rol adı '{0}' geçerli değildir.</value>
     <comment>Identity: InvalidRoleName</comment>
   </data>
+  <data name="Selecting at least one image is necessary" xml:space="preserve">
+    <value>hsghsgh</value>
+    <comment>DataAnnotations: ValidationAttribute_Selecting_One_Image_Necessary</comment>
+  </data>
   <data name="The argument '{0}' cannot be null, empty or contain only whitespace." xml:space="preserve">
     <value>لا يمكن أن تكون الوسيطة '{0}' خالية أو فارغة أو تحتوي على مسافة بيضاء فقط.</value>
     <comment>DataAnnotations: ArgumentIsNullOrWhitespace</comment>

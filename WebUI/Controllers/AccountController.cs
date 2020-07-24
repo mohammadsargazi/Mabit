@@ -15,27 +15,25 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;   
+using Newtonsoft.Json;
 using WebUI.Models;
 
 namespace WebUI.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : BaseController<AccountController>
     {
         private readonly AuthService _authService = new AuthService();
         private readonly UserService _userService = new UserService();
         private readonly ILogger<AccountController> _logger;
         private readonly string culture;
-   
+
 
         // To localize backend strings inject SahredCultureLocalizer
         private readonly SharedCultureLocalizer _loc;
         public AccountController(ILogger<AccountController> logger, SharedCultureLocalizer loc)
+            : base(logger, loc)
         {
-            _logger = logger;
-            _loc = loc;
-            culture = System.Globalization.CultureInfo.CurrentCulture.Name;
-           
+
         }
         public IActionResult Index()
         {
@@ -48,6 +46,7 @@ namespace WebUI.Controllers
         [HttpPost]
         public IActionResult Login(LoginModel model)
         {
+
             var RequestTokenModel = new RequestTokenModel()
             {
                 UserName = model.UserName,
@@ -58,7 +57,7 @@ namespace WebUI.Controllers
             {
                 //Create the identity for the user  
                 var identity = new ClaimsIdentity(new[] {
-                    
+
                         new Claim("usrFullName", requestTokenResult.User.firstName + " " + requestTokenResult.User.lastName),
                         new Claim("userProfileImageUrl",requestTokenResult.User.profileImageUrl),
                         new Claim ("AcessToken",string.Format("{0}", requestTokenResult.Token))
@@ -68,9 +67,12 @@ namespace WebUI.Controllers
 
                 var login = HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
-                return Json(true);
             }
-            return Json(false);
+            return Json(new
+            {
+                Valid = true
+            });
+
         }
 
         public IActionResult Register()
@@ -92,8 +94,8 @@ namespace WebUI.Controllers
         public IActionResult Logout()
         {
             var login = HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-           
-            return RedirectToAction("Index","Home");
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
