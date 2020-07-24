@@ -13,6 +13,22 @@
     userImage = claims.SingleOrDefault(x => x.Type == "userProfileImageUrl").Value;
 }
 
+@if (culture == "en")
+{
+    <style>
+        .list-unstyled {
+            text-align: left;
+        }
+    </style>
+}
+@if (culture == "ar" || culture == "fa")
+{
+    <style>
+        .list-unstyled{
+            text-align:right;
+        }
+    </style>
+}
 <div class="col-lg-12 col-md-12 col-sm-12 col-12 bg-box box-shadow-1 brd-r-15">
     <div class="row pt-3 bg-mabit-gray pb-3">
         <div class="col-lg-4 col-sm-4 col-4">
@@ -24,12 +40,12 @@
             <span class="float-right bg-mabit-blue text-white brd-r-50 credit-sign-plus">
                 <i class="fa fa-plus"></i>
             </span>
-            <span class="float-right font-weight-bold mr-2">350$</span>
+            <span class="float-right font-weight-bold mx-2">350$</span>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12 col-sm-12 col-12">
-            <ul class="list-unstyled text-left pr-0">
+            <ul class="list-unstyled px-2">
                 <li class="pt-65 pb-5">
                     <a class="pl-3 f-size-14 font-weight-bold" asp-controller="Reservation" asp-action="Index" asp-route-culture="@culture" localize-content>
                         My Reservation
