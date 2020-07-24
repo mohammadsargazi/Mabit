@@ -27,6 +27,9 @@
         border: 1px solid red;
     }
 
+    .alert-danger {
+        display: none;
+    }
 </style>
 <script>
     $(document).ready(function () {
@@ -63,6 +66,9 @@
                 <div class="card-body p-0">
                     <div class="row">
                         <div class="col-lg-8">
+                            <div class="alert alert-danger">
+
+                            </div>
                             <div class="p-5">
                                 <div class="row">
                                     <div class="col col-md-6 text-center"><button class="btn btn-lg font-weight-bold">Login</button></div>
@@ -70,10 +76,10 @@
                                 </div>
                                 <hr>
                                 <form class="user">
-                                    <div class="row">
-                                        <div class="form-group col-md-6 pt-3"><input class="form-control input-new-style" type="text" id="user-name" aria-describedby="" placeholder="User Name"></div>
-                                        <div class="form-group col-md-6 pt-3"><input class="form-control input-new-style" type="password" id="pass" placeholder="Password"></div>
-                                        <div class="form-group mt-2">
+                                    <div class="row mt-4">
+                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="text" id="" aria-describedby="emailHelp" placeholder="User Name"></div>
+                                        <div class="form-group col-md-6"><input class="form-control input-new-style" type="password" id="" placeholder="Password"></div>
+                                        <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <div class="form-check"><input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1"><label class="form-check-label custom-control-label pt-2 pr-3" for="formCheck-1">Remember Me</label></div>
                                             </div>
@@ -81,10 +87,10 @@
                                     </div>
                                     <div class="row d-flex justify-content-md-start justify-content-center custom-mg-top">
                                         <div class="col-10 col-md-6 col-lg-3">
-                                            <button class="btn btn-primary text-white mt-1 w-100" id="btn-login" type="submit">Login</button>
+                                            <button class="btn btn-primary text-white mt-1 w-100" type="submit">Login</button>
                                         </div>
                                         <div class="col-10 col-md-6 col-lg-6">
-                                            <button class="btn btn-outline-primary mt-1 w-100" type="submit">Forgot Password ?</button>
+                                            <button class="btn btn-outline-primary mt-1 w-100">Forgot Password</button>
                                         </div>
                                     </div>
                                 </form>
@@ -102,3 +108,36 @@
     </div>
 </div>
 
+<script>
+
+
+    $("#newBtnLogin").click(function () {
+            $.ajax({
+                url: '@Url.Action("Login", "Account")',
+                type: 'POST',
+                data: {
+                    userName: $("#newUserName").val(),
+                    password: $("#newPassword").val(),
+                },
+                beforeSend: function () {
+
+                },
+                success: function (e) {
+                    debugger;
+                    if (e) {
+                        location.reload();
+                    }
+                    else {
+                        $(".container-error-message").css("display", "block");
+                    }
+
+                },
+                error: function (request, error) {
+
+                },
+                complete: function () {
+                    //loadingBoxStop();
+                }
+            });
+        });
+</script>
