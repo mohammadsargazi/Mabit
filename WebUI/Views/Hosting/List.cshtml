@@ -76,7 +76,7 @@
     .units-links {
         position: absolute;
         bottom: 0;
-        right: 15px;
+        left: 15px;
         width: 100%;
     }
 
@@ -86,6 +86,7 @@
     }
 
     .stick-scroll {
+        margin: 0 -15px;
         position: sticky;
         top: 0;
         background: #ffff;
@@ -113,7 +114,46 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #acacac;
         }
+    /*        row bootstrap class*/
+
+    .rowNew {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+
+
 </style>
+
+@if (culture == "en")
+{
+    <style>
+        #btn-calender {
+            text-align: right;
+        }
+        @@media screen and (max-width:992px) {
+            .new-small-screen {
+                position: absolute;
+                right: 18px;
+                top: -85px;
+            }
+        }
+    </style>
+}
+@if (culture == "ar" || culture == "fa")
+{
+    <style>
+        #btn-calender {
+            text-align: left;
+        }
+        @@media screen and (max-width:992px) {
+            .new-small-screen {
+                position: absolute;
+                left: 18px;
+                top: -85px;
+            }
+        }
+    </style>
+}
 
 
 <ul class="nav nav-tabs pt-5 pr-0 pb-1" role="tablist">
@@ -129,9 +169,9 @@
     <div class="tab-pane px-3" id="tabs-1" role="tabpanel"></div>
     <div class="tab-pane active px-3 scroll-inner" id="tabs-2" role="tabpanel">
         <div class="row stick-scroll">
-            <div class="col-9"></div>
-            <div class="col-3">
-                <div class="d-flex justify-content-between">
+            <div class="col-lg-9 d-none d-lg-block"></div>
+            <div class="col-lg-3 col-12">
+                <div class="d-flex justify-content-end">
                     <select type="text" id="dropBox">
                         <option disabled="disabled" value="1">Status</option>
                         <option value="2">Active</option>
@@ -139,16 +179,33 @@
                         <option value="4">Full</option>
                         <option value="5">Empty</option>
                     </select>
-                    <a asp-controller="Hosting" asp-action="Index" class="btn bg-mabit-blue brd-r-15 text-white done-btn">
+                    <a class="btn bg-mabit-blue brd-r-15 text-white done-btn mx-1" href="/fa/Hosting">
                         Add New
                     </a>
                 </div>
             </div>
         </div>
+        @*<div class="row stick-scroll">
+                <div class="col-9"></div>
+                <div class="col-3">
+                    <div class="d-flex justify-content-between">
+                        <select type="text" id="dropBox">
+                            <option disabled="disabled" value="1">Status</option>
+                            <option value="2">Active</option>
+                            <option value="3">Deactive</option>
+                            <option value="4">Full</option>
+                            <option value="5">Empty</option>
+                        </select>
+                        <a asp-controller="Hosting" asp-action="Index" class="btn bg-mabit-blue brd-r-15 text-white done-btn">
+                            Add New
+                        </a>
+                    </div>
+                </div>
+            </div>*@
         @foreach (var item in Model)
         {
-            <div class="row pt-4 pb-4 brd-b-1-gray">
-                <div class="col-4">
+            <div class="row rowNew pt-4 pb-4 brd-b-1-gray">
+                <div class="col-12 col-md-6 col-lg-4">
                     @if (item.pictures == null)
                     {
                         <img src="~/img/layer_886.jpg" class="img-fluid brd-r-15 box-shadow-1" />
@@ -158,10 +215,10 @@
                         <img src="@(item.pictures.First().apiUrl)" class="img-fluid brd-r-15 box-shadow-1">
                     }
                 </div>
-                <div class="col-4">
-                    <div class="d-flex text-left ">
+                <div class="col-12 col-md6 col-lg-4 py-3">
+                    <div class="d-flex text-left">
                         <h5 class="font-weight-bolder mabit-darkGray mb-1">@(item.title)</h5>
-                        <span class="pl-2">
+                        <span class="px-2">
                             <i class="fa fa-star mabit-middle-gray"></i>
                             <span class="mabit-light-gray">@(item.averageRate)</span>
                             <span class="mabit-light-gray">/</span>
@@ -169,10 +226,70 @@
                         </span>
                     </div>
                     <div class="d-flex text-left mb-1">
-                        <span>@(item.Country?.title)</span><span>,</span><span>@(item.City?.title)</span>
-                        <span class="pl-1">(Ads id:</span><span class="pl-1">@(item.id)</span><span>)</span>
+                        <span class="px-1">@(item.Country?.title)</span><span>,</span><span class="px-1">@(item.City?.title)</span>
+                        <span class="px-1">( Ads id :</span><span class="px-1">@(item.id)</span><span> )</span>
                     </div>
-                    <span class="mabit-blue font-weight-bold f-size-15">@(item.middleWeekPrice) $</span>
+                    <span class="mabit-blue font-weight-bold f-size-15 px-2">@(item.middleWeekPrice) $</span>
+                </div>
+                <div class="col-12 col-lg-4 calendar-units pt-4 pt-lg-0" id="btn-calender">
+                    <button class="btn brd-1-blue mabit-blue brd-r-15 new-small-screen" type="button">calendar</button>
+                    <div class="d-flex justify-content-end units-links pr-4">
+                        <a href="#" class="mabit-blue px-2">Edit</a>
+                        <a href="#" class="mabit-blue px-2">showComments</a>
+                        <a href="#" class="mabit-blue px-2">showRequests</a>
+                    </div>
+                </div>
+            </div>
+        }
+        @*<div class="row pt-4 pb-4 brd-b-1-gray">
+                <div class="col-4">
+                    <span class="bg-white mabit-blue font-weight-bolder brd-r-15 tag-img">Hotel</span>
+                    <img src="~/img/layer_886.jpg" class="img-fluid brd-r-15 box-shadow-1">
+                </div>
+                <div class="col-4">
+                    <div class="d-flex text-left ">
+                        <h5 class="font-weight-bolder mabit-darkGray mb-1">Yazd Hotel</h5>
+                        <span class="pl-2">
+                            <i class="fa fa-star mabit-middle-gray"></i>
+                            <span class="mabit-light-gray">4.8</span>
+                            <span class="mabit-light-gray">/</span>
+                            <span class="mabit-light-gray">5</span>
+                        </span>
+                    </div>
+                    <div class="d-flex text-left mb-1">
+                        <span>Iran</span><span>,</span><span>Yazd</span>
+                        <span class="pl-1">(Ads id:</span><span class="pl-1">132159</span><span>)</span>
+                    </div>
+                    <span>436 room</span>
+                </div>
+                <div class="col-4 text-right mabit-blue">
+                    <a href="#">Rooms <i class="fa fa-angle-right"></i></a>
+                    <div class="d-flex justify-content-between units-links">
+                        <a href="#" class="mabit-blue">Edit</a>
+                        <a href="#" class="mabit-blue">Show Comments</a>
+                        <a href="#" class="mabit-blue">Show Requests</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-4 pb-4 brd-b-1-gray">
+                <div class="col-4">
+                    <img src="~/img/layer_886.jpg" class="img-fluid brd-r-15 box-shadow-1">
+                </div>
+                <div class="col-4">
+                    <div class="d-flex text-left ">
+                        <h5 class="font-weight-bolder mabit-darkGray mb-1">Yazd Hotel</h5>
+                        <span class="pl-2">
+                            <i class="fa fa-star mabit-middle-gray"></i>
+                            <span class="mabit-light-gray">4.8</span>
+                            <span class="mabit-light-gray">/</span>
+                            <span class="mabit-light-gray">5</span>
+                        </span>
+                    </div>
+                    <div class="d-flex text-left mb-1">
+                        <span>Iran</span><span>,</span><span>Yazd</span>
+                        <span class="pl-1">(Ads id:</span><span class="pl-1">132159</span><span>)</span>
+                    </div>
+                    <span class="mabit-blue font-weight-bold f-size-15">7,497 $</span>
                 </div>
                 <div class="col-4 text-right calendar-units">
                     <button class="btn brd-1-blue mabit-blue brd-r-15" type="button">calendar</button>
@@ -183,124 +300,64 @@
                     </div>
                 </div>
             </div>
-        }
-        @*<div class="row pt-4 pb-4 brd-b-1-gray">
-            <div class="col-4">
-                <span class="bg-white mabit-blue font-weight-bolder brd-r-15 tag-img">Hotel</span>
-                <img src="~/img/layer_886.jpg" class="img-fluid brd-r-15 box-shadow-1">
-            </div>
-            <div class="col-4">
-                <div class="d-flex text-left ">
-                    <h5 class="font-weight-bolder mabit-darkGray mb-1">Yazd Hotel</h5>
-                    <span class="pl-2">
-                        <i class="fa fa-star mabit-middle-gray"></i>
-                        <span class="mabit-light-gray">4.8</span>
-                        <span class="mabit-light-gray">/</span>
-                        <span class="mabit-light-gray">5</span>
-                    </span>
+            <div class="row pt-4 pb-4 brd-b-1-gray">
+                <div class="col-4">
+                    <img src="~/img/layer_886.jpg" class="img-fluid brd-r-15 box-shadow-1">
                 </div>
-                <div class="d-flex text-left mb-1">
-                    <span>Iran</span><span>,</span><span>Yazd</span>
-                    <span class="pl-1">(Ads id:</span><span class="pl-1">132159</span><span>)</span>
+                <div class="col-4">
+                    <div class="d-flex text-left ">
+                        <h5 class="font-weight-bolder mabit-darkGray mb-1">Yazd Hotel</h5>
+                        <span class="pl-2">
+                            <i class="fa fa-star mabit-middle-gray"></i>
+                            <span class="mabit-light-gray">4.8</span>
+                            <span class="mabit-light-gray">/</span>
+                            <span class="mabit-light-gray">5</span>
+                        </span>
+                    </div>
+                    <div class="d-flex text-left mb-1">
+                        <span>Iran</span><span>,</span><span>Yazd</span>
+                        <span class="pl-1">(Ads id:</span><span class="pl-1">132159</span><span>)</span>
+                    </div>
+                    <span class="mabit-blue font-weight-bold f-size-15">7,497 $</span>
                 </div>
-                <span>436 room</span>
-            </div>
-            <div class="col-4 text-right mabit-blue">
-                <a href="#">Rooms <i class="fa fa-angle-right"></i></a>
-                <div class="d-flex justify-content-between units-links">
-                    <a href="#" class="mabit-blue">Edit</a>
-                    <a href="#" class="mabit-blue">Show Comments</a>
-                    <a href="#" class="mabit-blue">Show Requests</a>
-                </div>
-            </div>
-        </div>
-        <div class="row pt-4 pb-4 brd-b-1-gray">
-            <div class="col-4">
-                <img src="~/img/layer_886.jpg" class="img-fluid brd-r-15 box-shadow-1">
-            </div>
-            <div class="col-4">
-                <div class="d-flex text-left ">
-                    <h5 class="font-weight-bolder mabit-darkGray mb-1">Yazd Hotel</h5>
-                    <span class="pl-2">
-                        <i class="fa fa-star mabit-middle-gray"></i>
-                        <span class="mabit-light-gray">4.8</span>
-                        <span class="mabit-light-gray">/</span>
-                        <span class="mabit-light-gray">5</span>
-                    </span>
-                </div>
-                <div class="d-flex text-left mb-1">
-                    <span>Iran</span><span>,</span><span>Yazd</span>
-                    <span class="pl-1">(Ads id:</span><span class="pl-1">132159</span><span>)</span>
-                </div>
-                <span class="mabit-blue font-weight-bold f-size-15">7,497 $</span>
-            </div>
-            <div class="col-4 text-right calendar-units">
-                <button class="btn brd-1-blue mabit-blue brd-r-15" type="button">calendar</button>
-                <div class="d-flex justify-content-between units-links">
-                    <a href="#" class="mabit-blue">Edit</a>
-                    <a href="#" class="mabit-blue">Show Comments</a>
-                    <a href="#" class="mabit-blue">Show Requests</a>
+                <div class="col-4 text-right calendar-units">
+                    <button class="btn brd-1-blue mabit-blue brd-r-15" type="button">calendar</button>
+                    <div class="d-flex justify-content-between units-links">
+                        <a href="#" class="mabit-blue">Edit</a>
+                        <a href="#" class="mabit-blue">Show Comments</a>
+                        <a href="#" class="mabit-blue">Show Requests</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row pt-4 pb-4 brd-b-1-gray">
-            <div class="col-4">
-                <img src="~/img/layer_886.jpg" class="img-fluid brd-r-15 box-shadow-1">
-            </div>
-            <div class="col-4">
-                <div class="d-flex text-left ">
-                    <h5 class="font-weight-bolder mabit-darkGray mb-1">Yazd Hotel</h5>
-                    <span class="pl-2">
-                        <i class="fa fa-star mabit-middle-gray"></i>
-                        <span class="mabit-light-gray">4.8</span>
-                        <span class="mabit-light-gray">/</span>
-                        <span class="mabit-light-gray">5</span>
-                    </span>
+            <div class="row pt-4 pb-4">
+                <div class="col-4">
+                    <img src="~/img/layer_886.jpg" class="img-fluid brd-r-15 box-shadow-1">
                 </div>
-                <div class="d-flex text-left mb-1">
-                    <span>Iran</span><span>,</span><span>Yazd</span>
-                    <span class="pl-1">(Ads id:</span><span class="pl-1">132159</span><span>)</span>
+                <div class="col-4">
+                    <div class="d-flex text-left ">
+                        <h5 class="font-weight-bolder mabit-darkGray mb-1">Yazd Hotel</h5>
+                        <span class="pl-2">
+                            <i class="fa fa-star mabit-middle-gray"></i>
+                            <span class="mabit-light-gray">4.8</span>
+                            <span class="mabit-light-gray">/</span>
+                            <span class="mabit-light-gray">5</span>
+                        </span>
+                    </div>
+                    <div class="d-flex text-left mb-1">
+                        <span>Iran</span><span>,</span><span>Yazd</span>
+                        <span class="pl-1">(Ads id:</span><span class="pl-1">132159</span><span>)</span>
+                        <span class="ml-3">Pending</span>
+                    </div>
+                    <span class="mabit-blue font-weight-bold f-size-15">7,497 $</span>
                 </div>
-                <span class="mabit-blue font-weight-bold f-size-15">7,497 $</span>
-            </div>
-            <div class="col-4 text-right calendar-units">
-                <button class="btn brd-1-blue mabit-blue brd-r-15" type="button">calendar</button>
-                <div class="d-flex justify-content-between units-links">
-                    <a href="#" class="mabit-blue">Edit</a>
-                    <a href="#" class="mabit-blue">Show Comments</a>
-                    <a href="#" class="mabit-blue">Show Requests</a>
+                <div class="col-4 text-right calendar-units">
+                    <button class="btn brd-1-blue mabit-blue brd-r-15" type="button">calendar</button>
+                    <div class="d-flex justify-content-between units-links">
+                        <a href="#" class="mabit-blue">Edit</a>
+                        <a href="#" class="mabit-blue">Show Comments</a>
+                        <a href="#" class="mabit-blue">Show Requests</a>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="row pt-4 pb-4">
-            <div class="col-4">
-                <img src="~/img/layer_886.jpg" class="img-fluid brd-r-15 box-shadow-1">
-            </div>
-            <div class="col-4">
-                <div class="d-flex text-left ">
-                    <h5 class="font-weight-bolder mabit-darkGray mb-1">Yazd Hotel</h5>
-                    <span class="pl-2">
-                        <i class="fa fa-star mabit-middle-gray"></i>
-                        <span class="mabit-light-gray">4.8</span>
-                        <span class="mabit-light-gray">/</span>
-                        <span class="mabit-light-gray">5</span>
-                    </span>
-                </div>
-                <div class="d-flex text-left mb-1">
-                    <span>Iran</span><span>,</span><span>Yazd</span>
-                    <span class="pl-1">(Ads id:</span><span class="pl-1">132159</span><span>)</span>
-                    <span class="ml-3">Pending</span>
-                </div>
-                <span class="mabit-blue font-weight-bold f-size-15">7,497 $</span>
-            </div>
-            <div class="col-4 text-right calendar-units">
-                <button class="btn brd-1-blue mabit-blue brd-r-15" type="button">calendar</button>
-                <div class="d-flex justify-content-between units-links">
-                    <a href="#" class="mabit-blue">Edit</a>
-                    <a href="#" class="mabit-blue">Show Comments</a>
-                    <a href="#" class="mabit-blue">Show Requests</a>
-                </div>
-            </div>
-        </div>*@
+            </div>*@
     </div>
 </div>
